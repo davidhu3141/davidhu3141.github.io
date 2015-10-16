@@ -11,10 +11,12 @@
 	<script>
 
 	$(document).ready( function() {
-
-	    $(".article").load("articles/OOD.html");
-
+	    $(".article").load("https://raw.githubusercontent.com/davidhu3141/EZprivacyHandover/master/html/oopbs.html");
 	});
+
+	function loadarticle(path){
+		$(".article").load(path);
+	}
 
 	</script>
 
@@ -32,6 +34,8 @@
 		<div class="left">
 			<div class="nav">
 
+
+
 			</div>
 		</div>
 		<div class="right">
@@ -48,6 +52,8 @@
 	</div>
 
 </div>
+
+<input type="button" value="a" onclick="f();">
 
 </body>
 
