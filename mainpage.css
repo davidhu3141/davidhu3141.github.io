@@ -1,11 +1,12 @@
 body {
 	background-color: #93a1a1;
-	color: #657b83;
+	/*color: #657b83;*/
 	margin-top: 0;
 }
 
 .master {
-	background-color: #eee8d5;
+	/*background-color: #eee8d5;*/
+	background: #ffffff;
 	width: 80%;
 	margin: auto;
 	margin-top: 0;
