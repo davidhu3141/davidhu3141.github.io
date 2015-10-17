@@ -1,0 +1,36 @@
+{
+
+	"initialpath": "https://raw.githubusercontent.com/davidhu3141/EZprivacyHandover/master/html/",
+	"articles": [
+		{
+			"name": "物件導向語法基礎",
+			"highlight": false,
+			"mathjax": false,
+			"path": "oopbs.html"
+		},
+		{
+			"name": "軟體工程與物件導向設計",
+			"highlight": true,
+			"mathjax": false,
+			"path": "seood.html"
+		},
+		{
+			"name": "Java 筆記",
+			"highlight": true,
+			"mathjax": false,
+			"path": "javanote.html"
+		},
+		{
+			"name": "密碼學與協定",
+			"highlight": false,
+			"mathjax": true,
+			"path": "crypto.html"
+		},
+		{
+			"name": "EZprivacy 程式架構與 ACS 架設",
+			"highlight": true,
+			"mathjax": false,
+			"path": "ezpprogstruct.html"
+		}
+	]
+}
