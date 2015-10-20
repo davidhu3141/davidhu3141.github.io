@@ -39,13 +39,14 @@ jsonArticleList = byteify(jsonArticleList)
 
 articles = jsonArticleList['articles']
 initialPath = jsonArticleList['initialpath']
-particularPath = articles[1]['path']
 saveFolder = 'tempHTML/'
-saveFilename = particularPath
 
-articleBody = loadAllContent(initialPath + particularPath)
-MixedString = templeteString.replace('<!--@Article-->', articleBody).replace('<!--@RootPath-->', 'davidhu3141.github.io');
+for o in articles:
+	particularPath = o['path']
+	saveFilename = particularPath
+	articleBody = loadAllContent(initialPath + particularPath)
+	MixedString = templeteString.replace('<!--@Article-->', articleBody).replace('<!--@RootPath-->', 'https://davidhu3141.github.io');
 
-# save file
-outputfile = open(saveFolder + saveFilename, 'w+');
-outputfile.write(MixedString);
+	# save file
+	outputfile = open(saveFolder + saveFilename, 'w+');
+	outputfile.write(MixedString);
