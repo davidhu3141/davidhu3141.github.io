@@ -67,6 +67,10 @@ body {
 	/*box-shadow: 1px 1px 1px*/
 }
 
+.articlelist div a {
+	/*padding: 8px;*/
+}
+
 .articlelist div:hover {
 	/*box-shadow: 1px 1px 5px;*/
 	background: #ECEFF1;

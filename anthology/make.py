@@ -15,8 +15,9 @@ confJsonString = confJsonFile.read()
 confJson = json.loads(confJsonString)
 confJson = bytify.byteify(confJson)
 
-fromFolder = 'stackeditHTML/'
-saveFolder = 'generatedHTML/'
+webResourceRoot = 'https://davidhu3141.github.io/anthology'
+fromFolder = 'stackeditHTML'
+saveFolder = 'generatedHTML'
 
 for (dirpath, dirnames, filenames) in walk(fromFolder):
 	for filename in filenames:
@@ -27,6 +28,7 @@ for (dirpath, dirnames, filenames) in walk(fromFolder):
 
 			articleBody = open(loadPath, 'r').read()
 			MixedString = templeteString.replace('<!--@Article-->', articleBody)
+			MixedString =    MixedString.replace('<!--@WebResourceRoot-->', webResourceRoot)
 
 			if not path.exists(path.dirname(savePath)):
 				makedirs(path.dirname(savePath))
@@ -34,12 +36,3 @@ for (dirpath, dirnames, filenames) in walk(fromFolder):
 			outputfile = open(savePath, 'w+');
 			outputfile.write(MixedString);
 
-#for o in articles:
-#	particularPath = o['path']
-#	saveFilename = particularPath
-#	articleBody = loadAllContent(initialPath + particularPath)
-#	MixedString = templeteString.replace('<!--@Article-->', articleBody).replace('<!--@RootPath-->', 'https://davidhu3141.github.io');
-#
-#	# save file
-#	outputfile = open(saveFolder + saveFilename, 'w+');
-#	outputfile.write(MixedString);
