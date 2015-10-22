@@ -1,0 +1,173 @@
+<h1 id="ezprivacy-程式架構">EZPrivacy 程式架構</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#ezprivacy-程式架構">EZPrivacy 程式架構</a><ul>
+<li><a href="#無關總體架構的套件">無關總體架構的套件</a><ul>
+<li><a href="#ezprivacycipher">ezprivacy.cipher</a><ul>
+<li><a href="#加密器">加密器</a></li>
+<li><a href="#例外">例外</a></li>
+</ul>
+</li>
+<li><a href="#ezprivacytoolkit">ezprivacy.toolkit</a><ul>
+<li><a href="#acsconfloader">ACSConfLoader</a></li>
+<li><a href="#cipherutil">CipherUtil</a></li>
+<li><a href="#ezcardloader">EZCardLoader</a></li>
+<li><a href="#nulloutputstream">NullOutputStream</a></li>
+</ul>
+</li>
+<li><a href="#proxy">Proxy</a></li>
+</ul>
+</li>
+<li><a href="#主要程式架構">主要程式架構</a><ul>
+<li><a href="#下層">下層</a><ul>
+<li><a href="#ezprivacydatabase">ezprivacy.database</a></li>
+<li><a href="#ezprivacybootstrap">ezprivacy.bootstrap</a></li>
+</ul>
+</li>
+<li><a href="#中層">中層</a><ul>
+<li><a href="#ezprivacynetty">ezprivacy.netty</a></li>
+<li><a href="#ezprivacyprotocol">ezprivacy.protocol</a></li>
+</ul>
+</li>
+<li><a href="#上層">上層</a><ul>
+<li><a href="#ezprivacyservice">ezprivacy.service</a></li>
+<li><a href="#ezprivacytest">ezprivacy.test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="無關總體架構的套件">無關總體架構的套件</h2>
+
+
+
+<h3 id="ezprivacycipher">ezprivacy.cipher</h3>
+
+<blockquote>
+  <p>加密器，以 Java SPI 標準實作，並包含一些與加解密相關的例外。</p>
+</blockquote>
+
+
+
+<h4 id="加密器">加密器</h4>
+
+<ul>
+<li>PFC-CTR</li>
+<li>A5/1</li>
+</ul>
+
+
+
+<h4 id="例外">例外</h4>
+
+<ul>
+<li><code>CipherException</code>：加解密器未能正確運行時拋出的例外。</li>
+<li><code>AuthEncBadArgumentLength</code>，在 Authencryption 中輸入的參數長度錯誤</li>
+<li><code>IntegrityCheckException</code>，資料完整性錯誤，亦即資料遭到竄改或未正確解密</li>
+</ul>
+
+
+
+<h3 id="ezprivacytoolkit">ezprivacy.toolkit</h3>
+
+<blockquote>
+  <p>方便使用的小函數，或是無法歸類的小東西</p>
+</blockquote>
+
+
+
+<h4 id="acsconfloader">ACSConfLoader</h4>
+
+<p>用來載入 <code>acsconf.ini</code>。只有在初始化 acs、server、或 client 的主程式時會用到，用來指定連接埠。</p>
+
+
+
+<h4 id="cipherutil">CipherUtil</h4>
+
+<p>存放許多方便對 byte array 操作的函數，可以直觀的對兩個 <code>byte[]</code> 來做互斥或 (xor) 運算、雜湊 (hash)、串接 (concat)、與產生亂數 (random)。</p>
+
+
+
+<h4 id="ezcardloader">EZCardLoader</h4>
+
+<p>將客戶端的 EZCard (亦即 profile、*.card 檔案) 載入為 <code>Profile</code> 物件或是 <code>EnhancedProfileManager</code> 物件的函數。</p>
+
+
+
+<h4 id="nulloutputstream">NullOutputStream</h4>
+
+<p>繼承<code>java.io.OutputStream</code>，一個不印出東西也不做任何事的 OutputStream。</p>
+
+
+
+<h3 id="proxy">Proxy</h3>
+
+<blockquote>
+  <p>@義路</p>
+</blockquote>
+
+
+
+<h2 id="主要程式架構">主要程式架構</h2>
+
+<p>ezprivacy 套件的撰寫是以網路功能為主體。與網路有關聯的類別主要分成下、中、上三層：</p>
+
+<ul>
+<li><p>下層處理網路的連線與資料庫。網路部分使用 Netty Pipeline 實作，資料庫部分有提供 interface 來讓 Hadoop HBase 或 SQLite 實作。</p></li>
+<li><p>中層處裡協定（如 MAKA、Signature的運算），以 Netty ChannelHandler 的形式撰寫。</p></li>
+<li><p>上層為 Netty Pipeline 與主程式之間溝通的橋樑，以及將成果寫為 UI、Main Functions、APIs。</p></li>
+</ul>
+
+<p>在網路的處裡上，我們將 Netty Channel Handler 分為 MessageHandler、SessionHandler、ServiceHandler。</p>
+
+<ul>
+<li><p>MessageHandler：將收到的資料解碼（ByteBuilder to SessionMessage），也就是把位元序列解碼為一個比較高級的物件，這個物件的各個屬性都是協定中需要傳遞的各個參數（如 Nx、Nv、PID 等）。如果要送出資料時也擔任編碼的動作。</p></li>
+<li><p>SessionHandler：以 SessionMessage 物件的內容來計算出應該要傳回去的新 SessionMessage。</p></li>
+<li><p>ServiceHandler：幾乎不使用。SessionHandler 可以將事件繼續傳給 ServiceHandler 來提醒它執行存檔或改變 UI 顯示等其他動作。</p></li>
+</ul>
+
+<p>接下來將依序介紹下、中、上層的程式架構。</p>
+
+
+
+<h3 id="下層">下層</h3>
+
+
+
+<h4 id="ezprivacydatabase">ezprivacy.database</h4>
+
+
+
+<h4 id="ezprivacybootstrap">ezprivacy.bootstrap</h4>
+
+
+
+<h3 id="中層">中層</h3>
+
+
+
+<h4 id="ezprivacynetty">ezprivacy.netty</h4>
+
+
+
+<h4 id="ezprivacyprotocol">ezprivacy.protocol</h4>
+
+
+
+<h3 id="上層">上層</h3>
+
+
+
+<h4 id="ezprivacyservice">ezprivacy.service</h4>
+
+
+
+<h4 id="ezprivacytest">ezprivacy.test</h4>

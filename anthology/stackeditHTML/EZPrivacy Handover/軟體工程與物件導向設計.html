@@ -1,0 +1,321 @@
+<h1 id="軟體工程與物件導向設計-software-engineering-and-object-oriented-design">軟體工程與物件導向設計 Software Engineering and Object-Oriented Design</h1>
+
+<p>軟體工程是工程學的分支，我們除了解決問題之外，也專注在「使用有限資源在最少時間內創造最大產值」。這裡的軟體，並不只是應用程式，還包含文件、使用說明、安裝佈署等。</p>
+
+<p>關於物件導向，重要的不是語法，而是我們必須遵守物件導向的設計理念，用這項語言工具來開發出有結構的程式</p>
+
+<p><div class="toc">
+<ul>
+<li><a href="#軟體工程與物件導向設計-software-engineering-and-object-oriented-design">軟體工程與物件導向設計 Software Engineering and Object-Oriented Design</a><ul>
+<li><a href="#軟體開發過程-software-development-process">軟體開發過程 Software Development Process</a><ul>
+<li><a href="#四個基本開發活動">四個基本開發活動</a><ul>
+<li><a href="#software-specification">Software Specification</a></li>
+<li><a href="#software-design-and-implementation">Software Design and Implementation</a></li>
+<li><a href="#software-validation">Software Validation</a></li>
+<li><a href="#software-evolution">Software Evolution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#開發過程模型-process-models">開發過程模型 Process Models</a><ul>
+<li><a href="#瀑布模型-waterfall-model">瀑布模型 Waterfall Model</a><ul>
+<li><a href="#特色與用途">特色與用途</a></li>
+<li><a href="#例子">例子</a></li>
+<li><a href="#修正的瀑布模型">修正的瀑布模型</a></li>
+</ul>
+</li>
+<li><a href="#迭代增量模型-iterative-incremental-model">迭代增量模型 Iterative &amp; Incremental Model</a><ul>
+<li><a href="#增量開發">增量開發</a></li>
+<li><a href="#迭代開發">迭代開發</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#敏捷軟體開發方法-agile-software-development">敏捷軟體開發方法 Agile software development</a><ul>
+<li><a href="#方法與特徵">方法與特徵</a></li>
+<li><a href="#不適合的專案">不適合的專案</a></li>
+<li><a href="#極限編程-extreme-programming-xp">極限編程 eXtreme Programming (XP)</a></li>
+<li><a href="#scrum">SCRUM</a></li>
+<li><a href="#其他開發方法">其他開發方法</a><ul>
+<li><a href="#基於元件的開發隨插即用">基於元件的開發，隨插即用</a></li>
+<li><a href="#統一開發過程-rational-unified-process">統一開發過程 Rational Unified Process</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#物件導向設計">物件導向設計</a><ul>
+<li><a href="#solid-準則">SOLID 準則</a><ul>
+<li><a href="#單一功能原則">單一功能原則</a></li>
+<li><a href="#開閉原則">開閉原則</a></li>
+<li><a href="#里氏替換原則">里氏替換原則</a></li>
+<li><a href="#介面隔離原則">介面隔離原則</a></li>
+<li><a href="#依賴反轉原則">依賴反轉原則</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#設計模式-design-pattern">設計模式 Design Pattern</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="軟體開發過程-software-development-process">軟體開發過程 Software Development Process</h2>
+
+
+
+<h3 id="四個基本開發活動">四個基本開發活動</h3>
+
+
+
+<h4 id="software-specification">Software Specification</h4>
+
+<ul>
+<li>開出規格，定義這項專案的目的與最終目標、要交付怎樣的成品</li>
+</ul>
+
+
+
+<h4 id="software-design-and-implementation">Software Design and Implementation</h4>
+
+<ul>
+<li>Design: 規劃專案藍圖、軟體架構、人力分配等，有許多工具可以輔助（Computer Aided Software Engineering）</li>
+<li>Implementation: 實作、寫文件。也就是實體的產出。</li>
+</ul>
+
+
+
+<h4 id="software-validation">Software Validation</h4>
+
+<ul>
+<li>檢驗產品，確認產品能夠滿足使用者需求</li>
+</ul>
+
+
+
+<h4 id="software-evolution">Software Evolution</h4>
+
+<ul>
+<li>產品需要更新以符合需求的變遷。<strong>變遷總是無法避免的</strong></li>
+</ul>
+
+
+
+<h2 id="開發過程模型-process-models">開發過程模型 Process Models</h2>
+
+<p>開發模型幾乎都會滿足以上四個基本步驟，但是時程的規劃、開發的哲學大有不同。這些明確的進程設計就是 <em>Process Models of Software Development</em></p>
+
+<p>成功的軟體工程師能夠為專案選擇適當的開發模型</p>
+
+
+
+<h3 id="瀑布模型-waterfall-model">瀑布模型 <a href="https://en.wikipedia.org/wiki/Waterfall_model">Waterfall Model</a></h3>
+
+<ul>
+<li><p>在第一個步驟 Requirement 完全規劃好之後開發的所有事，如交付成品的規格、軟體開發的架構、人力、時程的安排等。執行時也是一個步驟完全完成之後才進行下一個。</p></li>
+<li><p>如果有任何一個步驟執行不下去或是發現規劃錯誤，都必須從頭規劃</p></li>
+</ul>
+
+<p><img src="https://d2l3jyjp24noqc.cloudfront.net/uploads/image/img/6/bdd-01.png" alt="Wiki waterfall" title=""></p>
+
+
+
+<h4 id="特色與用途">特色與用途</h4>
+
+<ul>
+<li><p><strong>非常缺乏彈性</strong>，需求一改就必須重新來過</p></li>
+<li><p>適合開發<strong>需求變動很小</strong>的<strong>大型程式</strong>。軟體開發的風險、成本、成品交付的時間可以輕易被評估。<strong>需求變遷仍是無法避免的</strong></p></li>
+</ul>
+
+
+
+<h4 id="例子">例子</h4>
+
+<ul>
+<li>金融業軟體：跑在<strong>老舊機器</strong>上、難以<strong>重新學習</strong>或<strong>重新安裝</strong>、<strong>資安需求高</strong>、<strong>規模龐大</strong>、<strong>需求變動小</strong>。</li>
+<li>IBM 等全球化且規模大的公司</li>
+</ul>
+
+
+
+<h4 id="修正的瀑布模型">修正的瀑布模型</h4>
+
+<ul>
+<li>某個階段的失敗，允許回到上一個階段，而非從頭來過</li>
+</ul>
+
+
+
+<h3 id="迭代增量模型-iterative-incremental-model">迭代增量模型 <a href="https://en.wikipedia.org/wiki/Iterative_and_incremental_development">Iterative &amp; Incremental Model</a></h3>
+
+<p>迭代與增量模型通常透過重複執行瀑布模型，藉由重複的「規劃、開發、交付、規劃…」來達到目的。通常會將兩者混用。</p>
+
+<p>這兩個模型也可以視為瀑布模型的相反。</p>
+
+<blockquote>
+  <p>Refer to: <strong><a href="http://kojenchieh.pixnet.net/blog/post/395295317">http://kojenchieh.pixnet.net/blog/post/395295317</a></strong></p>
+</blockquote>
+
+
+
+<h4 id="增量開發">增量開發</h4>
+
+<ul>
+<li><strong>每次交付成品新的一部份</strong>、新功能。</li>
+<li>每次交付後可以重新調整開發進度與方向</li>
+</ul>
+
+
+
+<h4 id="迭代開發">迭代開發</h4>
+
+<ul>
+<li><strong>每個交付的版本都可以上線</strong></li>
+<li>方便掌握客戶需求</li>
+<li>對<strong>小開發團隊</strong>而言比較實際，交付一個版本才有後續<strong>資金湧入</strong>，並且以開發心得與<strong>使用者回饋</strong>來調整開發方向。</li>
+</ul>
+
+<p><img src="http://pic.pimg.tw/kojenchieh/1413786038-4088940441.jpg" alt="Iterative Develop" title=""></p>
+
+<p>迭代與增量模式為敏捷開發的核心概念之一</p>
+
+<p>除了以上四個模型之外還有許多其他的模型，例如 Spiral Model，Component Based，Reuse-Oriented</p>
+
+
+
+<h2 id="敏捷軟體開發方法-agile-software-development">敏捷軟體開發方法 <a href="Agile_software_development">Agile software development</a></h2>
+
+<p>有些概念不是明確的進程設計，而是提供方法論與開發準則。有些準則適用於大型的開發，如 <a href="#rational-統一過程-rational-unified-process">RUP</a>；有些方法則適合輕量級的專案，如敏捷軟體開發</p>
+
+<p>有時客戶的<strong>需求改變很快</strong>，不太可能產出完全穩定版，這就是以往計劃導向策略的困境。完整而長遠的設計規劃，難以因應現實的變遷。</p>
+
+
+
+<h3 id="方法與特徵">方法與特徵</h3>
+
+<ol>
+<li>用 Incremental 與 Iterative 來規劃與交付，每次交付的增量很小</li>
+<li><strong>裁撤</strong>需要長時間才能完成的工作，一切<strong>簡化</strong>，但簡化有時候需要額外的工作</li>
+<li>專注於軟體開發本身、以<strong>非正式的溝通</strong>取代不必要的文件</li>
+<li><strong>客戶</strong>也參與開發過程，直接在開發過程中提出要求，取得頻繁的<strong>使用者回饋</strong></li>
+<li><strong>價值與風險排序</strong></li>
+</ol>
+
+<p>開發者或是開發團隊間要有<strong>良好的溝通</strong> <br>
+適用中小型專案、生命周期短的系統</p>
+
+
+
+<h3 id="不適合的專案">不適合的專案</h3>
+
+<p>資安需求高的專案、不熱心提供意見的客戶、企業文化難以改變的公司、強烈需要預測專案動向的公司</p>
+
+
+
+<h3 id="極限編程-extreme-programming-xp">極限編程 eXtreme Programming (XP)</h3>
+
+<blockquote>
+  <p>參考<a href="https://zh.wikipedia.org/wiki/%E6%9E%81%E9%99%90%E7%BC%96%E7%A8%8B">維基百科</a>：極限編程</p>
+</blockquote>
+
+<ul>
+<li><strong>Pair Programming</strong></li>
+<li>極簡，採用滿足的需求的<strong>最小</strong>設計</li>
+<li>Test First 測試為先，甚至先寫測試再寫程式</li>
+</ul>
+
+
+
+<h3 id="scrum">SCRUM</h3>
+
+<blockquote>
+  <p>參考<a href="https://zh.wikipedia.org/wiki/Scrum">維基百科</a>：SCRUM</p>
+</blockquote>
+
+
+
+<h3 id="其他開發方法">其他開發方法</h3>
+
+
+
+<h4 id="基於元件的開發隨插即用">基於元件的開發，隨插即用</h4>
+
+<blockquote>
+  <p>參考<a href="https://en.wikipedia.org/wiki/Component-based_software_engineering">維基百科</a>：Compenent Based Software Development (CBSE)</p>
+</blockquote>
+
+
+
+<h4 id="統一開發過程-rational-unified-process">統一開發過程 Rational Unified Process</h4>
+
+<blockquote>
+  <p>參考<a href="https://zh.wikipedia.org/wiki/IBM-Rational%E7%BB%9F%E4%B8%80%E8%BF%87%E7%A8%8B">維基百科</a>：RUP</p>
+</blockquote>
+
+
+
+<h2 id="物件導向設計">物件導向設計</h2>
+
+<p>使用物件導向哲學來開發程式，有許多準則可以幫助我們。</p>
+
+
+
+<h3 id="solid-準則">SOLID 準則</h3>
+
+<p><a href="https://zh.wikipedia.org/wiki/SOLID_%28%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%29">SOLID</a> 準則是五個常用的準則的縮寫</p>
+
+
+
+<h4 id="單一功能原則">單一功能原則</h4>
+
+<blockquote>
+  <p>一個類別應該只提供一項封裝好的功能</p>
+</blockquote>
+
+
+
+<h4 id="開閉原則">開閉原則</h4>
+
+<blockquote>
+  <p>一個撰寫完成的類別總是開放大家擴充，但是不開放別人修改（開放外部擴充，封閉修改內部）</p>
+</blockquote>
+
+
+
+<h4 id="里氏替換原則">里氏替換原則</h4>
+
+<p>若 <script type="math/tex" id="MathJax-Element-18">S</script> 是 <script type="math/tex" id="MathJax-Element-19">T</script> 的子類別，則 <script type="math/tex" id="MathJax-Element-20">S</script> 應該滿足</p>
+
+<blockquote>
+  <p>對於所有<strong>接受 <script type="math/tex" id="MathJax-Element-21">T</script> 型態的參數</strong>的函數 <script type="math/tex" id="MathJax-Element-22">F(t:T)</script> ，<script type="math/tex" id="MathJax-Element-23">F(s:S)</script>也仍然應該正常運行</p>
+</blockquote>
+
+
+
+<h4 id="介面隔離原則"><a href="http://blog.csdn.net/zhengzhb/article/details/7296921">介面隔離原則</a></h4>
+
+<blockquote>
+  <p>儘量將介面切細、專一化，避免不需要的實作或依賴</p>
+</blockquote>
+
+<p><img src="http://my.csdn.net/uploads/201205/28/1338196802_3341.jpg" alt="ISP" title=""></p>
+
+
+
+<h4 id="依賴反轉原則">依賴反轉原則</h4>
+
+<p>一種降低程式碼耦合性的手段，用以達成下列兩項原則</p>
+
+<ul>
+<li>實作的程式依賴於抽象的介面，反之不可成立</li>
+<li>上層的模組不應該依賴與底層的模組，兩者應該依賴於抽象介面</li>
+</ul>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Dependency_inversion.png" alt="DependRev" title=""></p>
+
+
+
+<h2 id="設計模式-design-pattern">設計模式 Design Pattern</h2>

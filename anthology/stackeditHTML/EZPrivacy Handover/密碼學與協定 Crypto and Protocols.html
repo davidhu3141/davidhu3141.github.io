@@ -1,0 +1,376 @@
+<h1 id="密碼學與協定-crypto-and-protocols">密碼學與協定 Crypto and Protocols</h1>
+
+<p>整理：EZprivacy 相較於其他常用技術的優點</p>
+
+<blockquote>
+  <p>KD 方面</p>
+  
+  <ul>
+  <li>pure hash</li>
+  <li>no public key involved</li>
+  <li>strong anonymity</li>
+  <li>perfect forward secrecy</li>
+  </ul>
+  
+  <p>Cipher 方面</p>
+  
+  <ul>
+  <li>one step encryption and authentication</li>
+  </ul>
+  
+  <p>Signature 方面</p>
+  
+  <ul>
+  <li>部份誠實仲裁者</li>
+  <li>symmetric key</li>
+  </ul>
+</blockquote>
+
+<p><div class="toc">
+<ul>
+<li><a href="#密碼學與協定-crypto-and-protocols">密碼學與協定 Crypto and Protocols</a><ul>
+<li><a href="#基礎加密器知識-cipher-basics">基礎加密器知識 Cipher Basics</a><ul>
+<li><a href="#aes">AES</a></li>
+<li><a href="#block-cipher">Block Cipher</a><ul>
+<li><a href="#block-cipher-modes">Block Cipher Modes</a></li>
+<li><a href="#authed-encryption">Authed Encryption</a></li>
+</ul>
+</li>
+<li><a href="#stream-cipher">Stream Cipher</a></li>
+<li><a href="#integrity">Integrity</a><ul>
+<li><a href="#modes">Modes:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#本系統認証式加密-ezprivacy-authencryption">本系統認証式加密 EZprivacy Authencryption</a></li>
+<li><a href="#基礎認證知識-authentication-basics">基礎認證知識 Authentication Basics</a><ul>
+<li><a href="#challange-response">Challange - Response</a></li>
+<li><a href="#zero-knowledge-prove">Zero Knowledge Prove</a></li>
+</ul>
+</li>
+<li><a href="#當代金鑰分配技術與窘境-key-sharing-difficulty">當代金鑰分配技術與窘境 Key Sharing Difficulty </a><ul>
+<li><a href="#diffie-hellman-and-variant">Diffie-Hellman and variant</a></li>
+<li><a href="#rsa">RSA</a></li>
+</ul>
+</li>
+<li><a href="#本系統金鑰分配-ezprivacy-key-distribution">本系統金鑰分配 EZprivacy Key Distribution</a><ul>
+<li><a href="#maka">MAKA</a></li>
+<li><a href="#makd">MAKD</a></li>
+<li><a href="#enhanced-kd">Enhanced KD</a><ul>
+<li><a href="#讀-enhanced-kd">讀 Enhanced KD</a></li>
+</ul>
+</li>
+<li><a href="#synchronized-kd">Synchronized KD</a></li>
+<li><a href="#rapid-authentication">Rapid Authentication</a></li>
+<li><a href="#signature">Signature</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="基礎加密器知識-cipher-basics">基礎加密器知識 Cipher Basics</h2>
+
+
+
+<h3 id="aes">AES</h3>
+
+<blockquote>
+  <p>AddRoundKey, SubBytes, ShiftRows, MixColumns</p>
+</blockquote>
+
+<ul>
+<li><strong>128</strong> or 256 bit key （目前是 128，256 在 Java 中需要 JCEPolicy）</li>
+<li>美國的政策防止過度安全的加密方法出口，所以 256 bit 的 AES 用起來稍微麻煩，不過還是可以自己寫</li>
+</ul>
+
+
+
+<h3 id="block-cipher">Block Cipher</h3>
+
+
+
+<h4 id="block-cipher-modes"><a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation">Block Cipher Modes</a></h4>
+
+<blockquote>
+  <p>ECB, CBC, CTR, OFB, CFB</p>
+</blockquote>
+
+
+
+<h4 id="authed-encryption"><a href="https://en.wikipedia.org/wiki/Authenticated_encryption">Authed Encryption</a></h4>
+
+<blockquote>
+  <p><a href="https://en.wikipedia.org/wiki/OCB_mode">OCB</a> mode</p>
+</blockquote>
+
+
+
+<h3 id="stream-cipher">Stream Cipher</h3>
+
+<ul>
+<li>Key stream</li>
+<li>Secure random as key stream</li>
+<li><a href="https://en.wikipedia.org/wiki/Linear_feedback_shift_register">LFSR</a> as secure random</li>
+<li><a href="https://en.wikipedia.org/wiki/A5/1">A5/1</a> for GSM</li>
+</ul>
+
+
+
+<h3 id="integrity">Integrity</h3>
+
+<ul>
+<li>Hash: SHA-256 (SHA-1 is not secure)</li>
+<li>MAC, CBC-MAC</li>
+</ul>
+
+
+
+<h4 id="modes"><a href="https://en.wikipedia.org/wiki/Authenticated_encryption#Approaches_to_Authenticated_Encryption">Modes</a>:</h4>
+
+<blockquote>
+  <p>Encrypt-then-MAC <br>
+  Encrypt-and-MAC <br>
+  MAC-then-Encrypt</p>
+</blockquote>
+
+
+
+<h2 id="本系統認証式加密-ezprivacy-authencryption">本系統認証式加密 EZprivacy Authencryption</h2>
+
+<blockquote>
+  <p><em>一步驟即可同時<strong>加密</strong>與<strong>確認完整性</strong></em> <br>
+  <em>有些可以<strong>平行化處理</strong></em></p>
+</blockquote>
+
+<ul>
+<li>PFC-CTR</li>
+<li>PFX-CTR</li>
+<li>RTIA</li>
+<li>A5/1 Authencryption</li>
+<li>A5/1 RTIA</li>
+</ul>
+
+<p>現有技術：OCB mode</p>
+
+
+
+<h2 id="基礎認證知識-authentication-basics">基礎認證知識 Authentication Basics</h2>
+
+<p>Case 1: Not Secure: Everyone can get <strong><em>pw</em></strong></p>
+
+
+
+<div class="sequence-diagram"><svg height="255" version="1.1" width="224.671875" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.5px; top: -0.40625px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock55-obj21" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj24" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj27" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="10" y="20" width="49.953125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="19.984375" y="30" width="29.953125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="34.9765625" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Alice</tspan></text><rect x="10" y="196" width="49.953125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="19.984375" y="206" width="29.953125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="34.9765625" y="215.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Alice</tspan></text><path fill="none" stroke="#000000" d="M34.9765625,59L34.9765625,196" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="149.40625" y="20" width="45.265625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="159.390625" y="30" width="25.265625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="172.0390625" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Bob</tspan></text><rect x="149.40625" y="196" width="45.265625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="159.390625" y="206" width="25.265625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="172.0390625" y="215.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Bob</tspan></text><path fill="none" stroke="#000000" d="M172.0390625,59L172.0390625,196" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="76.953125" y="74.5" width="53.09375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="103.5078125" y="84" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">I'm Alice</tspan></text><path fill="none" stroke="#000000" d="M34.9765625,98C34.9765625,98,142.38894571363926,98,167.0392485019256,98" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj21)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="75.28125" y="113.5" width="56.4375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="103.5078125" y="123" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Show Me</tspan></text><path fill="none" stroke="#000000" d="M172.0390625,137C172.0390625,137,64.62667928636074,137,39.97637649807439,137" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj24)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="44.96875" y="152.5" width="117.0625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="103.5078125" y="162" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">My password is pw</tspan></text><path fill="none" stroke="#000000" d="M34.9765625,176C34.9765625,176,142.38894571363926,176,167.0392485019256,176" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj27)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path></svg></div>
+
+<p>Case 2: Not Secure: Replay Attack</p>
+
+
+
+<div class="sequence-diagram"><svg height="255" version="1.1" width="164.046875" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.5px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><marker id="raphael-marker-endblock55-obj49" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj52" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj55" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="10" y="20" width="49.953125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="19.984375" y="30" width="29.953125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="34.9765625" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Alice</tspan></text><rect x="10" y="196" width="49.953125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="19.984375" y="206" width="29.953125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="34.9765625" y="215.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Alice</tspan></text><path fill="none" stroke="#000000" d="M34.9765625,59L34.9765625,196" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="88.78125" y="20" width="45.265625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="98.765625" y="30" width="25.265625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="111.4140625" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Bob</tspan></text><rect x="88.78125" y="196" width="45.265625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="98.765625" y="206" width="25.265625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="111.4140625" y="215.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Bob</tspan></text><path fill="none" stroke="#000000" d="M111.4140625,59L111.4140625,196" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="46.640625" y="74.5" width="53.09375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="73.1953125" y="84" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">I'm Alice</tspan></text><path fill="none" stroke="#000000" d="M34.9765625,98C34.9765625,98,89.42498948797584,98,106.41353677572806,98" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj49)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="44.96875" y="113.5" width="56.4375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="73.1953125" y="123" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Show Me</tspan></text><path fill="none" stroke="#000000" d="M111.4140625,137C111.4140625,137,56.965635512024164,137,39.97708822427194,137" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj52)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="55.015625" y="152.5" width="36.34375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="73.1953125" y="162" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">h(pw)</tspan></text><path fill="none" stroke="#000000" d="M34.9765625,176C34.9765625,176,89.42498948797584,176,106.41353677572806,176" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj55)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path></svg></div>
+
+
+
+<h3 id="challange-response"><strong>Challange - Response</strong></h3>
+
+<p>Case 3:</p>
+
+
+
+<div class="sequence-diagram"><svg height="255" version="1.1" width="216.4375" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.5px; top: -0.578125px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><marker id="raphael-marker-endblock55-obj77" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj80" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj83" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="10" y="20" width="49.953125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="19.984375" y="30" width="29.953125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="34.9765625" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Alice</tspan></text><rect x="10" y="196" width="49.953125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="19.984375" y="206" width="29.953125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="34.9765625" y="215.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Alice</tspan></text><path fill="none" stroke="#000000" d="M34.9765625,59L34.9765625,196" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="141.171875" y="20" width="45.265625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="151.15625" y="30" width="25.265625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="163.8046875" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Bob</tspan></text><rect x="141.171875" y="196" width="45.265625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="151.15625" y="206" width="25.265625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="163.8046875" y="215.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Bob</tspan></text><path fill="none" stroke="#000000" d="M163.8046875,59L163.8046875,196" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="44.96875" y="74.5" width="108.828125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="99.390625" y="84" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">I'm Alice, I have K</tspan></text><path fill="none" stroke="#000000" d="M34.9765625,98C34.9765625,98,135.10230897087604,98,158.81372842320752,98" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj77)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="64.890625" y="113.5" width="68.96875" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="99.390625" y="123" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">R: Random</tspan></text><path fill="none" stroke="#000000" d="M163.8046875,137C163.8046875,137,63.67894102912396,137,39.96752157679248,137" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj80)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="73.234375" y="152.5" width="52.28125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="99.390625" y="162" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">h(pw||R)</tspan></text><path fill="none" stroke="#000000" d="M34.9765625,176C34.9765625,176,135.10230897087604,176,158.81372842320752,176" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj83)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path></svg></div>
+
+<p>故事還沒完</p>
+
+<blockquote>
+  <p>Refer to <strong>document/Reference/crypto/Authenticaton_for_class.pptx</strong></p>
+</blockquote>
+
+
+
+<h3 id="zero-knowledge-prove">Zero Knowledge Prove</h3>
+
+<ul>
+<li>Alice prove that she has password, while Bob doesn’t need to know Alice’s password</li>
+<li><a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof#Abstract_example">Cave based</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Feige%E2%80%93Fiat%E2%80%93Shamir_identification_scheme">Feige–Fiat–Shamir</a></li>
+</ul>
+
+
+
+<h2 id="當代金鑰分配技術與窘境-key-sharing-difficulty">當代金鑰分配技術與窘境 Key Sharing Difficulty </h2>
+
+
+
+<h3 id="diffie-hellman-and-variant">Diffie-Hellman and variant</h3>
+
+<blockquote>
+  <ul>
+  <li><script type="math/tex" id="MathJax-Element-1">\mathbb{R}^+</script> 中，定義 <script type="math/tex" id="MathJax-Element-2">a\times b</script> 以及 <script type="math/tex" id="MathJax-Element-3">a^n</script></li>
+  </ul>
+</blockquote>
+
+<p>這樣的<strong>空間與運算</strong>有乘法單位元素，每個元素也都有反元素（乘法群），還有交換律（阿貝爾群）</p>
+
+<p>許多空間都有這個性質：</p>
+
+<blockquote>
+  <ul>
+  <li><script type="math/tex" id="MathJax-Element-4">\mathbb{Z}/p\mathbb{Z}</script> 是個<strong>凡事都要取</strong> <script type="math/tex" id="MathJax-Element-5">\operatorname{mod} p</script> 的空間，同樣可以定義 <script type="math/tex" id="MathJax-Element-6">a\times b</script> 以及 <script type="math/tex" id="MathJax-Element-7">a^n</script></li>
+  <li>所以不需要再寫 <script type="math/tex" id="MathJax-Element-8">\operatorname{mod} p</script></li>
+  <li>這個空間中最多 <script type="math/tex" id="MathJax-Element-9">p</script> 個相異點（去想等價類）</li>
+  <li>如果 <script type="math/tex" id="MathJax-Element-10">(g, p) = 1</script>，則每個 <script type="math/tex" id="MathJax-Element-11">z \in \mathbb{Z}</script> 都可表示為 <script type="math/tex" id="MathJax-Element-12">g^n</script>，我們把 <script type="math/tex" id="MathJax-Element-13">g</script> 叫做生成元（a Ogenerator of cyclic group）</li>
+  </ul>
+</blockquote>
+
+
+
+<div class="sequence-diagram"><svg height="484" version="1.1" width="329.34375" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.5px; top: -0.125px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><marker id="raphael-marker-endblock55-obj114" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj120" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="43.09375" y="20" width="49.953125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="53.078125" y="30" width="29.953125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="68.0703125" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Alice</tspan></text><rect x="43.09375" y="425" width="49.953125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="53.078125" y="435" width="29.953125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="68.0703125" y="444.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Alice</tspan></text><path fill="none" stroke="#000000" d="M68.0703125,59L68.0703125,425" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="184.5" y="20" width="45.265625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="194.484375" y="30" width="25.265625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="207.1328125" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Bob</tspan></text><rect x="184.5" y="425" width="45.265625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="194.484375" y="435" width="25.265625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="207.1328125" y="444.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Bob</tspan></text><path fill="none" stroke="#000000" d="M207.1328125,59L207.1328125,425" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="88.0703125" y="79" width="99.0625" height="47" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="93.0625" y="84" width="89.0625" height="37" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="137.6015625" y="102.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="-3.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Public: p, g </tspan><tspan dy="18" x="137.6015625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"> (Define space)</tspan></text><rect x="33.7109375" y="146" width="68.71875" height="47" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="38.703125" y="151" width="58.71875" height="37" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="68.0703125" y="169.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="-3.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">choose a </tspan><tspan dy="18" x="68.0703125" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"> A = g^a</tspan></text><rect x="133.515625" y="208.5" width="8.15625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="137.6015625" y="218" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">A</tspan></text><path fill="none" stroke="#000000" d="M68.0703125,232C68.0703125,232,177.29061795771122,232,202.14250386752246,232" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj114)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="147.5546875" y="252" width="119.15625" height="65" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="152.546875" y="257" width="109.15625" height="55" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="207.1328125" y="284.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="-12.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">choose b </tspan><tspan dy="18" x="207.1328125" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"> SK = A^b = g^a^b </tspan><tspan dy="18" x="207.1328125" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"> B = g^b</tspan></text><rect x="133.1875" y="332.5" width="8.8125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="137.6015625" y="342" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">B</tspan></text><path fill="none" stroke="#000000" d="M207.1328125,356C207.1328125,356,97.91250704228878,356,73.06062113247754,356" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj120)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="10" y="376" width="116.140625" height="29" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="14.984375" y="381" width="106.140625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="68.0703125" y="390.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">SK = B^a = g^b^a</tspan></text></svg></div>
+
+<blockquote>
+  <ul>
+  <li>攻擊者需要 <script type="math/tex" id="MathJax-Element-14">a = \operatorname{log^p}_g b</script> ，稱為<strong>離散對數難題</strong>。（<script type="math/tex" id="MathJax-Element-15">\mathbb{Z}/p\mathbb{Z}</script> 空間上的 <script type="math/tex" id="MathJax-Element-16">\operatorname{log}</script>）</li>
+  <li>離散對數難題在量子電腦為多項式時間可解</li>
+  <li>缺乏身份認證，所以會有中間人攻擊</li>
+  </ul>
+</blockquote>
+
+<p>變體</p>
+
+<blockquote>
+  <ul>
+  <li>橢圓曲線上的有理數點，同樣構成一個群，也有交換率，也很難取 <script type="math/tex" id="MathJax-Element-17">\operatorname{log}</script> ，所以也有橢圓曲線 Diffie-Hellman。</li>
+  <li>橢圓曲線的 Diffie-Hellman <strong>還沒有</strong>量子電腦解法</li>
+  </ul>
+</blockquote>
+
+
+
+<h3 id="rsa">RSA</h3>
+
+<ul>
+<li>基於質因數分解難題</li>
+<li>數學上，如果 Diffie-Hellman 可以破，則 RSA 也可以破</li>
+</ul>
+
+
+
+<h2 id="本系統金鑰分配-ezprivacy-key-distribution">本系統金鑰分配 EZprivacy Key Distribution</h2>
+
+<blockquote>
+  <p>Refer to <strong>document/Main_protocols/protocols.txt</strong></p>
+</blockquote>
+
+
+
+<h3 id="maka">MAKA</h3>
+
+<ul>
+<li>Mutual Authentication Key Agreement</li>
+<li>雙方共同決定金鑰</li>
+</ul>
+
+
+
+<h3 id="makd">MAKD</h3>
+
+<ul>
+<li>Mutual Authentication Key Distribution</li>
+<li>ACS 決定金鑰</li>
+<li><p><strong><em>Pure Hash</em></strong></p>
+
+<blockquote>
+  <p>速度優勢</p>
+</blockquote></li>
+<li><p><strong><em>Symmetric Key, No Public Key or Diffie-Hellman involved</em></strong></p>
+
+<blockquote>
+  <p>速度優勢 <br>
+  不是基於數學難題，不必擔心被量子電腦破解</p>
+</blockquote></li>
+</ul>
+
+
+
+<h3 id="enhanced-kd">Enhanced KD</h3>
+
+<ul>
+<li><p><strong><em>Strong Anonymity</em></strong></p>
+
+<blockquote>
+  <p>Weak: 無法從 ID 看出身份 <br>
+  Strong: 每次 MAKA 都是用不同的 ID（可以視為 <code>AID_c</code> 或 <code>TS_c</code>）</p>
+</blockquote></li>
+<li><p><strong><em>Perfect-Forward-Secrecy</em></strong></p>
+
+<blockquote>
+  <p>就算一個 SK 被破解了，其他的 SK 也不會被破解</p>
+</blockquote></li>
+</ul>
+
+
+
+<h4 id="讀-enhanced-kd">讀 Enhanced KD</h4>
+
+<ul>
+<li>兩大手段：使用 XOR 隱藏訊息、Challenge-Response</li>
+<li>決定 Hash 裡面放了什麼是 protocol 安全的關鍵。</li>
+<li>真正的 Client 是有 <code>IDc</code>, <code>TSc</code>, <code>TKc</code> 這個數對的人。Client 怎麼證明這點？ <br>
+
+
+<blockquote>
+  只有真正的 Client 能同時產生出如下的 XOR 與 hash</blockquote></li>
+  </ul>
+  
+
+
+<div class="sequence-diagram"><svg height="216" version="1.1" width="232.6953125" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.5px; top: -0.8125px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><marker id="raphael-marker-endblock55-obj144" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj147" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="10" y="20" width="56.78125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="19.984375" y="30" width="36.78125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="38.390625" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Client</tspan></text><rect x="10" y="157" width="56.78125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="19.984375" y="167" width="36.78125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="38.390625" y="176.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Client</tspan></text><path fill="none" stroke="#000000" d="M38.390625,59L38.390625,157" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="157.9609375" y="20" width="44.734375" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="167.953125" y="30" width="24.734375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="180.328125" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">ACS</tspan></text><rect x="157.9609375" y="157" width="44.734375" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="167.953125" y="167" width="24.734375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="180.328125" y="176.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">ACS</tspan></text><path fill="none" stroke="#000000" d="M180.328125,59L180.328125,157" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="78.765625" y="74.5" width="61.15625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="109.359375" y="84" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Nc ⊕ TKc</tspan></text><path fill="none" stroke="#000000" d="M38.390625,98C38.390625,98,150.11478589475155,98,175.31818547159492,98" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj144)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="48.375" y="113.5" width="121.9375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="109.359375" y="123" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">h(IDc||TSc||TKc||Nc)</tspan></text><path fill="none" stroke="#000000" d="M38.390625,137C38.390625,137,150.11478589475155,137,175.31818547159492,137" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj147)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path></svg></div>
+
+
+
+
+
+<blockquote>
+  <p>而這裡的 Nc 就當作 Client 給 ACS 的 Challenge</p>
+</blockquote>
+
+
+
+
+
+<h3 id="synchronized-kd">Synchronized KD</h3>
+
+<ul>
+<li>當 TSc, TKc 不同步時使用 Emergency Key 來跑，不過 Emergency Key 有限。</li>
+</ul>
+
+
+
+<h3 id="rapid-authentication">Rapid Authentication</h3>
+
+<ul>
+<li>不需 ACS 參與的雙方認證，不過功能有限</li>
+<li>基本上就是雙方對對看 SK</li>
+</ul>
+
+
+
+<h3 id="signature">Signature</h3>
+
+<ul>
+<li><p><strong><em>對稱式金鑰簽章</em></strong></p>
+
+<blockquote>
+  <p>大多的簽章都是用公鑰系統，但我們是對稱式的</p>
+</blockquote></li>
+<li><p><strong><em>部份誠實仲裁者簽章</em></strong></p>
+
+<blockquote>
+  <p>仲裁者不需完全誠實，只需部份誠實（他不需要 client 的金鑰做運算） <br>
+  以往的對稱式簽章通常都要完全誠實的仲裁者</p>
+</blockquote></li>
+</ul>
