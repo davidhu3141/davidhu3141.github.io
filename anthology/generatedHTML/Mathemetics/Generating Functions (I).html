@@ -1,0 +1,214 @@
+
+<html>
+
+<head>
+
+	<link rel="shortcut icon" href="pageicon.png">
+
+	<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+
+	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+	<link rel=stylesheet type="text/css" href="<!--@RootPath-->/anthology/css/article.css">
+	<link rel=stylesheet type="text/css" href="<!--@RootPath-->/anthology/css/anthology.css">
+
+	<script>
+
+	</script>
+
+</head>
+
+<body>
+
+<div class="master">
+
+	<div class="mid_warpper">
+		<div class="left">
+			<div class="nav">
+
+				<div class="headpic">
+				
+				</div>
+
+				<div class="articlelist">
+					<div onclick="loadEzpArticle('crypto.html');">       密碼學與協定      </div>
+					<div onclick="loadEzpArticle('ezpprogstruct.html');">EZP 程式架構      </div>
+					<div onclick="loadEzpArticle('javanote.html');">     Java 筆記         </div>
+					<div onclick="loadEzpArticle('oopbs.html');">        物件導向基礎語法  </div>
+					<div onclick="loadEzpArticle('seood.html');">        軟體工程與物件導向</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="right">
+			<div class="content">
+				<div class="article">
+<h1 id="generating-functions-i">Generating Functions (I)</h1>
+
+<p>最近在閱讀 Flajolet 與 Sedgewick 的 <strong>分析組合學 <em>Analytic Combinatorics</em></strong>。由於這裡面提到的技巧實在太威了，決定將讀書心得以 Blog 的形式紀錄下來。</p>
+
+<p><strong>分析組合學 </strong>這個名詞乍聽之下略帶違和感，因為分析和組合這兩個學問好像不太有交集。<strong>分析學</strong>，如同我們學的微積分，主要是探討解析函數、連續與極限等問題。我們的空間中會先定義<strong>實數</strong>距離，慣用的手法是操作 <script type="math/tex" id="MathJax-Element-312">\epsilon - \delta</script> 等。 </p>
+
+<p>而<strong>組合學</strong>，如同中學的排列組合，包含圖論等，是離散數學的領域，同時也在資訊科學的編碼學、計算模型與網路模型中扮演重要角色。</p>
+
+<p>換句話說，我們竟然可以用微積分來解決離散數學問題，甚至估計一個 Regular Language 中所含長度為 n 的詞有幾個（不過這裡介紹還太早），這便是 <em>Analytic Combinatorics</em> 讓人著迷之處。在序章中，作者介紹了中學見過的<strong>波浪數問題</strong>：</p>
+
+
+
+<h4 id="definition-11-alternating-permutation"><strong>Definition 1.1: 《Alternating Permutation》</strong></h4>
+
+<blockquote>
+  <p>所謂 <script type="math/tex" id="MathJax-Element-313">n</script> 階<strong>波浪排列（Alternating Permutation）</strong>是指：將 <script type="math/tex" id="MathJax-Element-314">1, 2, ..., n</script> 等數字排列，排列的方式必須依照</p>
+  
+  <ul>
+  <li>第二個數<strong>大</strong>於第一個數</li>
+  <li>第三個數<strong>小</strong>於第二個數</li>
+  <li>第四個數<strong>大</strong>於第三個數</li>
+  <li>…（以此類推）</li>
+  </ul>
+  
+  <p>而 <script type="math/tex" id="MathJax-Element-315">n</script> 階波浪排列的方法數即稱為 <script type="math/tex" id="MathJax-Element-316">n</script> 階波浪數（<script type="math/tex" id="MathJax-Element-317">E_n</script>）。</p>
+</blockquote>
+
+
+
+<h4 id="question">Question:</h4>
+
+<blockquote>
+  <p>已知 <script type="math/tex" id="MathJax-Element-318">n</script> ，請問 <script type="math/tex" id="MathJax-Element-319">E_n</script> 為多少？</p>
+</blockquote>
+
+<p>階數不大時解法也不會太困難，用中學的手法分情況討論即可得出答案。以五階波浪數為例：</p>
+
+
+
+<h4 id="solution-n5">Solution (n=5):</h4>
+
+<blockquote>
+  <p>第二、四項可能為較大的 5 或 4，而剩下的第一、三、五項則為 1, 2, 3，有 <script type="math/tex" id="MathJax-Element-320">2!\times 3! = 12</script> 種可能</p>
+  
+  <p>又或 4 在首或尾處並緊鄰 5，則剩下三個數只要 3 在中間即可，有 <script type="math/tex" id="MathJax-Element-321">2 \times 2! = 4</script> 種可能，前面的 2 是選擇 (4, 5, _ , _ , _ ) 或 ( _ , _ , _ , 5, 4)，後面的 2! 是討論剩下的三個位置可能是 (1, 3, 2) 或 (2, 3, 1)。</p>
+  
+  <p>故五階波浪數為 <script type="math/tex" id="MathJax-Element-322">2!\times 3! + 2 \times 2! = 16</script></p>
+</blockquote>
+
+<p>但是當 <script type="math/tex" id="MathJax-Element-323">n</script> 過大時，我們便缺乏適當的手段來處理這個問題了。在此，這本書的作者指出了一個極為巧妙的事實：</p>
+
+
+
+<h4 id="theorem-12-andrés-theorem"><strong>Theorem 1.2  《André’s theorem》  </strong></h4>
+
+<blockquote>
+  <p>將 <script type="math/tex" id="MathJax-Element-324">tan(x)</script> 表達為冪級數形式 <br>
+   <script type="math/tex; mode=display" id="MathJax-Element-325">
+tan(z) = \frac{1}{1!}z + \frac{2}{3!}z^3+ \frac{16}{5!}z^5 + \frac{272}{7!}z^7 + \frac{7936}{9!}z^9 + ...
+</script> <br>
+   其中奇次項係數的分子 <strong>即為奇數階波浪數</strong><a href="#fn:altnum_wikip" id="fnref:altnum_wikip" title="See footnote" class="footnote">1</a>。</p>
+</blockquote>
+
+<p>這個公式的確頗為驚人，且不論 <script type="math/tex" id="MathJax-Element-326"> tan(z) </script> 和排列組合乃是八竿子打不著邊的函數，我們竟然可以將一個解析函數展開來解決離散數學的問題！這個系列文將會嘗試和讀者一起學習（或複習）生成函數這個手法，並導出這個定理，甚至做更多事(?!)。</p>
+
+<hr>
+
+
+
+<h2 id="生成函數">生成函數</h2>
+
+
+
+<h4 id="definition-13generating-function"><strong>Definition 1.3《Generating Function》</strong></h4>
+
+<blockquote>
+  <p>生成函數（Generating Function，也稱為母函數），是一個形式如下的冪級數：<script type="math/tex; mode=display" id="MathJax-Element-327">
+\mathcal{A}[x] = \sum_{i=0}^{\infty} A_ix^i  = A_0 + A_1x + A_2x^2 ... 
+</script>。其中 <script type="math/tex" id="MathJax-Element-328">A_n</script> 可能含有能夠解決某個特定<strong>問題</strong><a href="#fn:sized" id="fnref:sized" title="See footnote" class="footnote">2</a> <script type="math/tex" id="MathJax-Element-329">\mathcal{A}</script> 的訊息，稱 <script type="math/tex" id="MathJax-Element-330">\mathcal{A}[x]</script> 為 <script type="math/tex" id="MathJax-Element-331">\mathcal{A}</script> 的生成函數。</p>
+</blockquote>
+
+<p>沒錯，與一般的冪級數沒有兩樣，看起來就像是擁有無限（或有限）多項的多項式，但這個它的係數可能是某個問題的捷徑。我們來看一個各位不陌生例子：</p>
+
+
+
+<h4 id="example">Example.</h4>
+
+<blockquote>
+  <p>從 <script type="math/tex" id="MathJax-Element-462">n</script> 個不同顏色的球中取出 <script type="math/tex" id="MathJax-Element-463">r</script> 個，不計順序，請問有幾種可能？</p>
+</blockquote>
+
+<p>顯然答案就是 <script type="math/tex" id="MathJax-Element-464">C^{n}_{r}</script>（或者記為 <script type="math/tex" id="MathJax-Element-465">\mathbf{\binom{n}{r}}</script>），二項式定理告訴我們，這會等同於 <script type="math/tex" id="MathJax-Element-466">(1+x)^n</script> 展開後第 <script type="math/tex" id="MathJax-Element-467">r</script> 項的係數：</p>
+
+<blockquote>
+  <p><script type="math/tex; mode=display" id="MathJax-Element-468"> 
+(1+x)^n = \binom{n}{0} + \binom{n}{1}x + \binom{n}{2}x^2 + ... + \binom{n}{n}x^n = \sum_{r = 0}^{n}  \binom{n}{r}x^r
+</script></p>
+</blockquote>
+
+<p>我們就可以稱 <script type="math/tex" id="MathJax-Element-469">(1+x)^n</script> 為組合數（二項式係數）的<strong>生成函數</strong>。</p>
+
+<p>我們來複習一下：為什麼這個等式會成立呢？因為我們將 <script type="math/tex" id="MathJax-Element-470">(1+x)^n</script> 展開時，必須要從<script type="math/tex; mode=display" id="MathJax-Element-471"> (1+x)(1+x)(1+x) ... (1+x) </script>這 <script type="math/tex" id="MathJax-Element-472">n</script> 個括號中各取一項（可能是 <script type="math/tex" id="MathJax-Element-473">1</script> 或 <script type="math/tex" id="MathJax-Element-474">x</script>）出來相乘，成為一個 <script type="math/tex" id="MathJax-Element-475">x^r</script> 項。<script type="math/tex" id="MathJax-Element-476">r</script> 是多少端看我們總共從這些括號中取了多少個 <script type="math/tex" id="MathJax-Element-477">x</script> 出來。我們總共有 <script type="math/tex" id="MathJax-Element-478">\binom{n}{r}</script> 種方式從 <script type="math/tex" id="MathJax-Element-479">n</script> 個括號中取出 <script type="math/tex" id="MathJax-Element-480">r</script> 個 <script type="math/tex" id="MathJax-Element-481">x</script> 出來相乘，所以 <script type="math/tex" id="MathJax-Element-482">x^r</script> 總共會有 <script type="math/tex" id="MathJax-Element-483">\binom{n}{r}</script> 個，組合數便反映在 <script type="math/tex" id="MathJax-Element-484">x^r</script> 的係數上了。</p>
+
+<p>「把答案表為某個冪級數的係數」，正是生成函數在做的事。我們來解決一個類似的問題：</p>
+
+<h4 id="question-1">Question:</h4>
+
+<blockquote>
+  <p>從 4 個紅球、4 個白球、4 個黑球中取出六個，不計順序，請問有幾種可能？</p>
+</blockquote>
+
+<p>用中學的方法解決這問題，我們需要先算 <script type="math/tex" id="MathJax-Element-402">H^3_6</script> 再扣掉如 (5, 1, 0)、(6, 0, 0) 等可能性，似乎不太有效率。</p>
+
+<p>我們來試試生成函數：</p>
+
+<h4 id="solution">Solution:</h4>
+
+<blockquote>
+  <p>將 <script type="math/tex" id="MathJax-Element-412">(1+x+x^2+x^3+x^4)^3</script> 展開，取出第六項係數，便可以得到解。</p>
+</blockquote>
+
+<p>為什麼呢？當我們將這個式子展開時，總共會需要乘開三個括號，從這三個括號中各取出一項（可能是 <script type="math/tex" id="MathJax-Element-413">x^0</script> ~ <script type="math/tex" id="MathJax-Element-414">x^4</script>）來相乘，都可以得到展開後的某一項。這動作如同我們從三種顏色的球中取出 0 到 4 顆：</p>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-434">(...+\mathbf{\underset{take\ 3\ red}{x^3}}+...)(...+\mathbf{\underset{take\ 2\ white}{x^2}}+...)(...+\mathbf{\underset{take\ 1\ black}{x^1}}+...) \Rightarrow x^6 </script>。</p>
+
+<p>所以 <script type="math/tex" id="MathJax-Element-435">x^6</script> 的係數為多少，代表我們展開出幾個 <script type="math/tex" id="MathJax-Element-436">x^6</script> 項，也同時代表有幾種方式可以從三種色球中取出共六顆球。</p>
+
+<p>– 這就是<strong>生成函數法解決組合學問題</strong>。</p>
+
+<hr>
+
+<h4 id="取出某一項的係數還是很難">取出某一項的係數還是很難</h4>
+
+<p>在大部份的時候，要手動展開一個這樣的多項式或冪級數，如同用暴力法列出所有可能一樣的麻煩，或者我們可以選擇用<strong>泰勒展開式</strong>來「抽取」某一項的係數：</p>
+
+<blockquote>
+  <p><script type="math/tex; mode=display" id="MathJax-Element-385">t(z) = t(0) + \frac{t'(0)}{1!}z + \frac{t''(0)}{2!}z^2 + \frac{t'''(0)}{3!}z^3 +  ...</script> <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-386">\Rightarrow n^{th} \mathit{coefficient} =  \frac{t^{(n)}(0)}{n!}</script> </p>
+</blockquote>
+
+<p>不過手動來說還是一樣冗，因為可能會需要做好幾次的微分。</p>
+
+<p>往後的文章將會介紹<strong>統一的手法</strong>來為各式各樣組合學的問題找出生成函數並<strong>估計數量級</strong>，這也是為甚麼我們偏向使用生成函數，而非為每個益智問題絞盡腦汁來想一個特殊解法。</p>
+
+<hr>
+
+<h4 id="動差生成函數">動差生成函數</h4>
+
+<p>許多人可能也曾經在學習<strong>機率與統計</strong>時學過<strong>動差母函數(Moment Generating Function)</strong>，也是一樣的手段：我們先做完 <script type="math/tex; mode=display" id="MathJax-Element-393">\int_{-\infty}^{\infty}e^{tx}f(x)dx</script> 之後，去取它冪級數的一次項、二次項、甚至 <script type="math/tex" id="MathJax-Element-394">n</script> 次項係數，便可以同時得到該 <em>p.d.f</em> 的期望值、變異數以及所有 <script type="math/tex" id="MathJax-Element-395">n</script> 階動差，只不過機率學用的是 <script type="math/tex" id="MathJax-Element-396">exp(x)</script> 的冪級數性質而已。</p>
+
+<hr>
+
+<p>這篇第一集就簡單介紹到這裡吧，寫了好多啊（攤）。不過這些內容在數學系的離散數學都有含括到，寫起來也不會吃力。下一篇會開始按照書本的順序介紹 <strong>Combinatorial Class</strong>。它的概念有點類似排列組合中的<strong>所有排法</strong>組成的集合，也是這本書主要探討的對象。我們將透過生成函數來為其計數。</p><div class="footnotes"><hr><ol><li id="fn:altnum_wikip">事實上偶次項也可以辦到，必須使用 <script type="math/tex" id="MathJax-Element-485">sec(z)</script>，請見 <a href="http://en.wikipedia.org/wiki/Alternating_permutation">維基百科：André’s theorem</a> <a href="#fnref:altnum_wikip" title="Return to article" class="reversefootnote">↩</a></li><li id="fn:sized">所謂<strong>問題</strong>，這裡指的是 <strong>Combinatorial Class</strong>，以後才會提到。如有需要請參考 <a href="http://en.wikipedia.org/wiki/Combinatorial_class。">維基百科：Combinatorial Class</a> <a href="#fnref:sized" title="Return to article" class="reversefootnote">↩</a></li></ol></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+	
+	</div>
+
+</div>
+
+</body>
+
+</html>

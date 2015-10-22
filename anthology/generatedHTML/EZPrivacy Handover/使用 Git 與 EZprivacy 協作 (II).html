@@ -1,0 +1,181 @@
+
+<html>
+
+<head>
+
+	<link rel="shortcut icon" href="pageicon.png">
+
+	<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+
+	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+	<link rel=stylesheet type="text/css" href="<!--@RootPath-->/anthology/css/article.css">
+	<link rel=stylesheet type="text/css" href="<!--@RootPath-->/anthology/css/anthology.css">
+
+	<script>
+
+	</script>
+
+</head>
+
+<body>
+
+<div class="master">
+
+	<div class="mid_warpper">
+		<div class="left">
+			<div class="nav">
+
+				<div class="headpic">
+				
+				</div>
+
+				<div class="articlelist">
+					<div onclick="loadEzpArticle('crypto.html');">       密碼學與協定      </div>
+					<div onclick="loadEzpArticle('ezpprogstruct.html');">EZP 程式架構      </div>
+					<div onclick="loadEzpArticle('javanote.html');">     Java 筆記         </div>
+					<div onclick="loadEzpArticle('oopbs.html');">        物件導向基礎語法  </div>
+					<div onclick="loadEzpArticle('seood.html');">        軟體工程與物件導向</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="right">
+			<div class="content">
+				<div class="article">
+<h1 id="使用-git-與-ezprivacy-協作-ii">使用 Git 與 EZprivacy 協作 (II)</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#使用-git-與-ezprivacy-協作-ii">使用 Git 與 EZprivacy 協作 (II)</a><ul>
+<li><ul>
+<li><a href="#本地端的暫存">本地端的暫存</a></li>
+<li><a href="#在本地端創造新的分支">在本地端創造新的分支</a></li>
+<li><a href="#提交版本">提交版本</a></li>
+<li><a href="#push-到遠端資料夾">Push 到遠端資料夾</a></li>
+<li><a href="#pull">Pull</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+<p>看完第一篇文章之後，各位應該已經能夠從遠端 clone 一個資料夾下來更改或添加程式了，接下來將會介紹如何新增你的分支並 push 上去，或將別人寫好的程式 pull 下來。</p>
+
+<hr>
+
+<h2 id="本地端的暫存">本地端的暫存</h2>
+
+<p>首先，各位應該已經知道 <code>add</code> 與 <code>commit</code> 的用途了，假設我現在新增了一個檔案，我要將它暫存到暫存區，讓我日後提交，則我應該使用 <code>git add</code>：</p>
+
+<pre class="prettyprint"><code class=" hljs livecodeserver">$ git <span class="hljs-built_in">add</span> <span class="hljs-comment">--all</span></code></pre>
+
+<p>然後用 <code>git status</code> 可以看到新增的檔案會以綠色的字顯示，表示已經成功存入暫存區 (Staged)：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs vhdl">$ git status
+
+<span class="hljs-keyword">On</span> branch develop
+Your branch <span class="hljs-keyword">is</span> up-<span class="hljs-keyword">to</span>-date <span class="hljs-keyword">with</span> <span class="hljs-attribute">'origin</span>/develop'.
+
+Changes <span class="hljs-keyword">to</span> be committed:
+(<span class="hljs-keyword">use</span> <span class="hljs-string">"git reset HEAD &lt;file&gt;..."</span> <span class="hljs-keyword">to</span> unstage)
+
+    <span class="hljs-keyword">new</span> <span class="hljs-keyword">file</span>:   <span class="hljs-string">"for developer/git/使用 Git 與 EZprivacy 協作 (I).md"</span></code></pre>
+
+<hr>
+
+
+
+<h2 id="在本地端創造新的分支">在本地端創造新的分支</h2>
+
+<p>接著我們就要提交版本了。不過由於人數眾多，如果大家都提交在同一個分支上會有同步版本問題，導致常常需要 merge，因此希望每個人（或每一組）先各自<strong>建立一個 branch，並切換過去那個新分支</strong>：</p>
+
+<pre class="prettyprint"><code class=" hljs r">$ git branch <span class="hljs-keyword">...</span> 
+$ git checkout document</code></pre>
+
+<p>例如當我建立一個新的 <code>document</code> 分支：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby"><span class="hljs-variable">$ </span>git branch document 
+<span class="hljs-variable">$ </span>git checkout document
+
+[<span class="hljs-constant">A</span>] <span class="hljs-string">"for developer/git/使用 Git 與 EZprivacy 協作 (I).md"</span>
+<span class="hljs-constant">Switched</span> to branch <span class="hljs-string">'document'</span>
+</code></pre>
+
+<p>用<code>gitk</code> 可以看到多出了一個新指標 <strong>document</strong> 指在我目前的進度位置</p>
+
+<p><img src="src/git_3.png"></p>
+
+<hr>
+
+
+
+<h2 id="提交版本">提交版本</h2>
+
+<p>接著我們就可以將版本提交（<code>commit</code>）在這個指標的位置：</p>
+
+<pre class="prettyprint"><code class=" hljs sql">$ git <span class="hljs-operator"><span class="hljs-keyword">commit</span> -m <span class="hljs-string">"add git tutorial"</span>
+
+[develop bd9b3fd] <span class="hljs-keyword">add</span> git tutorial
+  <span class="hljs-number">1</span> file changed, <span class="hljs-number">13</span> insertions(+)
+  <span class="hljs-keyword">create</span> mode <span class="hljs-number">100644</span> <span class="hljs-string">"for developer/git/使用 Git 與 EZprivacy 協作 (I).md"</span></span></code></pre>
+
+<p>表示我們已經成功提交新版本，該版本註解為 <strong>add git tutorial</strong>。我們用 <code>gitk --all</code> 來察看：</p>
+
+<p><img src="src/git_4.png"></p>
+
+<p>可以看到版本圖已經岔開，<strong>document</strong> 分支指著其中一端，表示本地端的提交已經完成了。</p>
+
+<hr>
+
+
+
+<h2 id="push-到遠端資料夾">Push 到遠端資料夾</h2>
+
+<p>接下來我們要用 push 來將新版本 push 到我們的共用資料夾：</p>
+
+<pre class="prettyprint"><code class=" hljs fsharp">$ git push origin document:gitdoc 
+
+Counting objects: <span class="hljs-number">19</span>, <span class="hljs-keyword">done</span>.
+Delta compression using up <span class="hljs-keyword">to</span> <span class="hljs-number">2</span> threads.
+Compressing objects: <span class="hljs-number">100</span>% (<span class="hljs-number">5</span>/<span class="hljs-number">5</span>), <span class="hljs-keyword">done</span>.
+Writing objects: <span class="hljs-number">100</span>% (<span class="hljs-number">5</span>/<span class="hljs-number">5</span>), <span class="hljs-number">2.10</span> KiB | <span class="hljs-number">0</span> bytes/s, <span class="hljs-keyword">done</span>.
+Total <span class="hljs-number">5</span> (delta <span class="hljs-number">2</span>), reused <span class="hljs-number">0</span> (delta <span class="hljs-number">0</span>)
+To /home/autodavid/Dropbox/vscclab_project/
+ * [<span class="hljs-keyword">new</span> branch]      document -&gt; gitdoc</code></pre>
+
+<p>意思是 push 到預設的遠端資料夾（代號通常為 origin），要將本地的 document 分支 push 到遠端的 gitdoc 分支。由於遠端沒有這個分支，所以 git 會自動創一個。我們用 <code>gitk --all</code> 來看這現象：</p>
+
+<p><img src="src/git_5.png"></p>
+
+<p>可以看到遠端多了一個 gitdoc 分支，那就是遠端的新分支。</p>
+
+<hr>
+
+
+
+<h2 id="pull">Pull</h2>
+
+<p>最後，如果你和別人待在同一個分支上，可以用 <code>git pull</code> 來同步這個分支的最新狀態。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+	
+	</div>
+
+</div>
+
+</body>
+
+</html>
