@@ -65,11 +65,11 @@ body {
 }
 
 .articlelist .articleLink:hover {
-	background: #ECEFF1;
+	background: #F6F6F6;
 }
 
 .articlelist .categoryTitle {
-	background: #DFDFDF;
+	background: #EFEFEF;
 	padding: 8px;
 	border-bottom: solid 1px #666666;
 }
