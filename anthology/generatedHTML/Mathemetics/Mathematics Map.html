@@ -103,7 +103,10 @@
 </ul>
 </li>
 <li><a href="#algebraic-topology">Algebraic Topology</a><ul>
-<li><a href="#basic-technique">Basic Technique</a></li>
+<li><a href="#basic-technique">Basic Technique</a><ul>
+<li><a href="#fixed-point-theorem">Fixed Point Theorem</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#differential-topology">Differential Topology</a></li>
@@ -117,7 +120,14 @@
 </ul>
 </li>
 <li><a href="#analysis">Analysis</a><ul>
-<li><a href="#calculus">Calculus</a></li>
+<li><a href="#calculus">Calculus</a><ul>
+<li><a href="#mean-value-theorem">Mean Value Theorem</a></li>
+<li><a href="#convergence-tests">Convergence Tests</a></li>
+<li><a href="#fréchet-derivative">Fréchet Derivative</a></li>
+<li><a href="#taylor-expansion">Taylor Expansion</a></li>
+<li><a href="#taylor-expansion-remainder">Taylor Expansion Remainder</a></li>
+</ul>
+</li>
 <li><a href="#calculus-of-variations">Calculus of Variations</a></li>
 <li><a href="#calculus-on-manifold">Calculus on Manifold</a></li>
 <li><a href="#convex-analysis">Convex Analysis</a></li>
@@ -126,7 +136,7 @@
 <li><a href="#real-analysis">Real Analysis</a></li>
 <li><a href="#complex-analysis">Complex Analysis</a><ul>
 <li><a href="#basics">Basics</a></li>
-<li><a href="#transformations-group-actions-on-mathbbc">Transformations (Group Actions on C\mathbb{C})</a><ul>
+<li><a href="#transformations-group-actions-on-mathbbc">Transformations (Group Actions on <script type="math/tex" id="MathJax-Element-1">\mathbb{C}</script>)</a><ul>
 <li><a href="#整線性變換群">整線性變換群</a></li>
 <li><a href="#möbius-transform-group">Möbius Transform Group</a></li>
 <li><a href="#酉群剛體運動群">酉群，剛體運動群</a></li>
@@ -180,6 +190,8 @@
 </div>
 </p>
 
+
+
 <h2 id="set-theory">Set Theory</h2>
 
 
@@ -225,7 +237,7 @@
 <h3 id="relations">Relations</h3>
 
 <blockquote>
-  <p><script type="math/tex" id="MathJax-Element-20">R:Relation \Leftrightarrow  R\subseteq S\times T</script> </p>
+  <p><script type="math/tex" id="MathJax-Element-20">R: \mathit{Relation} \Leftrightarrow  R\subseteq S\times T</script> </p>
 </blockquote>
 
 <ul>
@@ -443,11 +455,17 @@
 <li>Knot Group, complement space, edge surface, winding number</li>
 <li>Polygon to Write Fundamental Groups</li>
 <li>Mapping Order</li>
-<li>Fixed Point Theorem <br>
-<ul><li>Brouwer fixed-point theorem</li>
+</ul>
+
+
+
+<h5 id="fixed-point-theorem">Fixed Point Theorem</h5>
+
+<ul>
+<li>Brouwer fixed-point theorem</li>
 <li>Banach fixed-point theorem (Contraction Mapping Theorem)</li>
 <li>Schauder fixed point theorem</li>
-<li>Kakutani fixed-point theorem</li></ul></li>
+<li>Kakutani fixed-point theorem</li>
 </ul>
 
 
@@ -529,22 +547,63 @@
 <li>Summation by part</li>
 <li>Fundamental Theorem of Calculus</li>
 <li>Lebesgue Dimension</li>
-<li>Fréchet Derivative <br>
-<ul><li>Differentiation as Linear Transforms</li>
-<li><script type="math/tex" id="MathJax-Element-46">f'(x) = A</script>: <strong><em>Linear Transform</em></strong> such that <script type="math/tex; mode=display" id="MathJax-Element-47">\lim_{h\rightarrow 0} \left \| \frac{f(x+h)-f(x)-Ah}{h} \right \| = 0</script></li></ul></li>
 <li>Double Integral</li>
 <li>Jacobian Matrix</li>
 <li>Hessian Matrix</li>
 <li>Green–Stokes Theorem</li>
 <li>Div, Curl</li>
-<li>Convergence Tests <br>
-<ul><li><script type="math/tex" id="MathJax-Element-48">n^{th}</script> Term Test</li>
+</ul>
+
+
+
+<h4 id="mean-value-theorem">Mean Value Theorem</h4>
+
+<ul>
+<li>Differential Form</li>
+<li>Integral Form </li>
+<li>Cauchy’s Form</li>
+</ul>
+
+
+
+<h4 id="convergence-tests">Convergence Tests</h4>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-46">n^{th}</script> Term Test</li>
 <li>Root Test</li>
-<li><script type="math/tex" id="MathJax-Element-49">p</script> Integral</li>
+<li><script type="math/tex" id="MathJax-Element-47">p</script> Integral</li>
 <li>Integral Test</li>
 <li>Comparison Test</li>
 <li>Limit Comparison Test</li>
-<li>Ratio Test</li></ul></li>
+<li>Ratio Test</li>
+</ul>
+
+
+
+<h4 id="fréchet-derivative">Fréchet Derivative</h4>
+
+<ul>
+<li>Differentiation as Linear Transforms</li>
+<li><script type="math/tex" id="MathJax-Element-48">f'(x) = A</script>: <strong><em>Linear Transform</em></strong> such that <script type="math/tex; mode=display" id="MathJax-Element-49">\lim_{h\rightarrow 0} \left \| \frac{f(x+h)-f(x)-Ah}{h} \right \| = 0</script></li>
+</ul>
+
+
+
+<h4 id="taylor-expansion">Taylor Expansion</h4>
+
+<ul>
+<li>Proof</li>
+</ul>
+
+
+
+<h4 id="taylor-expansion-remainder">Taylor Expansion Remainder</h4>
+
+<ul>
+<li>General From: <script type="math/tex; mode=display" id="MathJax-Element-50">r_n(x) \in o[(x - a)^n]</script></li>
+<li>Cauchy’s From: <script type="math/tex; mode=display" id="MathJax-Element-51">r_n(x) = \frac{\phi (x) - \phi (a)}{\phi '(\xi)}\frac{f^{n+1}(\xi)}{n!}(x-\xi)^{n}</script> for some <script type="math/tex" id="MathJax-Element-52">\xi</script> in <script type="math/tex" id="MathJax-Element-53">(x, a)</script></li>
+<li>Schlömilch-Roche’s From</li>
+<li>Lagrange Form (MVT form:) <script type="math/tex; mode=display" id="MathJax-Element-54">r_n(x) = \frac{f^{n+1}(\xi)}{(n+1)!}(x-a)^{n+1}</script> for some <script type="math/tex" id="MathJax-Element-55">\xi</script> in <script type="math/tex" id="MathJax-Element-56">(x, a)</script></li>
 </ul>
 
 
@@ -581,7 +640,7 @@
 <ul>
 <li>Measure Theory</li>
 <li>Lebesgue Measure</li>
-<li><script type="math/tex" id="MathJax-Element-50">L_p</script> Spaces</li>
+<li><script type="math/tex" id="MathJax-Element-57">L_p</script> Spaces</li>
 </ul>
 
 <hr>
@@ -596,19 +655,19 @@
 
 <ul>
 <li>Use complex to express circle <br>
-<ul><li><script type="math/tex" id="MathJax-Element-51">az\bar{z}-c\bar{z}-\bar{c}z+\delta=0</script></li>
-<li>r = <script type="math/tex; mode=display" id="MathJax-Element-52">\sqrt{\frac{c\bar{c}}{a^2}-\frac{\delta}{a}}</script></li>
-<li>Hermitian := <script type="math/tex; mode=display" id="MathJax-Element-53">\begin{pmatrix} a  &  -\bar{c}  \\ -c  & \delta\end{pmatrix}</script></li></ul></li>
+<ul><li><script type="math/tex" id="MathJax-Element-58">az\bar{z}-c\bar{z}-\bar{c}z+\delta=0</script></li>
+<li>r = <script type="math/tex; mode=display" id="MathJax-Element-59">\sqrt{\frac{c\bar{c}}{a^2}-\frac{\delta}{a}}</script></li>
+<li>Hermitian := <script type="math/tex; mode=display" id="MathJax-Element-60">\begin{pmatrix} a  &  -\bar{c}  \\ -c  & \delta\end{pmatrix}</script></li></ul></li>
 </ul>
 
 
 
-<h3 id="transformations-group-actions-on-mathbbc">Transformations (Group Actions on <script type="math/tex" id="MathJax-Element-54">\mathbb{C}</script>)</h3>
+<h3 id="transformations-group-actions-on-mathbbc">Transformations (Group Actions on <script type="math/tex" id="MathJax-Element-61">\mathbb{C}</script>)</h3>
 
 <ul>
-<li>整線性變換群 <script type="math/tex" id="MathJax-Element-55">\subset</script> Möbius</li>
-<li>Under 整線性變換群 we have 平移群 (<script type="math/tex" id="MathJax-Element-56">w=a+z</script>), and <script type="math/tex" id="MathJax-Element-57">w=az</script></li>
-<li>Under <script type="math/tex" id="MathJax-Element-58">w=az</script> we have 放大縮小群 isomorphic to <script type="math/tex" id="MathJax-Element-59">(\mathbb{R}^+, \times)</script>, and 旋轉群 <script type="math/tex" id="MathJax-Element-60">\operatorname{Spin}(2)</script> isomorphic to <script type="math/tex" id="MathJax-Element-61">\operatorname{SL}(2)</script></li>
+<li>整線性變換群 <script type="math/tex" id="MathJax-Element-62">\subset</script> Möbius</li>
+<li>Under 整線性變換群 we have 平移群 (<script type="math/tex" id="MathJax-Element-63">w=a+z</script>), and <script type="math/tex" id="MathJax-Element-64">w=az</script></li>
+<li>Under <script type="math/tex" id="MathJax-Element-65">w=az</script> we have 放大縮小群 isomorphic to <script type="math/tex" id="MathJax-Element-66">(\mathbb{R}^+, \times)</script>, and 旋轉群 <script type="math/tex" id="MathJax-Element-67">\operatorname{Spin}(2)</script> isomorphic to <script type="math/tex" id="MathJax-Element-68">\operatorname{SL}(2)</script></li>
 </ul>
 
 
@@ -616,18 +675,18 @@
 <h4 id="整線性變換群">整線性變換群</h4>
 
 <blockquote>
-  <p><script type="math/tex" id="MathJax-Element-62">w=az+b</script>, <script type="math/tex" id="MathJax-Element-63">a\neq 0</script></p>
+  <p><script type="math/tex" id="MathJax-Element-69">w=az+b</script>, <script type="math/tex" id="MathJax-Element-70">a\neq 0</script></p>
 </blockquote>
 
 <ul>
-<li>Inverse : <script type="math/tex; mode=display" id="MathJax-Element-64">z=\frac{1}{a}w - \frac{b}{a}</script></li>
+<li>Inverse : <script type="math/tex; mode=display" id="MathJax-Element-71">z=\frac{1}{a}w - \frac{b}{a}</script></li>
 <li>Notice fixed point?</li>
-<li>Subgroup of <script type="math/tex" id="MathJax-Element-65">\operatorname{GL}(2, \mathbb{R})</script> ?</li>
-<li>Not affine group <script type="math/tex" id="MathJax-Element-66">\operatorname{Aff}(\mathbb{C})</script></li>
+<li>Subgroup of <script type="math/tex" id="MathJax-Element-72">\operatorname{GL}(2, \mathbb{R})</script> ?</li>
+<li>Not affine group <script type="math/tex" id="MathJax-Element-73">\operatorname{Aff}(\mathbb{C})</script></li>
 <li>2 points gives a transform, 3 co-linear points gives too</li>
-<li>line <script type="math/tex" id="MathJax-Element-67">\rightarrow</script> line; <strong>also line Angle Preserving</strong></li>
-<li>circle <script type="math/tex" id="MathJax-Element-68">\rightarrow</script> circle</li>
-<li><script type="math/tex" id="MathJax-Element-69">\mathbb{C}\rightarrow\mathbb{C}</script></li>
+<li>line <script type="math/tex" id="MathJax-Element-74">\rightarrow</script> line; <strong>also line Angle Preserving</strong></li>
+<li>circle <script type="math/tex" id="MathJax-Element-75">\rightarrow</script> circle</li>
+<li><script type="math/tex" id="MathJax-Element-76">\mathbb{C}\rightarrow\mathbb{C}</script></li>
 </ul>
 
 
@@ -635,23 +694,23 @@
 <h4 id="möbius-transform-group">Möbius Transform Group</h4>
 
 <blockquote>
-  <p><script type="math/tex" id="MathJax-Element-70">w=(az+b)/(cz+d)</script>, <script type="math/tex" id="MathJax-Element-71">ad-bc\neq 0</script></p>
+  <p><script type="math/tex" id="MathJax-Element-77">w=(az+b)/(cz+d)</script>, <script type="math/tex" id="MathJax-Element-78">ad-bc\neq 0</script></p>
 </blockquote>
 
 <ul>
 <li>Linear Transform Froup</li>
-<li>Inverse : <script type="math/tex; mode=display" id="MathJax-Element-72">z=\frac{dw-b}{-cw+a}</script></li>
-<li>Define <script type="math/tex" id="MathJax-Element-73">\infty</script> for <script type="math/tex; mode=display" id="MathJax-Element-74">w(-\frac{d}{c})=\infty</script></li>
+<li>Inverse : <script type="math/tex; mode=display" id="MathJax-Element-79">z=\frac{dw-b}{-cw+a}</script></li>
+<li>Define <script type="math/tex" id="MathJax-Element-80">\infty</script> for <script type="math/tex; mode=display" id="MathJax-Element-81">w(-\frac{d}{c})=\infty</script></li>
 <li>More precisely define equivalance <br>
-<ul><li><script type="math/tex" id="MathJax-Element-75">(z_1, z_2) \sim (w_1, w_2) \Leftrightarrow \exists [p\neq 0] \ni z_i=pw_i</script></li>
-<li>Consider real case, we can use multiplication quotient on <script type="math/tex" id="MathJax-Element-76">\mathbb{R}\times\mathbb{R}</script> to define <script type="math/tex" id="MathJax-Element-77">\infty</script></li>
+<ul><li><script type="math/tex" id="MathJax-Element-82">(z_1, z_2) \sim (w_1, w_2) \Leftrightarrow \exists [p\neq 0] \ni z_i=pw_i</script></li>
+<li>Consider real case, we can use multiplication quotient on <script type="math/tex" id="MathJax-Element-83">\mathbb{R}\times\mathbb{R}</script> to define <script type="math/tex" id="MathJax-Element-84">\infty</script></li>
 <li>也就是為所有數對定義商</li>
 <li><strong>Projective Plane</strong></li></ul></li>
 <li><p>Properties of Möbius in Projective Plane</p>
 
-<ul><li><script type="math/tex" id="MathJax-Element-78">z = [(z_1, z_2)]</script> : equivalance class</li>
-<li>Matrix form: <script type="math/tex; mode=display" id="MathJax-Element-79">(w_1, w_2) = (z_1, z_2)\begin{pmatrix} a  &  b  \\ c  & d\end{pmatrix}, det\neq 0</script></li>
-<li>Isomorphic to <script type="math/tex" id="MathJax-Element-80">\operatorname{GL}(2, \mathbb{C})</script></li></ul></li>
+<ul><li><script type="math/tex" id="MathJax-Element-85">z = [(z_1, z_2)]</script> : equivalance class</li>
+<li>Matrix form: <script type="math/tex; mode=display" id="MathJax-Element-86">(w_1, w_2) = (z_1, z_2)\begin{pmatrix} a  &  b  \\ c  & d\end{pmatrix}, det\neq 0</script></li>
+<li>Isomorphic to <script type="math/tex" id="MathJax-Element-87">\operatorname{GL}(2, \mathbb{C})</script></li></ul></li>
 <li><p>3 points decides a transformation</p></li>
 </ul>
 
@@ -756,13 +815,27 @@
 
 <h3 id="matrices">Matrices</h3>
 
+
+
+<h4 id="matrix-norms">Matrix Norms</h4>
+
 <ul>
-<li>Matrix Norms <br>
-<ul><li>Bounded Norm</li>
-<li>2 - Norm</li></ul></li>
+<li>Bounded Norm</li>
+<li>2 - Norm</li>
 </ul>
 
 
+
+<h4 id="decompositions">Decompositions</h4>
+
+<ul>
+<li>LU decomposition</li>
+<li>Eigendecomposition</li>
+<li>QR decomposition</li>
+<li>Jordan decomposition</li>
+<li>Schur decomposition</li>
+<li>Singular value decomposition</li>
+</ul>
 
 <h3 id="special-matrices">Special Matrices</h3>
 
@@ -781,10 +854,10 @@
 <h3 id="linear-groups">Linear Groups</h3>
 
 <ul>
-<li><script type="math/tex" id="MathJax-Element-81">\operatorname{GL}(n,\mathbb{F})</script></li>
-<li><script type="math/tex" id="MathJax-Element-82">\operatorname{SL}(n,\mathbb{F})</script></li>
-<li><script type="math/tex" id="MathJax-Element-83">\operatorname{SO}(n,\mathbb{F})</script></li>
-<li><script type="math/tex" id="MathJax-Element-84">\operatorname{Spin}(n,\mathbb{F})</script></li>
+<li><script type="math/tex" id="MathJax-Element-88">\operatorname{GL}(n,\mathbb{F})</script></li>
+<li><script type="math/tex" id="MathJax-Element-89">\operatorname{SL}(n,\mathbb{F})</script></li>
+<li><script type="math/tex" id="MathJax-Element-90">\operatorname{SO}(n,\mathbb{F})</script></li>
+<li><script type="math/tex" id="MathJax-Element-91">\operatorname{Spin}(n,\mathbb{F})</script></li>
 </ul>
 
 <hr>
@@ -866,8 +939,8 @@
 <h3 id="asymptotic-analysis">Asymptotic Analysis</h3>
 
 <ul>
-<li><script type="math/tex" id="MathJax-Element-85">O(n)</script>, <script type="math/tex" id="MathJax-Element-86">\Omega(n)</script>, <script type="math/tex" id="MathJax-Element-87">\Theta(n)</script></li>
-<li><script type="math/tex" id="MathJax-Element-88">o(n)</script>, <script type="math/tex" id="MathJax-Element-89">\omega(n)</script></li>
+<li><script type="math/tex" id="MathJax-Element-92">O(n)</script>, <script type="math/tex" id="MathJax-Element-93">\Omega(n)</script>, <script type="math/tex" id="MathJax-Element-94">\Theta(n)</script></li>
+<li><script type="math/tex" id="MathJax-Element-95">o(n)</script>, <script type="math/tex" id="MathJax-Element-96">\omega(n)</script></li>
 <li>Recursion <br>
 <ul><li>Master Method</li>
 <li>Substitution Method</li></ul></li>
