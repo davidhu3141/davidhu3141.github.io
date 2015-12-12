@@ -39,6 +39,9 @@ for (dirpath, dirnames, filenames) in walk(fromFolder):
 # article list generate
 articleListString = ''
 for c in categoryStruct:
+
+	categoryStruct[c] = sorted(categoryStruct[c], key=str.lower)
+
 	articleListString += '<div class="category">\n'
 	articleListString += '<div class="categoryTitle">' + c + '</div>\n'
 
@@ -48,8 +51,6 @@ for c in categoryStruct:
 	articleListString += '</div>\n'
 
 	articleListString += '</div>\n'
-
-print articleListString
 		
 for (dirpath, dirnames, filenames) in walk(fromFolder):
 	for filename in filenames:
@@ -67,6 +68,19 @@ for (dirpath, dirnames, filenames) in walk(fromFolder):
 			if not path.exists(path.dirname(savePath)):
 				makedirs(path.dirname(savePath))
 
-			outputfile = open(savePath, 'w+');
-			outputfile.write(MixedString);
+			outputfile = open(savePath, 'w+')
+			outputfile.write(MixedString)
 
+# index file
+indexTempleteFile = open('indexTemplete.html', 'r')
+indexTempleteString = indexTempleteFile.read()
+
+#indexContent = open('indexContent.html', 'r')
+indexContentString = ''#indexContent.read()
+
+MixedString = indexTempleteString
+MixedString = MixedString.replace('<!--@Article-->', indexContentString);
+MixedString = MixedString.replace('<!--@ArticleList-->', articleListString)
+
+outputIndexFile = open('index.html', 'w+')
+outputIndexFile.write(MixedString)
