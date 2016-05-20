@@ -9,28 +9,43 @@
 
 	body {
 		margin: 0px;
-		background-image: url("Minecraft-Wallpaper-7DE.jpg");
+		background-image: url("pic/Japan-wallpaper-2.jpg");
 		background-clip: content-box;
 		background-size: 100%;
 	}
 
-	svg {
-		width: 100%;
-		height: 100%;
+	#bricks_pers {
+		/*perspective: 500px;*/
+		
+		position: absolute;
+		left: 5%;
+		top: 10%;
+		width: 60%;
+		height: 80%;
+	}
+	
+	#bricks {
+		/*transform: rotateY(-20deg);*/
+		background-color: rgba(0, 0, 0, 0.2);
+		height: 100%; 
+	}
+	
+	#notes {
+		background-color: rgba(0, 0, 0, 0.7);
+		/*perspective: 500px;*/
+		
+		position: absolute;
+		left: 70%;
+		top: 10%;
+		width: 25%;
+		height: 80%;
 	}
 
 	</style>
 
 	<script>
 
-	$().ready(function (){
-		d3.select("#list")
-		.append("circle")
-			.attr("cx", 0)
-			.attr("cy", 0)
-			.attr("r", 100)
-			.attr("fill-opacity", 0.2);
-	});
+
 
 	</script>
 
@@ -38,10 +53,14 @@
 
 <body>
 
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-		<circle cx="60" cy="60" r="50" fill="#555555" fill-opacity="0.7"/>
-		<g id="list" transform="translate(60, 0)"></g>
-	</svg>
+	<div id="bricks_pers">
+		<div id="bricks">
+		</div>
+	</div>
+
+	<div id="notes">
+		<textarea style="color: #FFFFFF; width:100%; height:100%; background: rgba(0, 0, 0, 0); border: none; outline: none;"></textarea>
+	</div>
 
 </body>
 
