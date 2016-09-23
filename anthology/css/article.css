@@ -43,6 +43,7 @@
 }
 
 .article hr {
+  border-style: solid;
   border-bottom-color: #aaaaaa;
   border-bottom-width: 1px;
 }
