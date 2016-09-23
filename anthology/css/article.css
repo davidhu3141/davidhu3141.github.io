@@ -43,7 +43,13 @@
 }
 
 .article hr {
+  background-color: #ffffff;
   border-style: solid;
+
+  border-left-color: #ffffff;
+  border-right-color: #ffffff;
+  border-top-color: #ffffff;
+
   border-bottom-color: #aaaaaa;
   border-bottom-width: 1px;
 }
