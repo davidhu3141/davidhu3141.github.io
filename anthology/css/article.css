@@ -17,31 +17,37 @@
 }
 
 .article h1, h2, h3, h4, h5, h6 {
-  font-size: 2.6em;
-  line-height: 1.1;
   font-weight: 100;
   margin: 1.5em 0;
   text-align: start;
 }
 
+.article h1 {
+  font-size: 40px;
+  line-height: 50px;
+}
+
 .article h2 {
-  font-size: 2.15em;
+  font-size: 32px;
+  line-height: 40px;
 }
 
 .article h3 {
-  font-size: 1.8em;
+  font-size: 24px;
+  line-height: 30px;
 }
 
 .article h4 {
-  font-size: 1.5em;
+  font-size: 20px;
+  line-height: 25px;
 }
 
 .article p, dl, li, blockquote, pre, code {
   margin: 1.5em 0;
   text-align: start;
   box-sizing: border-box;
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .article blockquote {
