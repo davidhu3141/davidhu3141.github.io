@@ -1,5 +1,5 @@
 import sys
-sys.path.append('./shell')
+sys.path.append('./module')
 
 import json
 from os import walk
@@ -8,7 +8,7 @@ from os import path
 import bytify
 
 # json file
-confJsonFile = open('templete/conf.json', 'r')
+confJsonFile = open('json/conf.json', 'r')
 confJsonString = confJsonFile.read()
 confJson = json.loads(confJsonString)
 confJson = bytify.byteify(confJson)
@@ -52,6 +52,7 @@ for c in categoryStruct:
 
 	articleListString += '</div>\n'
 		
+# HTML content generate
 for (dirpath, dirnames, filenames) in walk(fromFolder):
 	for filename in filenames:
 		if filename.endswith('.html'): 
@@ -72,7 +73,7 @@ for (dirpath, dirnames, filenames) in walk(fromFolder):
 			outputfile.write(MixedString)
 
 # index file
-indexTempleteFile = open('indexTemplete.html', 'r')
+indexTempleteFile = open(confJson['indexTempletePath'], 'r')
 indexTempleteString = indexTempleteFile.read()
 
 #indexContent = open('indexContent.html', 'r')
