@@ -8,4 +8,4 @@ def byteify(input):
 	elif isinstance(input, unicode):
 		return input.encode('utf-8')
 	else:
-	        return input
+		return input
