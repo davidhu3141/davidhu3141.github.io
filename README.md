@@ -19,8 +19,8 @@ TODO
 - A '/' in CSS import path should be removed.
 - Generate renewable list of article as JSON, with modification date and comparison.
 - Make CSS test easy.
-- [Restruct folders]
-- [Extract methods]
+- *[Restruct folders]*
+- *[Extract methods]*
 - use filecmp to compare file, and use replace to generate real replication.
 
 Architecture
