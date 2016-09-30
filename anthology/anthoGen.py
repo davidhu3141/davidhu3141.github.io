@@ -3,8 +3,7 @@ sys.path.append('./module')
 
 import json
 import bytify
-import articleListGen
-import articleGen
+import pageGen
 from os import walk
 from os import makedirs
 from os import path
@@ -24,23 +23,15 @@ webResourceRoot = confJson['webResourceRoot']
 fromFolder = confJson['sourcePath']
 saveFolder = confJson['destinationPath']
 
-# article list generate
-articleListString = articleListGen.articleListGen(fromFolder, saveFolder, webResourceRoot)
 
-# HTML content generate
-articleGen.articleGen(fromFolder, saveFolder, webResourceRoot, articleListString, templeteString)
+# MODULE: article list generate
+articleListString = pageGen.articleListGen(fromFolder, saveFolder, webResourceRoot)
 
-# index file
-indexTempleteFile = open(confJson['indexTempletePath'], 'r')
-indexTempleteString = indexTempleteFile.read()
 
-#indexContent = open('indexContent.html', 'r')
-indexContentString = ''#indexContent.read()
+# MODULE: HTML content generate
+pageGen.articleGen(fromFolder, saveFolder, webResourceRoot, articleListString, templeteString)
 
-MixedString = indexTempleteString
-MixedString = MixedString.replace('<!--@Article-->', indexContentString);
-MixedString = MixedString.replace('<!--@ArticleList-->', articleListString)
 
-outputIndexFile = open('index.html', 'w+')
-outputIndexFile.write(MixedString)
-outputIndexFile.close()
+# MODULE: Index page generate
+indexTempletePath = confJson['indexTempletePath']
+pageGen.indexPageGen(indexTempletePath, articleListString)
