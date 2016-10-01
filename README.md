@@ -3,7 +3,7 @@
 I use github to host some of my pages:
 
 1. Startup page for my internet browser, *personal use*
-2. A page to post my articles. (as blog)
+2. A page to post my articles. (as blog) http://davidhu3141.github.io/anthology/
 
 I'll do some coding to manage my blog, and log here.
 
