@@ -2,21 +2,13 @@ from os import walk
 from os import makedirs
 from os import path
 
-### article list pregenerate
+import articleCmp
+
+### article list generate
 def articleListGen(fromFolder, saveFolder, webResourceRoot):
 
-	categoryStruct = {}
-	for (dirpath, dirnames, filenames) in walk(fromFolder):
-		for filename in filenames:
-			if filename.endswith('.html'):
-			
-				categoryName = ''.join(dirpath).replace(fromFolder + '/', '')
-				titleName = filename.replace('.html', '')
-			
-				if categoryName not in categoryStruct:
-					categoryStruct[categoryName] = []
-			
-				categoryStruct[categoryName].extend([titleName])
+	# article list pregenerate
+	categoryStruct = articleCmp.fileStruct(fromFolder)
 
 	# article list generate
 	articleListString = ''
@@ -63,6 +55,7 @@ def articleGen(fromFolder, saveFolder, webResourceRoot, articleListString, templ
 
 ### index file generate
 def indexPageGen(indexTempletePath, articleListString):
+
 	indexTempleteFile = open(indexTempletePath, 'r')
 	indexTempleteString = indexTempleteFile.read()
 
