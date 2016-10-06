@@ -3,7 +3,7 @@
 I use github to host some of my pages:
 
 1. Startup page for my internet browser, *personal use*
-2. A page to post my articles. (as blog)
+2. A page to post my articles. (as blog) http://davidhu3141.github.io/anthology/
 
 I'll do some coding to manage my blog, and log here.
 
@@ -17,17 +17,18 @@ TODO
 ----
 
 - A '/' in CSS import path should be removed.
-- Generate renewable article list as JSON, with modification date and comparison.
+- Generate renewable list of article as JSON, with modification date and comparison.
 - Make CSS test easy.
-- *Restruct folders*
-- Extract methods
+- *[Restruct folders]*
+- *[Extract methods]*
+- use filecmp to compare file, and use replace to generate real replication.
 
 Architecture
 ------------
 
 ### Command Organization
 
-#### status
+#### -s --status
 
 status
 
@@ -35,7 +36,7 @@ status
 
 > all up to date.
 
-#### renew
+#### -r --renew
 
 renew all
 
