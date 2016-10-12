@@ -29,7 +29,7 @@ def main(argv):
 
 	# commandline args fetch
 	try:
-		opts, args = getopt.getopt(argv, "gn", ["generate", "nongenerated"])
+		opts, args = getopt.getopt(argv, "sgn", ["status", "generate", "nongenerated"])
 	except getopt.GetoptError:
 		print 'anthoGen.py -s --status'
 		print 'anthoGen.py -n --nongenerated'
@@ -37,8 +37,13 @@ def main(argv):
 
 	# jobs
 	for opt, arg in opts:
-		if opt in ("-g", "--generate"):
-
+		if opt in ("-s", "--status"):
+		    
+		    print "nothing."
+		    sys.exit()
+		
+		elif opt in ("-g", "--generate"):
+		    
 			# MODULE: article list generate
 			articleListString = pageGen.articleListGen(fromFolder, saveFolder, webResourceRoot)
 
@@ -51,15 +56,18 @@ def main(argv):
 			sys.exit()
 
 		elif opt in ("-n", "--nongenerated"):
+		
 			src = articleCmp.fileStruct(fromFolder)
 			dst = articleCmp.fileStruct(saveFolder)
-			detachedCat, notgenCat, commonkey = articleCmp.fileStructCmp(src, dst)
+			notgencat, notgenart = articleCmp.fileStructCmp(src, dst)
+
 			print ''
-			print '[not generated:]'
-			print notgenCat
+			print '[not generated categories:]'
+			print notgencat
 			print ''
-			print '[generated:]'
-			print commonkey
+			print '[not generated articles:]'
+			print notgenart
+
 			sys.exit()
 
 	print 'Nothing is done.'

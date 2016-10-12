@@ -23,11 +23,17 @@ def fileStruct(folder):
 # compare file struct
 def fileStructCmp(src, dst):
 
-	setkeysrc = set(src.keys())
-	setkeydst = set(dst.keys())
-	commonkey = setkeysrc.intersection(setkeydst)
-	detachedCat = setkeydst - setkeysrc
-	notgenCat = setkeysrc - setkeydst
+	setcatsrc = set(src.keys())
+	setcatdst = set(dst.keys())
+	commondir = setcatsrc.intersection(setcatdst)
+	notgencat = setcatsrc - setcatdst
 
-	return detachedCat, notgenCat, commonkey
+	notgenart = set()
+
+	for dir in commondir:
+		srcart = set(src[dir])
+		dstart = set(dst[dir])
+		notgenart.union(srcart - dstart)
+
+	return notgencat, notgenart
 	
