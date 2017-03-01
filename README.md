@@ -1,18 +1,29 @@
-<<<<<<< HEAD
 # davidhu3141.github.io
 
 I use github to host some of my pages:
 
 1. Startup page for my internet browser, *personal use*
-2. A page to post my articles. (as blog) http://davidhu3141.github.io/anthology/
+2. A page to post my articles. (as blog) http://davidhu3141.github.io/anthology2/
 
 I'll do some coding to manage my blog, and log here.
 
 --------------------------------------
 
 
+Jekyll Tweak Log
+================
+
+### LaTeX
+
+I use sed to process LaTeX in MD. KramDown doesn't recognize single dollor sign so I wrote my own script to preprocess LaTeX.
+
+
+
 Anthology Generator Developer Note
 ==================================
+
+> This proj is no longer progress. Jekyll is just what I really need.
+
 
 TODO
 ----
@@ -44,18 +55,3 @@ renew all
 renew [n]
 
 renew list
-=======
-# OpenzFunction
-
-Drawing net for polyhedrons expressed by z = f(x, y)
-
-So that you can make real 3D model for some mathematical 2D surface.
-
-For example:
-
-![](https://raw.githubusercontent.com/davidhu3141/OpenzFunction/master/Sample/Faked.jpg)
-
-This is the 2-D Taylor's approximation of z = sinx * siny / 2, up to cubic polynomial.
-
-I photoshoped the picture (*the darker part of the model isn't real*) since I only make half of the model. Finishing the whole model would take too much time. 
->>>>>>> c38fece9d1335c8b42d8b3d1a7145cbbbf3c6b40

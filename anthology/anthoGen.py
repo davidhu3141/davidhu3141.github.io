@@ -32,6 +32,7 @@ def main(argv):
 		opts, args = getopt.getopt(argv, "sgn", ["status", "generate", "nongenerated"])
 	except getopt.GetoptError:
 		print 'anthoGen.py -s --status'
+		print 'anthoGen.py -g --generate'
 		print 'anthoGen.py -n --nongenerated'
 		sys.exit(2)
 
@@ -39,8 +40,8 @@ def main(argv):
 	for opt, arg in opts:
 		if opt in ("-s", "--status"):
 		    
-		    print "nothing."
-		    sys.exit()
+			print "nothing."
+			sys.exit()
 		
 		elif opt in ("-g", "--generate"):
 		    

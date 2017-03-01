@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Your awesome title</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://yourdomain.com/</link>
+    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 01 Mar 2017 15:47:49 +0800</pubDate>
+    <lastBuildDate>Wed, 01 Mar 2017 15:47:49 +0800</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>歐拉公式與三角函數的指數形式</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;歐拉公式與三角函數的指數形式&lt;/h2&gt;
+
+&lt;p&gt;歐拉公式 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; e^{i\theta}=\operatorname{cos}\theta+i\operatorname{sin}\theta &lt;/script&gt; 讓我們可以定義複數的指數，然後作很多事，比方說&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;將三角函數寫成指數形式，像 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{sinh} &lt;/script&gt;、 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{cosh} &lt;/script&gt; 一樣。&lt;/li&gt;
+  &lt;li&gt;證明棣美弗定理&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;證明代數基本定理（此不討論）&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;更多重要的定理&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;在這之前應該要先證明歐拉公式。證明歐拉公式需要用到微積分中的泰勒展開式（Taylor formula）。&lt;/p&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;泰勒展開式&lt;/h3&gt;
+
+&lt;p&gt;先看一個簡單的例子：&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;三次式的係數&lt;/h4&gt;
+
+&lt;p&gt;對於一個未知的三次式 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f(x) = ax^3+bx^2+cx+d &lt;/script&gt;，如果我們知道 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f(0) &lt;/script&gt;、&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f&#39;(0) &lt;/script&gt;、&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f&#39;&#39;(0) &lt;/script&gt;、&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f&#39;&#39;&#39;(0) &lt;/script&gt;，那麼我們就可以知道 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f(x) &lt;/script&gt; 的各項係數，方法如下：&lt;/p&gt;
+
+&lt;p&gt;首先，&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; d &lt;/script&gt; 是常數項，所以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; d=f(0) &lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;其次，&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; c &lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f&#39;(x)=3ax^2+2bx+1c &lt;/script&gt; 的常數項，所以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; c=f&#39;(0) &lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;再來，&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; 2b &lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f&#39;&#39;(x)=3\cdot 2ax+2\cdot 1b &lt;/script&gt; 的常數項，所以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; b=\frac{1}{2!}f&#39;&#39;(0) &lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;最後，&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; 6a &lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f&#39;&#39;&#39;(x) = 3\cdot 2\cdot 1\cdot a &lt;/script&gt; 的常數項，所以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a=\frac{1}{3!}f&#39;&#39;&#39;(0) &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;因此多項式 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f(x) &lt;/script&gt; 可以表示為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;f(x)=f(0)+\frac{f’(0)}{1!}x+\frac{f’‘(0)}{2!}x^2+\frac{f’’‘(0)}{3!}x^3.&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;以此為發想，一個 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; n &lt;/script&gt; 次多項式總是可以重新表示成&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;f(x)=\sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^k &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;，其中 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f^{(k)}(0) &lt;/script&gt; 代表 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f &lt;/script&gt; 在原點的第 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; k &lt;/script&gt; 階導數。&lt;/p&gt;
+
+&lt;p&gt;這就是多項式在原點的泰勒公式。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;物理意義&lt;/h4&gt;
+
+&lt;p&gt;這裡有一點物理意義：如果一個系統是以多項式的模式在演變，比方說氣溫，那麼只要測量現在的氣溫、現在的氣溫變化率、變化率的變化率 …，就可以知道未來每一刻的溫度了。&lt;/p&gt;
+
+&lt;p&gt;但是氣溫不可能以多項式演變，因為高次多項式增長的速度非常快。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;無窮項的泰勒展開式&lt;/h4&gt;
+
+&lt;p&gt;泰勒展開式可以用來展開非多項式的函數，想當然耳，其展開後該要有無窮多項，否則就是多項式了。「無窮項的多項式」不能稱做多項式，應該稱做冪級數。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;冪級數指的是具有下列形式的級數：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+  &lt;p&gt;p(x) = \sum _{k=0} ^{\infty} p_kx^k &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;現在把展開式的公式改寫成無窮項：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+  &lt;p&gt;f_{\mathrm{taylor}}(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!} x^k &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;無窮多項的盲點&lt;/h4&gt;
+
+&lt;p&gt;並不是所有函數的泰勒展開式都和原本一模一樣，所以上面的式子才會說它是個新函數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f_{\mathrm{taylor}}(x) &lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;有時候 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f_{\mathrm{taylor}}(x) \neq f(x) &lt;/script&gt; ，體認到這點是非常重要的，現在舉個例子來看：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;展開 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;f(x)=\frac{1}{1-x}&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt; 的結果是 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt; f_{\mathrm{taylor}}(x) = 1+x+x^2+x^3+… = \sum_{k=0}^{\infty} x^k&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;要實際展開來驗證也可以，不過當成等比級數來看的話這結果是顯而易見的。&lt;/p&gt;
+
+&lt;p&gt;無窮等比級數的公比 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; x &lt;/script&gt; 必須滿足範圍 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; -1&amp;lt;x&amp;lt;1 &lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f_{\mathrm{taylor}} &lt;/script&gt; 在這範圍外式沒有值的。但是 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f(x)=\frac{1}{1-x} &lt;/script&gt; 只在 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; x=1 &lt;/script&gt; 的地方沒有值，所以這是兩個不一樣的函數。&lt;/p&gt;
+
+&lt;p&gt;應該試著去想 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f_{\mathrm{taylor}}(x)  &lt;/script&gt; 和 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; f(x) &lt;/script&gt; 的圖形差在哪裡。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;歐拉公式&lt;/h3&gt;
+
+&lt;p&gt;被稱做歐拉公式的式子太多了，這裡指的是&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;e^{ix}=\operatorname{cos}x+i\operatorname{sin}x&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;某數的 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; i &lt;/script&gt; 次方的概念就是從這裡定義的。&lt;/p&gt;
+
+&lt;h4 id=&quot;script-typemathtex-idmathjax-element-159-i-script-&quot;&gt;某數的 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; i &lt;/script&gt; 次方&lt;/h4&gt;
+
+&lt;p&gt;來計算 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; e^x &lt;/script&gt; 的泰勒展開式。為了符號方便，定義函數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{exp}x=e^x &lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;根據泰勒展開式：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;\operatorname{exp}x=\operatorname{exp}0+\frac{\operatorname{exp}’0}{1!}x + \frac{\operatorname{exp}’‘0}{2!}x^2+…&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{exp}x &lt;/script&gt; 的 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; n &lt;/script&gt; 階導數都是 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{exp}x &lt;/script&gt; 本身，所以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{exp}&#39; &#39; 0 = \operatorname{exp}&#39; 0 = \operatorname{exp} 0 = 1  &lt;/script&gt; ，展開式簡化為&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;\operatorname{exp}x=1+\frac{1}{1!}x + \frac{1}{2!}x^2+…&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;注意到這樣 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{exp}x &lt;/script&gt; 就可以代虛數進去了。代純虛數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; ix &lt;/script&gt; 進去看看：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;\operatorname{exp}x=1+\frac{1}{1!}ix + \frac{1}{2!}i^2x^2+\frac{1}{3!}i^3x^3+\frac{1}{4!}i^4x^4+\frac{1}{5!}i^5x^5+…&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;利用 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; i^2=-1 &lt;/script&gt; 簡化為&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;\operatorname{exp}ix=1+\frac{1}{1!}ix - \frac{1}{2!}x^2-\frac{1}{3!}ix^3+\frac{1}{4!}x^4+\frac{1}{5!}ix^5…&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;展開三角函數&lt;/h4&gt;
+
+&lt;p&gt;要展開 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{sin}x &lt;/script&gt;，需要算它在 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; 0 &lt;/script&gt; 處的各階導數：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{sin}0 =0 &lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{sin}&#39;0 = \operatorname{cos}0=1 &lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{sin}&#39;&#39;0 = -\operatorname{sin}0=0 &lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{sin}&#39;&#39;&#39;0 = -\operatorname{cos}0=-1 &lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{sin}&#39;&#39;&#39;&#39;0 =\operatorname{sin}0=0 &lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;發現是 0, 1, 0, -1, … 循環，所以&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;\operatorname{sin}x = x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-…&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;用類似的方法可以展開 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{cos}x &lt;/script&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;\operatorname{cos}x = 1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-…&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-8&quot;&gt;證明歐拉公式&lt;/h4&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{sin}x &lt;/script&gt;
+&lt;p&gt;、&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{cos}x &lt;/script&gt;、&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; e^x &lt;/script&gt; 都展開完了，接下來可以直接證明歐拉公式。&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;\begin{aligned}
+ \operatorname{cos}x+i\operatorname{sin}x &amp;amp;=  (1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-…) + (ix-\frac{1}{3!}ix^3+\frac{1}{5!}ix^5-…)\ 
+ &amp;amp;= 1+\frac{1}{1!}ix - \frac{1}{2!}x^2-\frac{1}{3!}ix^3+\frac{1}{4!}x^4+\frac{1}{5!}ix^5…&lt;br /&gt;
+ &amp;amp;= \operatorname{exp}ix.
+\end{aligned}&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;從倒數第二行到最後一行，就是用剛剛推導出來的 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{exp}ix &lt;/script&gt; 的公式。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-9&quot;&gt;將三角函數寫成指數形式&lt;/h3&gt;
+
+&lt;p&gt;根據 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; e^{ix}=\operatorname{cos}x+i\operatorname{sin}x &lt;/script&gt; ，我們也有&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;e^{-ix}=\operatorname{cos}-x+i\operatorname{sin}-x = \operatorname{cos}x-i\operatorname{sin}x&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;。所以&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;\operatorname{cos}x=\frac{e^{ix}+e^{-ix}}{2}&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;\operatorname{sin}x=\frac{e^{ix}-e^{-ix}}{2i}&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;這算是指數形式的三角函數，和 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{sinh}x &lt;/script&gt;、&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \operatorname{cosh}x &lt;/script&gt; 雷同。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;證明棣美弗定理&lt;/h3&gt;
+
+&lt;p&gt;棣美弗定理說明一個複數的 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; n &lt;/script&gt; 次方的行為：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+  &lt;p&gt;[r(\operatorname{cos}\theta+i\operatorname{sin}\theta)]^n=r^n(\operatorname{cos}n\theta+i\operatorname{sin}n\theta)&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;三角(二) 會學到棣美弗定理的完整解釋。用歐拉公式來證明它再簡單不過了：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;
+&lt;p&gt;[r(\operatorname{cos}\theta+i\operatorname{sin}\theta)]^n=(re^{i\theta})^n = r^ne^{in\theta}=r^n(\operatorname{cos}n\theta+i\operatorname{sin}n\theta)&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;這樣就證完了。&lt;/p&gt;
+</description>
+        <pubDate>Wed, 01 Mar 2017 15:46:39 +0800</pubDate>
+        <link>http://yourdomain.com/math/highschool/2017/03/01/Euler.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/math/highschool/2017/03/01/Euler.html</guid>
+        
+        
+        <category>math</category>
+        
+        <category>highschool</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;123&lt;/script&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 01 Mar 2017 13:49:39 +0800</pubDate>
+        <link>http://yourdomain.com/jekyll/update/2017/03/01/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2017/03/01/welcome-to-jekyll.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>二元一次方程式整數解</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;二元一次方程式整數解&lt;/h2&gt;
+
+&lt;p&gt;來證明下面的事實：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;給定 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b \in \mathbb{Z} &lt;/script&gt; ， 則二元一次方程式 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  ax+by = c  &lt;/script&gt; 有整數解的充要條件是 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  (a, b) | c  &lt;/script&gt; 。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;分成兩部分討論：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  ax+by = c  &lt;/script&gt;
+    &lt;p&gt;有整數解 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  \Rightarrow (a, b)|c  &lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|c\Rightarrow ax+by = c  &lt;/script&gt;
+    &lt;p&gt;有整數解&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h3 id=&quot;script-typemathtex-idmathjax-element-159-rightarrow-a-bc-script&quot;&gt;一、有整數解 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \Rightarrow (a, b)|c &lt;/script&gt;&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;證明過程&lt;/h4&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; ax+by=c &lt;/script&gt;
+&lt;p&gt;有整數解 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \Rightarrow &lt;/script&gt; 存在 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; u, v \in \mathbb{Z} &lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; au+bv=c &lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|a &lt;/script&gt; 且 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|b &lt;/script&gt; ，根據&lt;strong&gt;線性組合原理&lt;/strong&gt;， &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|au+bv &lt;/script&gt; ， 即 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  (a, b)|c &lt;/script&gt;，得證。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;線性組合原理&lt;/h4&gt;
+
+&lt;p&gt;剛剛的證明用到線性組合的原理：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;若 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r|a &lt;/script&gt; 且 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r|b &lt;/script&gt; ， 則任取整數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; m, n \in \mathbb{Z} &lt;/script&gt; ，都有 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r|ma+bn &lt;/script&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;原因很直觀：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r|a \Rightarrow &lt;/script&gt;
+&lt;p&gt;存在整數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; k  &lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a = kr &lt;/script&gt;
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r|b \Rightarrow &lt;/script&gt; 存在整數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; l  &lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; b = lr &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;故 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; ma+bn = kmr+lnr &lt;/script&gt; ，的確為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r &lt;/script&gt; 的倍數。&lt;/p&gt;
+
+&lt;h3 id=&quot;script-typemathtex-idmathjax-element-159-a-bcrightarrow--script-&quot;&gt;二、&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|c\Rightarrow  &lt;/script&gt; 有整數解&lt;/h3&gt;
+
+&lt;p&gt;證明會用到輾轉相除法和一些其他原理，先來看看：&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;餘數會整除最大公因數&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;將 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 相除的過程寫成 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a=bq+r &lt;/script&gt;，則 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) | r &lt;/script&gt; 。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;原因是根據線性組合原理，&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|a-bq &lt;/script&gt;，又 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a-bq=r &lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|r &lt;/script&gt; 。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;輾轉相除法&lt;/h4&gt;
+
+&lt;p&gt;如果想要算最大公因數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; ，根據上述原理，我們知道 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 相除後，&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 會在餘數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r &lt;/script&gt; 的因數中，所以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)=(a, b, r)=(b, r) &lt;/script&gt;。 我們只要找出 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (b, r) &lt;/script&gt; 即可。&lt;/p&gt;
+
+&lt;p&gt;現在我們把 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; b, r &lt;/script&gt; 相除，會得到新餘數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_2 &lt;/script&gt;。同理我們只要找 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (r, r_2) &lt;/script&gt; 最大公因數即可。依序做下去的話，餘數會越來越小，但這些餘數都是 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 的倍數，我們於是有餘數的數列：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r, r_2, r_3, ... r_k &lt;/script&gt;
+  &lt;p&gt;，且 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 整除所有 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_n &lt;/script&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;由於餘數越來越小的的原因，最後一定會有某個 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_k &lt;/script&gt; 是我們要找的 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 。&lt;/p&gt;
+
+&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|r_{k-1} &lt;/script&gt; ，故 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_k | r_{k-1} &lt;/script&gt; ，也就是說這兩個餘數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_k , r_{k-1} &lt;/script&gt; 繼續做除法會整除，不會有新餘數了。&lt;/p&gt;
+
+&lt;h4 id=&quot;script-typemathtex-idmathjax-element-159-a-b-script--script-typemathtex-idmathjax-element-159-manb-script&quot;&gt;將最大公因數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 表為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; ma+nb &lt;/script&gt;&lt;/h4&gt;
+
+&lt;p&gt;根據輾轉相除法，假設今天只做三次就找到 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_3=(a, b) &lt;/script&gt;：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a = bq + r &lt;/script&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; b = rq_2 + r_2 &lt;/script&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r = r_2q_3 + r_3 &lt;/script&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_2 = r_3q_4 &lt;/script&gt;
+&lt;p&gt;（整除結束，&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_3 &lt;/script&gt; 為最小公因數）&lt;/p&gt;
+
+&lt;p&gt;根據第三個式子，我們注意到  &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_3 &lt;/script&gt; 可以用 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r, r_2 &lt;/script&gt; 的線性組合表示。
+根據第二個式子， &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_2 &lt;/script&gt; 又可以用 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; b, r &lt;/script&gt; 的線性組合表示。
+根據第一個式子， &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r &lt;/script&gt; 又可以用 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 的線性組合表示。&lt;/p&gt;
+
+&lt;p&gt;所以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_3 &lt;/script&gt; 可以用 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 的線性組合表示。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;結論： &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 總可以表為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 的線性組合。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;開始證明第二部分&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;目標： &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|c\Rightarrow ax+by = c  &lt;/script&gt; 有整數解。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|c &lt;/script&gt;
+&lt;p&gt;代表 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; c = k\cdot (a, b) &lt;/script&gt; ， 原方程式改寫為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; ax+by = k\cdot (a, b) &lt;/script&gt; 。&lt;/p&gt;
+
+&lt;p&gt;剛才說 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 總可以表為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 的線性組合，所以總存在整數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; m, n \in \mathbb{Z} &lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;ma+nb=(a, b)&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;。等號兩邊同乘以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; k &lt;/script&gt; 得到 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;kma+knb=k\cdot (a, b)&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;，再和剛才的 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;ax+by = k\cdot (a, b)&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt; 比較係數，得到 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; x=km &lt;/script&gt; ， &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; y=kn &lt;/script&gt; ，得證。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: 可以練習真的去舉個例子，然後找找看找這種方程式的整數解。關鍵步驟是把 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 表為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 的線性組合，利用輾轉相除法。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Wed, 01 Mar 2017 13:49:39 +0800</pubDate>
+        <link>http://yourdomain.com/jekyll/update/2017/03/01/Integersolu.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2017/03/01/Integersolu.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+  </channel>
+</rss>

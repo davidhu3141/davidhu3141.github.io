@@ -1,0 +1,189 @@
+<h2 id="section">二元一次方程式整數解</h2>
+
+<p>來證明下面的事實：</p>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>給定 $a, b \in \mathbb{Z}$ ， 則二元一次方程式 $ ax+by = c $ 有整數解的充要條件是 $ (a, b)</td>
+        <td>c$ 。</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<p>分成兩部分討論：</p>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>$ ax+by = c $ 有整數解 $\Rightarrow (a, b)</td>
+          <td>c$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>$(a, b)</td>
+          <td>c\Rightarrow ax+by = c $ 有整數解</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>[TOC]</p>
+
+<h3 id="rightarrow-a-bc">一、有整數解 $\Rightarrow (a, b)|c$</h3>
+
+<h4 id="section-1">證明過程</h4>
+
+<p>$ax+by=c$ 有整數解 $\Rightarrow$ 存在 $u, v \in \mathbb{Z}$ 使 $au+bv=c$。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>由於 $(a, b)</td>
+      <td>a$ 且 $(a, b)</td>
+      <td>b$ ，根據<strong>線性組合原理</strong>， $(a, b)</td>
+      <td>au+bv$ ， 即 $ (a, b)</td>
+      <td>c$，得證。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="section-2">線性組合原理</h4>
+
+<p>剛剛的證明用到線性組合的原理：</p>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>若 $r</td>
+        <td>a$ 且 $r</td>
+        <td>b$ ， 則任取整數 $m, n \in \mathbb{Z}$ ，都有 $r</td>
+        <td>ma+bn$。</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<p>原因很直觀：</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$r</td>
+      <td>a \Rightarrow$ 存在整數 $k $ 使 $a = kr$</td>
+    </tr>
+    <tr>
+      <td>$r</td>
+      <td>b \Rightarrow$ 存在整數 $l $ 使 $b = lr$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>故 $ma+bn = kmr+lnr$ ，的確為 $r$ 的倍數。</p>
+
+<h3 id="a-bcrightarrow--">二、$(a, b)|c\Rightarrow $ 有整數解</h3>
+
+<p>證明會用到輾轉相除法和一些其他原理，先來看看：</p>
+
+<h4 id="section-3">餘數會整除最大公因數</h4>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>將 $a, b$ 相除的過程寫成 $a=bq+r$，則 $(a, b)</td>
+        <td>r$ 。</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<table>
+  <tbody>
+    <tr>
+      <td>原因是根據線性組合原理，$(a, b)</td>
+      <td>a-bq$，又 $a-bq=r$，所以 $(a, b)</td>
+      <td>r$ 。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="section-4">輾轉相除法</h4>
+
+<p>如果想要算最大公因數 $(a, b)$ ，根據上述原理，我們知道 $a, b$ 相除後，$(a, b)$ 會在餘數 $r$ 的因數中，所以 $(a, b)=(a, b, r)=(b, r)$。 我們只要找出 $(b, r)$ 即可。</p>
+
+<p>現在我們把 $b, r$ 相除，會得到新餘數 $r_2$。同理我們只要找 $(r, r_2)$ 最大公因數即可。依序做下去的話，餘數會越來越小，但這些餘數都是 $(a, b)$ 的倍數，我們於是有餘數的數列：</p>
+
+<blockquote>
+  <p>$r, r_2, r_3, … r_k$ ，且 $(a, b)$ 整除所有 $r_n$。</p>
+</blockquote>
+
+<p>由於餘數越來越小的的原因，最後一定會有某個 $r_k$ 是我們要找的 $(a, b)$ 。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>由於 $(a, b)</td>
+      <td>r_{k-1}$ ，故 $r_k</td>
+      <td>r_{k-1}$ ，也就是說這兩個餘數 $r_k , r_{k-1}$ 繼續做除法會整除，不會有新餘數了。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="a-b--manb">將最大公因數 $(a, b)$ 表為 $ma+nb$</h4>
+
+<p>根據輾轉相除法，假設今天只做三次就找到 $r_3=(a, b)$：</p>
+
+<p>$a = bq + r$ 
+$b = rq_2 + r_2$
+$r = r_2q_3 + r_3$
+$r_2 = r_3q_4$（整除結束，$r_3$ 為最小公因數）</p>
+
+<p>根據第三個式子，我們注意到  $r_3$ 可以用 $r, r_2$ 的線性組合表示。
+根據第二個式子， $r_2$ 又可以用 $b, r$ 的線性組合表示。
+根據第一個式子， $r$ 又可以用 $a, b$ 的線性組合表示。</p>
+
+<p>所以 $r_3$ 可以用 $a, b$ 的線性組合表示。</p>
+
+<blockquote>
+  <p>結論： $(a, b)$ 總可以表為 $a, b$ 的線性組合。</p>
+</blockquote>
+
+<h4 id="section-5">開始證明第二部分</h4>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>目標： $(a, b)</td>
+        <td>c\Rightarrow ax+by = c $ 有整數解。</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$(a, b)</td>
+      <td>c$ 代表 $c = k\cdot (a, b)$ ， 原方程式改寫為 $ax+by = k\cdot (a, b)$ 。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>剛才說 $(a, b)$ 總可以表為 $a, b$ 的線性組合，所以總存在整數 $m, n \in \mathbb{Z}$ 使 <script type="math/tex">ma+nb=(a, b)</script>。等號兩邊同乘以 $k$ 得到 <script type="math/tex">kma+knb=k\cdot (a, b)</script>，再和剛才的 <script type="math/tex">ax+by = k\cdot (a, b)</script> 比較係數，得到 $x=km$ ， $y=kn$ ，得證。</p>
+
+<blockquote>
+  <p><strong>Note</strong>: 可以練習真的去舉個例子，然後找找看找這種方程式的整數解。關鍵步驟是把 $(a, b)$ 表為 $a, b$ 的線性組合，利用輾轉相除法。</p>
+</blockquote>
