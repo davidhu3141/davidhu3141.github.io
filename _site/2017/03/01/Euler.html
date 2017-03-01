@@ -1,0 +1,184 @@
+
+<h2 id="section">歐拉公式與三角函數的指數形式</h2>
+
+<p>歐拉公式 <script type="math/tex"> e^{i\theta}=\operatorname{cos}\theta+i\operatorname{sin}\theta </script> 讓我們可以定義複數的指數，然後作很多事，比方說</p>
+
+<ol>
+  <li>將三角函數寫成指數形式，像 <script type="math/tex"> \operatorname{sinh}$、 $\operatorname{cosh} </script> 一樣。</li>
+  <li>證明棣美弗定理</li>
+  <li><em>證明代數基本定理（此不討論）</em></li>
+  <li><em>更多重要的定理</em></li>
+</ol>
+
+<p>在這之前應該要先證明歐拉公式。證明歐拉公式需要用到微積分中的泰勒展開式（Taylor formula）。</p>
+
+<p>[TOC]</p>
+
+<h3 id="section-1">泰勒展開式</h3>
+
+<p>先看一個簡單的例子：</p>
+
+<h4 id="section-2">三次式的係數</h4>
+
+<p>對於一個未知的三次式 <script type="math/tex"> f(x) = ax^3+bx^2+cx+d$，如果我們知道 $f(0)$、$f'(0)$、$f''(0)$、$f'''(0)$，那麼我們就可以知道 $f(x) </script> 的各項係數，方法如下：</p>
+
+<p>首先，<script type="math/tex"> d$ 是常數項，所以 $d=f(0) </script>。</p>
+
+<p>其次，<script type="math/tex"> c$ 是 $f'(x)=3ax^2+2bx+1c$ 的常數項，所以 $c=f'(0) </script>。</p>
+
+<p>再來，<script type="math/tex"> 2b$ 是 $f''(x)=3\cdot 2ax+2\cdot 1b$ 的常數項，所以 $b=\frac{1}{2!}f''(0) </script>。</p>
+
+<p>最後，<script type="math/tex"> 6a$ 是 $f'''(x) = 3\cdot 2\cdot 1\cdot a$ 的常數項，所以 $a=\frac{1}{3!}f'''(0) </script></p>
+
+<p>因此多項式 <script type="math/tex"> f(x) </script> 可以表示為 <script type="math/tex; mode=display"> f(x)=f(0)+\frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3. </script></p>
+
+<p>以此為發想，一個 <script type="math/tex"> n </script> 次多項式總是可以重新表示成</p>
+
+<script type="math/tex; mode=display">  f(x)=\sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^k  </script>
+
+<p>，其中 <script type="math/tex"> f^{(k)}(0)$ 代表 $f$ 在原點的第 $k </script> 階導數。</p>
+
+<p>這就是多項式在原點的泰勒公式。</p>
+
+<h4 id="section-3">物理意義</h4>
+
+<p>這裡有一點物理意義：如果一個系統是以多項式的模式在演變，比方說氣溫，那麼只要測量現在的氣溫、現在的氣溫變化率、變化率的變化率 …，就可以知道未來每一刻的溫度了。</p>
+
+<p>但是氣溫不可能以多項式演變，因為高次多項式增長的速度非常快。</p>
+
+<h4 id="section-4">無窮項的泰勒展開式</h4>
+
+<p>泰勒展開式可以用來展開非多項式的函數，想當然耳，其展開後該要有無窮多項，否則就是多項式了。「無窮項的多項式」不能稱做多項式，應該稱做冪級數。</p>
+
+<blockquote>
+  <p>冪級數指的是具有下列形式的級數：</p>
+</blockquote>
+
+<blockquote>
+  <script type="math/tex; mode=display">  p(x) = \sum _{k=0} ^{\infty} p_kx^k  </script>
+
+</blockquote>
+
+<p>現在把展開式的公式改寫成無窮項：</p>
+
+<blockquote>
+  <script type="math/tex; mode=display">  f_{\mathrm{taylor}}(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!} x^k  </script>
+
+</blockquote>
+
+<h4 id="section-5">無窮多項的盲點</h4>
+
+<p>並不是所有函數的泰勒展開式都和原本一模一樣，所以上面的式子才會說它是個新函數 <script type="math/tex"> f_{\mathrm{taylor}}(x) </script>。</p>
+
+<p>有時候 <script type="math/tex"> f_{\mathrm{taylor}}(x) \neq f(x) </script> ，體認到這點是非常重要的，現在舉個例子來看：</p>
+
+<blockquote>
+  <p>展開 <script type="math/tex; mode=display"> f(x)=\frac{1}{1-x}<script type="math/tex"> $ 的結果是 $ </script> f_{\mathrm{taylor}}(x) = 1+x+x^2+x^3+... = \sum_{k=0}^{\infty} x^k </script></p>
+</blockquote>
+
+<p>要實際展開來驗證也可以，不過當成等比級數來看的話這結果是顯而易見的。</p>
+
+<p>無窮等比級數的公比 <script type="math/tex"> x$ 必須滿足範圍 $-1&lt;x&lt;1$，所以 $f_{\mathrm{taylor}}$ 在這範圍外式沒有值的。但是 $f(x)=\frac{1}{1-x}$ 只在 $x=1 </script> 的地方沒有值，所以這是兩個不一樣的函數。</p>
+
+<p>應該試著去想 <script type="math/tex"> f_{\mathrm{taylor}}(x) $ 和 $f(x) </script> 的圖形差在哪裡。</p>
+
+<h3 id="section-6">歐拉公式</h3>
+
+<p>被稱做歐拉公式的式子太多了，這裡指的是</p>
+
+<script type="math/tex; mode=display"> e^{ix}=\operatorname{cos}x+i\operatorname{sin}x </script>
+
+<p>某數的 <script type="math/tex"> i </script> 次方的概念就是從這裡定義的。</p>
+
+<h4 id="script-typemathtex--i-script-">某數的 <script type="math/tex"> i </script> 次方</h4>
+
+<p>來計算 <script type="math/tex"> e^x$ 的泰勒展開式。為了符號方便，定義函數 $\operatorname{exp}x=e^x </script>。</p>
+
+<p>根據泰勒展開式：</p>
+
+<script type="math/tex; mode=display"> \operatorname{exp}x=\operatorname{exp}0+\frac{\operatorname{exp}'0}{1!}x + \frac{\operatorname{exp}''0}{2!}x^2+... </script>
+
+<p>由於 <script type="math/tex"> \operatorname{exp}x$ 的 $n$ 階導數都是 $\operatorname{exp}x$ 本身，所以 $\operatorname{exp}' ' 0 = \operatorname{exp}' 0 = \operatorname{exp} 0 = 1  </script> ，展開式簡化為</p>
+
+<script type="math/tex; mode=display"> \operatorname{exp}x=1+\frac{1}{1!}x + \frac{1}{2!}x^2+... </script>
+
+<p>注意到這樣 <script type="math/tex"> \operatorname{exp}x$ 就可以代虛數進去了。代純虛數 $ix </script> 進去看看：</p>
+
+<script type="math/tex; mode=display"> \operatorname{exp}x=1+\frac{1}{1!}ix + \frac{1}{2!}i^2x^2+\frac{1}{3!}i^3x^3+\frac{1}{4!}i^4x^4+\frac{1}{5!}i^5x^5+... </script>
+
+<p>利用 <script type="math/tex"> i^2=-1 </script> 簡化為</p>
+
+<script type="math/tex; mode=display"> \operatorname{exp}ix=1+\frac{1}{1!}ix - \frac{1}{2!}x^2-\frac{1}{3!}ix^3+\frac{1}{4!}x^4+\frac{1}{5!}ix^5... </script>
+
+<h4 id="section-7">展開三角函數</h4>
+
+<p>要展開 <script type="math/tex"> \operatorname{sin}x$，需要算它在 $0 </script> 處的各階導數：</p>
+
+<ul>
+  <li>
+    <script type="math/tex"> \operatorname{sin}0 =0 </script>
+  </li>
+  <li>
+    <script type="math/tex"> \operatorname{sin}'0 = \operatorname{cos}0=1 </script>
+  </li>
+  <li>
+    <script type="math/tex"> \operatorname{sin}''0 = -\operatorname{sin}0=0 </script>
+  </li>
+  <li>
+    <script type="math/tex"> \operatorname{sin}'''0 = -\operatorname{cos}0=-1 </script>
+  </li>
+  <li>
+    <script type="math/tex"> \operatorname{sin}''''0 =\operatorname{sin}0=0 </script>
+  </li>
+</ul>
+
+<p>發現是 0, 1, 0, -1, … 循環，所以</p>
+
+<script type="math/tex; mode=display">  \operatorname{sin}x = x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-... </script>
+
+<p>用類似的方法可以展開 <script type="math/tex"> \operatorname{cos}x </script></p>
+
+<script type="math/tex; mode=display"> \operatorname{cos}x = 1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-... </script>
+
+<h4 id="section-8">證明歐拉公式</h4>
+
+<script type="math/tex"> \operatorname{sin}x$、$\operatorname{cos}x$、$e^x </script>
+<p>都展開完了，接下來可以直接證明歐拉公式。</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{aligned}
+ \operatorname{cos}x+i\operatorname{sin}x &=  (1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-...) + (ix-\frac{1}{3!}ix^3+\frac{1}{5!}ix^5-...)\\ 
+ &= 1+\frac{1}{1!}ix - \frac{1}{2!}x^2-\frac{1}{3!}ix^3+\frac{1}{4!}x^4+\frac{1}{5!}ix^5...\\
+ &= \operatorname{exp}ix.
+\end{aligned} %]]></script>
+
+<p>從倒數第二行到最後一行，就是用剛剛推導出來的 <script type="math/tex"> \operatorname{exp}ix </script> 的公式。</p>
+
+<h3 id="section-9">將三角函數寫成指數形式</h3>
+
+<p>根據 <script type="math/tex"> e^{ix}=\operatorname{cos}x+i\operatorname{sin}x </script> ，我們也有</p>
+
+<script type="math/tex; mode=display"> e^{-ix}=\operatorname{cos}-x+i\operatorname{sin}-x = \operatorname{cos}x-i\operatorname{sin}x </script>
+
+<p>。所以</p>
+
+<script type="math/tex; mode=display"> \operatorname{cos}x=\frac{e^{ix}+e^{-ix}}{2} </script>
+
+<script type="math/tex; mode=display"> \operatorname{sin}x=\frac{e^{ix}-e^{-ix}}{2i} </script>
+
+<p>這算是指數形式的三角函數，和 <script type="math/tex"> \operatorname{sinh}x$、$\operatorname{cosh}x </script> 雷同。</p>
+
+<h3 id="section-10">證明棣美弗定理</h3>
+
+<p>棣美弗定理說明一個複數的 <script type="math/tex"> n </script> 次方的行為：</p>
+
+<blockquote>
+  <script type="math/tex; mode=display"> [r(\operatorname{cos}\theta+i\operatorname{sin}\theta)]^n=r^n(\operatorname{cos}n\theta+i\operatorname{sin}n\theta) </script>
+
+</blockquote>
+
+<p>三角(二) 會學到棣美弗定理的完整解釋。用歐拉公式來證明它再簡單不過了：</p>
+
+<script type="math/tex; mode=display"> [r(\operatorname{cos}\theta+i\operatorname{sin}\theta)]^n=(re^{i\theta})^n = r^ne^{in\theta}=r^n(\operatorname{cos}n\theta+i\operatorname{sin}n\theta) </script>
+
+<p>這樣就證完了。</p>
