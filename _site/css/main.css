@@ -1,3 +1,100 @@
+.post-content {
+  font-family: "Source Sans Pro", sans-serif; }
+
+/*.post-content a:link {
+  color: #5d5d5d;
+}*/
+.post-content #comments {
+  background: #ebebeb; }
+
+.post-content b, strong {
+  font-weight: 650; }
+
+.post-content h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
+  margin: 1.5em 0;
+  text-align: start; }
+
+.post-content h1 {
+  font-size: 40px;
+  line-height: 50px; }
+
+.post-content h2 {
+  font-size: 32px;
+  line-height: 40px; }
+
+.post-content h3 {
+  font-size: 24px;
+  line-height: 30px; }
+
+.post-content h4 {
+  font-size: 20px;
+  line-height: 25px; }
+
+.post-content hr {
+  background-color: #ffffff;
+  border-style: solid;
+  border-left-color: #ffffff;
+  border-right-color: #ffffff;
+  border-top-color: #ffffff;
+  border-bottom-color: #dddddd;
+  border-bottom-width: 1px; }
+
+.post-content p, dl, li, blockquote, pre, code {
+  margin: 1.5em 0;
+  text-align: start;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 24px; }
+
+.post-content blockquote {
+  margin-left: 40px;
+  border-style: solid;
+  border-width: 0px;
+  border-left-width: 10px;
+  border-left-color: #dfdfdf;
+  background-color: #f2f2f2;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 15px 20px; }
+
+.post-content blockquote p {
+  margin: 0px 0px; }
+
+.post-content dt, dd {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+.post-content dt {
+  font-weight: bold; }
+
+.post-content .footnote {
+  vertical-align: super;
+  font-size: small; }
+
+.post-content pre {
+  white-space: pre;
+  background-color: #f2f2f2;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 15px 20px; }
+
+.post-content code {
+  font-family: "Courier New", monospace;
+  font-weight: 600;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  word-wrap: break-word; }
+
+.post-content img {
+  margin-left: 50px;
+  max-width: 700px; }
+
+.toc ul li {
+  list-style-type: none;
+  line-height: 1.4;
+  margin: 0px; }
+
 /**
  * Reset some basic elements
  */
