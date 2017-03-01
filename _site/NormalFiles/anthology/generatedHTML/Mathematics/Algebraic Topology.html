@@ -1,0 +1,539 @@
+
+<html>
+
+<head>
+
+	<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+
+	<!-- icon -->
+	<link rel="shortcut icon" href="https://davidhu3141.github.io/anthology//img/pageicon.png">
+
+	<!-- mathjax -->
+	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+	<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+	<!-- highloghtjs -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<!-- custom css/js -->
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+	<link rel=stylesheet type="text/css" href="https://davidhu3141.github.io/anthology//css/article.css">
+	<link rel=stylesheet type="text/css" href="https://davidhu3141.github.io/anthology//css/anthology.css">
+
+	<script>
+
+	</script>
+
+</head>
+
+<body>
+
+<div class="master">
+
+	<div class="mid_warpper">
+		<div class="left">
+			<div class="nav">
+
+				<div class="headpic">
+				
+				</div>
+
+				<div class="articlelist">
+					<div class="category">
+<div class="categoryTitle">Mathematics</div>
+<div class="categoryList">
+<div class="articleLink"><a href="https://davidhu3141.github.io/anthology/generatedHTML/Mathematics/Algebraic Topology.html">Algebraic Topology</a></div>
+<div class="articleLink"><a href="https://davidhu3141.github.io/anthology/generatedHTML/Mathematics/Generating Functions (I).html">Generating Functions (I)</a></div>
+<div class="articleLink"><a href="https://davidhu3141.github.io/anthology/generatedHTML/Mathematics/二元一次方程式整數解.html">二元一次方程式整數解</a></div>
+<div class="articleLink"><a href="https://davidhu3141.github.io/anthology/generatedHTML/Mathematics/歐拉公式與三角函數的指數形式.html">歐拉公式與三角函數的指數形式</a></div>
+<div class="articleLink"><a href="https://davidhu3141.github.io/anthology/generatedHTML/Mathematics/高斯引理.html">高斯引理</a></div>
+</div>
+</div>
+<div class="category">
+<div class="categoryTitle">Programming</div>
+<div class="categoryList">
+<div class="articleLink"><a href="https://davidhu3141.github.io/anthology/generatedHTML/Programming/物件導向基礎語法 Object-Oriented Programming Basic Semantics .html">物件導向基礎語法 Object-Oriented Programming Basic Semantics </a></div>
+</div>
+</div>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="right">
+			<div class="content">
+				<div class="article">
+					<h1 id="筆記我對代數拓撲的認識">筆記–我對代數拓撲的認識</h1>
+
+<p>代數拓撲是促使數學家發展範疇論的重要契機之一。數學家發現存在一種稱為「基本群」的對應關係，可以連繫<strong>拓撲空間</strong>與<strong>群</strong>之間的內在結構，這就是早期所發現的<strong>函子</strong>(functor)。</p>
+
+<p>本篇文章會盡量以科普的方式介紹代數拓撲，因此不做證明，而太過含混的用詞會用斜體標示。主要的重點是介紹代數拓撲中「基本群」這個概念，這將是我們認識到的第一個函子。</p>
+
+<p>如果對群與自由群沒有基本概念，可以先參考我的另一些拙作：</p>
+
+<blockquote>
+  <p>…</p>
+</blockquote>
+
+<p>代數拓撲中「同調」的概念應用到其他各領域中有許多極為有用的成果，但不在本篇討論範圍。</p>
+
+<p><div class="toc">
+<ul>
+<li><a href="#筆記我對代數拓撲的認識">筆記–我對代數拓撲的認識</a><ul>
+<li><a href="#拓撲的基本概念">拓撲的基本概念</a><ul>
+<li><a href="#舉例">舉例</a></li>
+<li><a href="#同胚homeomorphism">同胚(homeomorphism)</a></li>
+<li><a href="#連續函數">連續函數</a></li>
+<li><a href="#關於拓撲的精確定義題外話">關於拓撲的精確定義（題外話）</a></li>
+</ul>
+</li>
+<li><a href="#代數拓撲">代數拓撲</a><ul>
+<li><a href="#道路">道路</a></li>
+<li><a href="#邁入基本群">邁入基本群</a></li>
+<li><a href="#基本群的定義與用途">基本群的定義與用途</a></li>
+<li><a href="#基本群的簡單例子">基本群的簡單例子</a><ul>
+<li><a href="#圓環annulus">圓環(Annulus)</a></li>
+<li><a href="#環面torus">環面(Torus)</a></li>
+<li><a href="#平面樹與球面">平面、樹與球面</a></li>
+</ul>
+</li>
+<li><a href="#pi1-是個函子"><script type="math/tex" id="MathJax-Element-1">\pi_1</script> 是個函子</a></li>
+<li><a href="#其他初等的討論">其他初等的討論</a><ul>
+<li><a href="#莫比烏斯帶möbius-strip-被平面封住">莫比烏斯帶(Möbius Strip) 被平面封住</a></li>
+<li><a href="#誰的基本群是自由群">誰的基本群是自由群</a></li>
+<li><a href="#萬有覆蓋universal-cover">萬有覆蓋(Universal Cover)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="拓撲的基本概念">拓撲的基本概念</h2>
+
+<p>所謂「拓撲」是指空間中點與點的位置關係（所謂「位相」）。這樣的關係不限於長度或角度等，我們更著重的是整體的空間結構。</p>
+
+
+
+<h3 id="舉例">舉例</h3>
+
+<ol>
+<li><p>公車路線圖的各站之間通常是連成長條狀的，但如果起站與終站是同一站，那麼路線圖就是環狀的。我們說這兩種路線規劃有不同的拓撲。</p></li>
+<li><p>有些圖案可以一筆畫，有些不行，也是因為他們點與點相連的方式不同。</p></li>
+<li><p>網路連結的星狀拓撲與環狀拓撲也不同。</p></li>
+</ol>
+
+<p><em>[1]</em> <br>
+<em>[2]</em> <br>
+<em>[3]</em></p>
+
+<p>以上的例子都和<strong>圖同構</strong>的概念類似，我們看一些不一樣的。</p>
+
+<ol>
+<li><p>一張無限延伸的平面上如果有洋流，這洋流有辦法同時往東方流動。球面上如果有洋流（如沒有陸地的地球），則沒辦法同時往東方流，因為南北極的洋流只能原地轉圈。如果地球是甜甜圈形狀的行星，則這又變成可能的。</p></li>
+<li><p>太空船離開地球直直往前開，有沒有可能幾億年後回到地球，要看宇宙彎曲的模式。宇宙可能是平坦的、圓滑封閉的、有蟲洞的，後兩種都有可能讓太空船回到地球。</p></li>
+</ol>
+
+<p><em>[4]</em> <br>
+<em>[5]</em></p>
+
+<p>這些空間結構的差異和曲面閉合的方式有關，他們具有不同的拓撲。</p>
+
+<p>所有幾何物件（由點構成的集合）都是拓撲空間，但不限於此。我們目前只討論一些簡單的曲線或曲面，它們是拓撲空間的特例。</p>
+
+
+
+<h3 id="同胚homeomorphism">同胚(homeomorphism)</h3>
+
+<p>兩個拓撲空間 <script type="math/tex" id="MathJax-Element-2">X</script>, <script type="math/tex" id="MathJax-Element-3">Y</script> 之間，如果存在有連續的一一對應函數（反函數也要連續），我們就說它們是同胚的(homeomorphic)。</p>
+
+<blockquote>
+  <p>存在 <script type="math/tex" id="MathJax-Element-4">f:X\rightarrow Y:\mathit{continuous}</script> ，而且 <script type="math/tex" id="MathJax-Element-5">f^{-1}:Y\rightarrow X:\mathit{continuous}</script></p>
+</blockquote>
+
+<p>直觀的想法是兩個圖形可以連續變形成對方，而且不需要被剪開或是接合。圓周和正方形是同胚的，圓周和任何簡單封閉曲線也都是同胚的。</p>
+
+<p><em>[6]</em></p>
+
+<p>我們也把這種連續的一一對應函數 <script type="math/tex" id="MathJax-Element-6">f</script> 稱為一個 <script type="math/tex" id="MathJax-Element-7">X</script>, <script type="math/tex" id="MathJax-Element-8">Y</script> 之間的同胚(homeomorphism)。</p>
+
+<p>圓周和線段不是同胚的。如圖，圓周上相近的兩點被對應到線段上遙遠的兩個點。換句話說，圓周必須被剪開才能連續變形成線段，所以不同胚。</p>
+
+<p><em>[7]</em></p>
+
+<p>去掉一個點的球與二維平面同胚。</p>
+
+<p><em>[8]</em></p>
+
+<p>常見的例子：環面與帶有一個把柄的杯子同胚。</p>
+
+<p><em>[9]</em></p>
+
+<p>下面的任兩個圖形都不是同胚的。</p>
+
+<p><em>[10]</em></p>
+
+<p>同胚的兩個空間，可以被看成「具有相同的拓撲」，而這是個等價關係。</p>
+
+<blockquote>
+  <p>複習等價關係的要件：若以 <script type="math/tex" id="MathJax-Element-9">X\cong Y</script> 代表 <script type="math/tex" id="MathJax-Element-10">X</script> 與 <script type="math/tex" id="MathJax-Element-11">Y</script> 同胚</p>
+  
+  <ul>
+  <li>對稱律：<script type="math/tex" id="MathJax-Element-12">X\cong Y</script>，則 <script type="math/tex" id="MathJax-Element-13">Y\cong X</script></li>
+  <li>遞移律：<script type="math/tex" id="MathJax-Element-14">X\cong Y</script> 且 <script type="math/tex" id="MathJax-Element-15">Y\cong Z</script>，則 <script type="math/tex" id="MathJax-Element-16">X\cong  Z</script></li>
+  <li>反身律：<script type="math/tex" id="MathJax-Element-17">X\cong X</script></li>
+  </ul>
+</blockquote>
+
+<p>全等與相似也是幾何上的等價關係，但同胚比他們<em>更寬鬆</em>。</p>
+
+
+
+<h3 id="連續函數">連續函數</h3>
+
+<p>連續函數的定義比同胚還要弱，它並不要求一一對應，所以一個拓撲空間 <script type="math/tex" id="MathJax-Element-18">A</script> 被連續映射到 <script type="math/tex" id="MathJax-Element-19">B</script> 的內部時，可能會有兩點重疊，也可能沒有連續的反函數。</p>
+
+<p>連續函數可以保有空間的拓撲結構：位置相近的兩點仍然被映射到相近的地方。因此拓撲學中有意義的函數是連續函數（保有結構的函數才有討論的意義）。</p>
+
+
+
+<h3 id="關於拓撲的精確定義題外話">關於拓撲的精確定義（題外話）</h3>
+
+<p>數學家想要定義「同胚」這件事的時候，必須先定義「連續」是什麼。如果這個空間中任兩點有明確的距離，我們可以用 <script type="math/tex" id="MathJax-Element-20">\epsilon - \delta</script> 來定義連續函數：</p>
+
+<blockquote>
+  <p>設函數 <script type="math/tex" id="MathJax-Element-21">f:X\rightarrow Y</script> 在 <script type="math/tex" id="MathJax-Element-22">a</script> 點的函數值為 <script type="math/tex" id="MathJax-Element-23">f(a)</script>。</p>
+  
+  <p>如果函數在 <script type="math/tex" id="MathJax-Element-24">a</script> 點連續，代表如果我們想讓某 <script type="math/tex" id="MathJax-Element-25">x</script> 被映射後離 <script type="math/tex" id="MathJax-Element-26">f(a)</script> 不太遠（距離 <script type="math/tex" id="MathJax-Element-27"><\epsilon</script>），我們只要找那些 <script type="math/tex" id="MathJax-Element-28">a</script> 附近（距離 <script type="math/tex" id="MathJax-Element-29"><\delta</script>）的點就可以了。</p>
+</blockquote>
+
+<p><em>[11]</em></p>
+
+<p>但距離是個<em>過強</em>的概念（我們不需要這麼良好的性質）。反正我們只需要用到類似「距離 <script type="math/tex" id="MathJax-Element-30"><\delta</script>」這樣的敘述即可，不如我們改個說法：</p>
+
+<blockquote>
+  <p>「和 <script type="math/tex" id="MathJax-Element-31">a</script> 的距離小於 <script type="math/tex" id="MathJax-Element-32">\delta</script>」 <script type="math/tex" id="MathJax-Element-33">\Rightarrow</script> 「在中心為 <script type="math/tex" id="MathJax-Element-34">a</script>、半徑為 <script type="math/tex" id="MathJax-Element-35">\delta</script> 的開球（或開區間）裡」</p>
+</blockquote>
+
+<p>用這種敘述把 <script type="math/tex" id="MathJax-Element-36">\epsilon - \delta</script> 定義中的「距離」概念抽換掉，這樣我們只需指定好這個空間中「哪些子集合是個開球」，就可以說某些函數是或不是連續的，不需直接給出任兩點之間的距離。</p>
+
+<blockquote>
+  <p>「指定哪些子集合是個開球」<em>（幾乎）</em>等同於「給出集合上的拓撲」</p>
+</blockquote>
+
+<p>所以拓撲的定義是這樣的：</p>
+
+<p>給定一集合 <script type="math/tex" id="MathJax-Element-37">X</script>，而 <script type="math/tex" id="MathJax-Element-38">\mathscr{X}</script> 是由 <script type="math/tex" id="MathJax-Element-39">X</script> 的某些子集構成的集合。 <br>
+我們說 <script type="math/tex" id="MathJax-Element-40">\mathscr{X}</script> 是 <script type="math/tex" id="MathJax-Element-41">X</script> 上的一個拓撲如果下面三件事成立：</p>
+
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Axiom</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>T1</td>
+  <td>取任意個 <script type="math/tex" id="MathJax-Element-42">\mathscr{X}</script> 中的元素來聯集，得到的結果也在 <script type="math/tex" id="MathJax-Element-43">\mathscr{X}</script> 中</td>
+</tr>
+<tr>
+  <td>T2</td>
+  <td>取有限個 <script type="math/tex" id="MathJax-Element-44">\mathscr{X}</script> 中的元素來交集，得到的結果也在 <script type="math/tex" id="MathJax-Element-45">\mathscr{X}</script> 中</td>
+</tr>
+<tr>
+  <td>T3</td>
+  <td><script type="math/tex" id="MathJax-Element-46">X\in\mathscr{X}</script> 而且 <script type="math/tex" id="MathJax-Element-47">\varnothing\in\mathscr{X}</script></td>
+</tr>
+</tbody></table>
+
+
+<p>而 <script type="math/tex" id="MathJax-Element-48">\mathscr{X}</script> 中的元素稱做是 <script type="math/tex" id="MathJax-Element-49">X</script> 中的<strong>開集合</strong>，序對 <script type="math/tex" id="MathJax-Element-50">(X, \mathscr{X})</script> 我們就說它是個<strong>拓撲空間</strong>。</p>
+
+<p>這些定義看似與開球沒關係，但其實是仿照開區間的性質來定的。任意數量的開區間彼此聯集之後，仍然是一些<em>沒有端點</em>的線段或空集合，但是任意數量的開區間取交集不一定是開區間（例如所有包含 <script type="math/tex" id="MathJax-Element-51">[0, 1]</script> 閉區間的開區間相交，可以交出 <script type="math/tex" id="MathJax-Element-52">[0, 1]</script> 閉區間），所以我們只能保證有限個開集相交是開的。</p>
+
+<p>例如平面上的開集合就是平面上所有任意中心、任意半徑的開球、以及它們的任意聯集與任意有限交集。將這些開集合收集起來得到平面的拓撲。</p>
+
+<p><em>[12]</em></p>
+
+<p>如果 <script type="math/tex" id="MathJax-Element-53">\mathscr{X}</script> 是由 <script type="math/tex" id="MathJax-Element-54">X</script> 的「所有」子集構成的，我們就說 <script type="math/tex" id="MathJax-Element-55">\mathscr{X}</script> 是個<strong>離散拓撲</strong>，這樣的拓撲與我們常識的認知相差甚遠。由此可知拓撲的定義是很廣泛的，且能定義各種極度扭曲的空間。不過這篇文章裡的空間都是用距離來定義的開球（換句話說，賦距空間總是一個拓撲空間，給定距離就可以討論連續）。</p>
+
+
+
+<h2 id="代數拓撲">代數拓撲</h2>
+
+<p>關於「兩個拓撲空間 <script type="math/tex" id="MathJax-Element-56">X</script>、<script type="math/tex" id="MathJax-Element-57">Y</script> 是不是彼此同胚」這個問題困擾人們很久。如果是同胚就找出這個連續的一一對應即可，如果不同胚的話我們卻要證明「所有」函數都不是一個同胚，這太麻煩了。</p>
+
+<p>這時，數學家發現我們如果在拓撲空間上定義一些「道路」，則這些道路能以某些方法組合成一個群（基本群）。互相同胚的空間，它們各自的道路所構成的群就同構，換句話說</p>
+
+<blockquote>
+  <p>空間同胚 <script type="math/tex" id="MathJax-Element-58">\Rightarrow</script> 群同構 <br>
+  群不同構 <script type="math/tex" id="MathJax-Element-59">\Rightarrow</script> 空間不同胚</p>
+</blockquote>
+
+<p>我們來看到底是什麼群可以達到這樣的效果。</p>
+
+
+
+<h3 id="道路">道路</h3>
+
+<p>把一段有方向的線段用連續函數映射到拓撲空間中，就是個道路。我們說兩條道路是同倫（homotopy）的如果他們可以在拓撲空間中連續的變形成彼此，而且端點不能動。</p>
+
+<p><em>[13]</em></p>
+
+<p>同倫關係「<script type="math/tex" id="MathJax-Element-60">\sim</script>」是等價關係，它們的對稱律、反身律、遞移律是顯而易見的。</p>
+
+<p><em>[14]</em></p>
+
+<p>因此我們不需要區別兩條同倫的道路：如果道路 <script type="math/tex" id="MathJax-Element-61">a</script>, <script type="math/tex" id="MathJax-Element-62">a_1</script>, <script type="math/tex" id="MathJax-Element-63">a_2</script>… 彼此同倫，我們就直接寫 <script type="math/tex" id="MathJax-Element-64">[a]</script> 來代表這一整個類的道路即可，當然要把這個類寫成 <script type="math/tex" id="MathJax-Element-65">[a_1]</script>（也就是派 <script type="math/tex" id="MathJax-Element-66">a_1</script> 當代表）也可以。</p>
+
+<p><em>[15]</em></p>
+
+<p>以後我們就不討論個別的道路，而是把它們一類一類的討論就好。像 <script type="math/tex" id="MathJax-Element-67">[a]</script> 這樣整類的道路，我們就叫它<strong>道路類</strong>。</p>
+
+
+
+<h3 id="邁入基本群">邁入基本群</h3>
+
+<p>在開始介紹基本群之前，可以先簡化一些不必要的討論：</p>
+
+<ol>
+<li>我們只討論連通的空間（不連通表示空間有些部分不相連，像台灣與離島、或雙曲線的兩個分支那樣）</li>
+<li>在拓撲空間中選定任意一點 <script type="math/tex" id="MathJax-Element-68">p</script>，然後我們只討論起點和終點都在 <script type="math/tex" id="MathJax-Element-69">p</script> 上的道路類。</li>
+</ol>
+
+<p><em>[16]</em> <br>
+<em>[17]</em></p>
+
+<p>現在我們準備一個空間 <script type="math/tex" id="MathJax-Element-70">X</script>，上面有很多以 <script type="math/tex" id="MathJax-Element-71">p</script> 為端點的道路類。如果兩個道路類可以相乘（乘法要有結合律），而且定義類似單位元與反元素的道路，我們就有一個群。</p>
+
+<p>帶出正式定義之前，先看個例子：平面上有一個類似 CD 片的圓環，這個圓環是我們要討論的拓撲空間 <script type="math/tex" id="MathJax-Element-72">X</script> ，然後我們在環上隨意取一點 <script type="math/tex" id="MathJax-Element-73">p</script>。</p>
+
+<p><em>[18]</em></p>
+
+<p>令 <script type="math/tex" id="MathJax-Element-74">a</script> 是一個逆時針繞一圈道路，它屬於道路類 <script type="math/tex" id="MathJax-Element-75">[a]</script>。</p>
+
+<p><em>[19]</em></p>
+
+<p>沿著 <script type="math/tex" id="MathJax-Element-76">a</script> 走兩次的道路就和 <script type="math/tex" id="MathJax-Element-77">a</script> 不同倫了，我們把它記為 <script type="math/tex" id="MathJax-Element-78">[a]\cdot[a]</script> 或 <script type="math/tex" id="MathJax-Element-79">[a][a]</script> 、<script type="math/tex" id="MathJax-Element-80">[a]^2</script> ，也就是沿用相乘的符號。</p>
+
+<p>我們也可以沿著 <script type="math/tex" id="MathJax-Element-81">a</script> 走三次或四次，得到更多不一樣的道路類。</p>
+
+<p><em>[20]</em></p>
+
+<p>如果有一個道路 <script type="math/tex" id="MathJax-Element-82">e</script> 可以同倫的縮小到 <script type="math/tex" id="MathJax-Element-83">p</script> 點，那麼沿著 <script type="math/tex" id="MathJax-Element-84">a</script> 走，接著再走 <script type="math/tex" id="MathJax-Element-85">e</script>，這樣走出的道路仍然和 <script type="math/tex" id="MathJax-Element-86">a</script> 同倫。</p>
+
+<p><em>[21]</em></p>
+
+<p>因此 <script type="math/tex" id="MathJax-Element-87">e</script> 所屬的道路類 <script type="math/tex" id="MathJax-Element-88">[e]</script> 滿足 <script type="math/tex" id="MathJax-Element-89">[a]\cdot[e]=[e]</script>。我們也可以驗證 <script type="math/tex" id="MathJax-Element-90">[e]\cdot[a]=[e]</script> ，得出 <script type="math/tex" id="MathJax-Element-91">[e]</script> 是單位元素，它收集了所有可收縮成點的道路。</p>
+
+<p><em>[22]</em></p>
+
+<p>沿著 <script type="math/tex" id="MathJax-Element-92">a</script> 走再沿著 <script type="math/tex" id="MathJax-Element-93">a</script> 的反向走，走出的道路可以縮小到 <script type="math/tex" id="MathJax-Element-94">p</script> 點，所以這種道路屬於 <script type="math/tex" id="MathJax-Element-95">[e]</script> 。</p>
+
+<p><em>[23]</em></p>
+
+<p>「沿著 <script type="math/tex" id="MathJax-Element-96">a</script> 的反向走」所帶出的道路類就是 <script type="math/tex" id="MathJax-Element-97">[a]</script> 的反元素，記成 <script type="math/tex" id="MathJax-Element-98">[a]^{-1}</script> 。</p>
+
+
+
+<h3 id="基本群的定義與用途">基本群的定義與用途</h3>
+
+<p>因此我們有基本群的定義：</p>
+
+<blockquote>
+  <p>連通拓撲空間 <script type="math/tex" id="MathJax-Element-99">X</script> 的基本群 <script type="math/tex" id="MathJax-Element-100">\pi_1(X)</script> 是以某點 <script type="math/tex" id="MathJax-Element-101">p</script> 為起點與終點的所有道路類 <script type="math/tex" id="MathJax-Element-102">[e]</script>, <script type="math/tex" id="MathJax-Element-103">[a]</script>, <script type="math/tex" id="MathJax-Element-104">[b]</script>, <script type="math/tex" id="MathJax-Element-105">[c]</script>, …所構成的集合，並滿足以下性質：</p>
+</blockquote>
+
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Definition</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>Additive</td>
+  <td>兩個道路類 <script type="math/tex" id="MathJax-Element-106">[a]</script>, <script type="math/tex" id="MathJax-Element-107">[b]</script> 相乘，就是沿著 <script type="math/tex" id="MathJax-Element-108">a</script> 道路走完接著走 <script type="math/tex" id="MathJax-Element-109">b</script> 道路，這種走法帶出的道路類我們就記做 <script type="math/tex" id="MathJax-Element-110">[a][b]</script> 或 <script type="math/tex" id="MathJax-Element-111">[a]\cdot[b]</script>。</td>
+</tr>
+<tr>
+  <td>Identity</td>
+  <td>有一些道路可以同倫的縮成點，它們形成的道路類是單位元素 <script type="math/tex" id="MathJax-Element-112">[e]</script>。</td>
+</tr>
+<tr>
+  <td>Inverse</td>
+  <td>道路類 <script type="math/tex" id="MathJax-Element-113">[a]</script> 的反元素就是沿著 <script type="math/tex" id="MathJax-Element-114">a</script> 的反方向走，所帶出的道路類。我們把它記做 <script type="math/tex" id="MathJax-Element-115">[a]^{-1}</script>。</td>
+</tr>
+</tbody></table>
+
+
+<p>正如我們之前提到的：</p>
+
+<blockquote>
+  <p>空間同胚 <script type="math/tex" id="MathJax-Element-116">\Rightarrow</script> 基本群同構 <br>
+  基本群不同構 <script type="math/tex" id="MathJax-Element-117">\Rightarrow</script> 空間不同胚</p>
+</blockquote>
+
+<p>直觀的理解是：當空間連續形變的時候，上面的道路也跟著連續形變，所以不會影響到道路所形成的基本群。</p>
+
+<p><em>[23.5]</em></p>
+
+
+
+<h3 id="基本群的簡單例子">基本群的簡單例子</h3>
+
+
+
+<h4 id="圓環annulus">圓環(Annulus)</h4>
+
+<p>圓環（也就是 CD 片形狀）我們已經討論過了。把逆時針（或順時針）繞一圈的道路類稱做 <script type="math/tex" id="MathJax-Element-118">[a]</script> ，則所有道路類可以寫成 </p>
+
+<blockquote>
+  <p>…<script type="math/tex" id="MathJax-Element-119">[a]^{-3}</script>, <script type="math/tex" id="MathJax-Element-120">[a]^{-2}</script>, <script type="math/tex" id="MathJax-Element-121">[a]^{-1}</script>, <script type="math/tex" id="MathJax-Element-122">[e]</script>, <script type="math/tex" id="MathJax-Element-123">[a]^{1}</script>, <script type="math/tex" id="MathJax-Element-124">[a]^{2}</script>, <script type="math/tex" id="MathJax-Element-125">[a]^{3}</script>…</p>
+</blockquote>
+
+<p>而兩個道路類相乘就是把他們上標的指數相加而已，因此可以看到這些道路類彼此之間的運算，與整數之間的加法有一樣結構，我們說 <script type="math/tex; mode=display" id="MathJax-Element-126">\pi_1(X) \cong \mathbb{Z}</script>，這裡的空間 <script type="math/tex" id="MathJax-Element-127">X</script> 指圓環，<script type="math/tex" id="MathJax-Element-128">\cong</script> 指群同構。</p>
+
+<p>單位圓的圓周、正方形的外圍等，它們的基本群也和 <script type="math/tex" id="MathJax-Element-129">(\mathbb{Z}, +)</script> 同構（一樣是可以繞整數圈）。如同一開始所說的，群同構不保證空間同胚，空間同胚才保證群同構。</p>
+
+<p>從群的角度來說， <script type="math/tex" id="MathJax-Element-130">[a]</script> 是這個群的生成元，所有道路類都是 <script type="math/tex" id="MathJax-Element-131">[a]</script> 的某倍。</p>
+
+
+
+<h4 id="環面torus">環面(Torus)</h4>
+
+<p>環面指的是甜甜圈的表面形狀，它的經線與緯線不同倫。</p>
+
+<p><em>[24]</em></p>
+
+<p>我們把經線的道路類定為 <script type="math/tex" id="MathJax-Element-132">[a]</script>，而緯線的道路類定為 <script type="math/tex" id="MathJax-Element-133">[b]</script>，下面這張圖說明 <script type="math/tex" id="MathJax-Element-134">[a][b]=[b][a]</script> ，它們之間可以同倫的互相變換：</p>
+
+<p><em>[25]</em></p>
+
+<p>環面上的所有道路都可以由 <script type="math/tex" id="MathJax-Element-135">[a]</script> 與 <script type="math/tex" id="MathJax-Element-136">[b]</script> 繞出來：</p>
+
+<p><em>[26]</em></p>
+
+<p>從群的角度來說，<script type="math/tex" id="MathJax-Element-137">\pi_1(T)</script> 有兩個生成元 <script type="math/tex" id="MathJax-Element-138">[a]</script> 與 <script type="math/tex" id="MathJax-Element-139">[b]</script> ，也有交換律。這是什麼群呢？</p>
+
+<p><em>[27]</em></p>
+
+<p>謎底揭曉：<script type="math/tex" id="MathJax-Element-140">\pi_1(T)\cong\mathbb{Z}\oplus\mathbb{Z}</script>，也就是同構於平面上整數座標點的相加減。</p>
+
+
+
+<h4 id="平面樹與球面">平面、樹與球面</h4>
+
+<p>之前的例子都有一些道路類可以<em>圈</em>住空間上的某些洞 ，但是平面與樹結構是沒有洞的，可想而知所有道路類都可以收縮成點，也就是說只有 <script type="math/tex" id="MathJax-Element-141">[e]</script> 這個道路類。</p>
+
+<p>球面上的所有道路類都可以縮成點，這也是顯而易見的。平面、樹與球面的基本群都只有 <script type="math/tex" id="MathJax-Element-142">[e]</script> 這個元素，因此他們都是 trivial group。如果一個空間的基本群是 trivial group，我們就說這是個<strong>單連通</strong>空間。</p>
+
+<p>單連通的概念跟微積分中的<strong>格林定理</strong>、圖論都有不少關係。單連通的圖就是森林，而格林定理給出單連通區域外圍的線積分與區域內重積分之間的關係。事實上線積分和道路的概念十分相像，不過這是另一個故事。</p>
+
+
+
+<h3 id="pi1-是個函子"><script type="math/tex" id="MathJax-Element-143">\pi_1</script> 是個函子</h3>
+
+<p>終於可以講重點了。之前在介紹拓撲與群的時候都曾經強調過「保有結構的函數才值得討論」，我們就此整理一下這些函數：</p>
+
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>保有結構</th>
+  <th>保有所有的結構</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>拓撲</td>
+  <td>連續函數</td>
+  <td>同胚</td>
+</tr>
+<tr>
+  <td>群</td>
+  <td>群同態</td>
+  <td>群同構</td>
+</tr>
+</tbody></table>
+
+
+<p>同胚是一種連續函數，而群同構是一種群同態。再加上本文的重點：</p>
+
+<blockquote>
+  <p>互相同胚的兩個空間，基本群滿足群同構。</p>
+</blockquote>
+
+<p>我們應該趁勝追擊，接著思考</p>
+
+<blockquote>
+  <p>基本群把同胚變成群同構，是不是也把連續函數變成群同態</p>
+</blockquote>
+
+<p>答案是肯定的。如果</p>
+
+<blockquote>
+  <p>…</p>
+</blockquote>
+
+<p>目前為止，我們的思路已經同步到<strong>範疇論</strong>剛要誕生、曖昧不明的年代了。連結這些線索的就是 <script type="math/tex" id="MathJax-Element-144">\pi_1</script> 這個小東西。</p>
+
+<p>當我們寫 <script type="math/tex" id="MathJax-Element-145">\pi_1(X)=\mathbb{Z}</script>，意思是把拓撲空間 <script type="math/tex" id="MathJax-Element-146">X</script> 丟進 <script type="math/tex" id="MathJax-Element-147">\pi_1</script>，得到一個群 <script type="math/tex" id="MathJax-Element-148">\mathbb{Z}</script>，就像函數一樣。它的定義域想必容納了很多拓撲空間，對應域裝了很多群。</p>
+
+<p><em>[28]</em></p>
+
+<p><script type="math/tex" id="MathJax-Element-149">\pi_1</script> 的定義域與對應域裝了「空間」、「結構」這麼大的東西，真可謂大有來頭。不單如此，它還能把連續函數變成群同態、把同胚變成群同構，簡直連函數都照顧得沒話說。</p>
+
+<p><em>[29]</em></p>
+
+<p>我們把「所有拓撲空間與連續函數」這樣的<em>超大集合</em>記為<strong>拓撲空間範疇</strong> <script type="math/tex" id="MathJax-Element-150">\textbf{Top}</script> ，其中的拓撲空間稱為<strong>物件(Ob)</strong>、連續函數稱為<strong>態射(Hom)</strong>；相對的，所有群與群同態的收集就是<strong>群範疇</strong> <script type="math/tex" id="MathJax-Element-151">\textbf{Grp}</script>，其中的群做為物件、群同態做為態射。</p>
+
+<p>兩個<strong>範疇(Category)</strong>之間的映射 <script type="math/tex" id="MathJax-Element-152">F</script> 稱為<strong>函子(Functor)</strong>。函子除了要連接兩方的物件，還必須連接態射：</p>
+
+<blockquote>
+  <p><script type="math/tex" id="MathJax-Element-153">X</script>, <script type="math/tex" id="MathJax-Element-154">Y</script> 之間有態射 <script type="math/tex" id="MathJax-Element-155">\Rightarrow</script> <script type="math/tex" id="MathJax-Element-156">F(X)</script>, <script type="math/tex" id="MathJax-Element-157">F(Y)</script> 之間也要有態射</p>
+</blockquote>
+
+<p><em>[30]</em></p>
+
+<p>所以 <script type="math/tex" id="MathJax-Element-158">\pi_1:\textbf{Top}\rightarrow\textbf{Grp}</script> 是個函子。</p>
+
+
+
+<h3 id="其他初等的討論">其他初等的討論</h3>
+
+<p>函子已經介紹完。如果對拓撲有興趣，可以接著看下面的議題。莫比烏斯帶的結構看似簡單，國小到高中卻都不會學到，其性質有趣得很；自由群、萬有覆蓋等現象同時是範疇論與代數拓撲的好戲，不過我也只揀幾個有趣的拓撲性質來探討。</p>
+
+
+
+<h4 id="莫比烏斯帶möbius-strip-被平面封住">莫比烏斯帶(Möbius Strip) 被平面封住</h4>
+
+
+
+<h4 id="誰的基本群是自由群">誰的基本群是自由群</h4>
+
+
+
+<h4 id="萬有覆蓋universal-cover">萬有覆蓋(Universal Cover)</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+	
+	</div>
+
+</div>
+
+</body>
+
+</html>

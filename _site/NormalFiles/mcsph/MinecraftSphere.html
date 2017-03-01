@@ -1,0 +1,161 @@
+
+<html>
+
+<head>
+
+	<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+
+	<!-- custom css/js -->
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+	<link rel=stylesheet type="text/css" href="css/article.css">
+	<link rel=stylesheet type="text/css" href="css/anthology.css">
+	
+	<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+	<!-- d3 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+	<!-- Three.js -->
+	<script src="https://rawgithub.com/mrdoob/three.js/master/build/three.js"></script>
+
+	<script type = "text/javascript">
+		
+		var gridData = [];
+		
+		function exec(){
+		
+			$("#datavis").html("");
+			$("#lvl").html("");
+
+			var dia = parseInt($("#dia").val());
+			var r = dia/2;
+		
+			if(!(r>0)) {
+				alert("Plz enter the radius first~")
+				return;
+			}
+			
+			for(var lvl=0; lvl<r*2; lvl++){
+				$("#lvl").append("<div class='lvlsel' data-lvl='"+lvl+"'>第"+(lvl+1)+"層</div>");
+			}
+			
+			for(var i=0; i<dia; i++){
+				for(var j=0; j<dia; j++){
+					var obj = {};
+					obj.i = i;
+					obj.j = j;
+					obj.x = i-r+0.5;
+					obj.y = j-r+0.5;
+					obj.draw = false;
+					gridData.push(obj);
+				}
+			}
+			
+			$(".lvlsel").click(function(e){
+				console.log(e);
+				var level = parseInt(e.target.dataset.lvl);
+				var newr = Math.sqrt(r*r - Math.pow(level-r+0.5, 2));
+				for(d in gridData){
+					var e = gridData[d];
+					if(newr*newr > Math.pow(e.x, 2) + Math.pow(e.y, 2)) {
+						e.draw = true;
+					} else {
+						e.draw = false;
+					}
+				}
+				d3.select("#datavis").selectAll("rect")
+					.data(gridData)
+					//.style("stroke", "rgb(" + 255*(level%2) + ", 255, 255)")
+					.style("fill", function(d){ if (!d.draw) {return "rgb(255, 255, 255)";} else {return "rgb(255, 0, 80)";} } );
+			});
+			
+			var w = 200;
+			
+			var svg = d3.select("#datavis")
+				.append("svg")
+				.attr("width", w)
+				.attr("height", w)
+				.style("margin", "5px 5px 5px 5px");
+
+			svg
+				.append("g")
+				.attr("id", "svgcontent")
+				.selectAll("#svgcontent")
+				.data(gridData)
+				.enter()
+				.append("rect")
+				.attr("x", function(d){ return w/dia*d.i; })
+				.attr("y", function(d){ return w/dia*d.j; })
+				.attr("width", w/dia*0.9)
+				.attr("height", w/dia*0.9)
+				.style("stroke-width", 1)
+				//.style("stroke", "rgb(0, 0, 0)")
+				.style("fill", function(d){ if (!d.draw) {return "rgb(255, 255, 255)";} else {return "rgb(255, 0, 80)";} } );
+			
+		}
+
+		
+		$().ready(function(){
+
+			$("#exec").click(function(){
+				exec();
+			});
+
+		});
+		
+	</script>
+
+</head>
+
+<body>
+
+<div class="master">
+
+	<div class="mid_warpper">		
+
+		<div class="content">
+			<div class="article">
+
+<div class="notprint">
+
+<h2 id="openzfunction">Minecraft Sphere Wizard</h2>
+
+<h3 id="purpose">Purpose</h3>
+
+<p> Draw the level sets of a specified sphere. </p>
+
+<h3> Input </h3>
+
+<!-- FORM -->
+<p>Diameter of the Sphere = <input style="width:50px;" id="dia"> . (Should be a positive integer) </p>
+
+<!-- end of not print -->
+</div>
+
+<!-- FORM -->
+<p>
+<button type="button" id="exec">Start</button>
+</p>
+
+
+			</div>
+
+			<div id="lvl">
+			</div>
+			<div id="datavis">
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="footer">
+		<!-- p> <em> Any suggestion is welcome! Please mail: davidhu8888@livemail.tw</em> </p -->
+	</div>
+
+</div>
+
+</body>
+
+</html>

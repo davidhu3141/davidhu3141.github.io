@@ -1,0 +1,165 @@
+
+<h2 id="section">線性方程</h2>
+
+<p>「線性」的概念在數學中很常見，我們現在要利用這個角度來重新詮釋一些高中常見的概念，以發現新性質。</p>
+
+<p>[TOC]</p>
+
+<h3 id="section-1">平直的空間</h3>
+
+<h4 id="fact-11-">Fact 1.1: 三維的例子</h4>
+
+<p>給定一個空間向量的集合 $V$，下列兩件事等價</p>
+
+<blockquote>
+  <ol>
+    <li>任取向量 $\mathbf{a}, \mathbf{b} \in V$ ，都有 $\mathbf{a}+\mathbf{b}\in V$ 與 $k\cdot \mathbf{a} \in V$，其中 $k$ 是任意實數係數</li>
+  </ol>
+</blockquote>
+
+<blockquote>
+  <ol>
+    <li>$V$ 是 ${\vec{0}}$ 或過原點的直線，或過原點的平面，或整個空間</li>
+  </ol>
+</blockquote>
+
+<p>畫圖可以驗證，不通過原點的直線上取兩向量相加，結果不會在直線上。</p>
+
+<p><img src="https://i.imgur.com/gUllnM3.png" alt="" /></p>
+
+<p>由此可知，過原點又平直的空間會有<strong>加法封閉性</strong>、<strong>係數積封閉性</strong>，我們把這樣的空間稱為線性空間（向量空間）。</p>
+
+<h4 id="example-12">Example 1.2</h4>
+
+<ol>
+  <li><strong>三維空間</strong> $\mathbb{R}^3$ 是一個線性空間，其內部所有過原點又平坦的點、線、面也各自是一個線性空間（子空間）。</li>
+  <li><strong>所有連續函數</strong>的集合 $C$ 是線性空間，因為兩個連續函數相加之後仍然在 $C$ 中。</li>
+  <li><strong>所有可微函數</strong>的集合也是線性空間，因為可微函數相加後可微、乘以 $k$ 倍之後也可微。我們以後<strong>將函數也稱為向量</strong>。</li>
+</ol>
+
+<p>維度：給定不平行的兩向量 $u,\ v$，則所有 $u,\ v$ 的線性組合構成一個線性空間，維度是 $2$，我們說 $u,\ v$ 是這個空間的生成元。</p>
+
+<p>如果 $u,\ v$ 共線的話就只會生成出一維的空間。</p>
+
+<p>同理，$n$ 個向量可以生成出至多 $n$ 維的線性空間。</p>
+
+<h3 id="section-2">線性的函數</h3>
+
+<h4 id="definition-21-">Definition 2.1: 線性變換</h4>
+
+<p>一個函數 $\mathcal{L}$ 被說成是<strong>線性變換</strong>，若且唯若其滿足下列性質：</p>
+
+<blockquote>
+  <ol>
+    <li>加法的分配率： $\forall \mathbf{a}, \mathbf{b}, \ \ \mathcal{L}(\mathbf{a}+\mathbf{b}) = \mathcal{L}(\mathbf{a})+\mathcal{L}(\mathbf{b})$</li>
+  </ol>
+</blockquote>
+
+<blockquote>
+  <ol>
+    <li>係數積可提出： $\forall \mathbf{a},k, \ \ \mathcal{L}(k\mathbf{a})=k\mathcal{L}(\mathbf{a})$</li>
+  </ol>
+</blockquote>
+
+<p>可以看成：線性變換連繫了定義域和值域的加法與係數積。</p>
+
+<h4 id="example-22">Example 2.2</h4>
+
+<ol>
+  <li>$f(x)=2x$ 是線性變換，但 $f(x)=2x+1$ 不是。</li>
+  <li>$f(x, y) = 2x+3y$ 把向量 $(x, y)$ 變成實數，而且是線性變換，可以寫成 <script type="math/tex">% <![CDATA[
+f(\vec{v}) = \begin{bmatrix} 2 & 3\end{bmatrix} \vec{v} %]]></script></li>
+  <li>$f(x, y) = (x+y, 2x-y)$ 把向量變成向量，而且是線性變換，可以寫成<script type="math/tex">% <![CDATA[
+f(\vec{v}) = \begin{bmatrix} 1 & 1 \\ 2 & -1 \end{bmatrix} \vec{v} %]]></script></li>
+  <li>
+    <p>微分之所以可以一項一項的微，是因為 <script type="math/tex">\frac{d}{dx}(f(x)+g(x))=\frac{d}{dx} f(x)+\frac{d}{dx} g(x)</script> ，而微分的時候係數可以提出來也是因為 <script type="math/tex">\frac{d}{dx}(kf(x)) =k\frac{d}{dx}f(x)</script>，所以微分也是線性變換。</p>
+  </li>
+  <li>原封不動的變換： $\mathcal{I}(v) = v$ 也是一個線性變換，稱為恆等變換。</li>
+</ol>
+
+<h4 id="definition-23-">Definition 2.3: 微分算子</h4>
+
+<p>定義微分算子 $\mathcal{D}(f) := \frac{d}{dx}f = f’$</p>
+
+<p>根據例子 4.4，微分算子是線性變換（線性算子）。</p>
+
+<h3 id="section-3">線性的方程</h3>
+
+<h4 id="definition-31-">Definition 3.1: 線性方程</h4>
+
+<p>給定線性變換 $\mathcal{L}$ 與向量 $b$，則以下形式的方程稱為<strong>線性方程</strong></p>
+
+<blockquote>
+  <p>$\mathcal{L}(x)=b$</p>
+</blockquote>
+
+<p>以下形式的方程稱為齊次線性方程或<strong>齊次方程</strong>。</p>
+
+<blockquote>
+  <p>$\mathcal{L}(x)=\vec{0}$</p>
+</blockquote>
+
+<h4 id="theorem-32-">Theorem 3.2: 齊次方程的解</h4>
+
+<p>齊次方程的解集合是線性空間。</p>
+
+<p>證明：</p>
+
+<p>若解集合中有兩向量 $a, \ b$ ，因為 $a, \ b$ 是解，$\mathcal{L}(a)=\mathcal{L}(b)=0$。
+所以 $\mathcal{L}(a+b)=\mathcal{L}(a)+\mathcal{L}(b)=0$，所以 $a+b$ 也是解。</p>
+
+<p>關於係數積一樣自己驗證。</p>
+
+<h4 id="example-33">Example 3.3</h4>
+
+<h4 id="theorem-34-">Theorem 3.4: 齊性解與特解</h4>
+
+<p>給定線性變換 $\mathcal{L}$ 與向量 $b$，觀察兩個線性方程</p>
+
+<p>1). $\mathcal{L}(x)=\vec{0}$
+2). $\mathcal{L}(x)=b$</p>
+
+<p>若 $\alpha_h$ 是 (1) 式的解，$\alpha_p$ 是 (2) 式的解，那麼 $\alpha_h+\alpha_p$ 是 (2) 式的解。</p>
+
+<p>證明：
+這個定理很關鍵，適合自己證，代進去就出來了。</p>
+
+<h4 id="example-35">Example 3.5</h4>
+
+<hr />
+<p>### 線性變換（二）</p>
+
+<p>為了解決真正的物理問題，介紹線性變換的基本性質。</p>
+
+<h4 id="theorem-24-">Theorem 2.4: 合成函數也是線性的</h4>
+
+<p>對於兩個線性變換 $\mathcal{M}, \ \mathcal{N}$，其合成函數 $\mathcal{L}(x)=\mathcal{N}(\mathcal{M}(x))$ 也是線性變換。</p>
+
+<p>證明： 
+1. 關於加法分配律的驗證 <script type="math/tex">% <![CDATA[
+\begin{aligned} \mathcal{L}(a+b) &= \mathcal{N}(\mathcal{M}(a+b)) \\ &=  \mathcal{N}(\mathcal{M}(a)+\mathcal{M}(b))\\ &=\mathcal{N}(\mathcal{M}(a))+\mathcal{N}(\mathcal{M}(b))\\ &= \mathcal{L}(a)+\mathcal{L}(b) \end{aligned} %]]></script>
+2. 關於係數積的驗證可以自己做。</p>
+
+<p><em>這定理對矩陣來說是當然的，但是為了要套用到全新樣貌的線性變換（微分），所以這樣抽象化是必須的。可以看到這裡證明過程不需要寫出任何矩陣。</em></p>
+
+<h4 id="corollary-25-">Corollary 2.5: 高次方</h4>
+
+<p>Corollary 是推論的意思。根據 Theorem 2.4，定義 $\mathcal{L}^2(x)=\mathcal{L}(\mathcal{L}(x))$ ，則 $\mathcal{L}^2$ 也是線性變換。</p>
+
+<p>同樣可以定義 $\mathcal{L}^n(x)$ ，其也是線性變換。
+同理，高次微分 $\mathcal{D}^n$ 也是線性的。</p>
+
+<h4 id="theorem-26--">Theorem 2.6:  線性變換的多項式</h4>
+
+<ol>
+  <li>
+    <p>對於實數 $k$ 與線性變換 $\mathcal{L}$，定義函數 $\mathcal{M}(x) = k\mathcal{L}(x)$，則 $\mathcal{M}(x)$ 也是線性變換。</p>
+  </li>
+  <li>
+    <p>對於兩個線性變換 $\mathcal{M}, \ \mathcal{N}$，函數 $\mathcal{L}(x)=\mathcal{M}(x)+\mathcal{N}(x) $ 也是線性變換。</p>
+  </li>
+</ol>
+
+<p>證明很容易，就不贅述了。根據這兩個性質與 Corollary 2.5 ，推導出線性變換的多項式，例如 <script type="math/tex">\mathcal{Q} = a\mathcal{L}^2 + b\mathcal{L}+c\mathcal{I}</script> 也是線性變換，其中 $\mathcal{I}$ 是恆等變換。</p>
+
+<p><em>高中作業出現過矩陣的多項式，其實整個多項式就是一個線性變換。</em></p>

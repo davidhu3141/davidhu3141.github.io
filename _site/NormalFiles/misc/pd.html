@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>k-power diagram test</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+<body>
+
+<canvas id="myCanvas" width="700" height="700"></canvas>
+<script>
+function Point(x, y) {
+	this.x = x;
+	this.y = y;
+}
+function genIntArray(n){
+	var result = [];
+	for(var i=0; i<n; i++){
+		result[n-i-1] = n-i-1;
+	}
+	return result;
+}
+function dist(pt1, pt2){
+	return Math.pow(pt1.x-pt2.x,2) + Math.pow(pt1.y-pt2.y,2);
+}
+var width = 700;
+var height = 700;
+var colors = d3.scale.category20();
+var k = 5;
+var S = [];
+var nS = 8;
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var prime = [2,3,5,7,11,13,17/*,19*/,23,29,31,37,41,43,47,53,59,61,67,71,73,79];
+function extract_k_minimum(pt){
+	var index = genIntArray(nS);
+	// As bubble sort.
+	for(var i=0; i<k; i++){
+		for(var j=0; j<nS-i-1; j++){
+			if(dist(pt, S[index[j]]) < dist(pt, S[index[j+1]])){
+				var t = index[j+1];
+				index[j+1] = index[j];
+				index[j] = t;
+			}
+		}
+	}
+	return index.slice(nS-k, nS).sort();
+}
+function getColor(indexarr){
+	var sum = 0;
+	for(var i=0; i<indexarr.length; i++){
+		sum += indexarr[i] * Math.pow(nS, i);
+	}
+	return colors(sum % 19);
+}
+
+/*
+var margin = 200;
+for(var i=0; i<nS; i++){
+	S.push(new Point(margin+Math.random()*(width-2*margin), margin+Math.random()*(height-2*margin)));
+}
+*/
+
+/*
+var r_circle = 50;
+for(var i=0; i<nS; i++){
+	S.push(new Point(width/2+Math.cos(6.28*i/nS)*r_circle, height/2+Math.sin(6.28*i/nS)*r_circle));
+}
+*/
+
+for(var i=0; i<nS; i++){
+	var r_circle = 100 + Math.random()*50;
+	S.push(new Point(width/2+Math.cos(6.28*i/nS)*r_circle, height/2+Math.sin(6.28*i/nS)/1.5*r_circle));
+}
+
+var radi = 3;
+for(var e=1; e<nS; e++){
+
+	k = e;
+
+	for(var i=0; i<width; i+=2){
+		for(var j=0; j<height; j+=2){
+			ctx.fillStyle = getColor(extract_k_minimum(new Point(i+1,j+1)));
+			ctx.fillRect(i,j,2,2);
+		}
+	}
+
+	for(var i=0; i<nS; i++){
+		ctx.fillStyle = "#000000";
+		ctx.fillRect(S[i].x-radi,S[i].y-radi,radi*2,radi*2);
+	}
+
+	alert(e);
+
+}
+</script>
+
+</body>
+</html>
