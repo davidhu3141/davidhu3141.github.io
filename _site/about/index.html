@@ -24,6 +24,15 @@
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
   <link rel=stylesheet type="text/css" href="css/customs/article.css">
 
+<!-- remove amp -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+      data.math = data.math.replace(/^\s*<!\[CDATA\[\s*(.*)\s*\]\]>\s*$/m,"$1");
+      data.math = data.math.replace(/amp;/g," ");
+    });
+  });
+  </script>
 </head>
 
 

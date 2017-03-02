@@ -6,8 +6,8 @@
 </description>
     <link>http://davidhu3141.github.io/</link>
     <atom:link href="http://davidhu3141.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Mar 2017 03:41:55 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Mar 2017 03:41:55 +0800</lastBuildDate>
+    <pubDate>Thu, 02 Mar 2017 14:29:18 +0800</pubDate>
+    <lastBuildDate>Thu, 02 Mar 2017 14:29:18 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -148,22 +148,11 @@
 
 &lt;h4 id=&quot;fact-11-&quot;&gt;Fact 1.1: 三維的例子&lt;/h4&gt;
 
-&lt;p&gt;給定一個空間向量的集合 &lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt;，下列兩件事等價&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt;，下列兩件事等價&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;任取向量 &lt;script type=&quot;math/tex&quot;&gt;\mathbf{a}, \mathbf{b} \in V&lt;/script&gt; ，都有 &lt;script type=&quot;math/tex&quot;&gt;\mathbf{a}+\mathbf{b}\in V&lt;/script&gt; 與 &lt;script type=&quot;math/tex&quot;&gt;k\cdot \mathbf{a} \in V&lt;/script&gt;，其中 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 是任意實數係數&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathbf{a}, \mathbf{b} \in V&lt;/script&gt; ，都有 &lt;script type=&quot;math/tex&quot;&gt;\mathbf{a}+\mathbf{b}\in V&lt;/script&gt; 與 &lt;script type=&quot;math/tex&quot;&gt;k\cdot \mathbf{a} \in V&lt;/script&gt;，其中 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 是任意實數係數&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;
-      &lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt;
-      &lt;p&gt;是 &lt;script type=&quot;math/tex&quot;&gt;\{\vec{0}\}&lt;/script&gt; 或過原點的直線，或過原點的平面，或整個空間&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot;&gt;\{\vec{0}\}&lt;/script&gt; 或過原點的直線，或過原點的平面，或整個空間&lt;/p&gt;
 
 &lt;p&gt;畫圖可以驗證，不通過原點的直線上取兩向量相加，結果不會在直線上。&lt;/p&gt;
 
@@ -173,62 +162,40 @@
 
 &lt;h4 id=&quot;example-12&quot;&gt;Example 1.2&lt;/h4&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;三維空間&lt;/strong&gt; &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^3&lt;/script&gt; 是一個線性空間，其內部所有過原點又平坦的點、線、面也各自是一個線性空間（子空間）。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;所有連續函數&lt;/strong&gt;的集合 &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; 是線性空間，因為兩個連續函數相加之後仍然在 &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; 中。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;所有可微函數&lt;/strong&gt;的集合也是線性空間，因為可微函數相加後可微、乘以 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 倍之後也可微。我們以後&lt;strong&gt;將函數也稱為向量&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^3&lt;/script&gt; 是一個線性空間，其內部所有過原點又平坦的點、線、面也各自是一個線性空間（子空間）。
+_&lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; 是線性空間，因為兩個連續函數相加之後仍然在 &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; 中。
+_&lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 倍之後也可微。我們以後&lt;strong&gt;將函數也稱為向量&lt;/strong&gt;。&lt;/p&gt;
 
-&lt;p&gt;維度：給定不平行的兩向量 &lt;script type=&quot;math/tex&quot;&gt;u,\ v&lt;/script&gt;，則所有 &lt;script type=&quot;math/tex&quot;&gt;u,\ v&lt;/script&gt; 的線性組合構成一個線性空間，維度是 &lt;script type=&quot;math/tex&quot;&gt;2&lt;/script&gt;，我們說 &lt;script type=&quot;math/tex&quot;&gt;u,\ v&lt;/script&gt; 是這個空間的生成元。&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;u,\ v&lt;/script&gt;，則所有 &lt;script type=&quot;math/tex&quot;&gt;u,\ v&lt;/script&gt; 的線性組合構成一個線性空間，維度是 &lt;script type=&quot;math/tex&quot;&gt;2&lt;/script&gt;，我們說 &lt;script type=&quot;math/tex&quot;&gt;u,\ v&lt;/script&gt; 是這個空間的生成元。&lt;/p&gt;
 
-&lt;p&gt;如果 &lt;script type=&quot;math/tex&quot;&gt;u,\ v&lt;/script&gt; 共線的話就只會生成出一維的空間。&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;u,\ v&lt;/script&gt; 共線的話就只會生成出一維的空間。&lt;/p&gt;
 
-&lt;p&gt;同理，&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 個向量可以生成出至多 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 維的線性空間。&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 個向量可以生成出至多 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 維的線性空間。&lt;/p&gt;
 
 &lt;h3 id=&quot;section-2&quot;&gt;線性的函數&lt;/h3&gt;
 
 &lt;h4 id=&quot;definition-21-&quot;&gt;Definition 2.1: 線性變換&lt;/h4&gt;
 
-&lt;p&gt;一個函數 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}&lt;/script&gt; 被說成是&lt;strong&gt;線性變換&lt;/strong&gt;，若且唯若其滿足下列性質：&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}&lt;/script&gt; 被說成是&lt;strong&gt;線性變換&lt;/strong&gt;，若且唯若其滿足下列性質：&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;加法的分配率： &lt;script type=&quot;math/tex&quot;&gt;\forall \mathbf{a}, \mathbf{b}, \ \ \mathcal{L}(\mathbf{a}+\mathbf{b}) = \mathcal{L}(\mathbf{a})+\mathcal{L}(\mathbf{b})&lt;/script&gt;&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\forall \mathbf{a}, \mathbf{b}, \ \ \mathcal{L}(\mathbf{a}+\mathbf{b}) = \mathcal{L}(\mathbf{a})+\mathcal{L}(\mathbf{b})&lt;/script&gt;&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;係數積可提出： &lt;script type=&quot;math/tex&quot;&gt;\forall \mathbf{a},k, \ \ \mathcal{L}(k\mathbf{a})=k\mathcal{L}(\mathbf{a})&lt;/script&gt;&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\forall \mathbf{a},k, \ \ \mathcal{L}(k\mathbf{a})=k\mathcal{L}(\mathbf{a})&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;可以看成：線性變換連繫了定義域和值域的加法與係數積。&lt;/p&gt;
 
 &lt;h4 id=&quot;example-22&quot;&gt;Example 2.2&lt;/h4&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex&quot;&gt;f(x)=2x&lt;/script&gt;
-    &lt;p&gt;是線性變換，但 &lt;script type=&quot;math/tex&quot;&gt;f(x)=2x+1&lt;/script&gt; 不是。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex&quot;&gt;f(x, y) = 2x+3y&lt;/script&gt;
-    &lt;p&gt;把向量 &lt;script type=&quot;math/tex&quot;&gt;(x, y)&lt;/script&gt; 變成實數，而且是線性變換，可以寫成 &lt;script type=&quot;math/tex; mode=display&quot;&gt;f(\vec{v}) = \begin{bmatrix} 2 &amp;amp; 3\end{bmatrix} \vec{v}&lt;/script&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex&quot;&gt;f(x, y) = (x+y, 2x-y)&lt;/script&gt;
-    &lt;p&gt;把向量變成向量，而且是線性變換，可以寫成&lt;script type=&quot;math/tex; mode=display&quot;&gt; f(\vec{v}) = \begin{bmatrix} 1 &amp;amp; 1 \\ 2 &amp;amp; -1 \end{bmatrix} \vec{v} &lt;/script&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;微分之所以可以一項一項的微，是因為 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{d}{dx}(f(x)+g(x))=\frac{d}{dx} f(x)+\frac{d}{dx} g(x)&lt;/script&gt; ，而微分的時候係數可以提出來也是因為 &lt;script type=&quot;math/tex; mode=display&quot;&gt; \frac{d}{dx}(kf(x)) =k\frac{d}{dx}f(x)&lt;/script&gt;，所以微分也是線性變換。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;原封不動的變換： &lt;script type=&quot;math/tex&quot;&gt;\mathcal{I}(v) = v&lt;/script&gt; 也是一個線性變換，稱為恆等變換。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;f(x)=2x&lt;/script&gt; 是線性變換，但 &lt;script type=&quot;math/tex&quot;&gt;f(x)=2x+1&lt;/script&gt; 不是。
+_&lt;script type=&quot;math/tex&quot;&gt;f(x, y) = 2x+3y&lt;/script&gt; 把向量 &lt;script type=&quot;math/tex&quot;&gt;(x, y)&lt;/script&gt; 變成實數，而且是線性變換，可以寫成 &lt;script type=&quot;math/tex; mode=display&quot;&gt;f(\vec{v}) = \begin{bmatrix} 2 &amp;amp; 3\end{bmatrix} \vec{v}&lt;/script&gt;
+_&lt;script type=&quot;math/tex&quot;&gt;f(x, y) = (x+y, 2x-y)&lt;/script&gt; 把向量變成向量，而且是線性變換，可以寫成&lt;script type=&quot;math/tex; mode=display&quot;&gt; f(\vec{v}) = \begin{bmatrix} 1 &amp;amp; 1 \\ 2 &amp;amp; -1 \end{bmatrix} \vec{v} &lt;/script&gt;
+4. 微分之所以可以一項一項的微，是因為 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{d}{dx}(f(x)+g(x))=\frac{d}{dx} f(x)+\frac{d}{dx} g(x)&lt;/script&gt; ，而微分的時候係數可以提出來也是因為 &lt;script type=&quot;math/tex; mode=display&quot;&gt; \frac{d}{dx}(kf(x)) =k\frac{d}{dx}f(x)&lt;/script&gt;，所以微分也是線性變換。&lt;/p&gt;
+
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{I}(v) = v&lt;/script&gt; 也是一個線性變換，稱為恆等變換。&lt;/p&gt;
 
 &lt;h4 id=&quot;definition-23-&quot;&gt;Definition 2.3: 微分算子&lt;/h4&gt;
 
-&lt;p&gt;定義微分算子 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{D}(f) := \frac{d}{dx}f = f&#39;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{D}(f) := \frac{d}{dx}f = f&#39;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;根據例子 4.4，微分算子是線性變換（線性算子）。&lt;/p&gt;
 
@@ -236,19 +203,13 @@
 
 &lt;h4 id=&quot;definition-31-&quot;&gt;Definition 3.1: 線性方程&lt;/h4&gt;
 
-&lt;p&gt;給定線性變換 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}&lt;/script&gt; 與向量 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;，則以下形式的方程稱為&lt;strong&gt;線性方程&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}&lt;/script&gt; 與向量 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;，則以下形式的方程稱為&lt;strong&gt;線性方程&lt;/strong&gt;&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=b&lt;/script&gt;
-
-&lt;/blockquote&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=b&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;以下形式的方程稱為齊次線性方程或&lt;strong&gt;齊次方程&lt;/strong&gt;。&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=\vec{0}&lt;/script&gt;
-
-&lt;/blockquote&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=\vec{0}&lt;/script&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;theorem-32-&quot;&gt;Theorem 3.2: 齊次方程的解&lt;/h4&gt;
 
@@ -256,8 +217,8 @@
 
 &lt;p&gt;證明：&lt;/p&gt;
 
-&lt;p&gt;若解集合中有兩向量 &lt;script type=&quot;math/tex&quot;&gt;a, \ b&lt;/script&gt; ，因為 &lt;script type=&quot;math/tex&quot;&gt;a, \ b&lt;/script&gt; 是解，&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(a)=\mathcal{L}(b)=0&lt;/script&gt;。
-所以 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(a+b)=\mathcal{L}(a)+\mathcal{L}(b)=0&lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot;&gt;a+b&lt;/script&gt; 也是解。&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;a, \ b&lt;/script&gt; ，因為 &lt;script type=&quot;math/tex&quot;&gt;a, \ b&lt;/script&gt; 是解，&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(a)=\mathcal{L}(b)=0&lt;/script&gt;。
+_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(a+b)=\mathcal{L}(a)+\mathcal{L}(b)=0&lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot;&gt;a+b&lt;/script&gt; 也是解。&lt;/p&gt;
 
 &lt;p&gt;關於係數積一樣自己驗證。&lt;/p&gt;
 
@@ -265,12 +226,12 @@
 
 &lt;h4 id=&quot;theorem-34-&quot;&gt;Theorem 3.4: 齊性解與特解&lt;/h4&gt;
 
-&lt;p&gt;給定線性變換 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}&lt;/script&gt; 與向量 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;，觀察兩個線性方程&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}&lt;/script&gt; 與向量 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;，觀察兩個線性方程&lt;/p&gt;
 
-&lt;p&gt;1). &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=\vec{0}&lt;/script&gt;
-2). &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=b&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=\vec{0}&lt;/script&gt;
+_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=b&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;若 &lt;script type=&quot;math/tex&quot;&gt;\alpha_h&lt;/script&gt; 是 (1) 式的解，&lt;script type=&quot;math/tex&quot;&gt;\alpha_p&lt;/script&gt; 是 (2) 式的解，那麼 &lt;script type=&quot;math/tex&quot;&gt;\alpha_h+\alpha_p&lt;/script&gt; 是 (2) 式的解。&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\alpha_h&lt;/script&gt; 是 (1) 式的解，&lt;script type=&quot;math/tex&quot;&gt;\alpha_p&lt;/script&gt; 是 (2) 式的解，那麼 &lt;script type=&quot;math/tex&quot;&gt;\alpha_h+\alpha_p&lt;/script&gt; 是 (2) 式的解。&lt;/p&gt;
 
 &lt;p&gt;證明：
 這個定理很關鍵，適合自己證，代進去就出來了。&lt;/p&gt;
@@ -284,7 +245,7 @@
 
 &lt;h4 id=&quot;theorem-24-&quot;&gt;Theorem 2.4: 合成函數也是線性的&lt;/h4&gt;
 
-&lt;p&gt;對於兩個線性變換 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{M}, \ \mathcal{N}&lt;/script&gt;，其合成函數 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=\mathcal{N}(\mathcal{M}(x))&lt;/script&gt; 也是線性變換。&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{M}, \ \mathcal{N}&lt;/script&gt;，其合成函數 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=\mathcal{N}(\mathcal{M}(x))&lt;/script&gt; 也是線性變換。&lt;/p&gt;
 
 &lt;p&gt;證明： 
 1. 關於加法分配律的驗證 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{aligned} \mathcal{L}(a+b) &amp;amp;= \mathcal{N}(\mathcal{M}(a+b)) \\ &amp;amp;=  \mathcal{N}(\mathcal{M}(a)+\mathcal{M}(b))\\ &amp;amp;=\mathcal{N}(\mathcal{M}(a))+\mathcal{N}(\mathcal{M}(b))\\ &amp;amp;= \mathcal{L}(a)+\mathcal{L}(b) \end{aligned}&lt;/script&gt;
@@ -296,19 +257,14 @@
 
 &lt;p&gt;Corollary 是推論的意思。根據 Theorem 2.4，定義 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}^2(x)=\mathcal{L}(\mathcal{L}(x))&lt;/script&gt; ，則 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}^2&lt;/script&gt; 也是線性變換。&lt;/p&gt;
 
-&lt;p&gt;同樣可以定義 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}^n(x)&lt;/script&gt; ，其也是線性變換。
-同理，高次微分 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{D}^n&lt;/script&gt; 也是線性的。&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}^n(x)&lt;/script&gt; ，其也是線性變換。
+_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{D}^n&lt;/script&gt; 也是線性的。&lt;/p&gt;
 
 &lt;h4 id=&quot;theorem-26--&quot;&gt;Theorem 2.6:  線性變換的多項式&lt;/h4&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;對於實數 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 與線性變換 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}&lt;/script&gt;，定義函數 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{M}(x) = k\mathcal{L}(x)&lt;/script&gt;，則 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{M}(x)&lt;/script&gt; 也是線性變換。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;對於兩個線性變換 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{M}, \ \mathcal{N}&lt;/script&gt;，函數 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=\mathcal{M}(x)+\mathcal{N}(x) &lt;/script&gt; 也是線性變換。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 與線性變換 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}&lt;/script&gt;，定義函數 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{M}(x) = k\mathcal{L}(x)&lt;/script&gt;，則 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{M}(x)&lt;/script&gt; 也是線性變換。&lt;/p&gt;
+
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{M}, \ \mathcal{N}&lt;/script&gt;，函數 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=\mathcal{M}(x)+\mathcal{N}(x) &lt;/script&gt; 也是線性變換。&lt;/p&gt;
 
 &lt;p&gt;證明很容易，就不贅述了。根據這兩個性質與 Corollary 2.5 ，推導出線性變換的多項式，例如 &lt;script type=&quot;math/tex; mode=display&quot;&gt; \mathcal{Q} = a\mathcal{L}^2 + b\mathcal{L}+c\mathcal{I} &lt;/script&gt; 也是線性變換，其中 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{I}&lt;/script&gt; 是恆等變換。&lt;/p&gt;
 

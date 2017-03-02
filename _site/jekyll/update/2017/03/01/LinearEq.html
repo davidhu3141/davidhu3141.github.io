@@ -23,6 +23,15 @@
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
   <link rel=stylesheet type="text/css" href="css/customs/article.css">
 
+<!-- remove amp -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+      data.math = data.math.replace(/^\s*<!\[CDATA\[\s*(.*)\s*\]\]>\s*$/m,"$1");
+      data.math = data.math.replace(/amp;/g," ");
+    });
+  });
+  </script>
 </head>
 
 
@@ -83,22 +92,11 @@
 
 <h4 id="fact-11-">Fact 1.1: 三維的例子</h4>
 
-<p>給定一個空間向量的集合 <script type="math/tex">V</script>，下列兩件事等價</p>
+<p>_<script type="math/tex">V</script>，下列兩件事等價</p>
 
-<blockquote>
-  <ol>
-    <li>任取向量 <script type="math/tex">\mathbf{a}, \mathbf{b} \in V</script> ，都有 <script type="math/tex">\mathbf{a}+\mathbf{b}\in V</script> 與 <script type="math/tex">k\cdot \mathbf{a} \in V</script>，其中 <script type="math/tex">k</script> 是任意實數係數</li>
-  </ol>
-</blockquote>
+<p>_<script type="math/tex">\mathbf{a}, \mathbf{b} \in V</script> ，都有 <script type="math/tex">\mathbf{a}+\mathbf{b}\in V</script> 與 <script type="math/tex">k\cdot \mathbf{a} \in V</script>，其中 <script type="math/tex">k</script> 是任意實數係數</p>
 
-<blockquote>
-  <ol>
-    <li>
-      <script type="math/tex">V</script>
-      <p>是 <script type="math/tex">\{\vec{0}\}</script> 或過原點的直線，或過原點的平面，或整個空間</p>
-    </li>
-  </ol>
-</blockquote>
+<p>_<script type="math/tex">V</script> 是 <script type="math/tex">\{\vec{0}\}</script> 或過原點的直線，或過原點的平面，或整個空間</p>
 
 <p>畫圖可以驗證，不通過原點的直線上取兩向量相加，結果不會在直線上。</p>
 
@@ -108,62 +106,40 @@
 
 <h4 id="example-12">Example 1.2</h4>
 
-<ol>
-  <li><strong>三維空間</strong> <script type="math/tex">\mathbb{R}^3</script> 是一個線性空間，其內部所有過原點又平坦的點、線、面也各自是一個線性空間（子空間）。</li>
-  <li><strong>所有連續函數</strong>的集合 <script type="math/tex">C</script> 是線性空間，因為兩個連續函數相加之後仍然在 <script type="math/tex">C</script> 中。</li>
-  <li><strong>所有可微函數</strong>的集合也是線性空間，因為可微函數相加後可微、乘以 <script type="math/tex">k</script> 倍之後也可微。我們以後<strong>將函數也稱為向量</strong>。</li>
-</ol>
+<p>_<script type="math/tex">\mathbb{R}^3</script> 是一個線性空間，其內部所有過原點又平坦的點、線、面也各自是一個線性空間（子空間）。
+_<script type="math/tex">C</script> 是線性空間，因為兩個連續函數相加之後仍然在 <script type="math/tex">C</script> 中。
+_<script type="math/tex">k</script> 倍之後也可微。我們以後<strong>將函數也稱為向量</strong>。</p>
 
-<p>維度：給定不平行的兩向量 <script type="math/tex">u,\ v</script>，則所有 <script type="math/tex">u,\ v</script> 的線性組合構成一個線性空間，維度是 <script type="math/tex">2</script>，我們說 <script type="math/tex">u,\ v</script> 是這個空間的生成元。</p>
+<p>_<script type="math/tex">u,\ v</script>，則所有 <script type="math/tex">u,\ v</script> 的線性組合構成一個線性空間，維度是 <script type="math/tex">2</script>，我們說 <script type="math/tex">u,\ v</script> 是這個空間的生成元。</p>
 
-<p>如果 <script type="math/tex">u,\ v</script> 共線的話就只會生成出一維的空間。</p>
+<p>_<script type="math/tex">u,\ v</script> 共線的話就只會生成出一維的空間。</p>
 
-<p>同理，<script type="math/tex">n</script> 個向量可以生成出至多 <script type="math/tex">n</script> 維的線性空間。</p>
+<p>_<script type="math/tex">n</script> 個向量可以生成出至多 <script type="math/tex">n</script> 維的線性空間。</p>
 
 <h3 id="section-2">線性的函數</h3>
 
 <h4 id="definition-21-">Definition 2.1: 線性變換</h4>
 
-<p>一個函數 <script type="math/tex">\mathcal{L}</script> 被說成是<strong>線性變換</strong>，若且唯若其滿足下列性質：</p>
+<p>_<script type="math/tex">\mathcal{L}</script> 被說成是<strong>線性變換</strong>，若且唯若其滿足下列性質：</p>
 
-<blockquote>
-  <ol>
-    <li>加法的分配率： <script type="math/tex">\forall \mathbf{a}, \mathbf{b}, \ \ \mathcal{L}(\mathbf{a}+\mathbf{b}) = \mathcal{L}(\mathbf{a})+\mathcal{L}(\mathbf{b})</script></li>
-  </ol>
-</blockquote>
+<p>_<script type="math/tex">\forall \mathbf{a}, \mathbf{b}, \ \ \mathcal{L}(\mathbf{a}+\mathbf{b}) = \mathcal{L}(\mathbf{a})+\mathcal{L}(\mathbf{b})</script></p>
 
-<blockquote>
-  <ol>
-    <li>係數積可提出： <script type="math/tex">\forall \mathbf{a},k, \ \ \mathcal{L}(k\mathbf{a})=k\mathcal{L}(\mathbf{a})</script></li>
-  </ol>
-</blockquote>
+<p>_<script type="math/tex">\forall \mathbf{a},k, \ \ \mathcal{L}(k\mathbf{a})=k\mathcal{L}(\mathbf{a})</script></p>
 
 <p>可以看成：線性變換連繫了定義域和值域的加法與係數積。</p>
 
 <h4 id="example-22">Example 2.2</h4>
 
-<ol>
-  <li>
-    <script type="math/tex">f(x)=2x</script>
-    <p>是線性變換，但 <script type="math/tex">f(x)=2x+1</script> 不是。</p>
-  </li>
-  <li>
-    <script type="math/tex">f(x, y) = 2x+3y</script>
-    <p>把向量 <script type="math/tex">(x, y)</script> 變成實數，而且是線性變換，可以寫成 <script type="math/tex; mode=display">f(\vec{v}) = \begin{bmatrix} 2 &amp; 3\end{bmatrix} \vec{v}</script></p>
-  </li>
-  <li>
-    <script type="math/tex">f(x, y) = (x+y, 2x-y)</script>
-    <p>把向量變成向量，而且是線性變換，可以寫成<script type="math/tex; mode=display"> f(\vec{v}) = \begin{bmatrix} 1 &amp; 1 \\ 2 &amp; -1 \end{bmatrix} \vec{v} </script></p>
-  </li>
-  <li>
-    <p>微分之所以可以一項一項的微，是因為 <script type="math/tex; mode=display">\frac{d}{dx}(f(x)+g(x))=\frac{d}{dx} f(x)+\frac{d}{dx} g(x)</script> ，而微分的時候係數可以提出來也是因為 <script type="math/tex; mode=display"> \frac{d}{dx}(kf(x)) =k\frac{d}{dx}f(x)</script>，所以微分也是線性變換。</p>
-  </li>
-  <li>原封不動的變換： <script type="math/tex">\mathcal{I}(v) = v</script> 也是一個線性變換，稱為恆等變換。</li>
-</ol>
+<p>_<script type="math/tex">f(x)=2x</script> 是線性變換，但 <script type="math/tex">f(x)=2x+1</script> 不是。
+_<script type="math/tex">f(x, y) = 2x+3y</script> 把向量 <script type="math/tex">(x, y)</script> 變成實數，而且是線性變換，可以寫成 <script type="math/tex; mode=display">f(\vec{v}) = \begin{bmatrix} 2 &amp; 3\end{bmatrix} \vec{v}</script>
+_<script type="math/tex">f(x, y) = (x+y, 2x-y)</script> 把向量變成向量，而且是線性變換，可以寫成<script type="math/tex; mode=display"> f(\vec{v}) = \begin{bmatrix} 1 &amp; 1 \\ 2 &amp; -1 \end{bmatrix} \vec{v} </script>
+4. 微分之所以可以一項一項的微，是因為 <script type="math/tex; mode=display">\frac{d}{dx}(f(x)+g(x))=\frac{d}{dx} f(x)+\frac{d}{dx} g(x)</script> ，而微分的時候係數可以提出來也是因為 <script type="math/tex; mode=display"> \frac{d}{dx}(kf(x)) =k\frac{d}{dx}f(x)</script>，所以微分也是線性變換。</p>
+
+<p>_<script type="math/tex">\mathcal{I}(v) = v</script> 也是一個線性變換，稱為恆等變換。</p>
 
 <h4 id="definition-23-">Definition 2.3: 微分算子</h4>
 
-<p>定義微分算子 <script type="math/tex">\mathcal{D}(f) := \frac{d}{dx}f = f'</script></p>
+<p>_<script type="math/tex">\mathcal{D}(f) := \frac{d}{dx}f = f'</script></p>
 
 <p>根據例子 4.4，微分算子是線性變換（線性算子）。</p>
 
@@ -171,19 +147,13 @@
 
 <h4 id="definition-31-">Definition 3.1: 線性方程</h4>
 
-<p>給定線性變換 <script type="math/tex">\mathcal{L}</script> 與向量 <script type="math/tex">b</script>，則以下形式的方程稱為<strong>線性方程</strong></p>
+<p>_<script type="math/tex">\mathcal{L}</script> 與向量 <script type="math/tex">b</script>，則以下形式的方程稱為<strong>線性方程</strong></p>
 
-<blockquote>
-  <script type="math/tex">\mathcal{L}(x)=b</script>
-
-</blockquote>
+<p>_<script type="math/tex">\mathcal{L}(x)=b</script></p>
 
 <p>以下形式的方程稱為齊次線性方程或<strong>齊次方程</strong>。</p>
 
-<blockquote>
-  <script type="math/tex">\mathcal{L}(x)=\vec{0}</script>
-
-</blockquote>
+<p>_<script type="math/tex">\mathcal{L}(x)=\vec{0}</script></p>
 
 <h4 id="theorem-32-">Theorem 3.2: 齊次方程的解</h4>
 
@@ -191,8 +161,8 @@
 
 <p>證明：</p>
 
-<p>若解集合中有兩向量 <script type="math/tex">a, \ b</script> ，因為 <script type="math/tex">a, \ b</script> 是解，<script type="math/tex">\mathcal{L}(a)=\mathcal{L}(b)=0</script>。
-所以 <script type="math/tex">\mathcal{L}(a+b)=\mathcal{L}(a)+\mathcal{L}(b)=0</script>，所以 <script type="math/tex">a+b</script> 也是解。</p>
+<p>_<script type="math/tex">a, \ b</script> ，因為 <script type="math/tex">a, \ b</script> 是解，<script type="math/tex">\mathcal{L}(a)=\mathcal{L}(b)=0</script>。
+_<script type="math/tex">\mathcal{L}(a+b)=\mathcal{L}(a)+\mathcal{L}(b)=0</script>，所以 <script type="math/tex">a+b</script> 也是解。</p>
 
 <p>關於係數積一樣自己驗證。</p>
 
@@ -200,12 +170,12 @@
 
 <h4 id="theorem-34-">Theorem 3.4: 齊性解與特解</h4>
 
-<p>給定線性變換 <script type="math/tex">\mathcal{L}</script> 與向量 <script type="math/tex">b</script>，觀察兩個線性方程</p>
+<p>_<script type="math/tex">\mathcal{L}</script> 與向量 <script type="math/tex">b</script>，觀察兩個線性方程</p>
 
-<p>1). <script type="math/tex">\mathcal{L}(x)=\vec{0}</script>
-2). <script type="math/tex">\mathcal{L}(x)=b</script></p>
+<p>_<script type="math/tex">\mathcal{L}(x)=\vec{0}</script>
+_<script type="math/tex">\mathcal{L}(x)=b</script></p>
 
-<p>若 <script type="math/tex">\alpha_h</script> 是 (1) 式的解，<script type="math/tex">\alpha_p</script> 是 (2) 式的解，那麼 <script type="math/tex">\alpha_h+\alpha_p</script> 是 (2) 式的解。</p>
+<p>_<script type="math/tex">\alpha_h</script> 是 (1) 式的解，<script type="math/tex">\alpha_p</script> 是 (2) 式的解，那麼 <script type="math/tex">\alpha_h+\alpha_p</script> 是 (2) 式的解。</p>
 
 <p>證明：
 這個定理很關鍵，適合自己證，代進去就出來了。</p>
@@ -219,7 +189,7 @@
 
 <h4 id="theorem-24-">Theorem 2.4: 合成函數也是線性的</h4>
 
-<p>對於兩個線性變換 <script type="math/tex">\mathcal{M}, \ \mathcal{N}</script>，其合成函數 <script type="math/tex">\mathcal{L}(x)=\mathcal{N}(\mathcal{M}(x))</script> 也是線性變換。</p>
+<p>_<script type="math/tex">\mathcal{M}, \ \mathcal{N}</script>，其合成函數 <script type="math/tex">\mathcal{L}(x)=\mathcal{N}(\mathcal{M}(x))</script> 也是線性變換。</p>
 
 <p>證明： 
 1. 關於加法分配律的驗證 <script type="math/tex; mode=display">\begin{aligned} \mathcal{L}(a+b) &amp;= \mathcal{N}(\mathcal{M}(a+b)) \\ &amp;=  \mathcal{N}(\mathcal{M}(a)+\mathcal{M}(b))\\ &amp;=\mathcal{N}(\mathcal{M}(a))+\mathcal{N}(\mathcal{M}(b))\\ &amp;= \mathcal{L}(a)+\mathcal{L}(b) \end{aligned}</script>
@@ -231,19 +201,14 @@
 
 <p>Corollary 是推論的意思。根據 Theorem 2.4，定義 <script type="math/tex">\mathcal{L}^2(x)=\mathcal{L}(\mathcal{L}(x))</script> ，則 <script type="math/tex">\mathcal{L}^2</script> 也是線性變換。</p>
 
-<p>同樣可以定義 <script type="math/tex">\mathcal{L}^n(x)</script> ，其也是線性變換。
-同理，高次微分 <script type="math/tex">\mathcal{D}^n</script> 也是線性的。</p>
+<p>_<script type="math/tex">\mathcal{L}^n(x)</script> ，其也是線性變換。
+_<script type="math/tex">\mathcal{D}^n</script> 也是線性的。</p>
 
 <h4 id="theorem-26--">Theorem 2.6:  線性變換的多項式</h4>
 
-<ol>
-  <li>
-    <p>對於實數 <script type="math/tex">k</script> 與線性變換 <script type="math/tex">\mathcal{L}</script>，定義函數 <script type="math/tex">\mathcal{M}(x) = k\mathcal{L}(x)</script>，則 <script type="math/tex">\mathcal{M}(x)</script> 也是線性變換。</p>
-  </li>
-  <li>
-    <p>對於兩個線性變換 <script type="math/tex">\mathcal{M}, \ \mathcal{N}</script>，函數 <script type="math/tex">\mathcal{L}(x)=\mathcal{M}(x)+\mathcal{N}(x) </script> 也是線性變換。</p>
-  </li>
-</ol>
+<p>_<script type="math/tex">k</script> 與線性變換 <script type="math/tex">\mathcal{L}</script>，定義函數 <script type="math/tex">\mathcal{M}(x) = k\mathcal{L}(x)</script>，則 <script type="math/tex">\mathcal{M}(x)</script> 也是線性變換。</p>
+
+<p>_<script type="math/tex">\mathcal{M}, \ \mathcal{N}</script>，函數 <script type="math/tex">\mathcal{L}(x)=\mathcal{M}(x)+\mathcal{N}(x) </script> 也是線性變換。</p>
 
 <p>證明很容易，就不贅述了。根據這兩個性質與 Corollary 2.5 ，推導出線性變換的多項式，例如 <script type="math/tex; mode=display"> \mathcal{Q} = a\mathcal{L}^2 + b\mathcal{L}+c\mathcal{I} </script> 也是線性變換，其中 <script type="math/tex">\mathcal{I}</script> 是恆等變換。</p>
 
