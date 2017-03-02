@@ -21,15 +21,15 @@
 
 .post-content h2 {
   font-size: 32px;
-  line-height: 40px; }
+  line-height: 50px; }
 
 .post-content h3 {
   font-size: 24px;
-  line-height: 30px; }
+  line-height: 40px; }
 
 .post-content h4 {
   font-size: 20px;
-  line-height: 25px; }
+  line-height: 30px; }
 
 .post-content hr {
   background-color: #ffffff;
@@ -95,6 +95,35 @@
   line-height: 1.4;
   margin: 0px; }
 
+.post, .home {
+  width: 72%;
+  padding: 30px 50px 0px 0px; }
+
+.post-content h1 {
+  display: none; }
+
+.archives {
+  float: right;
+  width: 20%;
+  margin-top: 30px; }
+
+.articlelist .articleLink {
+  font-size: 10.5pt;
+  line-height: 11pt;
+  /*padding: 8px;*/
+  /*border-bottom: solid 1px #666666;*/ }
+
+.articlelist {
+  /*margin-left: 25px;*/ }
+
+.articlelist .articleLink:hover {
+  /*background: #E6E6E6;*/ }
+
+.articlelist .categoryTitle {
+  /*background: #777777;*/
+  /*padding: 8px;*/
+  /*border-bottom: solid 1px #666666;*/ }
+
 /**
  * Reset some basic elements
  */
@@ -125,7 +154,8 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 .highlight {
-  margin-bottom: 15px; }
+  margin-bottom: 30px;
+  margin-top: 30px; }
 
 /**
  * Images
@@ -156,7 +186,7 @@ li > ol {
 /**
  * Headings
  */
-h1, h2, h3, h4, h5, h6 {
+h1 {
   font-weight: 400; }
 
 /**
@@ -175,12 +205,12 @@ a {
  * Blockquotes
  */
 blockquote {
-  color: #828282;
-  border-left: 4px solid #e8e8e8;
-  padding-left: 15px;
-  font-size: 18px;
-  letter-spacing: -1px;
-  font-style: italic; }
+  /*color: $grey-color;*/
+  /*border-left: 4px solid $grey-color-light;*/
+  /*padding-left: $spacing-unit / 2;*/
+  /*font-size: 18px;*/
+  /*letter-spacing: -1px;*/
+  /*font-style: italic;*/ }
   blockquote > :last-child {
     margin-bottom: 0; }
 
@@ -190,7 +220,7 @@ blockquote {
 pre,
 code {
   font-size: 15px;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #999999;
   border-radius: 3px;
   background-color: #eef; }
 
@@ -209,16 +239,16 @@ pre {
  * Wrapper
  */
 .wrapper {
-  max-width: -webkit-calc(800px - (30px * 2));
-  max-width: calc(800px - (30px * 2));
+  max-width: -webkit-calc(70% - (30px * 2));
+  max-width: calc(70% - (30px * 2));
   margin-right: auto;
   margin-left: auto;
   padding-right: 30px;
   padding-left: 30px; }
   @media screen and (max-width: 800px) {
     .wrapper {
-      max-width: -webkit-calc(800px - (30px));
-      max-width: calc(800px - (30px));
+      max-width: -webkit-calc(70% - (30px));
+      max-width: calc(70% - (30px));
       padding-right: 15px;
       padding-left: 15px; } }
 
@@ -239,14 +269,14 @@ pre {
   height: 16px;
   vertical-align: middle; }
   .icon > svg path {
-    fill: #828282; }
+    fill: #333333; }
 
 /**
  * Site header
  */
 .site-header {
-  border-top: 5px solid #424242;
-  border-bottom: 1px solid #e8e8e8;
+  border-top: 5px solid black;
+  border-bottom: 1px solid #999999;
   min-height: 56px;
   position: relative; }
 
@@ -258,7 +288,7 @@ pre {
   margin-bottom: 0;
   float: left; }
   .site-title, .site-title:visited {
-    color: #424242; }
+    color: black; }
 
 .site-nav {
   float: right;
@@ -276,7 +306,7 @@ pre {
       top: 9px;
       right: 15px;
       background-color: #fdfdfd;
-      border: 1px solid #e8e8e8;
+      border: 1px solid #999999;
       border-radius: 5px;
       text-align: right; }
       .site-nav .menu-icon {
@@ -291,7 +321,7 @@ pre {
           width: 18px;
           height: 15px; }
           .site-nav .menu-icon > svg path {
-            fill: #424242; }
+            fill: black; }
       .site-nav .trigger {
         clear: both;
         display: none; }
@@ -309,7 +339,7 @@ pre {
  * Site footer
  */
 .site-footer {
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid #999999;
   padding: 30px 0; }
 
 .footer-heading {
@@ -323,7 +353,7 @@ pre {
 
 .footer-col-wrapper {
   font-size: 15px;
-  color: #828282;
+  color: #333333;
   margin-left: -15px; }
 
 .footer-col {
@@ -374,7 +404,7 @@ pre {
 
 .post-meta {
   font-size: 14px;
-  color: #828282; }
+  color: #333333; }
 
 .post-link {
   display: block;

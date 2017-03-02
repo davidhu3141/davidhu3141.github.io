@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>高斯引理的各種形式與推論</title>
+  <meta name="description" content="高斯引理的各種形式與推論">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://davidhu3141.github.io/%E4%BB%A3%E6%95%B8/%E9%AB%98%E4%B8%AD%E9%80%B2%E9%9A%8E%E8%AA%B2%E9%A1%8C/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">
+  <link rel="alternate" type="application/rss+xml" title="AutoDavid's Blog" href="http://davidhu3141.github.io/feed.xml">
+
+<!-- mathjax -->
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<!-- icon -->
+  <link rel="shortcut icon" href="http://davidhu3141.github.io/pageicon.png">
+
+<!-- style -->
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+  <!-- link rel=stylesheet type="text/css" href="css/customs/article.css" -->
+
+<!-- remove amp -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+      data.math = data.math.replace(/^\s*<!\[CDATA\[\s*(.*)\s*\]\]>\s*$/m,"$1");
+      data.math = data.math.replace(/amp;/g," ");
+      data.math = data.math.replace(/&lt;/g,"<");
+      data.math = data.math.replace(/&gt;/g,">");
+    });
+  });
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">AutoDavid's Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">高斯引理的各種形式與推論</h1>
+    <p class="post-meta"><time datetime="2016-12-03T00:00:00+08:00" itemprop="datePublished">Dec 3, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="section">高斯引理的各種形式與推論</h2>
+
+<p>Lemma（引理）是用來證明其他定理的輔助小定理。來看 Gauss lemma 的各種形式，以及 Gauss lemma 能夠證明出什麼。</p>
+
+<p>[TOC]</p>
+
+<p>以下的討論都是在整數與有理數的範圍，但事實上高斯引理是關於代數學中的「環」的。環是一種更廣義的代數空間，是帶有加法與乘法的結構的集合。</p>
+
+<h3 id="primitive-">Primitive 的多項式</h3>
+
+<blockquote>
+  <p>所謂 primitive 多項式，是指所有係數的最大公因數為 <script type="math/tex">1</script> 的整係數多項式。</p>
+</blockquote>
+
+<p><em>Note: 高斯先生將這種多項式稱為 primitive polynomial，但是在研究代數體（具有加減乘除封閉性的集合）時，某數 <script type="math/tex">\alpha</script> 的 primitive polynomial 是指「以 <script type="math/tex">\alpha</script> 為根的最小多項式，比方說 <script type="math/tex">\sqrt{2}</script> 在 <script type="math/tex">\mathbb{Q}[x]</script> 中的最小多項式為 <script type="math/tex">x^2-2</script>。</em></p>
+
+<h3 id="primitive--1">高斯引理：Primitive 的版本</h3>
+
+<p>高斯引理的其中一個版本是：</p>
+
+<blockquote>
+  <p>兩個 primitive 的多項式 <script type="math/tex">a(x)</script>、<script type="math/tex">b(x)</script> 的積 <script type="math/tex">F(x)=a(x)b(x)</script>依然是 primitive 。</p>
+</blockquote>
+
+<h4 id="section-1">證明</h4>
+
+<p>令 <script type="math/tex">a(x)=a_nx^n+a_{n-1}x^{n-1}+...+a_0</script>，
+與 <script type="math/tex">b(x)=b_mx^m+b_{n-1}x^{n-1}+...+b_0</script>。</p>
+
+<p>它們都是 primitive 多項式，所以任取一個質數 <script type="math/tex">p</script>，讓它依序去除以 <script type="math/tex">a_0</script>、<script type="math/tex">a_1</script>、…一定到某個 <script type="math/tex">a_i</script> 無法被整除，否則這些 <script type="math/tex">\{a_k\}</script> 就會有公因數 <script type="math/tex">p</script> 了。</p>
+
+<p>同理，<script type="math/tex">p</script> 依序去除以 <script type="math/tex">b_0</script>、<script type="math/tex">b_1</script>、…，一定到某個 <script type="math/tex">b_j</script> 不被 <script type="math/tex">p</script> 整除。</p>
+
+<p>假設 <script type="math/tex">a_i</script> 是所有不被 <script type="math/tex">p</script> 整除的 <script type="math/tex">\{a_k\}</script> 裡面次數最小的（底標最小），<script type="math/tex">b_j</script> 也一樣。所以 <script type="math/tex">a_0</script>、<script type="math/tex">a_1</script>、…、<script type="math/tex">a_{i-1}</script> 都是 <script type="math/tex">p</script> 的倍數。同理，<script type="math/tex">b_0</script>、<script type="math/tex">b_1</script>、…、<script type="math/tex">b_{j-1}</script> 都是 <script type="math/tex">p</script> 的倍數。</p>
+
+<p>現在觀察 <script type="math/tex">F(x)</script> 的第 <script type="math/tex">x^{i+j}</script> 項係數 <script type="math/tex">f_{i+j}</script>。因為 <script type="math/tex">F(x)</script> 是 <script type="math/tex">a(x)</script> 與 <script type="math/tex">b(x)</script> 的積，所以第 <script type="math/tex">x^{i+j}</script> 項寫成這樣：</p>
+
+<script type="math/tex; mode=display"> f_{i+j}x^{i+j} = (a_0b_{i+j}+a_1b_{i+j-1}+...+a_ib_j+...+a_{i+j-1}b_1+a_{i+j}b_0)x^{i+j}</script>
+
+<p>分成三部分來看：</p>
+
+<script type="math/tex; mode=display"> f_{i+j} = \underset{\mathrm{first\ part}}{(a_0b_{i+j}+a_1b_{i+j-1}+...+a_{i-1}b_{j+1})}+\underset{\mathrm{second\ part}}{a_ib_j}+\underset{\mathrm{third\ part}}{(a_{i+1}b_{j-1}+...+a_{i+j-1}b_1+a_{i+j}b_0)}</script>
+
+<p><strong>第一部分</strong>：<script type="math/tex">a_0b_{i+j}+a_1b_{i+j-1}+...+a_{i-1}b_{j+1}</script> 每一項的 <script type="math/tex">a_{k&lt;i}</script> 都可以被 <script type="math/tex">p</script> 整除，所以整體是 <script type="math/tex">p</script> 的倍數。</p>
+
+<p><strong>第三部分</strong>同理，每個 <script type="math/tex">b_{k&lt;i}</script> 都可以被 <script type="math/tex">p</script> 整除，所以第三部分也是 <script type="math/tex">p</script> 的倍數。</p>
+
+<p>但是<strong>第二部分</strong> <script type="math/tex">a_ib_j</script> 中，<script type="math/tex">a_i</script> 與 <script type="math/tex">b_j</script> 都不是質數 <script type="math/tex">p</script> 的倍數，所以 <script type="math/tex">a_ib_j</script> 也不是。</p>
+
+<p>所以 <script type="math/tex"> f_{i+j}=p</script> 的倍數 <script type="math/tex">+</script> <em>非 <script type="math/tex">p</script> 的倍數</em> <script type="math/tex">+</script> <script type="math/tex">p</script> 的倍數，整體而言不能被 <script type="math/tex">p</script> 整除。</p>
+
+<blockquote>
+  <p>結論：任取質數 <script type="math/tex">p</script>，<script type="math/tex">F(x)</script> 一定有一個係數不能被 <script type="math/tex">p</script> 整除。</p>
+</blockquote>
+
+<p>所以沒有質數是 F(x) 的係數的公因數，也就是 <script type="math/tex">F(x)</script> primitive 。</p>
+
+<h3 id="irreducible-">Irreducible 的多項式</h3>
+
+<blockquote>
+  <p>一個多項式被稱為不可約多項式（Irreducible、既約多項式），如果其無法被寫成兩個非零次多項式的積。</p>
+</blockquote>
+
+<p>通常我們會說「在哪裡不可約」。比方說 <script type="math/tex">x^2-2</script> 在整係數的情況不可約，但是在實係數的情況可以分解成 <script type="math/tex">(x-\sqrt 2)(x+\sqrt 2)</script>。</p>
+
+<p><em>Note: 「質式」和「不可約多項式」在整係數的情況相等，不過兩者有時候有差異，所以還是不稱它為質式。</em></p>
+
+<h3 id="irreducible--1">高斯引理：Irreducible 的版本</h3>
+
+<p>高斯引理也有另一種說法，關於不可約的：</p>
+
+<blockquote>
+  <p>非零次、primitive 的整係數多項式 <script type="math/tex">F(x)</script> 在 <script type="math/tex">\mathbb{Z}[x]</script> 不可約，若且唯若其在 <script type="math/tex">\mathbb{Q}[x]</script> 不可約。</p>
+</blockquote>
+
+<p>換句話說，如果在 <script type="math/tex">\mathbb{Q}[x]</script> 可分解，那麼其實在  <script type="math/tex">\mathbb{Z}[x]</script> 就可以分解了。</p>
+
+<h4 id="section-2">證明</h4>
+
+<p>從 primitive 的版本來推 irreducible 的版本。</p>
+
+<p>假設 <script type="math/tex">F(x)</script> 可以分解成兩個有理係數、但非整係數的多項式 <script type="math/tex">F(x)=a(x)b(x)</script>。</p>
+
+<ol>
+  <li>存在整數 <script type="math/tex">p&gt;1</script> 使 <script type="math/tex">pa(x)</script> 是 primitive 的</li>
+  <li>存在整數 <script type="math/tex">q&gt;1</script> 使 <script type="math/tex">qb(x)</script> 是 primitive 的</li>
+</ol>
+
+<p>所以 <script type="math/tex">F(x)=a(x)b(x)</script> 可以重寫成</p>
+
+<script type="math/tex; mode=display"> F(x)=\frac{1}{pq}\cdot  \underbrace{pa(x)\cdot qb(x)}</script>
+
+<p>其中大括號標起來的地方是兩個 primitive polynomial 相乘，所以也是 primitive。但是這樣一來</p>
+
+<script type="math/tex; mode=display"> F(x)=\frac{\mathrm{some\ primitive\ polynomial}}{pq} \notin \mathbb{Z}[x]</script>
+
+<p>矛盾，所以<script type="math/tex">F(x)</script> 不能分解成兩個有理係數、但非整係數多項式的積。</p>
+
+<p>那麼如果 <script type="math/tex">F(x)</script> 可以拆成一個整係數乘以一個有理係數多項式的積 <script type="math/tex">F(x)=c(x)d(x)</script>：</p>
+
+<ol>
+  <li>_<script type="math/tex">c \in \mathbb{Z}[x]</script>、<script type="math/tex">d \in \mathbb{Q}[x]</script>、<script type="math/tex">d \notin \mathbb{Z}[x]</script>：</li>
+  <li>存在 <script type="math/tex">p</script> 使 <script type="math/tex">\frac{1}{p}c(x)</script> 為 primitive</li>
+  <li>存在 <script type="math/tex">q</script> 使 <script type="math/tex">qd(x)</script> 為 primitive</li>
+</ol>
+
+<p>所以 <script type="math/tex">F(x)=c(x)d(x)</script> 可以重寫成</p>
+
+<script type="math/tex; mode=display">F(x) = \frac{p}{q}\cdot\underbrace{\frac{1}{p}c(x)\cdot qd(x)}</script>
+
+<p>一樣大括號標起來的地方是 primitive 的，所以 <script type="math/tex">\frac{p}{q}</script> 要是整數才能讓 <script type="math/tex">F(x)</script> 是整係數多項式，換句話說 <script type="math/tex">p\ |\ q</script>。</p>
+
+<p>既然 <script type="math/tex">p\ |\ q</script>，所以 <script type="math/tex">p=nq</script>，</p>
+
+<script type="math/tex; mode=display">F(x) = c(x)d(x) = \frac{1}{p}c(x)\cdot pd(x) = \frac{1}{p}c(x)\cdot nqd(x)</script>
+
+<p>最後乘號兩邊都是整係數多項式，所以 <script type="math/tex">F(x)</script> 的確在整係數可分解。</p>
+
+<h3 id="section-3">一次因式檢驗法</h3>
+
+<p>高斯引理有兩個常見的推論：</p>
+
+<ol>
+  <li>一次因式檢驗法</li>
+  <li>_<script type="math/tex">p-q\ |\ f(1)</script> ，<script type="math/tex">p+q\ |\ f(-1)</script></li>
+</ol>
+
+<p>一次因式檢驗法的證明需要把多項式 <script type="math/tex">F(x)</script> 分解成 <script type="math/tex">(px-q)Q(x)</script>，並證明 <script type="math/tex">Q(x)</script> 是整係數。</p>
+
+<p>高斯引理的 irreducible 版本說如果 <script type="math/tex">(px-q)Q(x)</script> 不是兩個整係數多項式的積，那麼它可以重寫成整係數相乘的樣子。</p>
+
+<h3 id="section-4">課本上的高斯引理</h3>
+
+<p>課本上的 <script type="math/tex">p-q\ |\ f(1)</script> 的證明也是需要把 <script type="math/tex">F(x)</script> 分解成 <script type="math/tex">(px-q)Q(x)</script>，並證明 <script type="math/tex">Q(x)</script> 是整係數，然後代入 <script type="math/tex">x=1</script> 進去。</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+<div id="archives">
+
+  <div class="archive-group">
+    
+    <div id="#高中教材"></div>
+    <p></p>
+    
+    <h3 class="category-head">高中教材</h3>
+    <a name="高中教材"></a>
+    
+    <article class="archive-item">
+      <h4><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html">歐拉公式與三角函數的指數形式</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#代數與組合"></div>
+    <p></p>
+    
+    <h3 class="category-head">代數與組合</h3>
+    <a name="代數與組合"></a>
+    
+    <article class="archive-item">
+      <h4><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數的妙用 -- 關於 RegExp</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#計算機科學"></div>
+    <p></p>
+    
+    <h3 class="category-head">計算機科學</h3>
+    <a name="計算機科學"></a>
+    
+    <article class="archive-item">
+      <h4><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數的妙用 -- 關於 RegExp</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#代數"></div>
+    <p></p>
+    
+    <h3 class="category-head">代數</h3>
+    <a name="代數"></a>
+    
+    <article class="archive-item">
+      <h4><a href="/%E4%BB%A3%E6%95%B8/%E9%AB%98%E4%B8%AD%E9%80%B2%E9%9A%8E%E8%AA%B2%E9%A1%8C/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#高中進階課題"></div>
+    <p></p>
+    
+    <h3 class="category-head">高中進階課題</h3>
+    <a name="高中進階課題"></a>
+    
+    <article class="archive-item">
+      <h4><a href="/%E4%BB%A3%E6%95%B8/%E9%AB%98%E4%B8%AD%E9%80%B2%E9%9A%8E%E8%AA%B2%E9%A1%8C/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
+    </article>
+    
+  </div>
+
+</div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">AutoDavid's Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <!-- li>AutoDavid's Blog</li -->
+          <li><a href="mailto:davidhu8888@livemail.com">davidhu8888@livemail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>這裡會發一些關於數學、代數拓撲、範疇論、計算機科學的廢文或繪圖，跟寫一些沒用的小品程式。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

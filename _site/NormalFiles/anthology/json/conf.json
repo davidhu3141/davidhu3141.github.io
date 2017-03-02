@@ -1,7 +1,0 @@
-{
-	"webResourceRoot": "https://davidhu3141.github.io/anthology/",
-	"sourcePath": "stackeditHTML",
-	"destinationPath": "generatedHTML",
-	"templetePath": "templete/templete.html",
-	"indexTempletePath": "templete/indexTemplete.html"
-}
