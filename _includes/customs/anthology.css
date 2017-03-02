@@ -1,9 +1,18 @@
 
 // old style rebuild
 
-.post , .home {
+.post {
 	width: 72%;
 	padding: 30px 50px 0px 0px;
+}
+
+.home .page-heading {
+	display: none;
+}
+
+.home {
+	width: 72%;
+	padding: 10px 50px 0px 0px;
 }
 
 .post-content h1{
