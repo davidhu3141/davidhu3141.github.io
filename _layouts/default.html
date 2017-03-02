@@ -22,7 +22,7 @@
     <a name="{{ category_name | slugize }}"></a>
     {% for post in site.categories[category_name] %}
     <article class="articlelist">
-      <h4 class="articleLink"><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
+      <div class="articleLink"><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
     </article>
     {% endfor %}
   </div>

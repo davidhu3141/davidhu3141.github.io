@@ -27,13 +27,13 @@
 
 .articlelist .articleLink {
 	font-size: 10.5pt;
-	line-height: 11pt;
+	line-height: 12.5pt;
 	/*padding: 8px;*/
 	/*border-bottom: solid 1px #666666;*/
 }
 
 .articlelist {
-	/*margin-left: 25px;*/
+	margin-bottom: 6px;
 }
 
 .articlelist .articleLink:hover {
