@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Welcome to Jekyll!"
+date:   2017-03-01 13:49:39 +0800
+categories: jekyll update
+---
+
+echo "---" > $2
+
+dat = $(date +%Y-%m-%d)
+filename = "_posts/$dat-$1"
+
+touch $filename
+
+echo "---" > $filename

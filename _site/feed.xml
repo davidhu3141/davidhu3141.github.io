@@ -6,308 +6,348 @@
 </description>
     <link>http://davidhu3141.github.io/</link>
     <atom:link href="http://davidhu3141.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Mar 2017 15:19:14 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Mar 2017 15:19:14 +0800</lastBuildDate>
+    <pubDate>Thu, 02 Mar 2017 18:05:25 +0800</pubDate>
+    <lastBuildDate>Thu, 02 Mar 2017 18:05:25 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>二元一次方程式整數解</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;二元一次方程式整數解&lt;/h2&gt;
+        <title>高斯引理的各種形式與推論</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;高斯引理的各種形式與推論&lt;/h2&gt;
 
-&lt;p&gt;來證明下面的事實：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;給定 &lt;script type=&quot;math/tex&quot;&gt;a, b \in \mathbb{Z}&lt;/script&gt; ， 則二元一次方程式 &lt;script type=&quot;math/tex&quot;&gt; ax+by = c &lt;/script&gt; 有整數解的充要條件是 &lt;script type=&quot;math/tex&quot;&gt; (a, b) | c&lt;/script&gt; 。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;分成兩部分討論：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex&quot;&gt; ax+by = c &lt;/script&gt;
-    &lt;p&gt;有整數解 &lt;script type=&quot;math/tex&quot;&gt;\Rightarrow (a, b)|c&lt;/script&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex&quot;&gt;(a, b)|c\Rightarrow ax+by = c &lt;/script&gt;
-    &lt;p&gt;有整數解&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Lemma（引理）是用來證明其他定理的輔助小定理。來看 Gauss lemma 的各種形式，以及 Gauss lemma 能夠證明出什麼。&lt;/p&gt;
 
 &lt;p&gt;[TOC]&lt;/p&gt;
 
-&lt;h3 id=&quot;script-typemathtexrightarrow-a-bcscript&quot;&gt;一、有整數解 &lt;script type=&quot;math/tex&quot;&gt;\Rightarrow (a, b)|c&lt;/script&gt;&lt;/h3&gt;
+&lt;p&gt;以下的討論都是在整數與有理數的範圍，但事實上高斯引理是關於代數學中的「環」的。環是一種更廣義的代數空間，是帶有加法與乘法的結構的集合。&lt;/p&gt;
 
-&lt;h4 id=&quot;section-1&quot;&gt;證明過程&lt;/h4&gt;
-
-&lt;script type=&quot;math/tex&quot;&gt;ax+by=c&lt;/script&gt;
-&lt;p&gt;有整數解 &lt;script type=&quot;math/tex&quot;&gt;\Rightarrow&lt;/script&gt; 存在 &lt;script type=&quot;math/tex&quot;&gt;u, v \in \mathbb{Z}&lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;au+bv=c&lt;/script&gt;。&lt;/p&gt;
-
-&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot;&gt;(a, b)|a&lt;/script&gt; 且 &lt;script type=&quot;math/tex&quot;&gt;(a, b)|b&lt;/script&gt; ，根據&lt;strong&gt;線性組合原理&lt;/strong&gt;， &lt;script type=&quot;math/tex&quot;&gt;(a, b)|au+bv&lt;/script&gt; ， 即 &lt;script type=&quot;math/tex&quot;&gt; (a, b)|c&lt;/script&gt;，得證。&lt;/p&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;線性組合原理&lt;/h4&gt;
-
-&lt;p&gt;剛剛的證明用到線性組合的原理：&lt;/p&gt;
+&lt;h3 id=&quot;primitive-&quot;&gt;Primitive 的多項式&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;若 &lt;script type=&quot;math/tex&quot;&gt;r|a&lt;/script&gt; 且 &lt;script type=&quot;math/tex&quot;&gt;r|b&lt;/script&gt; ， 則任取整數 &lt;script type=&quot;math/tex&quot;&gt;m, n \in \mathbb{Z}&lt;/script&gt; ，都有 &lt;script type=&quot;math/tex&quot;&gt;r|ma+bn&lt;/script&gt;。&lt;/p&gt;
+  &lt;p&gt;所謂 primitive 多項式，是指所有係數的最大公因數為 &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt; 的整係數多項式。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;原因很直觀：&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: 高斯先生將這種多項式稱為 primitive polynomial，但是在研究代數體（具有加減乘除封閉性的集合）時，某數 &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt; 的 primitive polynomial 是指「以 &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt; 為根的最小多項式，比方說 &lt;script type=&quot;math/tex&quot;&gt;\sqrt{2}&lt;/script&gt; 在 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Q}[x]&lt;/script&gt; 中的最小多項式為 &lt;script type=&quot;math/tex&quot;&gt;x^2-2&lt;/script&gt;。&lt;/em&gt;&lt;/p&gt;
 
-&lt;script type=&quot;math/tex&quot;&gt;r|a \Rightarrow&lt;/script&gt;
-&lt;p&gt;存在整數 &lt;script type=&quot;math/tex&quot;&gt;k &lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;a = kr&lt;/script&gt;
-&lt;script type=&quot;math/tex&quot;&gt;r|b \Rightarrow&lt;/script&gt; 存在整數 &lt;script type=&quot;math/tex&quot;&gt;l &lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;b = lr&lt;/script&gt;&lt;/p&gt;
+&lt;h3 id=&quot;primitive--1&quot;&gt;高斯引理：Primitive 的版本&lt;/h3&gt;
 
-&lt;p&gt;故 &lt;script type=&quot;math/tex&quot;&gt;ma+bn = kmr+lnr&lt;/script&gt; ，的確為 &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; 的倍數。&lt;/p&gt;
-
-&lt;h3 id=&quot;script-typemathtexa-bcrightarrow-script-&quot;&gt;二、&lt;script type=&quot;math/tex&quot;&gt;(a, b)|c\Rightarrow &lt;/script&gt; 有整數解&lt;/h3&gt;
-
-&lt;p&gt;證明會用到輾轉相除法和一些其他原理，先來看看：&lt;/p&gt;
-
-&lt;h4 id=&quot;section-3&quot;&gt;餘數會整除最大公因數&lt;/h4&gt;
+&lt;p&gt;高斯引理的其中一個版本是：&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;將 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 相除的過程寫成 &lt;script type=&quot;math/tex&quot;&gt;a=bq+r&lt;/script&gt;，則 &lt;script type=&quot;math/tex&quot;&gt;(a, b) | r&lt;/script&gt; 。&lt;/p&gt;
+  &lt;p&gt;兩個 primitive 的多項式 &lt;script type=&quot;math/tex&quot;&gt;a(x)&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;b(x)&lt;/script&gt; 的積 &lt;script type=&quot;math/tex&quot;&gt;F(x)=a(x)b(x)&lt;/script&gt;依然是 primitive 。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;原因是根據線性組合原理，&lt;script type=&quot;math/tex&quot;&gt;(a, b)|a-bq&lt;/script&gt;，又 &lt;script type=&quot;math/tex&quot;&gt;a-bq=r&lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot;&gt;(a, b)|r&lt;/script&gt; 。&lt;/p&gt;
+&lt;h4 id=&quot;section-1&quot;&gt;證明&lt;/h4&gt;
 
-&lt;h4 id=&quot;section-4&quot;&gt;輾轉相除法&lt;/h4&gt;
+&lt;p&gt;令 &lt;script type=&quot;math/tex&quot;&gt;a(x)=a_nx^n+a_{n-1}x^{n-1}+...+a_0&lt;/script&gt;，
+與 &lt;script type=&quot;math/tex&quot;&gt;b(x)=b_mx^m+b_{n-1}x^{n-1}+...+b_0&lt;/script&gt;。&lt;/p&gt;
 
-&lt;p&gt;如果想要算最大公因數 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; ，根據上述原理，我們知道 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 相除後，&lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 會在餘數 &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; 的因數中，所以 &lt;script type=&quot;math/tex&quot;&gt;(a, b)=(a, b, r)=(b, r)&lt;/script&gt;。 我們只要找出 &lt;script type=&quot;math/tex&quot;&gt;(b, r)&lt;/script&gt; 即可。&lt;/p&gt;
+&lt;p&gt;它們都是 primitive 多項式，所以任取一個質數 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt;，讓它依序去除以 &lt;script type=&quot;math/tex&quot;&gt;a_0&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;a_1&lt;/script&gt;、…一定到某個 &lt;script type=&quot;math/tex&quot;&gt;a_i&lt;/script&gt; 無法被整除，否則這些 &lt;script type=&quot;math/tex&quot;&gt;\{a_k\}&lt;/script&gt; 就會有公因數 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 了。&lt;/p&gt;
 
-&lt;p&gt;現在我們把 &lt;script type=&quot;math/tex&quot;&gt;b, r&lt;/script&gt; 相除，會得到新餘數 &lt;script type=&quot;math/tex&quot;&gt;r_2&lt;/script&gt;。同理我們只要找 &lt;script type=&quot;math/tex&quot;&gt;(r, r_2)&lt;/script&gt; 最大公因數即可。依序做下去的話，餘數會越來越小，但這些餘數都是 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 的倍數，我們於是有餘數的數列：&lt;/p&gt;
+&lt;p&gt;同理，&lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 依序去除以 &lt;script type=&quot;math/tex&quot;&gt;b_0&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;b_1&lt;/script&gt;、…，一定到某個 &lt;script type=&quot;math/tex&quot;&gt;b_j&lt;/script&gt; 不被 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 整除。&lt;/p&gt;
+
+&lt;p&gt;假設 &lt;script type=&quot;math/tex&quot;&gt;a_i&lt;/script&gt; 是所有不被 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 整除的 &lt;script type=&quot;math/tex&quot;&gt;\{a_k\}&lt;/script&gt; 裡面次數最小的（底標最小），&lt;script type=&quot;math/tex&quot;&gt;b_j&lt;/script&gt; 也一樣。所以 &lt;script type=&quot;math/tex&quot;&gt;a_0&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;a_1&lt;/script&gt;、…、&lt;script type=&quot;math/tex&quot;&gt;a_{i-1}&lt;/script&gt; 都是 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 的倍數。同理，&lt;script type=&quot;math/tex&quot;&gt;b_0&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;b_1&lt;/script&gt;、…、&lt;script type=&quot;math/tex&quot;&gt;b_{j-1}&lt;/script&gt; 都是 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 的倍數。&lt;/p&gt;
+
+&lt;p&gt;現在觀察 &lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 的第 &lt;script type=&quot;math/tex&quot;&gt;x^{i+j}&lt;/script&gt; 項係數 &lt;script type=&quot;math/tex&quot;&gt;f_{i+j}&lt;/script&gt;。因為 &lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot;&gt;a(x)&lt;/script&gt; 與 &lt;script type=&quot;math/tex&quot;&gt;b(x)&lt;/script&gt; 的積，所以第 &lt;script type=&quot;math/tex&quot;&gt;x^{i+j}&lt;/script&gt; 項寫成這樣：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; f_{i+j}x^{i+j} = (a_0b_{i+j}+a_1b_{i+j-1}+...+a_ib_j+...+a_{i+j-1}b_1+a_{i+j}b_0)x^{i+j}&lt;/script&gt;
+
+&lt;p&gt;分成三部分來看：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; f_{i+j} = \underset{\mathrm{first\ part}}{(a_0b_{i+j}+a_1b_{i+j-1}+...+a_{i-1}b_{j+1})}+\underset{\mathrm{second\ part}}{a_ib_j}+\underset{\mathrm{third\ part}}{(a_{i+1}b_{j-1}+...+a_{i+j-1}b_1+a_{i+j}b_0)}&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;第一部分&lt;/strong&gt;：&lt;script type=&quot;math/tex&quot;&gt;a_0b_{i+j}+a_1b_{i+j-1}+...+a_{i-1}b_{j+1}&lt;/script&gt; 每一項的 &lt;script type=&quot;math/tex&quot;&gt;a_{k&amp;lt;i}&lt;/script&gt; 都可以被 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 整除，所以整體是 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 的倍數。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第三部分&lt;/strong&gt;同理，每個 &lt;script type=&quot;math/tex&quot;&gt;b_{k&amp;lt;i}&lt;/script&gt; 都可以被 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 整除，所以第三部分也是 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 的倍數。&lt;/p&gt;
+
+&lt;p&gt;但是&lt;strong&gt;第二部分&lt;/strong&gt; &lt;script type=&quot;math/tex&quot;&gt;a_ib_j&lt;/script&gt; 中，&lt;script type=&quot;math/tex&quot;&gt;a_i&lt;/script&gt; 與 &lt;script type=&quot;math/tex&quot;&gt;b_j&lt;/script&gt; 都不是質數 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 的倍數，所以 &lt;script type=&quot;math/tex&quot;&gt;a_ib_j&lt;/script&gt; 也不是。&lt;/p&gt;
+
+&lt;p&gt;所以 &lt;script type=&quot;math/tex&quot;&gt; f_{i+j}=p&lt;/script&gt; 的倍數 &lt;script type=&quot;math/tex&quot;&gt;+&lt;/script&gt; &lt;em&gt;非 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 的倍數&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;+&lt;/script&gt; &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 的倍數，整體而言不能被 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 整除。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;script type=&quot;math/tex&quot;&gt;r, r_2, r_3, ... r_k&lt;/script&gt;
-  &lt;p&gt;，且 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 整除所有 &lt;script type=&quot;math/tex&quot;&gt;r_n&lt;/script&gt;。&lt;/p&gt;
+  &lt;p&gt;結論：任取質數 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt;，&lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 一定有一個係數不能被 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 整除。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;由於餘數越來越小的的原因，最後一定會有某個 &lt;script type=&quot;math/tex&quot;&gt;r_k&lt;/script&gt; 是我們要找的 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 。&lt;/p&gt;
+&lt;p&gt;所以沒有質數是 F(x) 的係數的公因數，也就是 &lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; primitive 。&lt;/p&gt;
 
-&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot;&gt;(a, b)|r_{k-1}&lt;/script&gt; ，故 &lt;script type=&quot;math/tex&quot;&gt;r_k | r_{k-1}&lt;/script&gt; ，也就是說這兩個餘數 &lt;script type=&quot;math/tex&quot;&gt;r_k , r_{k-1}&lt;/script&gt; 繼續做除法會整除，不會有新餘數了。&lt;/p&gt;
-
-&lt;h4 id=&quot;script-typemathtexa-bscript--script-typemathtexmanbscript&quot;&gt;將最大公因數 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 表為 &lt;script type=&quot;math/tex&quot;&gt;ma+nb&lt;/script&gt;&lt;/h4&gt;
-
-&lt;p&gt;根據輾轉相除法，假設今天只做三次就找到 &lt;script type=&quot;math/tex&quot;&gt;r_3=(a, b)&lt;/script&gt;：&lt;/p&gt;
-
-&lt;script type=&quot;math/tex&quot;&gt;a = bq + r&lt;/script&gt;
-
-&lt;script type=&quot;math/tex&quot;&gt;b = rq_2 + r_2&lt;/script&gt;
-
-&lt;script type=&quot;math/tex&quot;&gt;r = r_2q_3 + r_3&lt;/script&gt;
-
-&lt;script type=&quot;math/tex&quot;&gt;r_2 = r_3q_4&lt;/script&gt;
-&lt;p&gt;（整除結束，&lt;script type=&quot;math/tex&quot;&gt;r_3&lt;/script&gt; 為最小公因數）&lt;/p&gt;
-
-&lt;p&gt;根據第三個式子，我們注意到  &lt;script type=&quot;math/tex&quot;&gt;r_3&lt;/script&gt; 可以用 &lt;script type=&quot;math/tex&quot;&gt;r, r_2&lt;/script&gt; 的線性組合表示。
-根據第二個式子， &lt;script type=&quot;math/tex&quot;&gt;r_2&lt;/script&gt; 又可以用 &lt;script type=&quot;math/tex&quot;&gt;b, r&lt;/script&gt; 的線性組合表示。
-根據第一個式子， &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; 又可以用 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 的線性組合表示。&lt;/p&gt;
-
-&lt;p&gt;所以 &lt;script type=&quot;math/tex&quot;&gt;r_3&lt;/script&gt; 可以用 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 的線性組合表示。&lt;/p&gt;
+&lt;h3 id=&quot;irreducible-&quot;&gt;Irreducible 的多項式&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;結論： &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 總可以表為 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 的線性組合。&lt;/p&gt;
+  &lt;p&gt;一個多項式被稱為不可約多項式（Irreducible、既約多項式），如果其無法被寫成兩個非零次多項式的積。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&quot;section-5&quot;&gt;開始證明第二部分&lt;/h4&gt;
+&lt;p&gt;通常我們會說「在哪裡不可約」。比方說 &lt;script type=&quot;math/tex&quot;&gt;x^2-2&lt;/script&gt; 在整係數的情況不可約，但是在實係數的情況可以分解成 &lt;script type=&quot;math/tex&quot;&gt;(x-\sqrt 2)(x+\sqrt 2)&lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: 「質式」和「不可約多項式」在整係數的情況相等，不過兩者有時候有差異，所以還是不稱它為質式。&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;irreducible--1&quot;&gt;高斯引理：Irreducible 的版本&lt;/h3&gt;
+
+&lt;p&gt;高斯引理也有另一種說法，關於不可約的：&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;目標： &lt;script type=&quot;math/tex&quot;&gt;(a, b)|c\Rightarrow ax+by = c &lt;/script&gt; 有整數解。&lt;/p&gt;
+  &lt;p&gt;非零次、primitive 的整係數多項式 &lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 在 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Z}[x]&lt;/script&gt; 不可約，若且唯若其在 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Q}[x]&lt;/script&gt; 不可約。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;script type=&quot;math/tex&quot;&gt;(a, b)|c&lt;/script&gt;
-&lt;p&gt;代表 &lt;script type=&quot;math/tex&quot;&gt;c = k\cdot (a, b)&lt;/script&gt; ， 原方程式改寫為 &lt;script type=&quot;math/tex&quot;&gt;ax+by = k\cdot (a, b)&lt;/script&gt; 。&lt;/p&gt;
+&lt;p&gt;換句話說，如果在 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Q}[x]&lt;/script&gt; 可分解，那麼其實在  &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Z}[x]&lt;/script&gt; 就可以分解了。&lt;/p&gt;
 
-&lt;p&gt;剛才說 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 總可以表為 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 的線性組合，所以總存在整數 &lt;script type=&quot;math/tex&quot;&gt;m, n \in \mathbb{Z}&lt;/script&gt; 使 &lt;script type=&quot;math/tex; mode=display&quot;&gt;ma+nb=(a, b)&lt;/script&gt;。等號兩邊同乘以 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 得到 &lt;script type=&quot;math/tex; mode=display&quot;&gt;kma+knb=k\cdot (a, b)&lt;/script&gt;，再和剛才的 &lt;script type=&quot;math/tex; mode=display&quot;&gt;ax+by = k\cdot (a, b)&lt;/script&gt; 比較係數，得到 &lt;script type=&quot;math/tex&quot;&gt;x=km&lt;/script&gt; ， &lt;script type=&quot;math/tex&quot;&gt;y=kn&lt;/script&gt; ，得證。&lt;/p&gt;
+&lt;h4 id=&quot;section-2&quot;&gt;證明&lt;/h4&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: 可以練習真的去舉個例子，然後找找看找這種方程式的整數解。關鍵步驟是把 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 表為 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 的線性組合，利用輾轉相除法。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;從 primitive 的版本來推 irreducible 的版本。&lt;/p&gt;
+
+&lt;p&gt;假設 &lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 可以分解成兩個有理係數、但非整係數的多項式 &lt;script type=&quot;math/tex&quot;&gt;F(x)=a(x)b(x)&lt;/script&gt;。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;存在整數 &lt;script type=&quot;math/tex&quot;&gt;p&amp;gt;1&lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;pa(x)&lt;/script&gt; 是 primitive 的&lt;/li&gt;
+  &lt;li&gt;存在整數 &lt;script type=&quot;math/tex&quot;&gt;q&amp;gt;1&lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;qb(x)&lt;/script&gt; 是 primitive 的&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;所以 &lt;script type=&quot;math/tex&quot;&gt;F(x)=a(x)b(x)&lt;/script&gt; 可以重寫成&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; F(x)=\frac{1}{pq}\cdot  \underbrace{pa(x)\cdot qb(x)}&lt;/script&gt;
+
+&lt;p&gt;其中大括號標起來的地方是兩個 primitive polynomial 相乘，所以也是 primitive。但是這樣一來&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; F(x)=\frac{\mathrm{some\ primitive\ polynomial}}{pq} \notin \mathbb{Z}[x]&lt;/script&gt;
+
+&lt;p&gt;矛盾，所以&lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 不能分解成兩個有理係數、但非整係數多項式的積。&lt;/p&gt;
+
+&lt;p&gt;那麼如果 &lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 可以拆成一個整係數乘以一個有理係數多項式的積 &lt;script type=&quot;math/tex&quot;&gt;F(x)=c(x)d(x)&lt;/script&gt;：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;c \in \mathbb{Z}[x]&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;d \in \mathbb{Q}[x]&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;d \notin \mathbb{Z}[x]&lt;/script&gt;：&lt;/li&gt;
+  &lt;li&gt;存在 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{p}c(x)&lt;/script&gt; 為 primitive&lt;/li&gt;
+  &lt;li&gt;存在 &lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;qd(x)&lt;/script&gt; 為 primitive&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;所以 &lt;script type=&quot;math/tex&quot;&gt;F(x)=c(x)d(x)&lt;/script&gt; 可以重寫成&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;F(x) = \frac{p}{q}\cdot\underbrace{\frac{1}{p}c(x)\cdot qd(x)}&lt;/script&gt;
+
+&lt;p&gt;一樣大括號標起來的地方是 primitive 的，所以 &lt;script type=&quot;math/tex&quot;&gt;\frac{p}{q}&lt;/script&gt; 要是整數才能讓 &lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 是整係數多項式，換句話說 &lt;script type=&quot;math/tex&quot;&gt;p\ |\ q&lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;既然 &lt;script type=&quot;math/tex&quot;&gt;p\ |\ q&lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot;&gt;p=nq&lt;/script&gt;，&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;F(x) = c(x)d(x) = \frac{1}{p}c(x)\cdot pd(x) = \frac{1}{p}c(x)\cdot nqd(x)&lt;/script&gt;
+
+&lt;p&gt;最後乘號兩邊都是整係數多項式，所以 &lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 的確在整係數可分解。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;一次因式檢驗法&lt;/h3&gt;
+
+&lt;p&gt;高斯引理有兩個常見的推論：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;一次因式檢驗法&lt;/li&gt;
+  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;p-q\ |\ f(1)&lt;/script&gt; ，&lt;script type=&quot;math/tex&quot;&gt;p+q\ |\ f(-1)&lt;/script&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;一次因式檢驗法的證明需要把多項式 &lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 分解成 &lt;script type=&quot;math/tex&quot;&gt;(px-q)Q(x)&lt;/script&gt;，並證明 &lt;script type=&quot;math/tex&quot;&gt;Q(x)&lt;/script&gt; 是整係數。&lt;/p&gt;
+
+&lt;p&gt;高斯引理的 irreducible 版本說如果 &lt;script type=&quot;math/tex&quot;&gt;(px-q)Q(x)&lt;/script&gt; 不是兩個整係數多項式的積，那麼它可以重寫成整係數相乘的樣子。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;課本上的高斯引理&lt;/h3&gt;
+
+&lt;p&gt;課本上的 &lt;script type=&quot;math/tex&quot;&gt;p-q\ |\ f(1)&lt;/script&gt; 的證明也是需要把 &lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 分解成 &lt;script type=&quot;math/tex&quot;&gt;(px-q)Q(x)&lt;/script&gt;，並證明 &lt;script type=&quot;math/tex&quot;&gt;Q(x)&lt;/script&gt; 是整係數，然後代入 &lt;script type=&quot;math/tex&quot;&gt;x=1&lt;/script&gt; 進去。&lt;/p&gt;
 </description>
-        <pubDate>Wed, 01 Mar 2017 13:49:39 +0800</pubDate>
-        <link>http://davidhu3141.github.io/jekyll/update/2017/03/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html</link>
-        <guid isPermaLink="true">http://davidhu3141.github.io/jekyll/update/2017/03/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html</guid>
+        <pubDate>Sat, 03 Dec 2016 00:00:00 +0800</pubDate>
+        <link>http://davidhu3141.github.io/%E4%BB%A3%E6%95%B8,/%E9%AB%98%E4%B8%AD%E9%80%B2%E9%9A%8E%E8%AA%B2%E9%A1%8C/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html</link>
+        <guid isPermaLink="true">http://davidhu3141.github.io/%E4%BB%A3%E6%95%B8,/%E9%AB%98%E4%B8%AD%E9%80%B2%E9%9A%8E%E8%AA%B2%E9%A1%8C/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html</guid>
         
         
-        <category>jekyll</category>
+        <category>代數,</category>
         
-        <category>update</category>
+        <category>高中進階課題</category>
         
       </item>
     
       <item>
-        <title>線性方程</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;線性方程&lt;/h2&gt;
+        <title>生成函數的妙用 -- 關於 RegExp</title>
+        <description>&lt;h1 id=&quot;regexp&quot;&gt;生成函數的妙用 – 關於 RegExp&lt;/h1&gt;
 
-&lt;p&gt;「線性」的概念在數學中很常見，我們現在要利用這個角度來重新詮釋一些高中常見的概念，以發現新性質。&lt;/p&gt;
+&lt;p&gt;之前說要讀 &lt;em&gt;Analytic Combinatorics&lt;/em&gt; 然後寫心得，後來卻跳槽去看代數拓撲，斷尾了。作為一個半途而廢的勞山道士，還是學到了一些粗淺卻酷炫的穿牆術，在此作一些心得分享。內容主要是&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;免思考，機械化寫出 regexp 的生成函數，進而回答「regexp 所表示的語言中，長度為 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 的字串有幾個？」&lt;/li&gt;
+  &lt;li&gt;初步判斷生成函數係數的漸進複雜度&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;這兩個手法看起來很酷炫，又在本書 Part I 與 Part II 的第一個章目，的確像是《聊齋誌異》中《勞山道士》的「穿牆術」，很有淺嘗即止的味道。&lt;/p&gt;
 
 &lt;p&gt;[TOC]&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;平直的空間&lt;/h3&gt;
+&lt;h2 id=&quot;regexp-&quot;&gt;RegExp 的生成函數&lt;/h2&gt;
 
-&lt;h4 id=&quot;fact-11-&quot;&gt;Fact 1.1: 三維的例子&lt;/h4&gt;
+&lt;h3 id=&quot;section&quot;&gt;形式語言的生成函數&lt;/h3&gt;
 
-&lt;p&gt;給定一個空間向量的集合 &lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt;，下列兩件事等價&lt;/p&gt;
+&lt;p&gt;寫出一個正規表達式（RegExp），就代表一個正規語言 &lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt;。如果 &lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; 中長度為 0 的字串有 &lt;script type=&quot;math/tex&quot;&gt;a_0&lt;/script&gt; 個、長度為 1 的有 &lt;script type=&quot;math/tex&quot;&gt;a_1&lt;/script&gt; 個、長度為 n 的有 &lt;script type=&quot;math/tex&quot;&gt;a_n&lt;/script&gt; 個，則關於 &lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; 的多項式&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f_{L}(z)=a_0 + a_1z+a_2z^2+...+a_nz^n+...&lt;/script&gt;
+
+&lt;p&gt;稱為正規語言 &lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; 的生成函數。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;正規語言的建構&lt;/h3&gt;
+
+&lt;p&gt;雖然在程式語言中，正規表達式有許多花花綠綠的寫法，但是他們都可以由以下三種 regular constructions 來延伸，這裡先明確的寫出來：&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;聯集&lt;/h4&gt;
+
+&lt;p&gt;聯集是「或」的概念，用直槓 &lt;code class=&quot;highlighter-rouge&quot;&gt;|&lt;/code&gt; 來表達。正規表達式 &lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)&lt;/code&gt; 可以 match 字串 &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; 或 &lt;code class=&quot;highlighter-rouge&quot;&gt;bb&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;串接&lt;/h4&gt;
+
+&lt;p&gt;串接是將兩個字串接在一起，寫法是直接接起來。正規表達式 &lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)c&lt;/code&gt; 代表「&lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; 或 &lt;code class=&quot;highlighter-rouge&quot;&gt;bb&lt;/code&gt; 後面要接一個 &lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt;」 才 match。&lt;/p&gt;
+
+&lt;h4 id=&quot;sequence&quot;&gt;Sequence&lt;/h4&gt;
+
+&lt;p&gt;Sequence 是指某個字串重複出現，出現次數可以從零次到任意多次，用星號 &lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt; 來表達。正規表達式 &lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)*&lt;/code&gt; 可以 match 空字串、&lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;aa&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;abbabb&lt;/code&gt; 等。&lt;/p&gt;
+
+&lt;p&gt;以上三個就是基本的 regular construction。能夠只以 regular construction 建構的語言稱為 regular language。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;生成函數的建構&lt;/h3&gt;
+
+&lt;p&gt;三種 regular construction 都對應到一種生成函數的運算：&lt;code class=&quot;highlighter-rouge&quot;&gt;|&lt;/code&gt; 號對應函數相加的動作，串接是相乘，&lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt; 則是把函數 &lt;script type=&quot;math/tex&quot;&gt;f(z)&lt;/script&gt; 寫成 &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{1-f(z)}&lt;/script&gt;。以下一一詳細解釋：&lt;/p&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;聯集與相加&lt;/h4&gt;
+
+&lt;p&gt;假設正規語言&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;L_1=\{a\}，L_2=\{bb\}&lt;/script&gt;
+
+&lt;p&gt;，其生成函數分別為&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f_{L_1}(z)=z，f_{L_2}(z)=z^2&lt;/script&gt;
+
+&lt;p&gt;，則他們聯集的新語言 &lt;script type=&quot;math/tex&quot;&gt;L_3= \{a, bb\}=&lt;/script&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)&lt;/code&gt; ，含有長度為一、二的字串各一個，故生成函數為&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f_{L_3}(z)=z+z^2&lt;/script&gt;
+
+&lt;p&gt;恰好是 &lt;script type=&quot;math/tex&quot;&gt;f_{L_1}(z)，f_{L_2}(z)&lt;/script&gt; 的和。我們觀察到「正規語言的聯集，對應到生成函數的相加」。&lt;/p&gt;
+
+&lt;p&gt;這裡有個重要的但書：語言 &lt;script type=&quot;math/tex&quot;&gt;L_1&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;L_2&lt;/script&gt; 的聯集能表示成生成函數相加，前提是他們互斥。上面的例子如果 &lt;script type=&quot;math/tex&quot;&gt;L_2 = &lt;/script&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)&lt;/code&gt; ，生成函數的相加就會出錯。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;任取向量 &lt;script type=&quot;math/tex&quot;&gt;\mathbf{a}, \mathbf{b} \in V&lt;/script&gt; ，都有 &lt;script type=&quot;math/tex&quot;&gt;\mathbf{a}+\mathbf{b}\in V&lt;/script&gt; 與 &lt;script type=&quot;math/tex&quot;&gt;k\cdot \mathbf{a} \in V&lt;/script&gt;，其中 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 是任意實數係數&lt;/li&gt;
-  &lt;/ol&gt;
+  &lt;p&gt;&lt;strong&gt;Correspondence 1&lt;/strong&gt;：正規語言的聯集，其對應的生成函數相加，但先決條件是被聯集的兩個語言需互斥。&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;h4 id=&quot;section-6&quot;&gt;串接與相乘&lt;/h4&gt;
 
 &lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot;&gt;\{\vec{0}\}&lt;/script&gt; 或過原點的直線，或過原點的平面，或整個空間&lt;/li&gt;
-  &lt;/ol&gt;
+  &lt;p&gt;&lt;strong&gt;Correspondence 2&lt;/strong&gt;：正規語言的串接，其對應的生成函數相乘。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;畫圖可以驗證，不通過原點的直線上取兩向量相加，結果不會在直線上。&lt;/p&gt;
+&lt;p&gt;舉例來說：&lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)&lt;/code&gt; 的生成函數是 &lt;script type=&quot;math/tex&quot;&gt;z+z^2&lt;/script&gt;，而 &lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt; 的生成函數是 &lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt;，因此正規語言 &lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)c&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;=\{ac, bbc\}&lt;/script&gt; 的生成函數是&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/gUllnM3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; z^2+z^3 = (z+z^2)\cdot z&lt;/script&gt;
 
-&lt;p&gt;由此可知，過原點又平直的空間會有&lt;strong&gt;加法封閉性&lt;/strong&gt;、&lt;strong&gt;係數積封閉性&lt;/strong&gt;，我們把這樣的空間稱為線性空間（向量空間）。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Correspondence 2&lt;/em&gt; 果然所言不假。&lt;/p&gt;
 
-&lt;h4 id=&quot;example-12&quot;&gt;Example 1.2&lt;/h4&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;三維空間&lt;/strong&gt; &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^3&lt;/script&gt; 是一個線性空間，其內部所有過原點又平坦的點、線、面也各自是一個線性空間（子空間）。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;所有連續函數&lt;/strong&gt;的集合 &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; 是線性空間，因為兩個連續函數相加之後仍然在 &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; 中。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;所有可微函數&lt;/strong&gt;的集合也是線性空間，因為可微函數相加後可微、乘以 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 倍之後也可微。我們以後&lt;strong&gt;將函數也稱為向量&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;維度：給定不平行的兩向量 &lt;script type=&quot;math/tex&quot;&gt;u,\ v&lt;/script&gt;，則所有 &lt;script type=&quot;math/tex&quot;&gt;u,\ v&lt;/script&gt; 的線性組合構成一個線性空間，維度是 &lt;script type=&quot;math/tex&quot;&gt;2&lt;/script&gt;，我們說 &lt;script type=&quot;math/tex&quot;&gt;u,\ v&lt;/script&gt; 是這個空間的生成元。&lt;/p&gt;
-
-&lt;p&gt;如果 &lt;script type=&quot;math/tex&quot;&gt;u,\ v&lt;/script&gt; 共線的話就只會生成出一維的空間。&lt;/p&gt;
-
-&lt;p&gt;同理，&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 個向量可以生成出至多 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 維的線性空間。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;線性的函數&lt;/h3&gt;
-
-&lt;h4 id=&quot;definition-21-&quot;&gt;Definition 2.1: 線性變換&lt;/h4&gt;
-
-&lt;p&gt;一個函數 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}&lt;/script&gt; 被說成是&lt;strong&gt;線性變換&lt;/strong&gt;，若且唯若其滿足下列性質：&lt;/p&gt;
+&lt;h4 id=&quot;sequence-1&quot;&gt;Sequence&lt;/h4&gt;
 
 &lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;加法的分配率： &lt;script type=&quot;math/tex&quot;&gt;\forall \mathbf{a}, \mathbf{b}, \ \ \mathcal{L}(\mathbf{a}+\mathbf{b}) = \mathcal{L}(\mathbf{a})+\mathcal{L}(\mathbf{b})&lt;/script&gt;&lt;/li&gt;
-  &lt;/ol&gt;
+  &lt;p&gt;&lt;strong&gt;Correspondence 3&lt;/strong&gt;：正規語言 &lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; 的生成函數是 &lt;script type=&quot;math/tex&quot;&gt;f_L(z)&lt;/script&gt;，則 &lt;script type=&quot;math/tex&quot;&gt;L^*&lt;/script&gt; 的生成函數為 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{1}{1-f(z)}&lt;/script&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;blockquote&gt;
-  &lt;ol&gt;
-    &lt;li&gt;係數積可提出： &lt;script type=&quot;math/tex&quot;&gt;\forall \mathbf{a},k, \ \ \mathcal{L}(k\mathbf{a})=k\mathcal{L}(\mathbf{a})&lt;/script&gt;&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;舉例來說：如果正規語言 &lt;script type=&quot;math/tex&quot;&gt;L=&lt;/script&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)&lt;/code&gt;，則 &lt;script type=&quot;math/tex&quot;&gt;L^*=&lt;/script&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)*&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;=\{\epsilon, a, bb, aa, abb, bba, bbbb, ... \}&lt;/script&gt;。我們把這看成&lt;/p&gt;
 
-&lt;p&gt;可以看成：線性變換連繫了定義域和值域的加法與係數積。&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;L^*=&lt;/script&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;()&lt;/code&gt;+&lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)(a|bb)&lt;/code&gt;+&lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)(a|bb)(a|bb)&lt;/code&gt;+…&lt;/p&gt;
 
-&lt;h4 id=&quot;example-22&quot;&gt;Example 2.2&lt;/h4&gt;
+&lt;p&gt;於是生成函數是&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;f(x)=2x&lt;/script&gt; 是線性變換，但 &lt;script type=&quot;math/tex&quot;&gt;f(x)=2x+1&lt;/script&gt; 不是。&lt;/li&gt;
-  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;f(x, y) = 2x+3y&lt;/script&gt; 把向量 &lt;script type=&quot;math/tex&quot;&gt;(x, y)&lt;/script&gt; 變成實數，而且是線性變換，可以寫成 &lt;script type=&quot;math/tex; mode=display&quot;&gt;f(\vec{v}) = \begin{bmatrix} 2 &amp;amp; 3\end{bmatrix} \vec{v}&lt;/script&gt;&lt;/li&gt;
-  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;f(x, y) = (x+y, 2x-y)&lt;/script&gt; 把向量變成向量，而且是線性變換，可以寫成&lt;script type=&quot;math/tex; mode=display&quot;&gt; f(\vec{v}) = \begin{bmatrix} 1 &amp;amp; 1 \\ 2 &amp;amp; -1 \end{bmatrix} \vec{v} &lt;/script&gt;&lt;/li&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f_{L^*}(z)=1+(z+z^2)+(z+z^2)^2+(z+z^2)^3+...&lt;/script&gt;
+
+&lt;p&gt;，用無窮等比級數公式化簡得到&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f_{L^*}(z)=\frac{1}{1-(z+z^2)}&lt;/script&gt;
+
+&lt;p&gt;與 &lt;em&gt;Correspondence 3&lt;/em&gt; 所說的如出一轍。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;舉例&lt;/h3&gt;
+
+&lt;p&gt;隨便舉一個有點複雜的 RegExp 來試試：&lt;code class=&quot;highlighter-rouge&quot;&gt;(0|(1(01*0)*1))*&lt;/code&gt; 所表示的語言中，長度為 4 的字串有幾個？&lt;/p&gt;
+
+&lt;p&gt;我們先寫出其生成函數。一個步驟一個步驟做，從裡面開始：&lt;/p&gt;
+
+&lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;微分之所以可以一項一項的微，是因為 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{d}{dx}(f(x)+g(x))=\frac{d}{dx} f(x)+\frac{d}{dx} g(x)&lt;/script&gt; ，而微分的時候係數可以提出來也是因為 &lt;script type=&quot;math/tex; mode=display&quot;&gt; \frac{d}{dx}(kf(x)) =k\frac{d}{dx}f(x)&lt;/script&gt;，所以微分也是線性變換。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;原封不動的變換： &lt;script type=&quot;math/tex&quot;&gt;\mathcal{I}(v) = v&lt;/script&gt; 也是一個線性變換，稱為恆等變換。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;definition-23-&quot;&gt;Definition 2.3: 微分算子&lt;/h4&gt;
-
-&lt;p&gt;定義微分算子 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{D}(f) := \frac{d}{dx}f = f&#39;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;根據例子 4.4，微分算子是線性變換（線性算子）。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-3&quot;&gt;線性的方程&lt;/h3&gt;
-
-&lt;h4 id=&quot;definition-31-&quot;&gt;Definition 3.1: 線性方程&lt;/h4&gt;
-
-&lt;p&gt;給定線性變換 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}&lt;/script&gt; 與向量 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;，則以下形式的方程稱為&lt;strong&gt;線性方程&lt;/strong&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=b&lt;/script&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;以下形式的方程稱為齊次線性方程或&lt;strong&gt;齊次方程&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=\vec{0}&lt;/script&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;theorem-32-&quot;&gt;Theorem 3.2: 齊次方程的解&lt;/h4&gt;
-
-&lt;p&gt;齊次方程的解集合是線性空間。&lt;/p&gt;
-
-&lt;p&gt;證明：&lt;/p&gt;
-
-&lt;p&gt;若解集合中有兩向量 &lt;script type=&quot;math/tex&quot;&gt;a, \ b&lt;/script&gt; ，因為 &lt;script type=&quot;math/tex&quot;&gt;a, \ b&lt;/script&gt; 是解，&lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(a)=\mathcal{L}(b)=0&lt;/script&gt;。
-所以 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(a+b)=\mathcal{L}(a)+\mathcal{L}(b)=0&lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot;&gt;a+b&lt;/script&gt; 也是解。&lt;/p&gt;
-
-&lt;p&gt;關於係數積一樣自己驗證。&lt;/p&gt;
-
-&lt;h4 id=&quot;example-33&quot;&gt;Example 3.3&lt;/h4&gt;
-
-&lt;h4 id=&quot;theorem-34-&quot;&gt;Theorem 3.4: 齊性解與特解&lt;/h4&gt;
-
-&lt;p&gt;給定線性變換 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}&lt;/script&gt; 與向量 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;，觀察兩個線性方程&lt;/p&gt;
-
-&lt;p&gt;1). &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=\vec{0}&lt;/script&gt;
-2). &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=b&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;若 &lt;script type=&quot;math/tex&quot;&gt;\alpha_h&lt;/script&gt; 是 (1) 式的解，&lt;script type=&quot;math/tex&quot;&gt;\alpha_p&lt;/script&gt; 是 (2) 式的解，那麼 &lt;script type=&quot;math/tex&quot;&gt;\alpha_h+\alpha_p&lt;/script&gt; 是 (2) 式的解。&lt;/p&gt;
-
-&lt;p&gt;證明：
-這個定理很關鍵，適合自己證，代進去就出來了。&lt;/p&gt;
-
-&lt;h4 id=&quot;example-35&quot;&gt;Example 3.5&lt;/h4&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;### 線性變換（二）&lt;/p&gt;
-
-&lt;p&gt;為了解決真正的物理問題，介紹線性變換的基本性質。&lt;/p&gt;
-
-&lt;h4 id=&quot;theorem-24-&quot;&gt;Theorem 2.4: 合成函數也是線性的&lt;/h4&gt;
-
-&lt;p&gt;對於兩個線性變換 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{M}, \ \mathcal{N}&lt;/script&gt;，其合成函數 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=\mathcal{N}(\mathcal{M}(x))&lt;/script&gt; 也是線性變換。&lt;/p&gt;
-
-&lt;p&gt;證明： 
-1. 關於加法分配律的驗證 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{aligned} \mathcal{L}(a+b) &amp;amp;= \mathcal{N}(\mathcal{M}(a+b)) \\ &amp;amp;=  \mathcal{N}(\mathcal{M}(a)+\mathcal{M}(b))\\ &amp;amp;=\mathcal{N}(\mathcal{M}(a))+\mathcal{N}(\mathcal{M}(b))\\ &amp;amp;= \mathcal{L}(a)+\mathcal{L}(b) \end{aligned}&lt;/script&gt;
-2. 關於係數積的驗證可以自己做。&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;這定理對矩陣來說是當然的，但是為了要套用到全新樣貌的線性變換（微分），所以這樣抽象化是必須的。可以看到這裡證明過程不需要寫出任何矩陣。&lt;/em&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;corollary-25-&quot;&gt;Corollary 2.5: 高次方&lt;/h4&gt;
-
-&lt;p&gt;Corollary 是推論的意思。根據 Theorem 2.4，定義 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}^2(x)=\mathcal{L}(\mathcal{L}(x))&lt;/script&gt; ，則 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}^2&lt;/script&gt; 也是線性變換。&lt;/p&gt;
-
-&lt;p&gt;同樣可以定義 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}^n(x)&lt;/script&gt; ，其也是線性變換。
-同理，高次微分 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{D}^n&lt;/script&gt; 也是線性的。&lt;/p&gt;
-
-&lt;h4 id=&quot;theorem-26--&quot;&gt;Theorem 2.6:  線性變換的多項式&lt;/h4&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;對於實數 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 與線性變換 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}&lt;/script&gt;，定義函數 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{M}(x) = k\mathcal{L}(x)&lt;/script&gt;，則 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{M}(x)&lt;/script&gt; 也是線性變換。&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(01*0)&lt;/code&gt; 對應到 &lt;script type=&quot;math/tex&quot;&gt;z\cdot \frac{1}{1-z} \cdot z&lt;/script&gt;，化簡為 &lt;script type=&quot;math/tex&quot;&gt;\frac{z^2}{1-z}&lt;/script&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;對於兩個線性變換 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{M}, \ \mathcal{N}&lt;/script&gt;，函數 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}(x)=\mathcal{M}(x)+\mathcal{N}(x) &lt;/script&gt; 也是線性變換。&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(01*0)*&lt;/code&gt; 要再寫一次 sequence construction，變成 &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{1-(\frac{z^2}{1-z})}&lt;/script&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(1(01*0)*1)&lt;/code&gt; 變成 &lt;script type=&quot;math/tex&quot;&gt;\frac{z^2}{1-(\frac{z^2}{1-z})}&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(0|(1(01*0)*1))&lt;/code&gt; 變成 &lt;script type=&quot;math/tex&quot;&gt;z + \frac{z^2}{1-(\frac{z^2}{1-z})}&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(0|(1(01*0)*1))*&lt;/code&gt; 變成 &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{1-(z + \frac{z^2}{1-(\frac{z^2}{1-z})})}&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;證明很容易，就不贅述了。根據這兩個性質與 Corollary 2.5 ，推導出線性變換的多項式，例如 &lt;script type=&quot;math/tex; mode=display&quot;&gt; \mathcal{Q} = a\mathcal{L}^2 + b\mathcal{L}+c\mathcal{I} &lt;/script&gt; 也是線性變換，其中 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{I}&lt;/script&gt; 是恆等變換。&lt;/p&gt;
+&lt;p&gt;一個口令一個動作，就這樣寫完了。不管怎麼寫，它總是可以化簡成兩個多項式相除（有理式），畢竟建構過程中不會有開根號什麼的。&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;高中作業出現過矩陣的多項式，其實整個多項式就是一個線性變換。&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Corollary&lt;/strong&gt;：Regular Language 的 Generating Function 總是有理式。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;方才這個生成函數可以化簡為&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;-\frac{z^2+z-1}{(z-1)(z+1)(2z-1)}&lt;/script&gt;
+
+&lt;p&gt;Mathworld 告訴我們其泰勒展開式為 &lt;script type=&quot;math/tex&quot;&gt;1+z+2z^2+3z^3+6x^4+...&lt;/script&gt; ，所以答案是 6。&lt;/p&gt;
+
+&lt;p&gt;另外&lt;code class=&quot;highlighter-rouge&quot;&gt;(0|(1(01*0)*1))*&lt;/code&gt;是從維基百科找的 regexp，其意義為「用二進位表示的三的倍數」。用 4 個 digit 能表示的三的倍數有 0000, 0011, … , 1111，正好有 [16/3]+1 = 6 個，果然計算無誤。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-8&quot;&gt;初步判斷生成函數係數的複雜度&lt;/h2&gt;
+
+&lt;p&gt;一個數列 &lt;script type=&quot;math/tex&quot;&gt;\{a_n\}&lt;/script&gt; 有漸進複雜度，而生成函數的係數是個數列，所以也可以計算係數複雜度，這部分是 &lt;em&gt;Analytic Combinatorics&lt;/em&gt; 的重點。我在這裡寫下一個粗略的手法，說明如何判斷「生成函數係數複雜度的指數項」，但不證明。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-9&quot;&gt;手法&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;生成函數 &lt;script type=&quot;math/tex&quot;&gt;f(z)=a_0+a_1z+a_2z^2+... &lt;/script&gt; 約分化簡後，其不連續點中距離原點最近的設為 &lt;script type=&quot;math/tex&quot;&gt;\hat{z}&lt;/script&gt;，則其數列 &lt;script type=&quot;math/tex&quot;&gt;\{a_n\}&lt;/script&gt; 複雜度的指數項為 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{\Theta}(\frac{1}{|\hat{z}|^{n}})&lt;/script&gt;
+但有個前提是：原點不能是不連續點。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;這裡說不連續點其實不太好，應該要說奇點，因為這有複分析的意義&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;約分化簡是要把類似 &lt;script type=&quot;math/tex&quot;&gt;\frac{(z-1)^2}{z-1}&lt;/script&gt; 的式子直接寫成 &lt;script type=&quot;math/tex&quot;&gt;z-1&lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;所謂「複雜度指數項為 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{\Theta}(K^n)&lt;/script&gt;」指的是複雜度為 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{\Theta}(K^n\cdot f(n))&lt;/script&gt;，其中 &lt;script type=&quot;math/tex&quot;&gt;f(n)&lt;/script&gt; 比指數項還小，比方說多項式或 &lt;script type=&quot;math/tex&quot;&gt;n\operatorname{log}n&lt;/script&gt; 之類的。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;舉例&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-11&quot;&gt;費氏數列&lt;/h4&gt;
+
+&lt;p&gt;費氏數列的生成函數為 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{x}{1-x-x^2}&lt;/script&gt; ，其分母在 &lt;script type=&quot;math/tex&quot;&gt;z=\frac{\sqrt{5}\pm 1}{2}&lt;/script&gt; 為零，所以其不連續點中離原點最近的是 &lt;script type=&quot;math/tex&quot;&gt;\hat{z}=\frac{\sqrt{5}- 1}{2}&lt;/script&gt;，其絕對值倒數為 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{1}{|\hat{z}|}=\frac{\sqrt{5}+1}{2}&lt;/script&gt;，所以費氏數列複雜度的指數項為 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\operatorname{\Theta}((\frac{\sqrt{5}+1}{2})^n)&lt;/script&gt;。對照費氏數列的通式&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;F_n = \frac{1}{\sqrt5}(\frac{\sqrt{5}+1}{2})^n+\frac{1}{\sqrt5}(\frac{\sqrt{5}-1}{2})^n = \operatorname{\Theta}((\frac{\sqrt{5}+1}{2})^n)&lt;/script&gt;
+
+&lt;p&gt;可發現確是如此。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-12&quot;&gt;形式語言的例子&lt;/h4&gt;
+
+&lt;p&gt;方才我們有個判斷 3 的倍數的正規表達式&lt;code class=&quot;highlighter-rouge&quot;&gt;(0|(1(01*0)*1))*&lt;/code&gt;，其生成函數為&lt;script type=&quot;math/tex; mode=display&quot;&gt;-\frac{z^2+z-1}{(z-1)(z+1)(2z-1)}&lt;/script&gt;。其分母在 1、-1、0.5 有根，其中 0.5 離原點最近，其倒數為 2，所以複雜度的指數項為 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{\Theta}(2^n)&lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;對照起來，能用 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 個 digit 表示的三的倍數有 &lt;script type=&quot;math/tex&quot;&gt;[2^n/3]+1&lt;/script&gt; 個，的確是 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{\Theta}(2^n)&lt;/script&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-13&quot;&gt;關於細節&lt;/h3&gt;
+
+&lt;p&gt;關於不連續點有一些細節，比方說方才我們常在找分母的實根，當作不連續點。但是這個多項式是可以代入複數進去的，所以如果有虛根的話，虛根到原點的距離也要考慮進去。&lt;/p&gt;
+
+&lt;p&gt;之所以要把分式先約分，是因為類似 &lt;script type=&quot;math/tex&quot;&gt;\frac{(z-1)^2}{z-1}&lt;/script&gt; 的式子雖然不連續，但是從複分析的角度，其不連續點可以輕易的被「填補」（解析延拓）。&lt;/p&gt;
+
+&lt;p&gt;很多式子雖然都是有理式的形式，可以只看分母的根，但也有些不是。比方說出現根號也會造成不連續點。&lt;/p&gt;
+
+&lt;p&gt;分母在原點有根時，使用這手法&lt;strong&gt;可能會算錯&lt;/strong&gt;。&lt;/p&gt;
 </description>
-        <pubDate>Wed, 01 Mar 2017 13:49:39 +0800</pubDate>
-        <link>http://davidhu3141.github.io/jekyll/update/2017/03/01/LinearEq.html</link>
-        <guid isPermaLink="true">http://davidhu3141.github.io/jekyll/update/2017/03/01/LinearEq.html</guid>
+        <pubDate>Fri, 02 Dec 2016 00:00:00 +0800</pubDate>
+        <link>http://davidhu3141.github.io/%E7%B5%84%E5%90%88%E5%AD%B8,/%E5%BD%A2%E5%BC%8F%E8%AA%9E%E8%A8%80/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8%E7%9A%84%E5%A6%99%E7%94%A8.html</link>
+        <guid isPermaLink="true">http://davidhu3141.github.io/%E7%B5%84%E5%90%88%E5%AD%B8,/%E5%BD%A2%E5%BC%8F%E8%AA%9E%E8%A8%80/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8%E7%9A%84%E5%A6%99%E7%94%A8.html</guid>
         
         
-        <category>jekyll</category>
+        <category>組合學,</category>
         
-        <category>update</category>
+        <category>形式語言</category>
         
       </item>
     
@@ -315,10 +355,10 @@
         <title>歐拉公式與三角函數的指數形式</title>
         <description>&lt;h2 id=&quot;section&quot;&gt;歐拉公式與三角函數的指數形式&lt;/h2&gt;
 
-&lt;p&gt;歐拉公式 &lt;script type=&quot;math/tex&quot;&gt; e^{i\theta}=\operatorname{cos}\theta+i\operatorname{sin}\theta &lt;/script&gt; 讓我們可以定義複數的指數，然後作很多事，比方說&lt;/p&gt;
+&lt;p&gt;歐拉公式 &lt;script type=&quot;math/tex&quot;&gt;e^{i\theta}=\operatorname{cos}\theta+i\operatorname{sin}\theta&lt;/script&gt; 讓我們可以定義複數的指數，然後作很多事，比方說&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;將三角函數寫成指數形式，像 &lt;script type=&quot;math/tex&quot;&gt; \operatorname{sinh} &lt;/script&gt;、 &lt;script type=&quot;math/tex&quot;&gt; \operatorname{cosh} &lt;/script&gt; 一樣。&lt;/li&gt;
+  &lt;li&gt;將三角函數寫成指數形式，像 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{sinh}&lt;/script&gt;、 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{cosh}&lt;/script&gt; 一樣。&lt;/li&gt;
   &lt;li&gt;證明棣美弗定理&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;證明代數基本定理（此不討論）&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;更多重要的定理&lt;/em&gt;&lt;/li&gt;
@@ -334,23 +374,23 @@
 
 &lt;h4 id=&quot;section-2&quot;&gt;三次式的係數&lt;/h4&gt;
 
-&lt;p&gt;對於一個未知的三次式 &lt;script type=&quot;math/tex&quot;&gt; f(x) = ax^3+bx^2+cx+d &lt;/script&gt;，如果我們知道 &lt;script type=&quot;math/tex&quot;&gt; f(0) &lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt; f&#39;(0) &lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt; f&#39;&#39;(0) &lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt; f&#39;&#39;&#39;(0) &lt;/script&gt;，那麼我們就可以知道 &lt;script type=&quot;math/tex&quot;&gt; f(x) &lt;/script&gt; 的各項係數，方法如下：&lt;/p&gt;
+&lt;p&gt;對於一個未知的三次式 &lt;script type=&quot;math/tex&quot;&gt;f(x) = ax^3+bx^2+cx+d&lt;/script&gt;，如果我們知道 &lt;script type=&quot;math/tex&quot;&gt;f(0)&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;f&#39;(0)&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;f&#39;&#39;(0)&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;f&#39;&#39;&#39;(0)&lt;/script&gt;，那麼我們就可以知道 &lt;script type=&quot;math/tex&quot;&gt;f(x)&lt;/script&gt; 的各項係數，方法如下：&lt;/p&gt;
 
-&lt;p&gt;首先，&lt;script type=&quot;math/tex&quot;&gt; d &lt;/script&gt; 是常數項，所以 &lt;script type=&quot;math/tex&quot;&gt; d=f(0) &lt;/script&gt;。&lt;/p&gt;
+&lt;p&gt;首先，&lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt; 是常數項，所以 &lt;script type=&quot;math/tex&quot;&gt;d=f(0)&lt;/script&gt;。&lt;/p&gt;
 
-&lt;p&gt;其次，&lt;script type=&quot;math/tex&quot;&gt; c &lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot;&gt; f&#39;(x)=3ax^2+2bx+1c &lt;/script&gt; 的常數項，所以 &lt;script type=&quot;math/tex&quot;&gt; c=f&#39;(0) &lt;/script&gt;。&lt;/p&gt;
+&lt;p&gt;其次，&lt;script type=&quot;math/tex&quot;&gt;c&lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot;&gt;f&#39;(x)=3ax^2+2bx+1c&lt;/script&gt; 的常數項，所以 &lt;script type=&quot;math/tex&quot;&gt;c=f&#39;(0)&lt;/script&gt;。&lt;/p&gt;
 
-&lt;p&gt;再來，&lt;script type=&quot;math/tex&quot;&gt; 2b &lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot;&gt; f&#39;&#39;(x)=3\cdot 2ax+2\cdot 1b &lt;/script&gt; 的常數項，所以 &lt;script type=&quot;math/tex&quot;&gt; b=\frac{1}{2!}f&#39;&#39;(0) &lt;/script&gt;。&lt;/p&gt;
+&lt;p&gt;再來，&lt;script type=&quot;math/tex&quot;&gt;2b&lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot;&gt;f&#39;&#39;(x)=3\cdot 2ax+2\cdot 1b&lt;/script&gt; 的常數項，所以 &lt;script type=&quot;math/tex&quot;&gt;b=\frac{1}{2!}f&#39;&#39;(0)&lt;/script&gt;。&lt;/p&gt;
 
-&lt;p&gt;最後，&lt;script type=&quot;math/tex&quot;&gt; 6a &lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot;&gt; f&#39;&#39;&#39;(x) = 3\cdot 2\cdot 1\cdot a &lt;/script&gt; 的常數項，所以 &lt;script type=&quot;math/tex&quot;&gt; a=\frac{1}{3!}f&#39;&#39;&#39;(0) &lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;最後，&lt;script type=&quot;math/tex&quot;&gt;6a&lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot;&gt;f&#39;&#39;&#39;(x) = 3\cdot 2\cdot 1\cdot a&lt;/script&gt; 的常數項，所以 &lt;script type=&quot;math/tex&quot;&gt;a=\frac{1}{3!}f&#39;&#39;&#39;(0)&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;因此多項式 &lt;script type=&quot;math/tex&quot;&gt; f(x) &lt;/script&gt; 可以表示為 &lt;script type=&quot;math/tex; mode=display&quot;&gt; f(x)=f(0)+\frac{f&#39;(0)}{1!}x+\frac{f&#39;&#39;(0)}{2!}x^2+\frac{f&#39;&#39;&#39;(0)}{3!}x^3. &lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;因此多項式 &lt;script type=&quot;math/tex&quot;&gt;f(x)&lt;/script&gt; 可以表示為 &lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x)=f(0)+\frac{f&#39;(0)}{1!}x+\frac{f&#39;&#39;(0)}{2!}x^2+\frac{f&#39;&#39;&#39;(0)}{3!}x^3.&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;以此為發想，一個 &lt;script type=&quot;math/tex&quot;&gt; n &lt;/script&gt; 次多項式總是可以重新表示成&lt;/p&gt;
+&lt;p&gt;以此為發想，一個 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 次多項式總是可以重新表示成&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;  f(x)=\sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^k  &lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; f(x)=\sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^k &lt;/script&gt;
 
-&lt;p&gt;，其中 &lt;script type=&quot;math/tex&quot;&gt; f^{(k)}(0) &lt;/script&gt; 代表 &lt;script type=&quot;math/tex&quot;&gt; f &lt;/script&gt; 在原點的第 &lt;script type=&quot;math/tex&quot;&gt; k &lt;/script&gt; 階導數。&lt;/p&gt;
+&lt;p&gt;，其中 &lt;script type=&quot;math/tex&quot;&gt;f^{(k)}(0)&lt;/script&gt; 代表 &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; 在原點的第 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 階導數。&lt;/p&gt;
 
 &lt;p&gt;這就是多項式在原點的泰勒公式。&lt;/p&gt;
 
@@ -369,302 +409,131 @@
 &lt;/blockquote&gt;
 
 &lt;blockquote&gt;
-  &lt;script type=&quot;math/tex; mode=display&quot;&gt;  p(x) = \sum _{k=0} ^{\infty} p_kx^k  &lt;/script&gt;
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt; p(x) = \sum _{k=0} ^{\infty} p_kx^k &lt;/script&gt;
 
 &lt;/blockquote&gt;
 
 &lt;p&gt;現在把展開式的公式改寫成無窮項：&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;script type=&quot;math/tex; mode=display&quot;&gt;  f_{\mathrm{taylor}}(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!} x^k  &lt;/script&gt;
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt; f_{\mathrm{taylor}}(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!} x^k &lt;/script&gt;
 
 &lt;/blockquote&gt;
 
 &lt;h4 id=&quot;section-5&quot;&gt;無窮多項的盲點&lt;/h4&gt;
 
-&lt;p&gt;並不是所有函數的泰勒展開式都和原本一模一樣，所以上面的式子才會說它是個新函數 &lt;script type=&quot;math/tex&quot;&gt; f_{\mathrm{taylor}}(x) &lt;/script&gt;。&lt;/p&gt;
+&lt;p&gt;並不是所有函數的泰勒展開式都和原本一模一樣，所以上面的式子才會說它是個新函數 &lt;script type=&quot;math/tex&quot;&gt;f_{\mathrm{taylor}}(x)&lt;/script&gt;。&lt;/p&gt;
 
-&lt;p&gt;有時候 &lt;script type=&quot;math/tex&quot;&gt; f_{\mathrm{taylor}}(x) \neq f(x) &lt;/script&gt; ，體認到這點是非常重要的，現在舉個例子來看：&lt;/p&gt;
+&lt;p&gt;有時候 &lt;script type=&quot;math/tex&quot;&gt;f_{\mathrm{taylor}}(x) \neq f(x)&lt;/script&gt; ，體認到這點是非常重要的，現在舉個例子來看：&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;展開 &lt;script type=&quot;math/tex; mode=display&quot;&gt; f(x)=\frac{1}{1-x}&lt;script type=&quot;math/tex&quot;&gt; &lt;script type=&quot;math/tex&quot;&gt; 的結果是  &lt;/script&gt;&lt;script&gt; f_{\mathrm{taylor}}(x) = 1+x+x^2+x^3+... = \sum_{k=0}^{\infty} x^k &lt;/script&gt;&lt;/script&gt;&lt;/script&gt;&lt;/p&gt;
+  &lt;p&gt;展開 &lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x)=\frac{1}{1-x}&lt;/script&gt; 的結果是 &lt;script type=&quot;math/tex; mode=display&quot;&gt; f_{\mathrm{taylor}}(x) = 1+x+x^2+x^3+... = \sum_{k=0}^{\infty} x^k&lt;/script&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;要實際展開來驗證也可以，不過當成等比級數來看的話這結果是顯而易見的。&lt;/p&gt;
 
-&lt;p&gt;無窮等比級數的公比 &lt;script type=&quot;math/tex&quot;&gt; x &lt;/script&gt; 必須滿足範圍 &lt;script type=&quot;math/tex&quot;&gt; -1&amp;lt;x&amp;lt;1 &lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot;&gt; f_{\mathrm{taylor}} &lt;/script&gt; 在這範圍外式沒有值的。但是 &lt;script type=&quot;math/tex&quot;&gt; f(x)=\frac{1}{1-x} &lt;/script&gt; 只在 &lt;script type=&quot;math/tex&quot;&gt; x=1 &lt;/script&gt; 的地方沒有值，所以這是兩個不一樣的函數。&lt;/p&gt;
+&lt;p&gt;無窮等比級數的公比 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; 必須滿足範圍 &lt;script type=&quot;math/tex&quot;&gt;-1&amp;lt;x&amp;lt;1&lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot;&gt;f_{\mathrm{taylor}}&lt;/script&gt; 在這範圍外式沒有值的。但是 &lt;script type=&quot;math/tex&quot;&gt;f(x)=\frac{1}{1-x}&lt;/script&gt; 只在 &lt;script type=&quot;math/tex&quot;&gt;x=1&lt;/script&gt; 的地方沒有值，所以這是兩個不一樣的函數。&lt;/p&gt;
 
-&lt;p&gt;應該試著去想 &lt;script type=&quot;math/tex&quot;&gt; f_{\mathrm{taylor}}(x)  &lt;/script&gt; 和 &lt;script type=&quot;math/tex&quot;&gt; f(x) &lt;/script&gt; 的圖形差在哪裡。&lt;/p&gt;
+&lt;p&gt;應該試著去想 &lt;script type=&quot;math/tex&quot;&gt;f_{\mathrm{taylor}}(x) &lt;/script&gt; 和 &lt;script type=&quot;math/tex&quot;&gt;f(x)&lt;/script&gt; 的圖形差在哪裡。&lt;/p&gt;
 
 &lt;h3 id=&quot;section-6&quot;&gt;歐拉公式&lt;/h3&gt;
 
 &lt;p&gt;被稱做歐拉公式的式子太多了，這裡指的是&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; e^{ix}=\operatorname{cos}x+i\operatorname{sin}x &lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;e^{ix}=\operatorname{cos}x+i\operatorname{sin}x&lt;/script&gt;
 
-&lt;p&gt;某數的 &lt;script type=&quot;math/tex&quot;&gt; i &lt;/script&gt; 次方的概念就是從這裡定義的。&lt;/p&gt;
+&lt;p&gt;某數的 &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt; 次方的概念就是從這裡定義的。&lt;/p&gt;
 
-&lt;h4 id=&quot;script-typemathtex--i-script-&quot;&gt;某數的 &lt;script type=&quot;math/tex&quot;&gt; i &lt;/script&gt; 次方&lt;/h4&gt;
+&lt;h4 id=&quot;script-typemathtexiscript-&quot;&gt;某數的 &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt; 次方&lt;/h4&gt;
 
-&lt;p&gt;來計算 &lt;script type=&quot;math/tex&quot;&gt; e^x &lt;/script&gt; 的泰勒展開式。為了符號方便，定義函數 &lt;script type=&quot;math/tex&quot;&gt; \operatorname{exp}x=e^x &lt;/script&gt;。&lt;/p&gt;
+&lt;p&gt;來計算 &lt;script type=&quot;math/tex&quot;&gt;e^x&lt;/script&gt; 的泰勒展開式。為了符號方便，定義函數 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{exp}x=e^x&lt;/script&gt;。&lt;/p&gt;
 
 &lt;p&gt;根據泰勒展開式：&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; \operatorname{exp}x=\operatorname{exp}0+\frac{\operatorname{exp}&#39;0}{1!}x + \frac{\operatorname{exp}&#39;&#39;0}{2!}x^2+... &lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\operatorname{exp}x=\operatorname{exp}0+\frac{\operatorname{exp}&#39;0}{1!}x + \frac{\operatorname{exp}&#39;&#39;0}{2!}x^2+...&lt;/script&gt;
 
-&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot;&gt; \operatorname{exp}x &lt;/script&gt; 的 &lt;script type=&quot;math/tex&quot;&gt; n &lt;/script&gt; 階導數都是 &lt;script type=&quot;math/tex&quot;&gt; \operatorname{exp}x &lt;/script&gt; 本身，所以 &lt;script type=&quot;math/tex&quot;&gt; \operatorname{exp}&#39; &#39; 0 = \operatorname{exp}&#39; 0 = \operatorname{exp} 0 = 1  &lt;/script&gt; ，展開式簡化為&lt;/p&gt;
+&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{exp}x&lt;/script&gt; 的 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 階導數都是 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{exp}x&lt;/script&gt; 本身，所以 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{exp}&#39; &#39; 0 = \operatorname{exp}&#39; 0 = \operatorname{exp} 0 = 1 &lt;/script&gt; ，展開式簡化為&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; \operatorname{exp}x=1+\frac{1}{1!}x + \frac{1}{2!}x^2+... &lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\operatorname{exp}x=1+\frac{1}{1!}x + \frac{1}{2!}x^2+...&lt;/script&gt;
 
-&lt;p&gt;注意到這樣 &lt;script type=&quot;math/tex&quot;&gt; \operatorname{exp}x &lt;/script&gt; 就可以代虛數進去了。代純虛數 &lt;script type=&quot;math/tex&quot;&gt; ix &lt;/script&gt; 進去看看：&lt;/p&gt;
+&lt;p&gt;注意到這樣 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{exp}x&lt;/script&gt; 就可以代虛數進去了。代純虛數 &lt;script type=&quot;math/tex&quot;&gt;ix&lt;/script&gt; 進去看看：&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; \operatorname{exp}x=1+\frac{1}{1!}ix + \frac{1}{2!}i^2x^2+\frac{1}{3!}i^3x^3+\frac{1}{4!}i^4x^4+\frac{1}{5!}i^5x^5+... &lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\operatorname{exp}ix=1+\frac{1}{1!}ix + \frac{1}{2!}i^2x^2+\frac{1}{3!}i^3x^3+\frac{1}{4!}i^4x^4+\frac{1}{5!}i^5x^5+...&lt;/script&gt;
 
-&lt;p&gt;利用 &lt;script type=&quot;math/tex&quot;&gt; i^2=-1 &lt;/script&gt; 簡化為&lt;/p&gt;
+&lt;p&gt;利用 &lt;script type=&quot;math/tex&quot;&gt;i^2=-1&lt;/script&gt; 簡化為&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; \operatorname{exp}ix=1+\frac{1}{1!}ix - \frac{1}{2!}x^2-\frac{1}{3!}ix^3+\frac{1}{4!}x^4+\frac{1}{5!}ix^5... &lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\operatorname{exp}ix=1+\frac{1}{1!}ix - \frac{1}{2!}x^2-\frac{1}{3!}ix^3+\frac{1}{4!}x^4+\frac{1}{5!}ix^5...&lt;/script&gt;
 
 &lt;h4 id=&quot;section-7&quot;&gt;展開三角函數&lt;/h4&gt;
 
-&lt;p&gt;要展開 &lt;script type=&quot;math/tex&quot;&gt; \operatorname{sin}x &lt;/script&gt;，需要算它在 &lt;script type=&quot;math/tex&quot;&gt; 0 &lt;/script&gt; 處的各階導數：&lt;/p&gt;
+&lt;p&gt;要展開 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}x&lt;/script&gt;，需要算它在 &lt;script type=&quot;math/tex&quot;&gt;0&lt;/script&gt; 處的各階導數：&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex&quot;&gt; \operatorname{sin}0 =0 &lt;/script&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex&quot;&gt; \operatorname{sin}&#39;0 = \operatorname{cos}0=1 &lt;/script&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex&quot;&gt; \operatorname{sin}&#39;&#39;0 = -\operatorname{sin}0=0 &lt;/script&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex&quot;&gt; \operatorname{sin}&#39;&#39;&#39;0 = -\operatorname{cos}0=-1 &lt;/script&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex&quot;&gt; \operatorname{sin}&#39;&#39;&#39;&#39;0 =\operatorname{sin}0=0 &lt;/script&gt;
-  &lt;/li&gt;
+  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}0 =0&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}&#39;0 = \operatorname{cos}0=1&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}&#39;&#39;0 = -\operatorname{sin}0=0&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}&#39;&#39;&#39;0 = -\operatorname{cos}0=-1&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}&#39;&#39;&#39;&#39;0 =\operatorname{sin}0=0&lt;/script&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;發現是 0, 1, 0, -1, … 循環，所以&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;  \operatorname{sin}x = x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-... &lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; \operatorname{sin}x = x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-...&lt;/script&gt;
 
-&lt;p&gt;用類似的方法可以展開 &lt;script type=&quot;math/tex&quot;&gt; \operatorname{cos}x &lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;用類似的方法可以展開 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{cos}x&lt;/script&gt;&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; \operatorname{cos}x = 1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-... &lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\operatorname{cos}x = 1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-...&lt;/script&gt;
 
 &lt;h4 id=&quot;section-8&quot;&gt;證明歐拉公式&lt;/h4&gt;
 
-&lt;script type=&quot;math/tex&quot;&gt; \operatorname{sin}x &lt;/script&gt;
-&lt;p&gt;、&lt;script type=&quot;math/tex&quot;&gt; \operatorname{cos}x &lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt; e^x &lt;/script&gt; 都展開完了，接下來可以直接證明歐拉公式。&lt;/p&gt;
+&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}x&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;\operatorname{cos}x&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;e^x&lt;/script&gt; 都展開完了，接下來可以直接證明歐拉公式。&lt;/p&gt;
 
-&lt;script type=&quot;math/tex&quot;&gt;&lt;script&gt;\begin{aligned}
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
  \operatorname{cos}x+i\operatorname{sin}x &amp;=  (1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-...) + (ix-\frac{1}{3!}ix^3+\frac{1}{5!}ix^5-...)\\ 
  &amp;= 1+\frac{1}{1!}ix - \frac{1}{2!}x^2-\frac{1}{3!}ix^3+\frac{1}{4!}x^4+\frac{1}{5!}ix^5...\\
  &amp;= \operatorname{exp}ix.
-\end{aligned}&lt;script type=&quot;math/tex&quot;&gt;&lt;script&gt;
+\end{aligned} %]]&gt;&lt;/script&gt;
 
-從倒數第二行到最後一行，就是用剛剛推導出來的 &lt;script type=&quot;math/tex&quot; &gt; \operatorname{exp}ix &lt;/script&gt;
-&lt;p&gt;的公式。&lt;/p&gt;
+&lt;p&gt;從倒數第二行到最後一行，就是用剛剛推導出來的 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{exp}ix&lt;/script&gt; 的公式。&lt;/p&gt;
 
 &lt;h3 id=&quot;section-9&quot;&gt;將三角函數寫成指數形式&lt;/h3&gt;
 
-&lt;p&gt;根據 &lt;script type=&quot;math/tex&quot;&gt; e^{ix}=\operatorname{cos}x+i\operatorname{sin}x &lt;/script&gt; ，我們也有&lt;/p&gt;
+&lt;p&gt;根據 &lt;script type=&quot;math/tex&quot;&gt;e^{ix}=\operatorname{cos}x+i\operatorname{sin}x&lt;/script&gt; ，我們也有&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; e^{-ix}=\operatorname{cos}-x+i\operatorname{sin}-x = \operatorname{cos}x-i\operatorname{sin}x &lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;e^{-ix}=\operatorname{cos}-x+i\operatorname{sin}-x = \operatorname{cos}x-i\operatorname{sin}x&lt;/script&gt;
 
 &lt;p&gt;。所以&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; \operatorname{cos}x=\frac{e^{ix}+e^{-ix}}{2} &lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\operatorname{cos}x=\frac{e^{ix}+e^{-ix}}{2}&lt;/script&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; \operatorname{sin}x=\frac{e^{ix}-e^{-ix}}{2i} &lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\operatorname{sin}x=\frac{e^{ix}-e^{-ix}}{2i}&lt;/script&gt;
 
-&lt;p&gt;這算是指數形式的三角函數，和 &lt;script type=&quot;math/tex&quot;&gt; \operatorname{sinh}x &lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt; \operatorname{cosh}x &lt;/script&gt; 雷同。&lt;/p&gt;
+&lt;p&gt;這算是指數形式的三角函數，和 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{sinh}x&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;\operatorname{cosh}x&lt;/script&gt; 雷同。&lt;/p&gt;
 
 &lt;h3 id=&quot;section-10&quot;&gt;證明棣美弗定理&lt;/h3&gt;
 
-&lt;p&gt;棣美弗定理說明一個複數的 &lt;script type=&quot;math/tex&quot;&gt; n &lt;/script&gt; 次方的行為：&lt;/p&gt;
+&lt;p&gt;棣美弗定理說明一個複數的 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 次方的行為：&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;script type=&quot;math/tex; mode=display&quot;&gt; [r(\operatorname{cos}\theta+i\operatorname{sin}\theta)]^n=r^n(\operatorname{cos}n\theta+i\operatorname{sin}n\theta) &lt;/script&gt;
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt;[r(\operatorname{cos}\theta+i\operatorname{sin}\theta)]^n=r^n(\operatorname{cos}n\theta+i\operatorname{sin}n\theta)&lt;/script&gt;
 
 &lt;/blockquote&gt;
 
 &lt;p&gt;三角(二) 會學到棣美弗定理的完整解釋。用歐拉公式來證明它再簡單不過了：&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; [r(\operatorname{cos}\theta+i\operatorname{sin}\theta)]^n=(re^{i\theta})^n = r^ne^{in\theta}=r^n(\operatorname{cos}n\theta+i\operatorname{sin}n\theta) &lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;[r(\operatorname{cos}\theta+i\operatorname{sin}\theta)]^n=(re^{i\theta})^n = r^ne^{in\theta}=r^n(\operatorname{cos}n\theta+i\operatorname{sin}n\theta)&lt;/script&gt;
 
 &lt;p&gt;這樣就證完了。&lt;/p&gt;
 </description>
-        <pubDate>Wed, 01 Mar 2017 13:49:39 +0800</pubDate>
-        <link>http://davidhu3141.github.io/jekyll/update/2017/03/01/%E4%B8%AD%E6%96%87%E6%AA%94%E5%90%8D%E6%B8%AC%E8%A9%A6.html</link>
-        <guid isPermaLink="true">http://davidhu3141.github.io/jekyll/update/2017/03/01/%E4%B8%AD%E6%96%87%E6%AA%94%E5%90%8D%E6%B8%AC%E8%A9%A6.html</guid>
+        <pubDate>Thu, 01 Dec 2016 00:00:00 +0800</pubDate>
+        <link>http://davidhu3141.github.io/%E5%88%9D%E7%AD%89%E5%BE%AE%E7%A9%8D%E5%88%86,/%E9%80%B2%E9%9A%8E%E9%AB%98%E4%B8%AD%E8%AA%B2%E9%A1%8C/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html</link>
+        <guid isPermaLink="true">http://davidhu3141.github.io/%E5%88%9D%E7%AD%89%E5%BE%AE%E7%A9%8D%E5%88%86,/%E9%80%B2%E9%9A%8E%E9%AB%98%E4%B8%AD%E8%AA%B2%E9%A1%8C/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html</guid>
         
         
-        <category>jekyll</category>
+        <category>初等微積分,</category>
         
-        <category>update</category>
-        
-      </item>
-    
-      <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;123&lt;script&gt;
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
-&lt;/script&gt;
-</description>
-        <pubDate>Wed, 01 Mar 2017 13:49:39 +0800</pubDate>
-        <link>http://davidhu3141.github.io/jekyll/update/2017/03/01/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://davidhu3141.github.io/jekyll/update/2017/03/01/welcome-to-jekyll.html</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
-    
-      <item>
-        <title>二元一次方程式整數解</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;二元一次方程式整數解&lt;/h2&gt;
-
-&lt;p&gt;來證明下面的事實：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;給定 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b \in \mathbb{Z} &lt;/script&gt; ， 則二元一次方程式 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  ax+by = c  &lt;/script&gt; 有整數解的充要條件是 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  (a, b) | c  &lt;/script&gt; 。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;分成兩部分討論：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  ax+by = c  &lt;/script&gt;
-    &lt;p&gt;有整數解 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  \Rightarrow (a, b)|c  &lt;/script&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|c\Rightarrow ax+by = c  &lt;/script&gt;
-    &lt;p&gt;有整數解&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;[TOC]&lt;/p&gt;
-
-&lt;h3 id=&quot;script-typemathtex-idmathjax-element-159-rightarrow-a-bc-script&quot;&gt;一、有整數解 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \Rightarrow (a, b)|c &lt;/script&gt;&lt;/h3&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;證明過程&lt;/h4&gt;
-
-&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; ax+by=c &lt;/script&gt;
-&lt;p&gt;有整數解 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; \Rightarrow &lt;/script&gt; 存在 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; u, v \in \mathbb{Z} &lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; au+bv=c &lt;/script&gt;。&lt;/p&gt;
-
-&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|a &lt;/script&gt; 且 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|b &lt;/script&gt; ，根據&lt;strong&gt;線性組合原理&lt;/strong&gt;， &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|au+bv &lt;/script&gt; ， 即 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  (a, b)|c &lt;/script&gt;，得證。&lt;/p&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;線性組合原理&lt;/h4&gt;
-
-&lt;p&gt;剛剛的證明用到線性組合的原理：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;若 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r|a &lt;/script&gt; 且 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r|b &lt;/script&gt; ， 則任取整數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; m, n \in \mathbb{Z} &lt;/script&gt; ，都有 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r|ma+bn &lt;/script&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;原因很直觀：&lt;/p&gt;
-
-&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r|a \Rightarrow &lt;/script&gt;
-&lt;p&gt;存在整數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; k  &lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a = kr &lt;/script&gt;
-&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r|b \Rightarrow &lt;/script&gt; 存在整數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; l  &lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; b = lr &lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;故 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; ma+bn = kmr+lnr &lt;/script&gt; ，的確為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r &lt;/script&gt; 的倍數。&lt;/p&gt;
-
-&lt;h3 id=&quot;script-typemathtex-idmathjax-element-159-a-bcrightarrow--script-&quot;&gt;二、&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|c\Rightarrow  &lt;/script&gt; 有整數解&lt;/h3&gt;
-
-&lt;p&gt;證明會用到輾轉相除法和一些其他原理，先來看看：&lt;/p&gt;
-
-&lt;h4 id=&quot;section-3&quot;&gt;餘數會整除最大公因數&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;將 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 相除的過程寫成 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a=bq+r &lt;/script&gt;，則 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) | r &lt;/script&gt; 。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;原因是根據線性組合原理，&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|a-bq &lt;/script&gt;，又 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a-bq=r &lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|r &lt;/script&gt; 。&lt;/p&gt;
-
-&lt;h4 id=&quot;section-4&quot;&gt;輾轉相除法&lt;/h4&gt;
-
-&lt;p&gt;如果想要算最大公因數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; ，根據上述原理，我們知道 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 相除後，&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 會在餘數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r &lt;/script&gt; 的因數中，所以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)=(a, b, r)=(b, r) &lt;/script&gt;。 我們只要找出 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (b, r) &lt;/script&gt; 即可。&lt;/p&gt;
-
-&lt;p&gt;現在我們把 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; b, r &lt;/script&gt; 相除，會得到新餘數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_2 &lt;/script&gt;。同理我們只要找 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (r, r_2) &lt;/script&gt; 最大公因數即可。依序做下去的話，餘數會越來越小，但這些餘數都是 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 的倍數，我們於是有餘數的數列：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r, r_2, r_3, ... r_k &lt;/script&gt;
-  &lt;p&gt;，且 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 整除所有 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_n &lt;/script&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;由於餘數越來越小的的原因，最後一定會有某個 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_k &lt;/script&gt; 是我們要找的 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 。&lt;/p&gt;
-
-&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|r_{k-1} &lt;/script&gt; ，故 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_k | r_{k-1} &lt;/script&gt; ，也就是說這兩個餘數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_k , r_{k-1} &lt;/script&gt; 繼續做除法會整除，不會有新餘數了。&lt;/p&gt;
-
-&lt;h4 id=&quot;script-typemathtex-idmathjax-element-159-a-b-script--script-typemathtex-idmathjax-element-159-manb-script&quot;&gt;將最大公因數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 表為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; ma+nb &lt;/script&gt;&lt;/h4&gt;
-
-&lt;p&gt;根據輾轉相除法，假設今天只做三次就找到 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_3=(a, b) &lt;/script&gt;：&lt;/p&gt;
-
-&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a = bq + r &lt;/script&gt;
-
-&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; b = rq_2 + r_2 &lt;/script&gt;
-
-&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r = r_2q_3 + r_3 &lt;/script&gt;
-
-&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_2 = r_3q_4 &lt;/script&gt;
-&lt;p&gt;（整除結束，&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_3 &lt;/script&gt; 為最小公因數）&lt;/p&gt;
-
-&lt;p&gt;根據第三個式子，我們注意到  &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_3 &lt;/script&gt; 可以用 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r, r_2 &lt;/script&gt; 的線性組合表示。
-根據第二個式子， &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_2 &lt;/script&gt; 又可以用 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; b, r &lt;/script&gt; 的線性組合表示。
-根據第一個式子， &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r &lt;/script&gt; 又可以用 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 的線性組合表示。&lt;/p&gt;
-
-&lt;p&gt;所以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; r_3 &lt;/script&gt; 可以用 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 的線性組合表示。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;結論： &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 總可以表為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 的線性組合。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;section-5&quot;&gt;開始證明第二部分&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;目標： &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|c\Rightarrow ax+by = c  &lt;/script&gt; 有整數解。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b)|c &lt;/script&gt;
-&lt;p&gt;代表 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; c = k\cdot (a, b) &lt;/script&gt; ， 原方程式改寫為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; ax+by = k\cdot (a, b) &lt;/script&gt; 。&lt;/p&gt;
-
-&lt;p&gt;剛才說 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 總可以表為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 的線性組合，所以總存在整數 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; m, n \in \mathbb{Z} &lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;ma+nb=(a, b)&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;。等號兩邊同乘以 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; k &lt;/script&gt; 得到 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;kma+knb=k\cdot (a, b)&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;，再和剛才的 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt;ax+by = k\cdot (a, b)&lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt;  &lt;/script&gt; 比較係數，得到 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; x=km &lt;/script&gt; ， &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; y=kn &lt;/script&gt; ，得證。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: 可以練習真的去舉個例子，然後找找看找這種方程式的整數解。關鍵步驟是把 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; (a, b) &lt;/script&gt; 表為 &lt;script type=&quot;math/tex&quot; id=&quot;MathJax-Element-159&quot;&gt; a, b &lt;/script&gt; 的線性組合，利用輾轉相除法。&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Wed, 01 Mar 2017 13:49:39 +0800</pubDate>
-        <link>http://davidhu3141.github.io/jekyll/update/2017/03/01/Integersolu.html</link>
-        <guid isPermaLink="true">http://davidhu3141.github.io/jekyll/update/2017/03/01/Integersolu.html</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>進階高中課題</category>
         
       </item>
     

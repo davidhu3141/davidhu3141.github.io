@@ -30,6 +30,8 @@
     MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
       data.math = data.math.replace(/^\s*<!\[CDATA\[\s*(.*)\s*\]\]>\s*$/m,"$1");
       data.math = data.math.replace(/amp;/g," ");
+      data.math = data.math.replace(/&lt;/g,"<");
+      data.math = data.math.replace(/&gt;/g,">");
     });
   });
   </script>
@@ -65,6 +67,10 @@
         
           
         
+          
+          <a class="page-link" href="/postheader.txt">Welcome to Jekyll!</a>
+          
+        
       </div>
     </nav>
 
@@ -82,42 +88,26 @@
   <ul class="post-list">
     
       <li>
-        <span class="post-meta">Mar 1, 2017</span>
+        <span class="post-meta">Dec 3, 2016</span>
 
         <h2>
-          <a class="post-link" href="/jekyll/update/2017/03/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html">二元一次方程式整數解</a>
+          <a class="post-link" href="/%E4%BB%A3%E6%95%B8,/%E9%AB%98%E4%B8%AD%E9%80%B2%E9%9A%8E%E8%AA%B2%E9%A1%8C/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a>
         </h2>
       </li>
     
       <li>
-        <span class="post-meta">Mar 1, 2017</span>
+        <span class="post-meta">Dec 2, 2016</span>
 
         <h2>
-          <a class="post-link" href="/jekyll/update/2017/03/01/LinearEq.html">線性方程</a>
+          <a class="post-link" href="/%E7%B5%84%E5%90%88%E5%AD%B8,/%E5%BD%A2%E5%BC%8F%E8%AA%9E%E8%A8%80/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數的妙用 -- 關於 RegExp</a>
         </h2>
       </li>
     
       <li>
-        <span class="post-meta">Mar 1, 2017</span>
+        <span class="post-meta">Dec 1, 2016</span>
 
         <h2>
-          <a class="post-link" href="/jekyll/update/2017/03/01/%E4%B8%AD%E6%96%87%E6%AA%94%E5%90%8D%E6%B8%AC%E8%A9%A6.html">歐拉公式與三角函數的指數形式</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 1, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/jekyll/update/2017/03/01/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 1, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/jekyll/update/2017/03/01/Integersolu.html">二元一次方程式整數解</a>
+          <a class="post-link" href="/%E5%88%9D%E7%AD%89%E5%BE%AE%E7%A9%8D%E5%88%86,/%E9%80%B2%E9%9A%8E%E9%AB%98%E4%B8%AD%E8%AA%B2%E9%A1%8C/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html">歐拉公式與三角函數的指數形式</a>
         </h2>
       </li>
     

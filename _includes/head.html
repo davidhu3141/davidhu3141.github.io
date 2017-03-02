@@ -26,6 +26,8 @@
     MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
       data.math = data.math.replace(/^\s*<!\[CDATA\[\s*(.*)\s*\]\]>\s*$/m,"$1");
       data.math = data.math.replace(/amp;/g," ");
+      data.math = data.math.replace(/&lt;/g,"<");
+      data.math = data.math.replace(/&gt;/g,">");
     });
   });
   </script>
