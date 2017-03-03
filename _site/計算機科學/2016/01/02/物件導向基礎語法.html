@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>物件導向筆記 - 基礎</title>
+  <meta name="description" content="物件導向筆記 - 基礎">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://davidhu3141.github.io/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/01/02/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%9F%BA%E7%A4%8E%E8%AA%9E%E6%B3%95.html">
+  <link rel="alternate" type="application/rss+xml" title="AutoDavid's Blog" href="http://davidhu3141.github.io/feed.xml">
+
+<!-- mathjax -->
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<!-- icon -->
+  <link rel="shortcut icon" href="http://davidhu3141.github.io/pageicon.png">
+
+<!-- style -->
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+  <!-- link rel=stylesheet type="text/css" href="css/customs/article.css" -->
+
+<!-- remove amp -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+      data.math = data.math.replace(/^\s*<!\[CDATA\[\s*(.*)\s*\]\]>\s*$/m,"$1");
+      data.math = data.math.replace(/amp;/g," ");
+      data.math = data.math.replace(/&lt;/g,"<");
+      data.math = data.math.replace(/&gt;/g,">");
+    });
+  });
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">AutoDavid's Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+
+
+<div class="archives">
+
+  <div class="archive-group">
+    
+    <div id="#計算機科學"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 計算機科學 }</h3>
+    <a name="計算機科學"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數的妙用 -- 關於 RegExp</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/01/02/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%9F%BA%E7%A4%8E%E8%AA%9E%E6%B3%95.html">物件導向筆記 - 基礎</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#高中教材"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 高中教材 }</h3>
+    <a name="高中教材"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html">歐拉公式與三角函數的指數形式</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#代數與組合"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 代數與組合 }</h3>
+    <a name="代數與組合"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數的妙用 -- 關於 RegExp</a></h4>
+    </article>
+    
+  </div>
+
+</div>
+
+
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">物件導向筆記 - 基礎</h1>
+    <p class="post-meta"><time datetime="2016-01-02T00:00:00+08:00" itemprop="datePublished">Jan 2, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h1 id="section">物件導向筆記 - 基礎</h1>
+
+<p>以前寫的筆記，好讓團隊正常的使用 Java.</p>
+
+<p>因為觀念大家都差不多懂了，所以重點是學習物件導向的哲學，了解「這些語法解決了什麼工程問題？」</p>
+
+<p>所謂工程問題，目前可以理解為「大型程式開發與維護」遇到的問題。
+這種問題主要有兩大類：</p>
+
+<blockquote>
+  <ul>
+    <li>程式碼的維護。怎樣的程式架構難以維護、難以除錯、難以 Code Reuse？客戶需求改變時，程式會需要完全重寫嗎？</li>
+    <li>人員的分工。怎麼讓多人工作時彼此的程式可以銜接？誰可以改誰的 Code？權責分明是放諸四海皆準的守則。</li>
+  </ul>
+</blockquote>
+
+<p>以下的筆記以 Java 語法為準</p>
+
+<p>[TOC]</p>
+
+<h2 id="section-1">一、類別與物件</h2>
+
+<p>不需要多說，類別是抽象概念（或型別）的定義，物件是依照概念而建立的具象實體（變數）。</p>
+
+<h2 id="section-2">二、屬性與方法</h2>
+
+<h3 id="field">屬性 Field</h3>
+<p>這裡就不廢話了</p>
+
+<h3 id="method">方法 Method</h3>
+
+<p>這裡為特殊的方法 – 建構子與 finalize – 做補充</p>
+
+<h4 id="section-3">建構子</h4>
+
+<ul>
+  <li>可以是私有的</li>
+  <li>物件的生命始於建構子，止於 GC</li>
+</ul>
+
+<h4 id="finalize">finalize</h4>
+
+<ul>
+  <li>finalize 會在 GC 時被呼叫，並不同於 C++ 的解構子，因為我們不需要自己釋放記憶體</li>
+  <li>我們不應該主動呼叫 finalize（那是 GC 的事，我們也不應該臆測 GC 的行為，<strong>權責分明</strong>）</li>
+</ul>
+
+<h2 id="encapsulation">三、封裝 Encapsulation</h2>
+
+<ul>
+  <li>抽象化的第一步</li>
+  <li>隱藏所有實作訊息，不只是寫 getter 與 setter</li>
+</ul>
+
+<h3 id="section-4">公有與私有</h3>
+
+<p>大家應該都用習慣了XD
+這些語法正是為封裝而生。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="n">i</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">j</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">k</span><span class="o">;</span> <span class="c1">// package scope</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h3 id="eclipse-">在 Eclipse 中快速封裝:</h3>
+<blockquote>
+  <p>對一個 field 右鍵 &gt; Refactor &gt; Encapsulation</p>
+</blockquote>
+
+<h3 id="section-5">這樣解決了什麼工程問題</h3>
+
+<p>沒封裝好的例子：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Square</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">double</span> <span class="n">getEdgeLengthFromArea</span><span class="o">(</span><span class="kt">double</span> <span class="n">area</span><span class="o">){</span>
+		<span class="cm">/* 請各位開發者輸入非負的數，否則會噴 */</span>
+		<span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">area</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>發現了嗎？他不應該要求所有上層開發者來看他的 code 與註解。當 code 越來越大，上層開發者會有很多地雷要閃。</p>
+
+<p>修正：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Square</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kt">double</span> <span class="n">area</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="n">Square</span><span class="o">(</span><span class="kt">double</span> <span class="n">area</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">area</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="k">this</span><span class="o">.</span><span class="na">area</span> <span class="o">=</span> <span class="n">area</span><span class="o">;</span>
+		<span class="k">else</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">"Area should be non-negative"</span><span class="o">);</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">double</span> <span class="n">getEdgeLengthFromArea</span><span class="o">(</span><span class="kt">double</span> <span class="n">area</span><span class="o">){</span>
+		<span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">area</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="static-fields-and-methods">四、靜態屬性與方法 Static Fields and Methods</h2>
+
+<ul>
+  <li>靜態屬性是關於類別本身的。所有 new 出來的物件、所有的 Thread 、都共用這一個變數。</li>
+  <li>非靜態屬性是物件的。每個 new 出來的物件都有自己個別的屬性</li>
+  <li>靜態方法不能存取非靜態屬性（他也不知道要從哪個 Object 取）</li>
+</ul>
+
+<h3 id="section-6">舉例</h3>
+
+<h4 id="section-7">例 1：這個屬性是誰的？</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AESCipher</span><span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">BLOCKLEN</span> <span class="o">=</span> <span class="mi">16</span><span class="o">;</span> <span class="c1">// 跟 cipher 的抽象定義有關，不會因個別的 cipher 而變</span>
+	<span class="kd">private</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">key</span><span class="o">;</span> <span class="c1">// 每個 cipher 要用的 key 都不一樣</span>
+	<span class="kd">public</span> <span class="n">AESCipher</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">key</span><span class="o">){...};</span>
+	<span class="kd">public</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">encrypt</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">data</span><span class="o">){...}</span>
+<span class="o">}</span>
+<span class="o">...</span>
+<span class="n">AESCipher</span> <span class="n">cipher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AESCipher</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+</code></pre>
+</div>
+<ul>
+  <li><code class="highlighter-rouge">print(cipher.BLOCKLEN)? // 不建議</code></li>
+  <li><code class="highlighter-rouge">print(AESCipher.BLOCKLEN) // 建議</code></li>
+</ul>
+
+<h4 id="section-8">例 2：常見的例子，無關物件的函數</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Math</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="n">sin</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">){...}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="n">log</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">){...}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="section-9">例 3：有關初始化的語法</h4>
+
+<p>動態的初始 Assignment 在建構子
+靜態的初始 Assignment 在 ClassLoader</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">foo</span><span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">i</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="o">{</span>
+		<span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+<p>等同於以下的 <strong>compiler sugar</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">foo</span><span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="section-10">例 4：常犯的錯誤</h4>
+
+<blockquote>
+  <p>原文出處：http://www.oreilly.com.tw/column_sleepless2.php?id=part24</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span> <span class="o">{</span>
+<span class="err">　　</span><span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span>
+<span class="err">　　</span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">counter1</span><span class="o">;</span>
+<span class="err">　　</span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">counter2</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="err">　　</span><span class="kd">private</span> <span class="n">Singleton</span><span class="o">()</span> <span class="o">{</span>
+<span class="err">　　</span> <span class="err">　</span><span class="n">counter1</span><span class="o">++;</span>
+<span class="err">　　</span> <span class="err">　</span><span class="n">counter2</span><span class="o">++;</span>
+   <span class="o">}</span>
+<span class="err">　　</span><span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">getInstance</span><span class="o">()</span> <span class="o">{</span>
+<span class="err">　　</span> <span class="err">　</span><span class="k">return</span> <span class="n">obj</span><span class="o">;</span>
+<span class="err">　　</span><span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyMain</span> <span class="o">{</span>
+<span class="err">　　</span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="n">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="err">　　　</span><span class="n">Singleton</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">Singleton</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+<span class="err">　　　</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"obj.counter1=="</span><span class="o">+</span><span class="n">obj</span><span class="o">.</span><span class="na">counter1</span><span class="o">);</span>
+<span class="err">　　　</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"obj.counter2=="</span><span class="o">+</span><span class="n">obj</span><span class="o">.</span><span class="na">counter2</span><span class="o">);</span>
+<span class="err">　　</span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+<p>沒有初始化的 counter1 初始值應該也是零，但執行結果卻會與 counter2 不同</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">obj</span><span class="o">.</span><span class="na">counter1</span><span class="o">==</span><span class="mi">1</span>
+<span class="n">obj</span><span class="o">.</span><span class="na">counter2</span><span class="o">==</span><span class="mi">0</span>
+</code></pre>
+</div>
+<p>請從**初始化乃是 compiler sugar **的角度去想</p>
+
+<h2 id="inherit">五、繼承 Inherit</h2>
+
+<p><code class="highlighter-rouge">extends</code>關鍵字</p>
+
+<h3 id="section-11">使用時機</h3>
+
+<h4 id="subset-">Subset （必要條件）</h4>
+
+<blockquote>
+  <p><code class="highlighter-rouge">ObjectInputStream</code> <strong>is an</strong> <code class="highlighter-rouge">Inputstream</code>
+<code class="highlighter-rouge">AESCipher</code> <strong>is a</strong> <code class="highlighter-rouge">Cipher</code>
+<code class="highlighter-rouge">DESCipher</code> <strong>is a</strong> <code class="highlighter-rouge">Cipher</code></p>
+</blockquote>
+
+<h4 id="code-reuse">Code Reuse</h4>
+
+<p>不應為了 code reuse 而盲目使用繼承。要注意必要條件</p>
+
+<h4 id="extend-class-functionality">Extend Class Functionality</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProfileSaver</span><span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="n">save</span><span class="o">(</span><span class="n">Profile</span> <span class="n">pf</span><span class="o">,</span> <span class="n">File</span> <span class="n">f</span><span class="o">){</span>
+		<span class="o">...</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BetterProfileSaver</span> <span class="kd">extends</span> <span class="n">ProfileSaver</span><span class="o">{</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="n">save</span><span class="o">(</span><span class="n">Profile</span> <span class="n">pf</span><span class="o">,</span> <span class="n">File</span> <span class="n">file</span><span class="o">){</span>
+		<span class="kd">super</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">pf</span><span class="o">,</span> <span class="n">file</span><span class="o">);</span>                          <span class="c1">// reuse</span>
+		<span class="n">print</span><span class="o">(</span><span class="s">"Success"</span><span class="o">);</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="n">saveEncryptly</span><span class="o">(</span><span class="n">Profile</span> <span class="n">pf</span><span class="o">,</span> <span class="n">File</span> <span class="n">file</span><span class="o">){</span>  <span class="c1">// extend</span>
+		<span class="n">save</span><span class="o">(</span><span class="n">AES</span><span class="o">.</span><span class="na">encrypt</span><span class="o">(</span><span class="n">pf</span><span class="o">),</span> <span class="n">file</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h3 id="protected-">Protected 指示字</h3>
+
+<ul>
+  <li>只有自己與子類別可以存取。</li>
+  <li>子類別是父類別的擴充，可能需要父類別的權限，所以設計此語法。</li>
+</ul>
+
+<h3 id="override-annotation">Override Annotation</h3>
+
+<ul>
+  <li>覆寫父類別方法時可以使用</li>
+  <li>不加也可以，但是當拼錯覆類別方法名稱的時候加了很有用</li>
+  <li>關於 Annotation 會在 Java 章節介紹</li>
+</ul>
+
+<h3 id="section-12">誤用繼承</h3>
+
+<h4 id="section-13">例一：子類別改變父類別的預期行為</h4>
+
+<p>誇張一點的例子：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayList</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="n">sort</span><span class="o">(){</span>
+		<span class="cm">/* sorting */</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyList</span> <span class="kd">extends</span> <span class="n">ArrayList</span> <span class="o">{</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="n">sort</span><span class="o">(){</span>
+		<span class="n">deleteAllElements</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+<p>總之，不要混淆使用你 code 的人</p>
+
+<h4 id="section-14">例二：抽象意義上不符合，不應該繼承</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserAuthenticationData</span> <span class="o">{</span>
+	<span class="kd">protected</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">ID</span><span class="o">;</span>
+	<span class="kd">protected</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">PrivateKey</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserData</span> <span class="kd">extends</span> <span class="n">UserAuthenticationData</span> <span class="o">{</span>
+	<span class="kd">protected</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">phoneNum</span><span class="o">;</span>
+	<span class="kd">protected</span> <span class="kt">char</span> <span class="n">bloodType</span><span class="o">;</span>
+	<span class="kd">protected</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="n">toString</span><span class="o">(){</span>
+		<span class="k">return</span> <span class="s">""</span> <span class="o">+</span> <span class="n">ID</span> <span class="o">+</span> <span class="n">PK</span> <span class="o">+</span> <span class="n">phoneNum</span> <span class="o">+</span> <span class="n">bloodType</span> <span class="o">+</span> <span class="n">age</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="o">...</span>
+<span class="n">UserData</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UserData</span><span class="o">()</span>
+</code></pre>
+</div>
+<p>呼叫會變這樣</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">user</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="c1">// 的確是可以印出來</span>
+<span class="n">AuthenticatedChannel</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AuthenticatedChannel</span><span class="o">(</span><span class="n">user</span><span class="o">);</span> <span class="c1">// 這樣變成意義不明</span>
+<span class="c1">// 原本是</span>
+<span class="k">new</span> <span class="nf">AuthenticatedChannel</span><span class="p">(</span><span class="n">UserAuthenticationData</span> <span class="n">u</span><span class="o">)</span>
+</code></pre>
+</div>
+<p>要保持繼承中 <strong>is a</strong> 的概念</p>
+
+<h4 id="section-15">例三：背叛父類別</h4>
+
+<p>或是為了揭露父類別特地去繼承</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GuessNumber</span> <span class="o">{</span>
+	<span class="kd">protected</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">answer</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="n">guess</span><span class="o">(</span><span class="kt">int</span> <span class="n">quest</span><span class="o">){</span>
+		<span class="k">return</span> <span class="n">quest</span> <span class="o">==</span> <span class="n">answer</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">revealGuessNumber</span> <span class="kd">extends</span> <span class="n">GuessNumber</span><span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="n">getAnswer</span><span class="o">(){</span> <span class="k">return</span> <span class="n">answer</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+<p>Java 提供物件導向的語法，但語法並不是重點，遵守規則才是。</p>
+
+<h2 id="abstract-class">七、抽象類別 Abstract Class</h2>
+
+<ul>
+  <li>定義類別的行為，卻沒有完整的實作，用來當作別人的父類別</li>
+  <li>子類別除了必須實作抽象方法之外，還必須在建構子呼叫抽象類別的建構子</li>
+</ul>
+
+<h3 id="section-16">使用時機</h3>
+
+<ul>
+  <li>用來分開定義與實作</li>
+</ul>
+
+<blockquote>
+  <ul>
+    <li>例如<code class="highlighter-rouge">List</code>、<code class="highlighter-rouge">Set</code>等容器只有定義呼叫方法，實際上再用<code class="highlighter-rouge">ArrayList</code>與<code class="highlighter-rouge">HashSet</code>等技術來實作</li>
+    <li>可以視為<strong>分工</strong>的界線</li>
+  </ul>
+</blockquote>
+
+<ul>
+  <li>仍然蘊含有 <strong>is a</strong> 關係，這是和<a href="#八介面-interface">介面</a>最大的不同</li>
+</ul>
+
+<h4 id="profiledatabase">例：ProfileDatabase</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">ProfileDatabase</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="n">ProfileDatabase</span><span class="o">(){</span>
+		<span class="k">if</span><span class="o">(!</span><span class="n">existsTable</span><span class="o">())</span> <span class="n">createTable</span><span class="o">();</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">abstract</span> <span class="n">bool</span> <span class="n">existsTable</span><span class="o">();</span>
+	<span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="n">createTable</span><span class="o">();</span>
+	<span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="n">insertProfile</span><span class="o">(</span><span class="n">Profile</span> <span class="n">pf</span><span class="o">);</span>
+	<span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="n">queryProfile</span><span class="o">(</span><span class="n">String</span> <span class="n">ID</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HbaseProfileDatabase</span> <span class="kd">extends</span> <span class="n">ProfileDatabase</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="n">HbaseProfileDatabase</span><span class="o">(){</span>
+		<span class="kd">super</span><span class="o">();</span> <span class="c1">// 這裡是要呼叫，不是覆寫</span>
+	<span class="o">}</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="n">bool</span> <span class="n">existsTable</span><span class="o">(){...}</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="n">createTable</span><span class="o">(){...}</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="n">insertProfile</span><span class="o">(</span><span class="n">Profile</span> <span class="n">pf</span><span class="o">){...}</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="n">queryProfile</span><span class="o">(</span><span class="n">String</span> <span class="n">ID</span><span class="o">){...}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="interface">八、介面 Interface</h2>
+
+<h3 id="section-17">關於語法</h3>
+
+<ul>
+  <li>介面中的屬性只能是<code class="highlighter-rouge">static</code>且<code class="highlighter-rouge">final</code>的，就算沒加這些指示字也一樣</li>
+</ul>
+
+<h3 id="section-18">使用時機</h3>
+
+<ul>
+  <li>宣告<strong>行為</strong>：實作的人要有這個函數可以呼叫
+    <ul>
+      <li><code class="highlighter-rouge">Runnable</code>: should implement <code class="highlighter-rouge">public void run()</code></li>
+      <li><code class="highlighter-rouge">Comparable</code>: should implement <code class="highlighter-rouge">public int compareTo()</code>. Think of <strong>Sorting</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="comparablehttpdocsoraclecomjavase7docsapijavautilcollectionshtmlsortjavautillist-">例：實作 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#sort(java.util.List)">Comparable</a> 介面</h4>
+
+<blockquote>
+  <p><code class="highlighter-rouge">Collections :: sort(List&lt;? extends Comparable&gt;)</code></p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="n">Profile</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Profile</span><span class="o">&gt;</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">ID</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">PW</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="n">compareTo</span><span class="o">(</span><span class="n">Profile</span> <span class="n">pf</span><span class="o">){</span>
+		<span class="k">if</span>     <span class="o">(</span><span class="n">pf</span><span class="o">.</span><span class="na">ID</span> <span class="o">&gt;</span> <span class="k">this</span><span class="o">.</span><span class="na">ID</span><span class="o">)</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+		<span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">pf</span><span class="o">.</span><span class="na">ID</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">.</span><span class="na">ID</span><span class="o">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+		<span class="k">else</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Profile</span><span class="o">&gt;</span> <span class="n">pflist</span> <span class="o">=</span> <span class="o">...;</span>
+<span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">pflist</span><span class="o">);</span>
+
+</code></pre>
+</div>
+
+<ul>
+  <li>也可作為<strong>分工</strong>的界線</li>
+  <li>與抽象類別相像。如果一定要由某類特定的類別來實作，則使用抽象類別比較好</li>
+</ul>
+
+<h3 id="java-httpsdocsoraclecomjavasetutorialjavaiandiabstracthtmlabstactclassescomparedtointerfaces"><a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html#abstact_classes_compared_to_interfaces">Java 官方</a>建議的使用時機</h3>
+
+<h4 id="section-19">以下情況建議使用抽象類別</h4>
+
+<ul>
+  <li>幾個緊密關聯的類別之間，想要使用同一些函數（就是關於繼承的 Code Reuse）</li>
+  <li>這些子類別的屬性或方法都雷同，只是實作不同而已
+，所以如果想要宣告非<code class="highlighter-rouge">static</code>或是非<code class="highlighter-rouge">final</code>的屬性則需要使用抽象類別</li>
+</ul>
+
+<h4 id="section-20">以下情況建議使用介面</h4>
+
+<ul>
+  <li>想要讓幾個無關的類別，都提供你想要的函數</li>
+  <li>你預期某些特定類別要提供這個方法，但還不知道要由誰來寫。</li>
+  <li>模擬多型</li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">AutoDavid's Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <!-- li>AutoDavid's Blog</li -->
+          <li><a href="mailto:davidhu8888@livemail.com">davidhu8888@livemail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>這裡會發一些關於數學、代數拓撲、範疇論、計算機科學的廢文或繪圖，跟寫一些沒用的小品程式。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
