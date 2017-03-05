@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>二元一次方程式整數解</title>
+  <meta name="description" content="二元一次方程式整數解">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html">
+  <link rel="alternate" type="application/rss+xml" title="AutoDavid's Blog" href="http://davidhu3141.github.io/feed.xml">
+
+<!-- mathjax -->
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<!-- icon -->
+  <link rel="shortcut icon" href="http://davidhu3141.github.io/pageicon.png">
+
+<!-- style -->
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+  <!-- link rel=stylesheet type="text/css" href="css/customs/article.css" -->
+
+<!-- remove amp -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+      data.math = data.math.replace(/^\s*<!\[CDATA\[\s*(.*)\s*\]\]>\s*$/m,"$1");
+      data.math = data.math.replace(/amp;/g," ");
+      data.math = data.math.replace(/&lt;/g,"<");
+      data.math = data.math.replace(/&gt;/g,">");
+    });
+  });
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">AutoDavid's Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+
+
+<div class="archives">
+
+  <div class="archive-group">
+    
+    <div id="#計算機科學"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 計算機科學 }</h3>
+    <a name="計算機科學"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數的妙用 -- 關於 RegExp</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/01/02/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%9F%BA%E7%A4%8E%E8%AA%9E%E6%B3%95.html">物件導向筆記 - 基礎</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#高中教材"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 高中教材 }</h3>
+    <a name="高中教材"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html">歐拉公式與三角函數的指數形式</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html">二元一次方程式整數解</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#代數與組合"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 代數與組合 }</h3>
+    <a name="代數與組合"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數的妙用 -- 關於 RegExp</a></h4>
+    </article>
+    
+  </div>
+
+</div>
+
+
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">二元一次方程式整數解</h1>
+    <p class="post-meta"><time datetime="2016-10-01T00:00:00+08:00" itemprop="datePublished">Oct 1, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h1 id="section">二元一次方程式整數解</h1>
+
+<p>來證明下面的事實：</p>
+
+<blockquote>
+  <p>給定 <script type="math/tex">a, b \in \mathbb{Z}</script> ， 則二元一次方程式 <script type="math/tex"> ax+by = c </script> 有整數解的充要條件是 <script type="math/tex"> (a, b) | c </script> 。</p>
+</blockquote>
+
+<p>分成兩部分討論：</p>
+
+<ul>
+  <li> <script type="math/tex"> ax+by = c </script> 有整數解 <script type="math/tex">\Rightarrow (a, b)|c</script></li>
+  <li> <script type="math/tex">(a, b)|c\Rightarrow ax+by = c </script> 有整數解</li>
+</ul>
+
+<p>[TOC]</p>
+
+<h3 id="script-typemathtexrightarrow-a-bcscript">一、有整數解 <script type="math/tex">\Rightarrow (a, b)|c</script></h3>
+
+<h4 id="section-1">證明過程</h4>
+
+<p> <script type="math/tex">ax+by=c</script> 有整數解 <script type="math/tex">\Rightarrow</script> 存在 <script type="math/tex">u, v \in \mathbb{Z}</script> 使 <script type="math/tex">au+bv=c</script>。</p>
+
+<p>由於 <script type="math/tex">(a, b)|a</script> 且 <script type="math/tex">(a, b)|b</script> ，根據<strong>線性組合原理</strong>， <script type="math/tex">(a, b)|au+bv</script> ， 即 <script type="math/tex"> (a, b)|c</script>，得證。</p>
+
+<h4 id="section-2">線性組合原理</h4>
+
+<p>剛剛的證明用到線性組合的原理：</p>
+
+<blockquote>
+  <p>若 <script type="math/tex">r|a</script> 且 <script type="math/tex">r|b</script> ， 則任取整數 <script type="math/tex">m, n \in \mathbb{Z}</script> ，都有 <script type="math/tex">r|ma+bn</script>。</p>
+</blockquote>
+
+<p>原因很直觀：</p>
+
+<p> <script type="math/tex">r|a \Rightarrow</script> 存在整數 <script type="math/tex">k </script> 使 <script type="math/tex">a = kr</script>
+ <script type="math/tex">r|b \Rightarrow</script> 存在整數 <script type="math/tex">l </script> 使 <script type="math/tex">b = lr</script></p>
+
+<p>故 <script type="math/tex">ma+bn = kmr+lnr</script> ，的確為 <script type="math/tex">r</script> 的倍數。</p>
+
+<h3 id="script-typemathtexa-bcrightarrow-script-">二、<script type="math/tex">(a, b)|c\Rightarrow </script> 有整數解</h3>
+
+<p>證明會用到輾轉相除法和一些其他原理，先來看看：</p>
+
+<h4 id="section-3">餘數會整除最大公因數</h4>
+
+<blockquote>
+  <p>將 <script type="math/tex">a, b</script> 相除的過程寫成 <script type="math/tex">a=bq+r</script>，則 <script type="math/tex">(a, b) | r</script> 。</p>
+</blockquote>
+
+<p>原因是根據線性組合原理，<script type="math/tex">(a, b)|a-bq</script>，又 <script type="math/tex">a-bq=r</script>，所以 <script type="math/tex">(a, b)|r</script> 。</p>
+
+<h4 id="section-4">輾轉相除法</h4>
+
+<p>如果想要算最大公因數 <script type="math/tex">(a, b)</script> ，根據上述原理，我們知道 <script type="math/tex">a, b</script> 相除後，<script type="math/tex">(a, b)</script> 會在餘數 <script type="math/tex">r</script> 的因數中，所以 <script type="math/tex">(a, b)=(a, b, r)=(b, r)</script>。 我們只要找出 <script type="math/tex">(b, r)</script> 即可。</p>
+
+<p>現在我們把 <script type="math/tex">b, r</script> 相除，會得到新餘數 <script type="math/tex">r_2</script>。同理我們只要找 <script type="math/tex">(r, r_2)</script> 最大公因數即可。依序做下去的話，餘數會越來越小，但這些餘數都是 <script type="math/tex">(a, b)</script> 的倍數，我們於是有餘數的數列：</p>
+
+<blockquote>
+  <p> <script type="math/tex">r, r_2, r_3, ... r_k</script> ，且 <script type="math/tex">(a, b)</script> 整除所有 <script type="math/tex">r_n</script>。</p>
+</blockquote>
+
+<p>由於餘數越來越小的的原因，最後一定會有某個 <script type="math/tex">r_k</script> 是我們要找的 <script type="math/tex">(a, b)</script> 。</p>
+
+<p>由於 <script type="math/tex">(a, b)|r_{k-1}</script> ，故 <script type="math/tex">r_k | r_{k-1}</script> ，也就是說這兩個餘數 <script type="math/tex">r_k , r_{k-1}</script> 繼續做除法會整除，不會有新餘數了。</p>
+
+<h4 id="script-typemathtexa-bscript--script-typemathtexmanbscript">將最大公因數 <script type="math/tex">(a, b)</script> 表為 <script type="math/tex">ma+nb</script></h4>
+
+<p>根據輾轉相除法，假設今天只做三次就找到 <script type="math/tex">r_3=(a, b)</script>：</p>
+
+<p> <script type="math/tex">a = bq + r</script> 
+ <script type="math/tex">b = rq_2 + r_2</script>
+ <script type="math/tex">r = r_2q_3 + r_3</script>
+ <script type="math/tex">r_2 = r_3q_4</script>（整除結束，<script type="math/tex">r_3</script> 為最小公因數）</p>
+
+<p>根據第三個式子，我們注意到  <script type="math/tex">r_3</script> 可以用 <script type="math/tex">r, r_2</script> 的線性組合表示。
+根據第二個式子， <script type="math/tex">r_2</script> 又可以用 <script type="math/tex">b, r</script> 的線性組合表示。
+根據第一個式子， <script type="math/tex">r</script> 又可以用 <script type="math/tex">a, b</script> 的線性組合表示。</p>
+
+<p>所以 <script type="math/tex">r_3</script> 可以用 <script type="math/tex">a, b</script> 的線性組合表示。</p>
+
+<blockquote>
+  <p>結論： <script type="math/tex">(a, b)</script> 總可以表為 <script type="math/tex">a, b</script> 的線性組合。</p>
+</blockquote>
+
+<h4 id="section-5">開始證明第二部分</h4>
+
+<blockquote>
+  <p>目標： <script type="math/tex">(a, b)|c\Rightarrow ax+by = c </script> 有整數解。</p>
+</blockquote>
+
+<p> <script type="math/tex">(a, b)|c</script> 代表 <script type="math/tex">c = k\cdot (a, b)</script> ， 原方程式改寫為 <script type="math/tex">ax+by = k\cdot (a, b)</script> 。</p>
+
+<p>剛才說 <script type="math/tex">(a, b)</script> 總可以表為 <script type="math/tex">a, b</script> 的線性組合，所以總存在整數 <script type="math/tex">m, n \in \mathbb{Z}</script> 使 <script type="math/tex; mode=display">ma+nb=(a, b)</script>。等號兩邊同乘以 <script type="math/tex">k</script> 得到 <script type="math/tex; mode=display">kma+knb=k\cdot (a, b)</script>，再和剛才的 <script type="math/tex; mode=display">ax+by = k\cdot (a, b)</script> 比較係數，得到 <script type="math/tex">x=km</script> ， <script type="math/tex">y=kn</script> ，得證。</p>
+
+<blockquote>
+  <p><strong>Note</strong>: 可以練習真的去舉個例子，然後找找看找這種方程式的整數解。關鍵步驟是把 <script type="math/tex">(a, b)</script> 表為 <script type="math/tex">a, b</script> 的線性組合，利用輾轉相除法。</p>
+</blockquote>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">AutoDavid's Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <!-- li>AutoDavid's Blog</li -->
+          <li><a href="mailto:davidhu8888@livemail.com">davidhu8888@livemail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>這裡會發一些關於數學、代數拓撲、範疇論、計算機科學的廢文或繪圖，跟寫一些沒用的小品程式。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

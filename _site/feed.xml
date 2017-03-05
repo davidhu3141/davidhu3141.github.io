@@ -6,15 +6,15 @@
 </description>
     <link>http://davidhu3141.github.io/</link>
     <atom:link href="http://davidhu3141.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 04 Mar 2017 01:26:16 +0800</pubDate>
-    <lastBuildDate>Sat, 04 Mar 2017 01:26:16 +0800</lastBuildDate>
+    <pubDate>Mon, 06 Mar 2017 02:06:21 +0800</pubDate>
+    <lastBuildDate>Mon, 06 Mar 2017 02:06:21 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>高斯引理的各種形式與推論</title>
         <description>&lt;h2 id=&quot;section&quot;&gt;高斯引理的各種形式與推論&lt;/h2&gt;
 
-&lt;p&gt;Lemma（引理）是用來證明其他定理的輔助小定理。來看 Gauss lemma 的各種形式，以及 Gauss lemma 能夠證明出什麼。&lt;/p&gt;
+&lt;p&gt;Lemma（引理）是用來證明其他定理的輔助小定理。來看 Gauss lemma 的兩種形式，以及 Gauss lemma 能夠證明出什麼，並與課本所描述的高斯引理比較。&lt;/p&gt;
 
 &lt;p&gt;[TOC]&lt;/p&gt;
 
@@ -113,7 +113,7 @@
 &lt;p&gt;那麼如果 &lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 可以拆成一個整係數乘以一個有理係數多項式的積 &lt;script type=&quot;math/tex&quot;&gt;F(x)=c(x)d(x)&lt;/script&gt;：&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;c \in \mathbb{Z}[x]&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;d \in \mathbb{Q}[x]&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;d \notin \mathbb{Z}[x]&lt;/script&gt;：&lt;/li&gt;
+  &lt;li&gt; &lt;script type=&quot;math/tex&quot;&gt;c \in \mathbb{Z}[x]&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;d \in \mathbb{Q}[x]&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;d \notin \mathbb{Z}[x]&lt;/script&gt;：&lt;/li&gt;
   &lt;li&gt;存在 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{p}c(x)&lt;/script&gt; 為 primitive&lt;/li&gt;
   &lt;li&gt;存在 &lt;script type=&quot;math/tex&quot;&gt;q&lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;qd(x)&lt;/script&gt; 為 primitive&lt;/li&gt;
 &lt;/ol&gt;
@@ -136,7 +136,7 @@
 
 &lt;ol&gt;
   &lt;li&gt;一次因式檢驗法&lt;/li&gt;
-  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;p-q\ |\ f(1)&lt;/script&gt; ，&lt;script type=&quot;math/tex&quot;&gt;p+q\ |\ f(-1)&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt; &lt;script type=&quot;math/tex&quot;&gt;p-q\ |\ f(1)&lt;/script&gt; ，&lt;script type=&quot;math/tex&quot;&gt;p+q\ |\ f(-1)&lt;/script&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;一次因式檢驗法的證明需要把多項式 &lt;script type=&quot;math/tex&quot;&gt;F(x)&lt;/script&gt; 分解成 &lt;script type=&quot;math/tex&quot;&gt;(px-q)Q(x)&lt;/script&gt;，並證明 &lt;script type=&quot;math/tex&quot;&gt;Q(x)&lt;/script&gt; 是整係數。&lt;/p&gt;
@@ -247,7 +247,7 @@
 
 &lt;p&gt;舉例來說：如果正規語言 &lt;script type=&quot;math/tex&quot;&gt;L=&lt;/script&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)&lt;/code&gt;，則 &lt;script type=&quot;math/tex&quot;&gt;L^*=&lt;/script&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)*&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;=\{\epsilon, a, bb, aa, abb, bba, bbbb, ... \}&lt;/script&gt;。我們把這看成&lt;/p&gt;
 
-&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;L^*=&lt;/script&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;()&lt;/code&gt;+&lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)(a|bb)&lt;/code&gt;+&lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)(a|bb)(a|bb)&lt;/code&gt;+…&lt;/p&gt;
+&lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;L^*=&lt;/script&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;()&lt;/code&gt;+&lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)(a|bb)&lt;/code&gt;+&lt;code class=&quot;highlighter-rouge&quot;&gt;(a|bb)(a|bb)(a|bb)&lt;/code&gt;+…&lt;/p&gt;
 
 &lt;p&gt;於是生成函數是&lt;/p&gt;
 
@@ -423,7 +423,7 @@
 
 &lt;p&gt;要實際展開來驗證也可以，不過當成等比級數來看的話這結果是顯而易見的。&lt;/p&gt;
 
-&lt;p&gt;無窮等比級數的公比 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; 必須滿足範圍 &lt;script type=&quot;math/tex&quot;&gt;-1&amp;lt;x&amp;lt;1&lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot;&gt;f_{\mathrm{taylor}}&lt;/script&gt; 在這範圍外式沒有值的。但是 &lt;script type=&quot;math/tex&quot;&gt;f(x)=\frac{1}{1-x}&lt;/script&gt; 只在 &lt;script type=&quot;math/tex&quot;&gt;x=1&lt;/script&gt; 的地方沒有值，所以這是兩個不一樣的函數。&lt;/p&gt;
+&lt;p&gt;無窮等比級數的公比 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; 必須滿足範圍 &lt;script type=&quot;math/tex&quot;&gt;-1&amp;lt;x&amp;lt;1&lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot;&gt;f_{\mathrm{taylor}}&lt;/script&gt; 在這範圍外是沒有值的。但是 &lt;script type=&quot;math/tex&quot;&gt;f(x)=\frac{1}{1-x}&lt;/script&gt; 只在 &lt;script type=&quot;math/tex&quot;&gt;x=1&lt;/script&gt; 的地方沒有值，所以這是兩個不一樣的函數。&lt;/p&gt;
 
 &lt;p&gt;應該試著去想 &lt;script type=&quot;math/tex&quot;&gt;f_{\mathrm{taylor}}(x) &lt;/script&gt; 和 &lt;script type=&quot;math/tex&quot;&gt;f(x)&lt;/script&gt; 的圖形差在哪裡。&lt;/p&gt;
 
@@ -460,11 +460,11 @@
 &lt;p&gt;要展開 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}x&lt;/script&gt;，需要算它在 &lt;script type=&quot;math/tex&quot;&gt;0&lt;/script&gt; 處的各階導數：&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}0 =0&lt;/script&gt;&lt;/li&gt;
-  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}&#39;0 = \operatorname{cos}0=1&lt;/script&gt;&lt;/li&gt;
-  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}&#39;&#39;0 = -\operatorname{sin}0=0&lt;/script&gt;&lt;/li&gt;
-  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}&#39;&#39;&#39;0 = -\operatorname{cos}0=-1&lt;/script&gt;&lt;/li&gt;
-  &lt;li&gt;_&lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}&#39;&#39;&#39;&#39;0 =\operatorname{sin}0=0&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt; &lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}0 =0&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt; &lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}&#39;0 = \operatorname{cos}0=1&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt; &lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}&#39;&#39;0 = -\operatorname{sin}0=0&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt; &lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}&#39;&#39;&#39;0 = -\operatorname{cos}0=-1&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt; &lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}&#39;&#39;&#39;&#39;0 =\operatorname{sin}0=0&lt;/script&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;發現是 0, 1, 0, -1, … 循環，所以&lt;/p&gt;
@@ -477,7 +477,7 @@
 
 &lt;h4 id=&quot;section-8&quot;&gt;證明歐拉公式&lt;/h4&gt;
 
-&lt;p&gt;_&lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}x&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;\operatorname{cos}x&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;e^x&lt;/script&gt; 都展開完了，接下來可以直接證明歐拉公式。&lt;/p&gt;
+&lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;\operatorname{sin}x&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;\operatorname{cos}x&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;e^x&lt;/script&gt; 都展開完了，接下來可以直接證明歐拉公式。&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{aligned}
@@ -520,6 +520,116 @@
         <pubDate>Thu, 01 Dec 2016 00:00:00 +0800</pubDate>
         <link>http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html</link>
         <guid isPermaLink="true">http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html</guid>
+        
+        
+        <category>高中教材</category>
+        
+      </item>
+    
+      <item>
+        <title>二元一次方程式整數解</title>
+        <description>&lt;h1 id=&quot;section&quot;&gt;二元一次方程式整數解&lt;/h1&gt;
+
+&lt;p&gt;來證明下面的事實：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;給定 &lt;script type=&quot;math/tex&quot;&gt;a, b \in \mathbb{Z}&lt;/script&gt; ， 則二元一次方程式 &lt;script type=&quot;math/tex&quot;&gt; ax+by = c &lt;/script&gt; 有整數解的充要條件是 &lt;script type=&quot;math/tex&quot;&gt; (a, b) | c &lt;/script&gt; 。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;分成兩部分討論：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt; &lt;script type=&quot;math/tex&quot;&gt; ax+by = c &lt;/script&gt; 有整數解 &lt;script type=&quot;math/tex&quot;&gt;\Rightarrow (a, b)|c&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt; &lt;script type=&quot;math/tex&quot;&gt;(a, b)|c\Rightarrow ax+by = c &lt;/script&gt; 有整數解&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h3 id=&quot;script-typemathtexrightarrow-a-bcscript&quot;&gt;一、有整數解 &lt;script type=&quot;math/tex&quot;&gt;\Rightarrow (a, b)|c&lt;/script&gt;&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;證明過程&lt;/h4&gt;
+
+&lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;ax+by=c&lt;/script&gt; 有整數解 &lt;script type=&quot;math/tex&quot;&gt;\Rightarrow&lt;/script&gt; 存在 &lt;script type=&quot;math/tex&quot;&gt;u, v \in \mathbb{Z}&lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;au+bv=c&lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot;&gt;(a, b)|a&lt;/script&gt; 且 &lt;script type=&quot;math/tex&quot;&gt;(a, b)|b&lt;/script&gt; ，根據&lt;strong&gt;線性組合原理&lt;/strong&gt;， &lt;script type=&quot;math/tex&quot;&gt;(a, b)|au+bv&lt;/script&gt; ， 即 &lt;script type=&quot;math/tex&quot;&gt; (a, b)|c&lt;/script&gt;，得證。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;線性組合原理&lt;/h4&gt;
+
+&lt;p&gt;剛剛的證明用到線性組合的原理：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;若 &lt;script type=&quot;math/tex&quot;&gt;r|a&lt;/script&gt; 且 &lt;script type=&quot;math/tex&quot;&gt;r|b&lt;/script&gt; ， 則任取整數 &lt;script type=&quot;math/tex&quot;&gt;m, n \in \mathbb{Z}&lt;/script&gt; ，都有 &lt;script type=&quot;math/tex&quot;&gt;r|ma+bn&lt;/script&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;原因很直觀：&lt;/p&gt;
+
+&lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;r|a \Rightarrow&lt;/script&gt; 存在整數 &lt;script type=&quot;math/tex&quot;&gt;k &lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;a = kr&lt;/script&gt;
+ &lt;script type=&quot;math/tex&quot;&gt;r|b \Rightarrow&lt;/script&gt; 存在整數 &lt;script type=&quot;math/tex&quot;&gt;l &lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;b = lr&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;故 &lt;script type=&quot;math/tex&quot;&gt;ma+bn = kmr+lnr&lt;/script&gt; ，的確為 &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; 的倍數。&lt;/p&gt;
+
+&lt;h3 id=&quot;script-typemathtexa-bcrightarrow-script-&quot;&gt;二、&lt;script type=&quot;math/tex&quot;&gt;(a, b)|c\Rightarrow &lt;/script&gt; 有整數解&lt;/h3&gt;
+
+&lt;p&gt;證明會用到輾轉相除法和一些其他原理，先來看看：&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;餘數會整除最大公因數&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;將 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 相除的過程寫成 &lt;script type=&quot;math/tex&quot;&gt;a=bq+r&lt;/script&gt;，則 &lt;script type=&quot;math/tex&quot;&gt;(a, b) | r&lt;/script&gt; 。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;原因是根據線性組合原理，&lt;script type=&quot;math/tex&quot;&gt;(a, b)|a-bq&lt;/script&gt;，又 &lt;script type=&quot;math/tex&quot;&gt;a-bq=r&lt;/script&gt;，所以 &lt;script type=&quot;math/tex&quot;&gt;(a, b)|r&lt;/script&gt; 。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;輾轉相除法&lt;/h4&gt;
+
+&lt;p&gt;如果想要算最大公因數 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; ，根據上述原理，我們知道 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 相除後，&lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 會在餘數 &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; 的因數中，所以 &lt;script type=&quot;math/tex&quot;&gt;(a, b)=(a, b, r)=(b, r)&lt;/script&gt;。 我們只要找出 &lt;script type=&quot;math/tex&quot;&gt;(b, r)&lt;/script&gt; 即可。&lt;/p&gt;
+
+&lt;p&gt;現在我們把 &lt;script type=&quot;math/tex&quot;&gt;b, r&lt;/script&gt; 相除，會得到新餘數 &lt;script type=&quot;math/tex&quot;&gt;r_2&lt;/script&gt;。同理我們只要找 &lt;script type=&quot;math/tex&quot;&gt;(r, r_2)&lt;/script&gt; 最大公因數即可。依序做下去的話，餘數會越來越小，但這些餘數都是 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 的倍數，我們於是有餘數的數列：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;r, r_2, r_3, ... r_k&lt;/script&gt; ，且 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 整除所有 &lt;script type=&quot;math/tex&quot;&gt;r_n&lt;/script&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;由於餘數越來越小的的原因，最後一定會有某個 &lt;script type=&quot;math/tex&quot;&gt;r_k&lt;/script&gt; 是我們要找的 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 。&lt;/p&gt;
+
+&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot;&gt;(a, b)|r_{k-1}&lt;/script&gt; ，故 &lt;script type=&quot;math/tex&quot;&gt;r_k | r_{k-1}&lt;/script&gt; ，也就是說這兩個餘數 &lt;script type=&quot;math/tex&quot;&gt;r_k , r_{k-1}&lt;/script&gt; 繼續做除法會整除，不會有新餘數了。&lt;/p&gt;
+
+&lt;h4 id=&quot;script-typemathtexa-bscript--script-typemathtexmanbscript&quot;&gt;將最大公因數 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 表為 &lt;script type=&quot;math/tex&quot;&gt;ma+nb&lt;/script&gt;&lt;/h4&gt;
+
+&lt;p&gt;根據輾轉相除法，假設今天只做三次就找到 &lt;script type=&quot;math/tex&quot;&gt;r_3=(a, b)&lt;/script&gt;：&lt;/p&gt;
+
+&lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;a = bq + r&lt;/script&gt; 
+ &lt;script type=&quot;math/tex&quot;&gt;b = rq_2 + r_2&lt;/script&gt;
+ &lt;script type=&quot;math/tex&quot;&gt;r = r_2q_3 + r_3&lt;/script&gt;
+ &lt;script type=&quot;math/tex&quot;&gt;r_2 = r_3q_4&lt;/script&gt;（整除結束，&lt;script type=&quot;math/tex&quot;&gt;r_3&lt;/script&gt; 為最小公因數）&lt;/p&gt;
+
+&lt;p&gt;根據第三個式子，我們注意到  &lt;script type=&quot;math/tex&quot;&gt;r_3&lt;/script&gt; 可以用 &lt;script type=&quot;math/tex&quot;&gt;r, r_2&lt;/script&gt; 的線性組合表示。
+根據第二個式子， &lt;script type=&quot;math/tex&quot;&gt;r_2&lt;/script&gt; 又可以用 &lt;script type=&quot;math/tex&quot;&gt;b, r&lt;/script&gt; 的線性組合表示。
+根據第一個式子， &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; 又可以用 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 的線性組合表示。&lt;/p&gt;
+
+&lt;p&gt;所以 &lt;script type=&quot;math/tex&quot;&gt;r_3&lt;/script&gt; 可以用 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 的線性組合表示。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;結論： &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 總可以表為 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 的線性組合。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;開始證明第二部分&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;目標： &lt;script type=&quot;math/tex&quot;&gt;(a, b)|c\Rightarrow ax+by = c &lt;/script&gt; 有整數解。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;(a, b)|c&lt;/script&gt; 代表 &lt;script type=&quot;math/tex&quot;&gt;c = k\cdot (a, b)&lt;/script&gt; ， 原方程式改寫為 &lt;script type=&quot;math/tex&quot;&gt;ax+by = k\cdot (a, b)&lt;/script&gt; 。&lt;/p&gt;
+
+&lt;p&gt;剛才說 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 總可以表為 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 的線性組合，所以總存在整數 &lt;script type=&quot;math/tex&quot;&gt;m, n \in \mathbb{Z}&lt;/script&gt; 使 &lt;script type=&quot;math/tex; mode=display&quot;&gt;ma+nb=(a, b)&lt;/script&gt;。等號兩邊同乘以 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 得到 &lt;script type=&quot;math/tex; mode=display&quot;&gt;kma+knb=k\cdot (a, b)&lt;/script&gt;，再和剛才的 &lt;script type=&quot;math/tex; mode=display&quot;&gt;ax+by = k\cdot (a, b)&lt;/script&gt; 比較係數，得到 &lt;script type=&quot;math/tex&quot;&gt;x=km&lt;/script&gt; ， &lt;script type=&quot;math/tex&quot;&gt;y=kn&lt;/script&gt; ，得證。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: 可以練習真的去舉個例子，然後找找看找這種方程式的整數解。關鍵步驟是把 &lt;script type=&quot;math/tex&quot;&gt;(a, b)&lt;/script&gt; 表為 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 的線性組合，利用輾轉相除法。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 01 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html</link>
+        <guid isPermaLink="true">http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html</guid>
         
         
         <category>高中教材</category>
