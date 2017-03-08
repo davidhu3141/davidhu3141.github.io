@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>群的基礎定義 - 筆記</title>
+  <meta name="description" content="群的基礎定義 - 筆記">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://davidhu3141.github.io/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2017/03/01/%E7%BE%A4%E7%9A%84%E5%9F%BA%E7%A4%8E%E5%AE%9A%E7%BE%A9.html">
+  <link rel="alternate" type="application/rss+xml" title="AutoDavid's Blog" href="http://davidhu3141.github.io/feed.xml">
+
+<!-- mathjax -->
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<!-- icon -->
+  <link rel="shortcut icon" href="http://davidhu3141.github.io/pageicon.png">
+
+<!-- style -->
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+  <!-- link rel=stylesheet type="text/css" href="css/customs/article.css" -->
+
+<!-- remove amp -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+      data.math = data.math.replace(/^\s*<!\[CDATA\[\s*(.*)\s*\]\]>\s*$/m,"$1");
+      data.math = data.math.replace(/amp;/g," ");
+      data.math = data.math.replace(/&lt;/g,"<");
+      data.math = data.math.replace(/&gt;/g,">");
+    });
+  });
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">AutoDavid's Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+
+
+<div class="archives">
+
+  <div class="archive-group">
+    
+    <div id="#計算機科學"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 計算機科學 }</h3>
+    <a name="計算機科學"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數的妙用 -- 關於 RegExp</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/01/02/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%9F%BA%E7%A4%8E%E8%AA%9E%E6%B3%95.html">物件導向筆記 - 基礎</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#高中教材"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 高中教材 }</h3>
+    <a name="高中教材"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html">歐拉公式與三角函數的指數形式</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html">二元一次方程式整數解</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#代數與組合"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 代數與組合 }</h3>
+    <a name="代數與組合"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2017/03/01/%E7%BE%A4%E7%9A%84%E5%9F%BA%E7%A4%8E%E5%AE%9A%E7%BE%A9.html">群的基礎定義 - 筆記</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數的妙用 -- 關於 RegExp</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html">二元一次方程式整數解</a></h4>
+    </article>
+    
+  </div>
+
+</div>
+
+
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">群的基礎定義 - 筆記</h1>
+    <p class="post-meta"><time datetime="2017-03-01T00:00:00+08:00" itemprop="datePublished">Mar 1, 2017</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h1 id="section">群的基礎定義 - 筆記</h1>
+
+<p>群是當代代數學中研究的主題之一。</p>
+
+<p>這篇文章之中，只會擷取一些關於群(Group)的基礎意義與結構，目的是幫助初步認識群的人建構定義與概念，所以內容偏簡單。</p>
+
+<p>這只是其中一個認識群的方式。從幾何上的對稱性或 <script type="math/tex">\mathbb{S}_n</script> （對稱群）來了解群也很不錯，或許會再寫。</p>
+
+<p>[TOC]</p>
+
+<h2 id="section-1">一、群的觀念</h2>
+
+<h3 id="section-2">集合上的運算</h3>
+
+<p>數學家研究代數，必須要指定好在什麼集合上做什麼運算，例如在整數上做加法、在複數上做加法、在正實數上作乘法等，這樣才有討論的空間。而群就是一個這樣的「集合與運算」。</p>
+
+<p>群是一個集合 <script type="math/tex">G</script> 搭配一個二元運算 <script type="math/tex">+</script> 所構成的代數結構，記為 <script type="math/tex">(G, +)</script> 或 <script type="math/tex">G</script>，這裡的 <script type="math/tex">+</script> 是一個二元函數 <script type="math/tex">+:(G\times G)\rightarrow G</script>，其接受兩個參數並回傳一個應變數。</p>
+
+<h3 id="section-3">運算的記號</h3>
+
+<p>這些運算的記號有一些變化，這裡先規範好。有時候我們研究的是加法，有時候是乘法，不同的群所使用的運算符號可能不同。</p>
+
+<ul>
+  <li>
+    <p>整數的集合 <script type="math/tex">\mathbb{Z}</script> 與其上的運算(<script type="math/tex">+</script>)是一個群<script type="math/tex">(\mathbb{Z}, +)</script>，但我們把函數 <script type="math/tex">+(1, 2)=3</script> 記為 <script type="math/tex">1+2=3</script>。</p>
+  </li>
+  <li>
+    <p>正實數 <script type="math/tex">\mathbb{R}^+</script> 與其上的乘法(<script type="math/tex">\cdot</script>)也是一個群。除了 <script type="math/tex">2 \cdot 3 = 6</script> ，如果算式含有未知數或字母，我們也會省略點號，寫成 <script type="math/tex">ab = c</script>。</p>
+  </li>
+</ul>
+
+<p>我們接下來遇到的運算，如果看起來明顯不像一般的加法，就通通叫做乘法，並使用這種類似相乘的符號。</p>
+
+<h3 id="section-4">群的定義與意涵</h3>
+
+<p>數學家對群有一些規範，滿足這三個<strong>群公理</strong>才能稱作群：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#<script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ </script></th>
+      <th>Axioms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>結合律</td>
+      <td>對於所有 <script type="math/tex">a, b, c \in G</script>，都有 <script type="math/tex">(ab)c=a(bc)</script></td>
+    </tr>
+    <tr>
+      <td>單位元素</td>
+      <td><script type="math/tex">G</script> 中有一個元素 <script type="math/tex">e</script> 可以對所有 <script type="math/tex">a\in G</script> 都滿足 <script type="math/tex">ae=ea=a</script></td>
+    </tr>
+    <tr>
+      <td>反元素</td>
+      <td>對於所有 <script type="math/tex">a\in G</script> 都找得到唯一的 <script type="math/tex">b\in G</script> 使得 <script type="math/tex">ab=e</script>，我們稱 <script type="math/tex">b</script> 為 <script type="math/tex">a</script> 的反元素，記為 <script type="math/tex">b=a^{-1}</script></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>這樣的規定有一點代數上的意義：它使方程式 <script type="math/tex">ax=b</script> 確定能被解開，過程是這樣的：</p>
+
+<ol>
+  <li>根據<strong>反元素</strong>性質，<script type="math/tex">a^{-1}</script>存在。</li>
+  <li>兩邊同乘以 <script type="math/tex">a^{-1}(ax)=a^{-1}b</script></li>
+  <li>根據<strong>結合律</strong>，<script type="math/tex">(a^{-1}a)x=a^{-1}b</script></li>
+  <li>根據<strong>反元素</strong>性質，<script type="math/tex">ex=a^{-1}b</script></li>
+  <li>根據<strong>單位元素</strong>性質，<script type="math/tex">x=a^{-1}b</script> ，這就是解。</li>
+</ol>
+
+<p>我們會加上封閉性的前提，但有時候也可以事先寫明二元運算的值域為 <script type="math/tex">G</script> 本身，就等於規範了封閉性。</p>
+
+<p>如果運算有交換律，則我們說它是<strong>阿貝爾群</strong>：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#<script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ </script></th>
+      <th>Axioms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>交換律</td>
+      <td>對於所有 <script type="math/tex">a, b \in G</script>, 有 <script type="math/tex">ab=ba</script></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="section-5">舉例</h3>
+
+<p>常見的例子有：</p>
+
+<ul>
+  <li>
+    <p>整數與加法 <script type="math/tex">(\mathbb Z,+)</script>，也稱自由循環群、無限循環群。這是個阿貝爾群。</p>
+  </li>
+  <li>
+    <p>一般線性群 <script type="math/tex">\mathrm{GL}_n</script>，用來代表所有 <script type="math/tex">n\times n</script> 的可逆矩陣，而兩元素間的運算是矩陣乘法。由於矩陣的乘法沒有交換率，因此這不是阿貝爾群。</p>
+  </li>
+  <li>
+    <p>有限循環群 <script type="math/tex">\mathbb{Z}_n</script>：集合為 <script type="math/tex">\{0, 1, ..., n-1\}</script> ，運算是相加並取 <script type="math/tex">\operatorname{mod} n</script>（除以 <script type="math/tex">n</script> 後取餘數），而單位元素則是 <script type="math/tex">0</script>，可以檢驗這是阿貝爾群。一天 24 小時的循環可以視為 <script type="math/tex">\mathbb{Z}_{24}</script>，每天 23 時再過一小時就回到 0 時。</p>
+  </li>
+  <li>
+    <p> <script type="math/tex">\mathbb{Z}\otimes \mathbb{Z}</script>：平面上的格子點座標，運算是座標的加法 <script type="math/tex">(a,b)+(c,d)=(a+c,b+d)</script>。 <script type="math/tex">\otimes </script> 是一個建構新的群的方法，類似積集合。</p>
+  </li>
+  <li>
+    <p>對稱群 <script type="math/tex">S_n</script>：將 n 個排好的物品重新排列的方法，可以構成一個群。兩個排列方法 <script type="math/tex">a, b</script> 的相加就是先用 <script type="math/tex">a</script> 方法排列，再把排好的物品繼續用 <script type="math/tex">b</script> 方法排列。而單位元素就是不重新排列。</p>
+  </li>
+</ul>
+
+<p>以下這些例子<strong>不是</strong>群</p>
+
+<ol>
+  <li>
+    <p>實數上的乘法 <script type="math/tex">(\mathbb{R},\cdot)</script> 不是群，因為 <script type="math/tex">0</script> 沒有反元素。</p>
+  </li>
+  <li>
+    <p>所有二階方陣 <script type="math/tex">M_{2\times 2}</script> 上的矩陣乘法不是群，因為其中的不可逆方陣沒有反元素。</p>
+  </li>
+</ol>
+
+<h3 id="section-6">關於數學結構</h3>
+
+<p>像這樣集合搭配某個關係的數學結構隨處可見。除了群以外，<script type="math/tex">(\mathbb{N}, \leq)</script> 是整數上的順序結構、<script type="math/tex">(\mathbb{R}^3, +, \times)</script> 是一個向量空間、<script type="math/tex">(\mathbb{R}, |\cdot |)</script> 是實數與其上的距離、<script type="math/tex">G(e, v)</script> 是一個圖，因此不需要對群的記號感到太陌生。</p>
+
+<h2 id="section-7">二、群同態</h2>
+
+<p>群是集合，兩個集合之間會有函數，而兩個群之間也有。同態 (homomorphism) 是兩個群之間「有群的意義的函數」（從範疇論來說就是態射）。研究兩個群之間的關係時，我們鮮少討論同態之外的函數。</p>
+
+<p>來看群同態的定義：</p>
+
+<h3 id="section-8">定義</h3>
+
+<p>令 <script type="math/tex">G</script> 與 <script type="math/tex">H</script> 是兩個群，<script type="math/tex">f</script> 是一個 <script type="math/tex">G</script> 到 <script type="math/tex">H</script> 的函數 <script type="math/tex">f:G \rightarrow H</script>。 如果 <script type="math/tex">f</script> 是個群同態，代表它對於所有 <script type="math/tex">a, b \in G</script> 滿足下列的條件：</p>
+
+<blockquote>
+  <p> <script type="math/tex">f(a)f(b)=f(ab)</script></p>
+</blockquote>
+
+<p>用加法的記號來寫就是</p>
+
+<blockquote>
+  <p> <script type="math/tex">f(a)+f(b)=f(a+b)</script></p>
+</blockquote>
+
+<p>單從算式來看，可以說成「先代入 <script type="math/tex">f</script> 再乘（加），等同於先相乘（加）再代入 <script type="math/tex">f</script>」，或是「<script type="math/tex">f</script> 中的相乘（加）可以被拆開」。</p>
+
+<h3 id="section-9">同態的意義</h3>
+
+<p>一個同態 <script type="math/tex">f:G\to H</script> 的定義可以改寫為：</p>
+
+<blockquote>
+  <p> <script type="math/tex">ab=c \implies f(a)f(b)=f(c)</script></p>
+</blockquote>
+
+<p>所以我們有更精確的理解：群同態是一個保持運算行為的函數，如果 <script type="math/tex">G</script> 中有 <script type="math/tex">ab=c</script>，則 <script type="math/tex">H</script> 中有 <script type="math/tex">f(a)f(b)=f(c)</script> 。</p>
+
+<p>這就是群同態值得討論的原因。如果一個函數在映射時不保持結構，那麼它只是把 <script type="math/tex">G</script> 與 <script type="math/tex">H</script> 當作普通的集合來對待罷了。</p>
+
+<h3 id="section-10">舉例</h3>
+
+<ul>
+  <li>
+    <p>把平面座標上的格子點投影到 x 軸上，則這個投影函數 <script type="math/tex; mode=display">\operatorname{Proj}_x:(a,b)\mapsto a</script> 是一個同態，我們可以檢驗下面的例子： <script type="math/tex; mode=display">\operatorname{Proj}_x(2, 1) + \operatorname{Proj}_x(3, 5) = 2+3 = \operatorname{Proj}_x((2, 1)+(3, 5))</script></p>
+  </li>
+  <li>
+    <p> <script type="math/tex">f:x\mapsto (x \operatorname{mod} n)</script> 把所有 <script type="math/tex">(\mathbb{Z}, +)</script> 中的整數取 <script type="math/tex">\operatorname{mod} n</script> 以對應到循環群 <script type="math/tex">\mathbb{Z}_n</script> 。根據同餘關係這樣的對應也是同態。</p>
+  </li>
+</ul>
+
+<h2 id="section-11">三、兩個群的直積</h2>
+
+<p>直積是構造新的群的方法，類似用兩個集合相乘來製造積集合。</p>
+
+<h3 id="section-12">定義</h3>
+
+<p>兩個群 <script type="math/tex">G</script> , <script type="math/tex">H</script> 的直積 <script type="math/tex">G\otimes H</script> 是一個群，其中的元素是集合 <script type="math/tex">G</script> 與集合 <script type="math/tex">H</script> 的積集合： <script type="math/tex; mode=display">(g_i, h_j) \in (G\times H)</script>，而兩個序對之間的運算則定義為分量個別運算：<script type="math/tex; mode=display">(g_1, h_1) (g_2, h_2) = (g_1 g_2, h_1 h_2)</script></p>
+
+<p>例如之前提到平面上的格子點 <script type="math/tex">\mathbb Z \otimes \mathbb Z</script> 就是兩個整數集的直積。</p>
+
+<blockquote>
+  <p>Note: 直積有更一般的定義，只是為了採取簡單的解說方式而用了這個。這個定義在只有<strong>有限個</strong>群相乘時也沒甚麼不好。</p>
+</blockquote>
+
+<blockquote>
+  <p>在只有<strong>有限個</strong>個群相乘時，直積與「直和」是一樣的，箇中差異現在提或許有點早。</p>
+</blockquote>
+
+<hr />
+
+<p>至於商群是很重要的東西，會再開一篇文章討論。</p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">AutoDavid's Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <!-- li>AutoDavid's Blog</li -->
+          <li><a href="mailto:davidhu8888@livemail.com">davidhu8888@livemail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>這裡會發一些關於數學、代數拓撲、範疇論、計算機科學的廢文或繪圖，跟寫一些沒用的小品程式。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -6,9 +6,214 @@
 </description>
     <link>http://davidhu3141.github.io/</link>
     <atom:link href="http://davidhu3141.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Mar 2017 02:06:21 +0800</pubDate>
-    <lastBuildDate>Mon, 06 Mar 2017 02:06:21 +0800</lastBuildDate>
+    <pubDate>Thu, 09 Mar 2017 02:03:08 +0800</pubDate>
+    <lastBuildDate>Thu, 09 Mar 2017 02:03:08 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>群的基礎定義 - 筆記</title>
+        <description>&lt;h1 id=&quot;section&quot;&gt;群的基礎定義 - 筆記&lt;/h1&gt;
+
+&lt;p&gt;群是當代代數學中研究的主題之一。&lt;/p&gt;
+
+&lt;p&gt;這篇文章之中，只會擷取一些關於群(Group)的基礎意義與結構，目的是幫助初步認識群的人建構定義與概念，所以內容偏簡單。&lt;/p&gt;
+
+&lt;p&gt;這只是其中一個認識群的方式。從幾何上的對稱性或 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{S}_n&lt;/script&gt; （對稱群）來了解群也很不錯，或許會再寫。&lt;/p&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;一、群的觀念&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;集合上的運算&lt;/h3&gt;
+
+&lt;p&gt;數學家研究代數，必須要指定好在什麼集合上做什麼運算，例如在整數上做加法、在複數上做加法、在正實數上作乘法等，這樣才有討論的空間。而群就是一個這樣的「集合與運算」。&lt;/p&gt;
+
+&lt;p&gt;群是一個集合 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 搭配一個二元運算 &lt;script type=&quot;math/tex&quot;&gt;+&lt;/script&gt; 所構成的代數結構，記為 &lt;script type=&quot;math/tex&quot;&gt;(G, +)&lt;/script&gt; 或 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt;，這裡的 &lt;script type=&quot;math/tex&quot;&gt;+&lt;/script&gt; 是一個二元函數 &lt;script type=&quot;math/tex&quot;&gt;+:(G\times G)\rightarrow G&lt;/script&gt;，其接受兩個參數並回傳一個應變數。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;運算的記號&lt;/h3&gt;
+
+&lt;p&gt;這些運算的記號有一些變化，這裡先規範好。有時候我們研究的是加法，有時候是乘法，不同的群所使用的運算符號可能不同。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;整數的集合 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Z}&lt;/script&gt; 與其上的運算(&lt;script type=&quot;math/tex&quot;&gt;+&lt;/script&gt;)是一個群&lt;script type=&quot;math/tex&quot;&gt;(\mathbb{Z}, +)&lt;/script&gt;，但我們把函數 &lt;script type=&quot;math/tex&quot;&gt;+(1, 2)=3&lt;/script&gt; 記為 &lt;script type=&quot;math/tex&quot;&gt;1+2=3&lt;/script&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;正實數 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^+&lt;/script&gt; 與其上的乘法(&lt;script type=&quot;math/tex&quot;&gt;\cdot&lt;/script&gt;)也是一個群。除了 &lt;script type=&quot;math/tex&quot;&gt;2 \cdot 3 = 6&lt;/script&gt; ，如果算式含有未知數或字母，我們也會省略點號，寫成 &lt;script type=&quot;math/tex&quot;&gt;ab = c&lt;/script&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我們接下來遇到的運算，如果看起來明顯不像一般的加法，就通通叫做乘法，並使用這種類似相乘的符號。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;群的定義與意涵&lt;/h3&gt;
+
+&lt;p&gt;數學家對群有一些規範，滿足這三個&lt;strong&gt;群公理&lt;/strong&gt;才能稱作群：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;#&lt;script type=&quot;math/tex&quot;&gt;\ \ \ \ \ \ \ \ \ \ \ \ \ \ &lt;/script&gt;&lt;/th&gt;
+      &lt;th&gt;Axioms&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;結合律&lt;/td&gt;
+      &lt;td&gt;對於所有 &lt;script type=&quot;math/tex&quot;&gt;a, b, c \in G&lt;/script&gt;，都有 &lt;script type=&quot;math/tex&quot;&gt;(ab)c=a(bc)&lt;/script&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;單位元素&lt;/td&gt;
+      &lt;td&gt;&lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 中有一個元素 &lt;script type=&quot;math/tex&quot;&gt;e&lt;/script&gt; 可以對所有 &lt;script type=&quot;math/tex&quot;&gt;a\in G&lt;/script&gt; 都滿足 &lt;script type=&quot;math/tex&quot;&gt;ae=ea=a&lt;/script&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;反元素&lt;/td&gt;
+      &lt;td&gt;對於所有 &lt;script type=&quot;math/tex&quot;&gt;a\in G&lt;/script&gt; 都找得到唯一的 &lt;script type=&quot;math/tex&quot;&gt;b\in G&lt;/script&gt; 使得 &lt;script type=&quot;math/tex&quot;&gt;ab=e&lt;/script&gt;，我們稱 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt; 為 &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt; 的反元素，記為 &lt;script type=&quot;math/tex&quot;&gt;b=a^{-1}&lt;/script&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;這樣的規定有一點代數上的意義：它使方程式 &lt;script type=&quot;math/tex&quot;&gt;ax=b&lt;/script&gt; 確定能被解開，過程是這樣的：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;根據&lt;strong&gt;反元素&lt;/strong&gt;性質，&lt;script type=&quot;math/tex&quot;&gt;a^{-1}&lt;/script&gt;存在。&lt;/li&gt;
+  &lt;li&gt;兩邊同乘以 &lt;script type=&quot;math/tex&quot;&gt;a^{-1}(ax)=a^{-1}b&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;根據&lt;strong&gt;結合律&lt;/strong&gt;，&lt;script type=&quot;math/tex&quot;&gt;(a^{-1}a)x=a^{-1}b&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;根據&lt;strong&gt;反元素&lt;/strong&gt;性質，&lt;script type=&quot;math/tex&quot;&gt;ex=a^{-1}b&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;根據&lt;strong&gt;單位元素&lt;/strong&gt;性質，&lt;script type=&quot;math/tex&quot;&gt;x=a^{-1}b&lt;/script&gt; ，這就是解。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;我們會加上封閉性的前提，但有時候也可以事先寫明二元運算的值域為 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 本身，就等於規範了封閉性。&lt;/p&gt;
+
+&lt;p&gt;如果運算有交換律，則我們說它是&lt;strong&gt;阿貝爾群&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;#&lt;script type=&quot;math/tex&quot;&gt;\ \ \ \ \ \ \ \ \ \ \ \ \ \ &lt;/script&gt;&lt;/th&gt;
+      &lt;th&gt;Axioms&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;交換律&lt;/td&gt;
+      &lt;td&gt;對於所有 &lt;script type=&quot;math/tex&quot;&gt;a, b \in G&lt;/script&gt;, 有 &lt;script type=&quot;math/tex&quot;&gt;ab=ba&lt;/script&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;舉例&lt;/h3&gt;
+
+&lt;p&gt;常見的例子有：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;整數與加法 &lt;script type=&quot;math/tex&quot;&gt;(\mathbb Z,+)&lt;/script&gt;，也稱自由循環群、無限循環群。這是個阿貝爾群。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;一般線性群 &lt;script type=&quot;math/tex&quot;&gt;\mathrm{GL}_n&lt;/script&gt;，用來代表所有 &lt;script type=&quot;math/tex&quot;&gt;n\times n&lt;/script&gt; 的可逆矩陣，而兩元素間的運算是矩陣乘法。由於矩陣的乘法沒有交換率，因此這不是阿貝爾群。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;有限循環群 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Z}_n&lt;/script&gt;：集合為 &lt;script type=&quot;math/tex&quot;&gt;\{0, 1, ..., n-1\}&lt;/script&gt; ，運算是相加並取 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{mod} n&lt;/script&gt;（除以 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 後取餘數），而單位元素則是 &lt;script type=&quot;math/tex&quot;&gt;0&lt;/script&gt;，可以檢驗這是阿貝爾群。一天 24 小時的循環可以視為 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Z}_{24}&lt;/script&gt;，每天 23 時再過一小時就回到 0 時。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Z}\otimes \mathbb{Z}&lt;/script&gt;：平面上的格子點座標，運算是座標的加法 &lt;script type=&quot;math/tex&quot;&gt;(a,b)+(c,d)=(a+c,b+d)&lt;/script&gt;。 &lt;script type=&quot;math/tex&quot;&gt;\otimes &lt;/script&gt; 是一個建構新的群的方法，類似積集合。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;對稱群 &lt;script type=&quot;math/tex&quot;&gt;S_n&lt;/script&gt;：將 n 個排好的物品重新排列的方法，可以構成一個群。兩個排列方法 &lt;script type=&quot;math/tex&quot;&gt;a, b&lt;/script&gt; 的相加就是先用 &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt; 方法排列，再把排好的物品繼續用 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt; 方法排列。而單位元素就是不重新排列。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下這些例子&lt;strong&gt;不是&lt;/strong&gt;群&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;實數上的乘法 &lt;script type=&quot;math/tex&quot;&gt;(\mathbb{R},\cdot)&lt;/script&gt; 不是群，因為 &lt;script type=&quot;math/tex&quot;&gt;0&lt;/script&gt; 沒有反元素。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;所有二階方陣 &lt;script type=&quot;math/tex&quot;&gt;M_{2\times 2}&lt;/script&gt; 上的矩陣乘法不是群，因為其中的不可逆方陣沒有反元素。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;關於數學結構&lt;/h3&gt;
+
+&lt;p&gt;像這樣集合搭配某個關係的數學結構隨處可見。除了群以外，&lt;script type=&quot;math/tex&quot;&gt;(\mathbb{N}, \leq)&lt;/script&gt; 是整數上的順序結構、&lt;script type=&quot;math/tex&quot;&gt;(\mathbb{R}^3, +, \times)&lt;/script&gt; 是一個向量空間、&lt;script type=&quot;math/tex&quot;&gt;(\mathbb{R}, |\cdot |)&lt;/script&gt; 是實數與其上的距離、&lt;script type=&quot;math/tex&quot;&gt;G(e, v)&lt;/script&gt; 是一個圖，因此不需要對群的記號感到太陌生。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-7&quot;&gt;二、群同態&lt;/h2&gt;
+
+&lt;p&gt;群是集合，兩個集合之間會有函數，而兩個群之間也有。同態 (homomorphism) 是兩個群之間「有群的意義的函數」（從範疇論來說就是態射）。研究兩個群之間的關係時，我們鮮少討論同態之外的函數。&lt;/p&gt;
+
+&lt;p&gt;來看群同態的定義：&lt;/p&gt;
+
+&lt;h3 id=&quot;section-8&quot;&gt;定義&lt;/h3&gt;
+
+&lt;p&gt;令 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 與 &lt;script type=&quot;math/tex&quot;&gt;H&lt;/script&gt; 是兩個群，&lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; 是一個 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 到 &lt;script type=&quot;math/tex&quot;&gt;H&lt;/script&gt; 的函數 &lt;script type=&quot;math/tex&quot;&gt;f:G \rightarrow H&lt;/script&gt;。 如果 &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; 是個群同態，代表它對於所有 &lt;script type=&quot;math/tex&quot;&gt;a, b \in G&lt;/script&gt; 滿足下列的條件：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;f(a)f(b)=f(ab)&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;用加法的記號來寫就是&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;f(a)+f(b)=f(a+b)&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;單從算式來看，可以說成「先代入 &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; 再乘（加），等同於先相乘（加）再代入 &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt;」，或是「&lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; 中的相乘（加）可以被拆開」。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-9&quot;&gt;同態的意義&lt;/h3&gt;
+
+&lt;p&gt;一個同態 &lt;script type=&quot;math/tex&quot;&gt;f:G\to H&lt;/script&gt; 的定義可以改寫為：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;ab=c \implies f(a)f(b)=f(c)&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;所以我們有更精確的理解：群同態是一個保持運算行為的函數，如果 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 中有 &lt;script type=&quot;math/tex&quot;&gt;ab=c&lt;/script&gt;，則 &lt;script type=&quot;math/tex&quot;&gt;H&lt;/script&gt; 中有 &lt;script type=&quot;math/tex&quot;&gt;f(a)f(b)=f(c)&lt;/script&gt; 。&lt;/p&gt;
+
+&lt;p&gt;這就是群同態值得討論的原因。如果一個函數在映射時不保持結構，那麼它只是把 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 與 &lt;script type=&quot;math/tex&quot;&gt;H&lt;/script&gt; 當作普通的集合來對待罷了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;舉例&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;把平面座標上的格子點投影到 x 軸上，則這個投影函數 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\operatorname{Proj}_x:(a,b)\mapsto a&lt;/script&gt; 是一個同態，我們可以檢驗下面的例子： &lt;script type=&quot;math/tex; mode=display&quot;&gt;\operatorname{Proj}_x(2, 1) + \operatorname{Proj}_x(3, 5) = 2+3 = \operatorname{Proj}_x((2, 1)+(3, 5))&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;f:x\mapsto (x \operatorname{mod} n)&lt;/script&gt; 把所有 &lt;script type=&quot;math/tex&quot;&gt;(\mathbb{Z}, +)&lt;/script&gt; 中的整數取 &lt;script type=&quot;math/tex&quot;&gt;\operatorname{mod} n&lt;/script&gt; 以對應到循環群 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Z}_n&lt;/script&gt; 。根據同餘關係這樣的對應也是同態。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-11&quot;&gt;三、兩個群的直積&lt;/h2&gt;
+
+&lt;p&gt;直積是構造新的群的方法，類似用兩個集合相乘來製造積集合。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-12&quot;&gt;定義&lt;/h3&gt;
+
+&lt;p&gt;兩個群 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; , &lt;script type=&quot;math/tex&quot;&gt;H&lt;/script&gt; 的直積 &lt;script type=&quot;math/tex&quot;&gt;G\otimes H&lt;/script&gt; 是一個群，其中的元素是集合 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 與集合 &lt;script type=&quot;math/tex&quot;&gt;H&lt;/script&gt; 的積集合： &lt;script type=&quot;math/tex; mode=display&quot;&gt;(g_i, h_j) \in (G\times H)&lt;/script&gt;，而兩個序對之間的運算則定義為分量個別運算：&lt;script type=&quot;math/tex; mode=display&quot;&gt;(g_1, h_1) (g_2, h_2) = (g_1 g_2, h_1 h_2)&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;例如之前提到平面上的格子點 &lt;script type=&quot;math/tex&quot;&gt;\mathbb Z \otimes \mathbb Z&lt;/script&gt; 就是兩個整數集的直積。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: 直積有更一般的定義，只是為了採取簡單的解說方式而用了這個。這個定義在只有&lt;strong&gt;有限個&lt;/strong&gt;群相乘時也沒甚麼不好。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在只有&lt;strong&gt;有限個&lt;/strong&gt;個群相乘時，直積與「直和」是一樣的，箇中差異現在提或許有點早。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;至於商群是很重要的東西，會再開一篇文章討論。&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 01 Mar 2017 00:00:00 +0800</pubDate>
+        <link>http://davidhu3141.github.io/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2017/03/01/%E7%BE%A4%E7%9A%84%E5%9F%BA%E7%A4%8E%E5%AE%9A%E7%BE%A9.html</link>
+        <guid isPermaLink="true">http://davidhu3141.github.io/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2017/03/01/%E7%BE%A4%E7%9A%84%E5%9F%BA%E7%A4%8E%E5%AE%9A%E7%BE%A9.html</guid>
+        
+        
+        <category>代數與組合</category>
+        
+      </item>
     
       <item>
         <title>高斯引理的各種形式與推論</title>
@@ -628,11 +833,13 @@
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sat, 01 Oct 2016 00:00:00 +0800</pubDate>
-        <link>http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html</link>
-        <guid isPermaLink="true">http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html</guid>
+        <link>http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html</link>
+        <guid isPermaLink="true">http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html</guid>
         
         
         <category>高中教材</category>
+        
+        <category>代數與組合</category>
         
       </item>
     
