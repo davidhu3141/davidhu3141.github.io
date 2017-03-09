@@ -6,13 +6,13 @@
 </description>
     <link>http://davidhu3141.github.io/</link>
     <atom:link href="http://davidhu3141.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Mar 2017 02:03:08 +0800</pubDate>
-    <lastBuildDate>Thu, 09 Mar 2017 02:03:08 +0800</lastBuildDate>
+    <pubDate>Fri, 10 Mar 2017 04:19:35 +0800</pubDate>
+    <lastBuildDate>Fri, 10 Mar 2017 04:19:35 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>群的基礎定義 - 筆記</title>
-        <description>&lt;h1 id=&quot;section&quot;&gt;群的基礎定義 - 筆記&lt;/h1&gt;
+        <title>群的定義與基礎概念</title>
+        <description>&lt;h1 id=&quot;section&quot;&gt;群的定義與基礎概念&lt;/h1&gt;
 
 &lt;p&gt;群是當代代數學中研究的主題之一。&lt;/p&gt;
 
@@ -72,6 +72,8 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;p&gt;我們會加上運算封閉性的前提，但有時候也可以事先寫明二元運算的值域為 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 本身，就等於規範了封閉性。&lt;/p&gt;
+
 &lt;p&gt;這樣的規定有一點代數上的意義：它使方程式 &lt;script type=&quot;math/tex&quot;&gt;ax=b&lt;/script&gt; 確定能被解開，過程是這樣的：&lt;/p&gt;
 
 &lt;ol&gt;
@@ -81,8 +83,6 @@
   &lt;li&gt;根據&lt;strong&gt;反元素&lt;/strong&gt;性質，&lt;script type=&quot;math/tex&quot;&gt;ex=a^{-1}b&lt;/script&gt;&lt;/li&gt;
   &lt;li&gt;根據&lt;strong&gt;單位元素&lt;/strong&gt;性質，&lt;script type=&quot;math/tex&quot;&gt;x=a^{-1}b&lt;/script&gt; ，這就是解。&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;p&gt;我們會加上封閉性的前提，但有時候也可以事先寫明二元運算的值域為 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 本身，就等於規範了封閉性。&lt;/p&gt;
 
 &lt;p&gt;如果運算有交換律，則我們說它是&lt;strong&gt;阿貝爾群&lt;/strong&gt;：&lt;/p&gt;
 
@@ -107,7 +107,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;整數與加法 &lt;script type=&quot;math/tex&quot;&gt;(\mathbb Z,+)&lt;/script&gt;，也稱自由循環群、無限循環群。這是個阿貝爾群。&lt;/p&gt;
+    &lt;p&gt;整數與加法 &lt;script type=&quot;math/tex&quot;&gt;(\mathbb Z,+)&lt;/script&gt;，也稱無限循環群。這是個阿貝爾群。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;一般線性群 &lt;script type=&quot;math/tex&quot;&gt;\mathrm{GL}_n&lt;/script&gt;，用來代表所有 &lt;script type=&quot;math/tex&quot;&gt;n\times n&lt;/script&gt; 的可逆矩陣，而兩元素間的運算是矩陣乘法。由於矩陣的乘法沒有交換率，因此這不是阿貝爾群。&lt;/p&gt;
@@ -191,19 +191,17 @@
 
 &lt;p&gt;兩個群 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; , &lt;script type=&quot;math/tex&quot;&gt;H&lt;/script&gt; 的直積 &lt;script type=&quot;math/tex&quot;&gt;G\otimes H&lt;/script&gt; 是一個群，其中的元素是集合 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 與集合 &lt;script type=&quot;math/tex&quot;&gt;H&lt;/script&gt; 的積集合： &lt;script type=&quot;math/tex; mode=display&quot;&gt;(g_i, h_j) \in (G\times H)&lt;/script&gt;，而兩個序對之間的運算則定義為分量個別運算：&lt;script type=&quot;math/tex; mode=display&quot;&gt;(g_1, h_1) (g_2, h_2) = (g_1 g_2, h_1 h_2)&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;例如之前提到平面上的格子點 &lt;script type=&quot;math/tex&quot;&gt;\mathbb Z \otimes \mathbb Z&lt;/script&gt; 就是兩個整數集的直積。&lt;/p&gt;
+&lt;p&gt;例如之前提到平面上的格子點 &lt;script type=&quot;math/tex&quot;&gt;\mathbb Z \otimes \mathbb Z&lt;/script&gt; 就是兩個整數群 &lt;script type=&quot;math/tex&quot;&gt;\mathbb Z&lt;/script&gt; 的直積。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Note: 直積有更一般的定義，只是為了採取簡單的解說方式而用了這個。這個定義在只有&lt;strong&gt;有限個&lt;/strong&gt;群相乘時也沒甚麼不好。&lt;/p&gt;
+  &lt;p&gt;直積有更一般的定義，只是為了採取簡單的解說方式而用了這個。這個定義只適用&lt;strong&gt;有限個&lt;/strong&gt;群相乘。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;在只有&lt;strong&gt;有限個&lt;/strong&gt;個群相乘時，直積與「直和」是一樣的，箇中差異現在提或許有點早。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;在只有&lt;strong&gt;有限個&lt;/strong&gt;個群相乘時，直積與「直和」是一樣的，箇中差異現在提或許有點早。&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;至於商群是很重要的東西，會再開一篇文章討論。&lt;/p&gt;
+&lt;p&gt;至於商群是很重要的東西，它就像是群論版本的商集（等價類）一樣。會再開一篇文章討論。&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 01 Mar 2017 00:00:00 +0800</pubDate>
@@ -219,7 +217,7 @@
         <title>高斯引理的各種形式與推論</title>
         <description>&lt;h2 id=&quot;section&quot;&gt;高斯引理的各種形式與推論&lt;/h2&gt;
 
-&lt;p&gt;Lemma（引理）是用來證明其他定理的輔助小定理。來看 Gauss lemma 的兩種形式，以及 Gauss lemma 能夠證明出什麼，並與課本所描述的高斯引理比較。&lt;/p&gt;
+&lt;p&gt;Lemma（引理）是用來證明其他定理的輔助小定理。來看 Gauss lemma 的兩種形式，並與高中課本所描述的高斯引理比較。&lt;/p&gt;
 
 &lt;p&gt;[TOC]&lt;/p&gt;
 
@@ -230,8 +228,6 @@
 &lt;blockquote&gt;
   &lt;p&gt;所謂 primitive 多項式，是指所有係數的最大公因數為 &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt; 的整係數多項式。&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;&lt;em&gt;Note: 高斯先生將這種多項式稱為 primitive polynomial，但是在研究代數體（具有加減乘除封閉性的集合）時，某數 &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt; 的 primitive polynomial 是指「以 &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt; 為根的最小多項式，比方說 &lt;script type=&quot;math/tex&quot;&gt;\sqrt{2}&lt;/script&gt; 在 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Q}[x]&lt;/script&gt; 中的最小多項式為 &lt;script type=&quot;math/tex&quot;&gt;x^2-2&lt;/script&gt;。&lt;/em&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;primitive--1&quot;&gt;高斯引理：Primitive 的版本&lt;/h3&gt;
 
@@ -281,8 +277,6 @@
 &lt;/blockquote&gt;
 
 &lt;p&gt;通常我們會說「在哪裡不可約」。比方說 &lt;script type=&quot;math/tex&quot;&gt;x^2-2&lt;/script&gt; 在整係數的情況不可約，但是在實係數的情況可以分解成 &lt;script type=&quot;math/tex&quot;&gt;(x-\sqrt 2)(x+\sqrt 2)&lt;/script&gt;。&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Note: 「質式」和「不可約多項式」在整係數的情況相等，不過兩者有時候有差異，所以還是不稱它為質式。&lt;/em&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;irreducible--1&quot;&gt;高斯引理：Irreducible 的版本&lt;/h3&gt;
 

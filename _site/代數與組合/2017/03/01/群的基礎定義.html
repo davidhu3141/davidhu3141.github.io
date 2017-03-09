@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>群的基礎定義 - 筆記</title>
-  <meta name="description" content="群的基礎定義 - 筆記">
+  <title>群的定義與基礎概念</title>
+  <meta name="description" content="群的定義與基礎概念">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://davidhu3141.github.io/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2017/03/01/%E7%BE%A4%E7%9A%84%E5%9F%BA%E7%A4%8E%E5%AE%9A%E7%BE%A9.html">
@@ -129,7 +129,7 @@
     <a name="代數與組合"></a>
     
     <article class="articlelist">
-      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2017/03/01/%E7%BE%A4%E7%9A%84%E5%9F%BA%E7%A4%8E%E5%AE%9A%E7%BE%A9.html">群的基礎定義 - 筆記</a></h4>
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2017/03/01/%E7%BE%A4%E7%9A%84%E5%9F%BA%E7%A4%8E%E5%AE%9A%E7%BE%A9.html">群的定義與基礎概念</a></h4>
     </article>
     
     <article class="articlelist">
@@ -152,12 +152,12 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">群的基礎定義 - 筆記</h1>
+    <h1 class="post-title" itemprop="name headline">群的定義與基礎概念</h1>
     <p class="post-meta"><time datetime="2017-03-01T00:00:00+08:00" itemprop="datePublished">Mar 1, 2017</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h1 id="section">群的基礎定義 - 筆記</h1>
+    <h1 id="section">群的定義與基礎概念</h1>
 
 <p>群是當代代數學中研究的主題之一。</p>
 
@@ -217,6 +217,8 @@
   </tbody>
 </table>
 
+<p>我們會加上運算封閉性的前提，但有時候也可以事先寫明二元運算的值域為 <script type="math/tex">G</script> 本身，就等於規範了封閉性。</p>
+
 <p>這樣的規定有一點代數上的意義：它使方程式 <script type="math/tex">ax=b</script> 確定能被解開，過程是這樣的：</p>
 
 <ol>
@@ -226,8 +228,6 @@
   <li>根據<strong>反元素</strong>性質，<script type="math/tex">ex=a^{-1}b</script></li>
   <li>根據<strong>單位元素</strong>性質，<script type="math/tex">x=a^{-1}b</script> ，這就是解。</li>
 </ol>
-
-<p>我們會加上封閉性的前提，但有時候也可以事先寫明二元運算的值域為 <script type="math/tex">G</script> 本身，就等於規範了封閉性。</p>
 
 <p>如果運算有交換律，則我們說它是<strong>阿貝爾群</strong>：</p>
 
@@ -252,7 +252,7 @@
 
 <ul>
   <li>
-    <p>整數與加法 <script type="math/tex">(\mathbb Z,+)</script>，也稱自由循環群、無限循環群。這是個阿貝爾群。</p>
+    <p>整數與加法 <script type="math/tex">(\mathbb Z,+)</script>，也稱無限循環群。這是個阿貝爾群。</p>
   </li>
   <li>
     <p>一般線性群 <script type="math/tex">\mathrm{GL}_n</script>，用來代表所有 <script type="math/tex">n\times n</script> 的可逆矩陣，而兩元素間的運算是矩陣乘法。由於矩陣的乘法沒有交換率，因此這不是阿貝爾群。</p>
@@ -336,19 +336,17 @@
 
 <p>兩個群 <script type="math/tex">G</script> , <script type="math/tex">H</script> 的直積 <script type="math/tex">G\otimes H</script> 是一個群，其中的元素是集合 <script type="math/tex">G</script> 與集合 <script type="math/tex">H</script> 的積集合： <script type="math/tex; mode=display">(g_i, h_j) \in (G\times H)</script>，而兩個序對之間的運算則定義為分量個別運算：<script type="math/tex; mode=display">(g_1, h_1) (g_2, h_2) = (g_1 g_2, h_1 h_2)</script></p>
 
-<p>例如之前提到平面上的格子點 <script type="math/tex">\mathbb Z \otimes \mathbb Z</script> 就是兩個整數集的直積。</p>
+<p>例如之前提到平面上的格子點 <script type="math/tex">\mathbb Z \otimes \mathbb Z</script> 就是兩個整數群 <script type="math/tex">\mathbb Z</script> 的直積。</p>
 
 <blockquote>
-  <p>Note: 直積有更一般的定義，只是為了採取簡單的解說方式而用了這個。這個定義在只有<strong>有限個</strong>群相乘時也沒甚麼不好。</p>
+  <p>直積有更一般的定義，只是為了採取簡單的解說方式而用了這個。這個定義只適用<strong>有限個</strong>群相乘。</p>
 </blockquote>
 
-<blockquote>
-  <p>在只有<strong>有限個</strong>個群相乘時，直積與「直和」是一樣的，箇中差異現在提或許有點早。</p>
-</blockquote>
+<p>在只有<strong>有限個</strong>個群相乘時，直積與「直和」是一樣的，箇中差異現在提或許有點早。</p>
 
 <hr />
 
-<p>至於商群是很重要的東西，會再開一篇文章討論。</p>
+<p>至於商群是很重要的東西，它就像是群論版本的商集（等價類）一樣。會再開一篇文章討論。</p>
 
 
   </div>
