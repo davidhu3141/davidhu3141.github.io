@@ -6,9 +6,216 @@
 </description>
     <link>http://davidhu3141.github.io/</link>
     <atom:link href="http://davidhu3141.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 10 Mar 2017 04:19:35 +0800</pubDate>
-    <lastBuildDate>Fri, 10 Mar 2017 04:19:35 +0800</lastBuildDate>
+    <pubDate>Mon, 20 Mar 2017 04:31:50 +0800</pubDate>
+    <lastBuildDate>Mon, 20 Mar 2017 04:31:50 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Dieck Algebraic Topology Chapter 3 筆記</title>
+        <description>&lt;h1 id=&quot;dieck-algebraic-topology-chapter-3-&quot;&gt;Dieck Algebraic Topology Chapter 3 筆記&lt;/h1&gt;
+
+&lt;p&gt;Dieck 實在太狂（可怕）了，符號超多很難回去找定義，所以趁我有看懂的時候寫一些筆記。我目前沒打算做這本書的習題，因此先靠筆記釐清觀念。&lt;/p&gt;
+
+&lt;h2 id=&quot;chapter-3-covering-spaces&quot;&gt;Chapter 3: Covering Spaces&lt;/h2&gt;
+
+&lt;p&gt;這裡的映射 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 都是一個序組 &lt;script type=&quot;math/tex&quot;&gt;p:E\to B&lt;/script&gt;。本章節常常會考慮 &lt;script type=&quot;math/tex&quot;&gt;X\to B&lt;/script&gt; 的 lifting，連同 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 的 homotopy。&lt;/p&gt;
+
+&lt;!-- commutative diagram --&gt;
+
+&lt;p&gt;本章節主要要讀兩個重點：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Covering space 的 Classification theory 與 Universal cover&lt;/li&gt;
+  &lt;li&gt;Transport functor&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;作者一直提到 Galois Theory，這也是值得玩味的地方：&lt;script type=&quot;math/tex&quot;&gt;\pi_1(B)&lt;/script&gt; 的子集合與 &lt;script type=&quot;math/tex&quot;&gt;\textrm{COV}_B&lt;/script&gt; 之間有 Galois Correspondence。&lt;/p&gt;
+
+&lt;h2 id=&quot;locally-trivial-map-covering-spaces&quot;&gt;3.1: Locally Trivial Map, Covering Spaces&lt;/h2&gt;
+
+&lt;p&gt;所謂 trivial 的概念指的就是 product space。&lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt; 中 &lt;script type=&quot;math/tex&quot;&gt;U&lt;/script&gt; 上的一個 trivialization 是一個 &lt;script type=&quot;math/tex&quot;&gt;p^{-1}(U) \to U \times F&lt;/script&gt; 的 homeomorphism。我想這個牽涉開集 &lt;script type=&quot;math/tex&quot;&gt;U&lt;/script&gt; 的概念本身就已經是 locally 的了。而這裡的 &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt; 意指 fibre。&lt;/p&gt;
+
+&lt;p&gt;這邊都在定義：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Locally trivial map 是指全域都有 trivialization 的映射（但不一定共用 &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt;）。Locally trivial map 稱作 fibre bundle 或 bundle，其是 open mapping，因此是 quotient mapping。因此 fibre bundle 跟 fibre (topological preimage) 是不同的意思。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bundle 中連通的空間共用 fibre (up to homemorphism)。所有空間共用 &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt; 時稱 &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt; 為 typical fibre。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;當 bundle 的 fibre 是 discrete 的時候便稱作 covering space，此時 &lt;script type=&quot;math/tex&quot;&gt;p^{-1}(U)\simeq \bigcup_{x\in F}U&lt;/script&gt;，也就是 Munkres 說的煎餅。換句話說 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 讓 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 中的開集 locally homeomorphic 到 U 上。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Trivial covering 就是 &lt;script type=&quot;math/tex&quot;&gt;B\times F\to F&lt;/script&gt;，通常不是 connected，而從置換群的角度來看應該是 trivial group。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;theorem-313-unique-lifting-property&quot;&gt;Theorem 3.13: Unique Lifting Property&lt;/h3&gt;
+
+&lt;p&gt;這並不限於 path，而是任何 (path?) connected 的 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 都可以。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;關於「在同一層」的定理。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;//////////////////&lt;/p&gt;
+
+&lt;h4 id=&quot;left-g-principle-covering&quot;&gt;Left G-Principle Covering&lt;/h4&gt;
+
+&lt;p&gt;/////////////////////&lt;/p&gt;
+
+&lt;h2 id=&quot;fibre-transport-exact-sequence&quot;&gt;3.2: Fibre Transport. Exact Sequence&lt;/h2&gt;
+
+&lt;p&gt;先前看到 fiber 就是 preimage 而已，但是有些 fiberation 具有比較好的性質，這是關於 HLP 的概念。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;HLP：一個 &lt;script type=&quot;math/tex&quot;&gt;p:E\to B&lt;/script&gt; 如果對空間 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 有 HLP，代表 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 在 &lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt; 中的亂動變形，能夠整體提升到 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 的某一層（但不須唯一）。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;至於 covering space 就有 ULP - Unique Lifting Property。這裡的唯一性具有 pullback 的意義。&lt;/p&gt;
+
+&lt;p&gt;※ 或許還有其他性質可以這樣 &lt;em&gt;lift&lt;/em&gt; 只是沒被我們發現？&lt;/p&gt;
+
+&lt;h3 id=&quot;proposition-324&quot;&gt;Proposition 3.24&lt;/h3&gt;
+
+&lt;p&gt;HLP 的 fibre，放一個鏤空的ㄩ字形在 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 上 &lt;script type=&quot;math/tex; mode=display&quot;&gt; I^n\times 0 \cup \partial I^n \times I \xrightarrow[\ \ \ \ \ \ \ \ \ ]{a} E &lt;/script&gt;，&lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt; 對應的位置放個實心的&lt;script type=&quot;math/tex; mode=display&quot;&gt;I^n\times I \xrightarrow[\ \ \ \ \ \ \ \ \ ]{h} B&lt;/script&gt;，那麼 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 中的ㄩ字形能被 commutative 地填滿。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/CWHwnJF.png&quot; alt=&quot;Commutative Diagram&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;注意他說對角線 &lt;script type=&quot;math/tex&quot;&gt;H&lt;/script&gt; 是自動存在的，也就是說 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 上的空格被自動填滿了。&lt;/p&gt;
+
+&lt;p&gt;※ 是不是唯一的？我還不知道，應該不是，但 covering space 是。&lt;/p&gt;
+
+&lt;h3 id=&quot;transport-functor&quot;&gt;Transport Functor&lt;/h3&gt;
+
+&lt;p&gt;記號：&lt;script type=&quot;math/tex&quot;&gt;F_b&lt;/script&gt; 代表 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt; 處的 fibre。&lt;/p&gt;
+
+&lt;p&gt;HLP 下，&lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt; 空間中的路徑 &lt;script type=&quot;math/tex&quot;&gt;b\to c&lt;/script&gt; 可以決定一個映射 &lt;script type=&quot;math/tex&quot;&gt;v_\#:\pi_0(F_b)\to \pi_0(F_c)&lt;/script&gt;，純粹是看這個 lifted path 連到哪個 components。&lt;/p&gt;
+
+&lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;v_{\#}&lt;/script&gt; 的型別是 &lt;script type=&quot;math/tex&quot;&gt;\{\mathit{components\ of\ F_b}\}\to \{\mathit{components\ of\ F_c}\}&lt;/script&gt;。這樣從 &lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt; 中的路徑去決定關於 fibre 的映射的動作，型別則是 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\{\textit{paths in B}\}\to \{\textit{transports of components}\} &lt;/script&gt;，或說： &lt;script type=&quot;math/tex; mode=display&quot;&gt;\{\textit{paths in B}\}\to \{\textit{morphisms in }\textrm{SET}\} .&lt;/script&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;proposition-325&quot;&gt;Proposition 3.2.5&lt;/h3&gt;
+
+&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot;&gt;\{\textit{paths in B}\}&lt;/script&gt; 是 &lt;script type=&quot;math/tex&quot;&gt;\Pi(B)&lt;/script&gt; 中的 morphism，因此這個對應關係構成 functor：&lt;script type=&quot;math/tex; mode=display&quot;&gt; T_p:\Pi(B)\to \textrm{SET}&lt;/script&gt;，稱作 transport functor，關於 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 的。&lt;/p&gt;
+
+&lt;p&gt;Transport functor 是映射到哪些 &lt;script type=&quot;math/tex&quot;&gt;\textrm{set}\in \textrm{SET}&lt;/script&gt;？就只有 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\{\textit{set of components of fibre}\ |\ \mathit{fibre\ in\ p:E\to B}\}&lt;/script&gt; 而已。&lt;/p&gt;
+
+&lt;h3 id=&quot;theorem-326&quot;&gt;Theorem 3.2.6&lt;/h3&gt;
+
+&lt;p&gt;又是 &lt;script type=&quot;math/tex&quot;&gt;\partial&lt;/script&gt; 衍生三個一循環的 long exact sequence！在 Homology Theorey （Hatcher）也有看到。&lt;/p&gt;
+
+&lt;p&gt;////////&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 Mar 2017 00:00:00 +0800</pubDate>
+        <link>http://davidhu3141.github.io/%E6%8B%93%E6%92%B2%E5%AD%B8/2017/03/20/DieckCh3.html</link>
+        <guid isPermaLink="true">http://davidhu3141.github.io/%E6%8B%93%E6%92%B2%E5%AD%B8/2017/03/20/DieckCh3.html</guid>
+        
+        
+        <category>拓撲學</category>
+        
+      </item>
+    
+      <item>
+        <title>自由群</title>
+        <description>&lt;h1 id=&quot;section&quot;&gt;自由群&lt;/h1&gt;
+
+&lt;p&gt;自由群是一種特殊的群，它的迷人之處在接下來會一一看到，不過在這之前要先刻畫一下自由群的樣貌。&lt;/p&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;p&gt;許多群都不是阿貝爾群，但我們仍能確定它的某些元素會滿足交換率，例如：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt; &lt;script type=&quot;math/tex&quot;&gt;a^{-1}\cdot a = e = a \cdot a^{-1}&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt; &lt;script type=&quot;math/tex&quot;&gt;a^3\cdot a^2 = a^5 = a^2\cdot a^3&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;可見一個元素 &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt; 與它的高次方 &lt;script type=&quot;math/tex&quot;&gt;a^n&lt;/script&gt; 或反元素的高次方 &lt;script type=&quot;math/tex&quot;&gt;a^{-m}&lt;/script&gt; 之間無可避免的會有交換率，在任何群都如此。&lt;/p&gt;
+
+&lt;p&gt;而自由群某種意義上可以看成是一個交換率最少的群。除非滿足以上的情況，否則 &lt;script type=&quot;math/tex&quot;&gt;a\cdot b \neq b \cdot a&lt;/script&gt;。來看看它的定義。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;一、定義&lt;/h2&gt;
+
+&lt;p&gt;給定一個字符的集合 &lt;script type=&quot;math/tex&quot;&gt;S=\{a, b, c, ...\}&lt;/script&gt; ，我們都可以用以下方法構造出一個群 &lt;script type=&quot;math/tex&quot;&gt;F_S&lt;/script&gt;，它是由字串構成的集合：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;規定 &lt;script type=&quot;math/tex&quot;&gt;a, b, c, ...&lt;/script&gt; 等字都是 &lt;script type=&quot;math/tex&quot;&gt;F_S&lt;/script&gt; 中的字串（只有一個字的字串）。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;規定單位元素 &lt;script type=&quot;math/tex&quot;&gt;\varepsilon&lt;/script&gt; （空字串）與符號 &lt;script type=&quot;math/tex&quot;&gt;a^{-1}&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;b^{-1}&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;c^{-1}&lt;/script&gt; 也都是 &lt;script type=&quot;math/tex&quot;&gt;F_S&lt;/script&gt; 中的字串。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;兩個字串 &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt; 和 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt; 的相乘結果定為新字串 &lt;script type=&quot;math/tex&quot;&gt;ab&lt;/script&gt; ，也就是單純串起來。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;一個字串與其他字串相乘可以串成更長，如 &lt;script type=&quot;math/tex&quot;&gt;(ab)\cdot (c^{-1}a) = (abc^{-1}a)&lt;/script&gt; 這樣，越串越長。這些字串也在 &lt;script type=&quot;math/tex&quot;&gt;F_S&lt;/script&gt; 裡面。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;如果字串有相鄰的 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 與 &lt;script type=&quot;math/tex&quot;&gt;k^{-1}&lt;/script&gt; 則可以消掉，如 &lt;script type=&quot;math/tex&quot;&gt;a^{-1}b^{-1}bbc = a^{-1}bc&lt;/script&gt;，有相鄰的同樣字符也可以簡寫為次方，如 &lt;script type=&quot;math/tex&quot;&gt;abbba = ab^3a&lt;/script&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;這個 &lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt; 就稱為 &lt;script type=&quot;math/tex&quot;&gt;F_S&lt;/script&gt; 的生成集，&lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt; 的元素稱為生成元。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;二、就只是符號&lt;/h2&gt;
+
+&lt;p&gt;注意到這些 &lt;script type=&quot;math/tex&quot;&gt;\{a, b, c, ..., a^{-1}, b^{-1}, c^{-1}, ... , ab, ab^{-1}a, bca^{-1}b^2, a^6...\}&lt;/script&gt; 都只是字串，而不是某個群中的未知數。然而特別的地方就是：即便我們把自由群運算規則中的 &lt;script type=&quot;math/tex&quot;&gt;a,b,c&lt;/script&gt; 等符號用其他群的元素取代，這些替換後的「句子」仍然有意義。&lt;/p&gt;
+
+&lt;p&gt;例如把 &lt;script type=&quot;math/tex&quot;&gt;a,b,c&lt;/script&gt; 取代成 &lt;script type=&quot;math/tex&quot;&gt;\mathbb R^+&lt;/script&gt; 中的元素 &lt;script type=&quot;math/tex&quot;&gt;3,2,4&lt;/script&gt;，那麼前面第 5 點的字串 &lt;script type=&quot;math/tex; mode=display&quot;&gt;a^{-1}b^{-1}bbc = a^{-1}bc&lt;/script&gt; 會被取代成 &lt;script type=&quot;math/tex; mode=display&quot;&gt; \frac{1}{3}\cdot\frac{1}{2}\cdot 2\cdot 2 \cdot 4 = \frac{1}{3} \cdot 2 \cdot 4 &lt;/script&gt;，果然左右算式的確是相等的，但那也只是消掉一組倒數而已。或許你會覺得這個取代後的實數乘法簡直是理所當然的廢話，那是因為替換前的字串就是記載著廢話的結構，自由群就是所有關於乘法（或加法）的廢話的蒐集。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;自由群 &lt;script type=&quot;math/tex&quot;&gt;F_S&lt;/script&gt; 利用符號在做一些「本來就會對」的乘法。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;這有時稱為自由群的泛性質，這裡不介紹什麼是泛性質。&lt;/p&gt;
+
+&lt;p&gt;不過取代的動作不能套用到不等式中。在自由群中 &lt;script type=&quot;math/tex&quot;&gt;ab \neq ba&lt;/script&gt;是相異的字串，但是照剛剛的取代 &lt;script type=&quot;math/tex&quot;&gt;3\cdot 2\neq 2\cdot 3&lt;/script&gt; 就錯了。因為不等號並不是什麼運算規則。&lt;/p&gt;
+
+&lt;h2 id=&quot;cayley-graph&quot;&gt;三、自由群的凱萊圖 (Cayley Graph)&lt;/h2&gt;
+
+&lt;p&gt;下列這張圖取自維基百科，是自由群 &lt;script type=&quot;math/tex&quot;&gt;F_{\{a,b\}}&lt;/script&gt; 的凱萊圖，上面每個頂點都代表 &lt;script type=&quot;math/tex&quot;&gt;F_{\{a,b\}}&lt;/script&gt; 中的一個字串：中心點是空字串，從中心往右邊走一個線段等於乘上 &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;，往左則是乘以 &lt;script type=&quot;math/tex&quot;&gt;a^{-1}&lt;/script&gt;；往上是乘以 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;，往下則是 &lt;script type=&quot;math/tex&quot;&gt;b^{-1}&lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Cayley_graph_of_F2.svg/240px-Cayley_graph_of_F2.svg.png&quot; alt=&quot;cayley graph of free 2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在圖中「向右再向上」與「向上再向右」會走到不同點，可見 &lt;script type=&quot;math/tex&quot;&gt;ab\neq ba&lt;/script&gt;。由於這個圖形是無限分支下去的，因此無論多長的字串，在圖中都找得到對應點，就照著字串上的行進方向一直走就是了。。&lt;/p&gt;
+
+&lt;p&gt;這個圖形每個接口都是四叉路，如果換成三個生成元的自由群，圖形的每個接口就是六叉路；如果只有一個生成元，那這個自由群與無限循環群 &lt;script type=&quot;math/tex&quot;&gt;\mathbb Z&lt;/script&gt; 無異，圖形就是一直線。&lt;/p&gt;
+
+&lt;p&gt;其實這張圖可以不用畫成碎形，但是為了在畫面上擠下這麼多分枝，通常都是會畫成碎形，而且也很好看。&lt;/p&gt;
+
+&lt;h2 id=&quot;presentation-of-groups&quot;&gt;四、群的展示 (Presentation of Groups)&lt;/h2&gt;
+
+&lt;p&gt;要寫出一個群，除了寫出它約定俗成的名稱（如 &lt;script type=&quot;math/tex&quot;&gt;\mathbb Z_2&lt;/script&gt;）或寫出它的凱萊表 (Cayley Table)，還有一個常用的方式是利用群的展示 (Presentation of Groups)：列出它的所有生成元 &lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt;、以及生成元之間該有的關係 &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt;，寫成 &lt;script type=&quot;math/tex&quot;&gt;\langle S|R \rangle&lt;/script&gt;。&lt;/p&gt;
+
+&lt;p&gt;例如兩個整數加法群的直積 &lt;script type=&quot;math/tex&quot;&gt;\mathbb Z \otimes \mathbb Z &lt;/script&gt;，寫成 &lt;script type=&quot;math/tex&quot;&gt;\langle a,b\ |\ ab=ba\rangle&lt;/script&gt;，而有限循環群 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Z}_n&lt;/script&gt; 寫成 &lt;script type=&quot;math/tex&quot;&gt;\langle a\ |\ a^n=e\rangle&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;關於群的展示一言難盡，詳細說明可以看&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%BE%A4%E7%9A%84%E5%B1%95%E7%A4%BA&quot;&gt;維基百科：群的展示&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;方才說自由群 &lt;script type=&quot;math/tex&quot;&gt;F_S&lt;/script&gt; 是交換律最少的群，非不得已任兩個元素之間都沒有交換律（&lt;script type=&quot;math/tex&quot;&gt;ab&lt;/script&gt; 字串與 &lt;script type=&quot;math/tex&quot;&gt;ba&lt;/script&gt; 字串是不同字串），這可以看成自由群的生成元之間不存在任何關係，因此由 &lt;script type=&quot;math/tex&quot;&gt;S=\{a,b,c,...\}&lt;/script&gt; 生成的自由群 &lt;script type=&quot;math/tex&quot;&gt;F_S&lt;/script&gt; 寫起來就是 &lt;script type=&quot;math/tex&quot;&gt;\langle S\ |\ \varnothing\rangle&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;從凱萊圖上看起來，自由群的生成元之間不存在任何關係，代表它的凱萊圖上沒有迴路。當我們在寫其他群 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 的展示，其實是準備一個由 &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; 的生成元 &lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt; 生成的自由群 &lt;script type=&quot;math/tex&quot;&gt;F_S&lt;/script&gt;，再把 &lt;script type=&quot;math/tex&quot;&gt;F_S&lt;/script&gt; 的凱萊圖上的某些「樹枝」整捆整捆拗在一起。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;五、自由么半群&lt;/h2&gt;
+
+&lt;p&gt;自由么半群的部份是針對電腦科學的討論，可以忽略。&lt;/p&gt;
+
+&lt;p&gt;研究過計算理論或形式語言的同學可能會覺得自由群很像 regular expression 中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt; 算符（Kleene star），例如 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;a,b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;*&lt;/span&gt;&lt;/code&gt; 會匹配 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&#39;,a,b,ab,ba,aba,bab,bba,bbb,aab...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; 等所有字串。&lt;/p&gt;
+
+&lt;p&gt;與自由群不同的是，利用 Kleene star 製造不出含有 &lt;script type=&quot;math/tex&quot;&gt;a^{-1}&lt;/script&gt;、&lt;script type=&quot;math/tex&quot;&gt;b^{-1}...&lt;/script&gt; 的字串，因此 Kleene star 並不會替你製造一個自由群：它製造的是「自由么半群」。所謂&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%B9%BA%E5%8D%8A%E7%BE%A4&quot;&gt;么半群&lt;/a&gt; (Monoid) 是一種比群更弱的結構，么半群中並不要求反元素的存在。&lt;/p&gt;
+
+&lt;p&gt;除此之外 Kleene star 是給你一個集合，而不是代數結構，代表它製造出自由么半群之後便讓那個么半群忘掉自己的運算模式，成為一個純粹的集合。從範疇論來說就是先丟進一個&lt;em&gt;自由函子&lt;/em&gt;成為么半群，再用&lt;em&gt;遺忘函子&lt;/em&gt;打回集合的原形。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 Mar 2017 00:00:00 +0800</pubDate>
+        <link>http://davidhu3141.github.io/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2017/03/12/Free-Group.html</link>
+        <guid isPermaLink="true">http://davidhu3141.github.io/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2017/03/12/Free-Group.html</guid>
+        
+        
+        <category>代數與組合</category>
+        
+      </item>
     
       <item>
         <title>群的定義與基礎概念</title>

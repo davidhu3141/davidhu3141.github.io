@@ -132,6 +132,18 @@
   /*padding: 8px;*/
   /*border-bottom: solid 1px #666666;*/ }
 
+@media screen and (max-width: 520px) {
+  .archives {
+    width: 1%;
+    display: none; }
+
+  .home {
+    width: 100%; }
+
+  .post {
+    width: 100%;
+    padding: 0px;
+    margin: 0px; } }
 /**
  * Reset some basic elements
  */
