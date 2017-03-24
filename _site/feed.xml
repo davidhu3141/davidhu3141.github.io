@@ -6,15 +6,15 @@
 </description>
     <link>http://davidhu3141.github.io/</link>
     <atom:link href="http://davidhu3141.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Mar 2017 04:31:50 +0800</pubDate>
-    <lastBuildDate>Mon, 20 Mar 2017 04:31:50 +0800</lastBuildDate>
+    <pubDate>Tue, 21 Mar 2017 13:56:54 +0800</pubDate>
+    <lastBuildDate>Tue, 21 Mar 2017 13:56:54 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>Dieck Algebraic Topology Chapter 3 筆記</title>
         <description>&lt;h1 id=&quot;dieck-algebraic-topology-chapter-3-&quot;&gt;Dieck Algebraic Topology Chapter 3 筆記&lt;/h1&gt;
 
-&lt;p&gt;Dieck 實在太狂（可怕）了，符號超多很難回去找定義，所以趁我有看懂的時候寫一些筆記。我目前沒打算做這本書的習題，因此先靠筆記釐清觀念。&lt;/p&gt;
+&lt;p&gt;狂氣 Dieck 實在太可怕了，符號超多很難回去找定義，所以趁我有看懂的時候寫一些筆記。我目前沒打算做這本書的習題，因此先靠筆記釐清觀念。&lt;/p&gt;
 
 &lt;h2 id=&quot;chapter-3-covering-spaces&quot;&gt;Chapter 3: Covering Spaces&lt;/h2&gt;
 
@@ -29,7 +29,7 @@
   &lt;li&gt;Transport functor&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;作者一直提到 Galois Theory，這也是值得玩味的地方：&lt;script type=&quot;math/tex&quot;&gt;\pi_1(B)&lt;/script&gt; 的子集合與 &lt;script type=&quot;math/tex&quot;&gt;\textrm{COV}_B&lt;/script&gt; 之間有 Galois Correspondence。&lt;/p&gt;
+&lt;p&gt;作者一直提到 Galois Theory，這也是值得玩味的地方：&lt;script type=&quot;math/tex&quot;&gt;\pi_1(B)&lt;/script&gt; 的子集合與 &lt;script type=&quot;math/tex&quot;&gt;\textrm{COV}_B&lt;/script&gt; 之間有 Galois Correspondence。我並沒有讀這部份，而是專注在 transport functor 上，因為 covering space 我在 Hatcher 已經讀過了。&lt;/p&gt;
 
 &lt;h2 id=&quot;locally-trivial-map-covering-spaces&quot;&gt;3.1: Locally Trivial Map, Covering Spaces&lt;/h2&gt;
 
@@ -56,6 +56,10 @@
 
 &lt;p&gt;這並不限於 path，而是任何 (path?) connected 的 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 都可以。&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/en/b/b9/Homotopy_lifting_property.png&quot; alt=&quot;ULP&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;這裡的 &lt;script type=&quot;math/tex&quot;&gt;\tilde{f}&lt;/script&gt; 是唯一的，這裡的唯一性具有 pullback 的意義。&lt;/p&gt;
+
 &lt;blockquote&gt;
   &lt;p&gt;關於「在同一層」的定理。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -64,23 +68,25 @@
 
 &lt;h4 id=&quot;left-g-principle-covering&quot;&gt;Left G-Principle Covering&lt;/h4&gt;
 
-&lt;p&gt;/////////////////////&lt;/p&gt;
+&lt;p&gt;這裡開始介紹 left / right actions。Properly discontinuous map 是 left action ，因為函數的合成乃採用左乘記號。&lt;/p&gt;
+
+&lt;p&gt;Deck transformation 是 covering 的 automorphism。這裡的 morphism 是有 covering 上的意義，而非單純是 &lt;script type=&quot;math/tex&quot;&gt;\mathrm{TOP}&lt;/script&gt; 中的 morphism。&lt;/p&gt;
 
 &lt;h2 id=&quot;fibre-transport-exact-sequence&quot;&gt;3.2: Fibre Transport. Exact Sequence&lt;/h2&gt;
 
-&lt;p&gt;先前看到 fiber 就是 preimage 而已，但是有些 fiberation 具有比較好的性質，這是關於 HLP 的概念。&lt;/p&gt;
+&lt;p&gt;先前看到 fiber 就是 preimage 而已，但是有些 fiberation 具有比較好的性質，例如 covering space 有 unique lifting property。現在引進一個比較弱的概念 HLP。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;HLP：一個 &lt;script type=&quot;math/tex&quot;&gt;p:E\to B&lt;/script&gt; 如果對空間 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 有 HLP，代表 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 在 &lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt; 中的亂動變形，能夠整體提升到 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 的某一層（但不須唯一）。&lt;/p&gt;
+  &lt;p&gt;Homotopy Lifting Property：一個 &lt;script type=&quot;math/tex&quot;&gt;p:E\to B&lt;/script&gt; 如果對空間 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 有 HLP，代表 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 在 &lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt; 中的亂動變形，能夠整體提升到 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 的某一層（但不須唯一）。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;至於 covering space 就有 ULP - Unique Lifting Property。這裡的唯一性具有 pullback 的意義。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/en/b/b9/Homotopy_lifting_property.png&quot; alt=&quot;HLP&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;※ 或許還有其他性質可以這樣 &lt;em&gt;lift&lt;/em&gt; 只是沒被我們發現？&lt;/p&gt;
 
 &lt;h3 id=&quot;proposition-324&quot;&gt;Proposition 3.24&lt;/h3&gt;
 
-&lt;p&gt;HLP 的 fibre，放一個鏤空的ㄩ字形在 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 上 &lt;script type=&quot;math/tex; mode=display&quot;&gt; I^n\times 0 \cup \partial I^n \times I \xrightarrow[\ \ \ \ \ \ \ \ \ ]{a} E &lt;/script&gt;，&lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt; 對應的位置放個實心的&lt;script type=&quot;math/tex; mode=display&quot;&gt;I^n\times I \xrightarrow[\ \ \ \ \ \ \ \ \ ]{h} B&lt;/script&gt;，那麼 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 中的ㄩ字形能被 commutative 地填滿。&lt;/p&gt;
+&lt;p&gt;HLP 的 fibre，放一個鏤空的ㄩ字形在 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 上 &lt;script type=&quot;math/tex; mode=display&quot;&gt; I^n\times 0 \cup \partial I^n \times I \xrightarrow[\ \ \ \ \ \ \ \ \ ]{a} E &lt;/script&gt;，&lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt; 對應的位置放個實心的&lt;script type=&quot;math/tex; mode=display&quot;&gt;I^n\times I \xrightarrow[\ \ \ \ \ \ \ \ \ ]{h} B&lt;/script&gt;，那麼 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 中的ㄩ字形能被 commutatively 地填滿。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/CWHwnJF.png&quot; alt=&quot;Commutative Diagram&quot; /&gt;&lt;/p&gt;
 
@@ -102,9 +108,17 @@
 
 &lt;p&gt;Transport functor 是映射到哪些 &lt;script type=&quot;math/tex&quot;&gt;\textrm{set}\in \textrm{SET}&lt;/script&gt;？就只有 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\{\textit{set of components of fibre}\ |\ \mathit{fibre\ in\ p:E\to B}\}&lt;/script&gt; 而已。&lt;/p&gt;
 
+&lt;h3 id=&quot;right-action&quot;&gt;Right Action&lt;/h3&gt;
+
+&lt;p&gt;給定 &lt;script type=&quot;math/tex&quot;&gt;b\in B&lt;/script&gt;，可以利用 transport functor 製造一個 right action &lt;script type=&quot;math/tex; mode=display&quot;&gt; \pi_0(F_b)\times \pi_1(B,b) \to \pi_0(F_b) &lt;/script&gt;，其內容是選一個 &lt;script type=&quot;math/tex&quot;&gt;F_b&lt;/script&gt; 的 component，照著 &lt;script type=&quot;math/tex&quot;&gt;b\in B&lt;/script&gt; 上的路在 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 中走，會走到不同層，感覺像走樓梯 action。&lt;/p&gt;
+
+&lt;p&gt;之所以是 right action ，因為道路的合成是乘在右邊。&lt;/p&gt;
+
 &lt;h3 id=&quot;theorem-326&quot;&gt;Theorem 3.2.6&lt;/h3&gt;
 
 &lt;p&gt;又是 &lt;script type=&quot;math/tex&quot;&gt;\partial&lt;/script&gt; 衍生三個一循環的 long exact sequence！在 Homology Theorey （Hatcher）也有看到。&lt;/p&gt;
+
+&lt;p&gt;但是這與 homology group 的情況不一樣的是，它是在 HLP fibre 上成立的，我想可能是因為用的是 fundamental group 的關係。&lt;/p&gt;
 
 &lt;p&gt;////////&lt;/p&gt;
 </description>
@@ -190,7 +204,7 @@
 
 &lt;p&gt;要寫出一個群，除了寫出它約定俗成的名稱（如 &lt;script type=&quot;math/tex&quot;&gt;\mathbb Z_2&lt;/script&gt;）或寫出它的凱萊表 (Cayley Table)，還有一個常用的方式是利用群的展示 (Presentation of Groups)：列出它的所有生成元 &lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt;、以及生成元之間該有的關係 &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt;，寫成 &lt;script type=&quot;math/tex&quot;&gt;\langle S|R \rangle&lt;/script&gt;。&lt;/p&gt;
 
-&lt;p&gt;例如兩個整數加法群的直積 &lt;script type=&quot;math/tex&quot;&gt;\mathbb Z \otimes \mathbb Z &lt;/script&gt;，寫成 &lt;script type=&quot;math/tex&quot;&gt;\langle a,b\ |\ ab=ba\rangle&lt;/script&gt;，而有限循環群 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Z}_n&lt;/script&gt; 寫成 &lt;script type=&quot;math/tex&quot;&gt;\langle a\ |\ a^n=e\rangle&lt;/script&gt;.&lt;/p&gt;
+&lt;p&gt;例如兩個無限循環群的直積 &lt;script type=&quot;math/tex&quot;&gt;\mathbb Z \otimes \mathbb Z &lt;/script&gt;，寫成 &lt;script type=&quot;math/tex&quot;&gt;\langle a,b\ |\ ab=ba\rangle&lt;/script&gt;，而有限循環群 &lt;script type=&quot;math/tex&quot;&gt;\mathbb{Z}_n&lt;/script&gt; 寫成 &lt;script type=&quot;math/tex&quot;&gt;\langle a\ |\ a^n=e\rangle&lt;/script&gt;.&lt;/p&gt;
 
 &lt;p&gt;關於群的展示一言難盡，詳細說明可以看&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%BE%A4%E7%9A%84%E5%B1%95%E7%A4%BA&quot;&gt;維基百科：群的展示&lt;/a&gt;。&lt;/p&gt;
 
