@@ -6,8 +6,8 @@
 </description>
     <link>http://davidhu3141.github.io/</link>
     <atom:link href="http://davidhu3141.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 24 Mar 2017 17:13:36 +0800</pubDate>
-    <lastBuildDate>Fri, 24 Mar 2017 17:13:36 +0800</lastBuildDate>
+    <pubDate>Thu, 30 Mar 2017 15:37:30 +0800</pubDate>
+    <lastBuildDate>Thu, 30 Mar 2017 15:37:30 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -18,9 +18,9 @@
 
 &lt;h2 id=&quot;chapter-3-covering-spaces&quot;&gt;Chapter 3: Covering Spaces&lt;/h2&gt;
 
-&lt;p&gt;這裡的映射 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 都是一個序組 &lt;script type=&quot;math/tex&quot;&gt;p:E\to B&lt;/script&gt;。本章節常常會考慮 &lt;script type=&quot;math/tex&quot;&gt;X\to B&lt;/script&gt; 的 lifting，連同 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 的 homotopy。&lt;/p&gt;
+&lt;p&gt;這裡的映射 &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; 都是一個序組 &lt;script type=&quot;math/tex&quot;&gt;p:E\to B&lt;/script&gt;。本章節常常會考慮 &lt;script type=&quot;math/tex&quot;&gt;X\to B&lt;/script&gt; 的 lifting，如下圖。有時也會連同 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 的 homotopy 一起考慮。&lt;/p&gt;
 
-&lt;!-- commutative diagram --&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/IRJcSU1.png&quot; alt=&quot;lift&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;本章節主要要讀兩個重點：&lt;/p&gt;
 
@@ -68,7 +68,7 @@
 
 &lt;h4 id=&quot;left-g-principle-covering&quot;&gt;Left G-Principle Covering&lt;/h4&gt;
 
-&lt;p&gt;這裡開始介紹 left / right actions。Properly discontinuous map 是 left action ，因為函數的合成乃採用左乘記號。&lt;/p&gt;
+&lt;p&gt;這裡開始介紹 left / right actions。Properly discontinuous map 是 left action，因為函數的合成乃採用左乘記號。&lt;/p&gt;
 
 &lt;p&gt;Deck transformation 是 covering 的 automorphism。這裡的 morphism 是有 covering 上的意義，而非單純是 &lt;script type=&quot;math/tex&quot;&gt;\mathrm{TOP}&lt;/script&gt; 中的 morphism。&lt;/p&gt;
 
@@ -92,11 +92,12 @@
 
 &lt;p&gt;注意他說對角線 &lt;script type=&quot;math/tex&quot;&gt;H&lt;/script&gt; 是自動存在的，也就是說 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 上的空格被自動填滿了。&lt;/p&gt;
 
-&lt;p&gt;※ 是不是唯一的？我還不知道，應該不是，但 covering space 是。&lt;/p&gt;
+&lt;p&gt;※ 是不是唯一的？我還不知道，應該不是，但 covering space 是。
+※ 不規定ㄩ字型的牆壁可以嗎？&lt;/p&gt;
 
 &lt;h3 id=&quot;transport-functor&quot;&gt;Transport Functor&lt;/h3&gt;
 
-&lt;p&gt;記號：&lt;script type=&quot;math/tex&quot;&gt;F_b&lt;/script&gt; 代表 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt; 處的 fibre。&lt;/p&gt;
+&lt;p&gt;記號：&lt;script type=&quot;math/tex&quot;&gt;F_b&lt;/script&gt; 代表 &lt;script type=&quot;math/tex&quot;&gt;b\in B&lt;/script&gt; 處的 fibre。&lt;/p&gt;
 
 &lt;p&gt;HLP 下，&lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt; 空間中的路徑 &lt;script type=&quot;math/tex&quot;&gt;b\to c&lt;/script&gt; 可以決定一個映射 &lt;script type=&quot;math/tex&quot;&gt;v_\#:\pi_0(F_b)\to \pi_0(F_c)&lt;/script&gt;，純粹是看這個 lifted path 連到哪個 components。&lt;/p&gt;
 
@@ -109,6 +110,8 @@
 &lt;p&gt;Transport functor 是映射到哪些 &lt;script type=&quot;math/tex&quot;&gt;\textrm{set}\in \textrm{SET}&lt;/script&gt;？就只有 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\{\textit{set of components of fibre}\ |\ \mathit{fibre\ in\ p:E\to B}\}&lt;/script&gt; 而已。&lt;/p&gt;
 
 &lt;h3 id=&quot;right-action&quot;&gt;Right Action&lt;/h3&gt;
+
+&lt;p&gt;///////////////////&lt;/p&gt;
 
 &lt;p&gt;給定 &lt;script type=&quot;math/tex&quot;&gt;b\in B&lt;/script&gt;，可以利用 transport functor 製造一個 right action &lt;script type=&quot;math/tex; mode=display&quot;&gt; \pi_0(F_b)\times \pi_1(B,b) \to \pi_0(F_b) &lt;/script&gt;，其內容是選一個 &lt;script type=&quot;math/tex&quot;&gt;F_b&lt;/script&gt; 的 component，照著 &lt;script type=&quot;math/tex&quot;&gt;b\in B&lt;/script&gt; 上的路在 &lt;script type=&quot;math/tex&quot;&gt;E&lt;/script&gt; 中走，會走到不同層，感覺像走樓梯 action。&lt;/p&gt;
 

@@ -132,7 +132,7 @@
   /*padding: 8px;*/
   /*border-bottom: solid 1px #666666;*/ }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 1000px) {
   .archives {
     width: 1%;
     display: none; }
