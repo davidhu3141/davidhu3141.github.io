@@ -6,9 +6,133 @@
 </description>
     <link>http://davidhu3141.github.io/</link>
     <atom:link href="http://davidhu3141.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Mar 2017 15:37:30 +0800</pubDate>
-    <lastBuildDate>Thu, 30 Mar 2017 15:37:30 +0800</lastBuildDate>
+    <pubDate>Thu, 11 May 2017 23:09:09 +0800</pubDate>
+    <lastBuildDate>Thu, 11 May 2017 23:09:09 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>積分技巧：一次式除以二次式</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;積分技巧：一次式除以二次式&lt;/h2&gt;
+
+&lt;p&gt;一次式除以二次式的積分 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int \frac{mx+n}{ax^2+bx+c} \mathop{dx}&lt;/script&gt;總是可以算。認知到這件事是很方便的，可以進一步推導出多項式除以多項式的積分的一般算法。&lt;/p&gt;
+
+&lt;p&gt;分母是二次式時，情況分兩種：分母有實根，或沒有實根。我將示範兩種情況的算法。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;分母的二次式有兩實根&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Find the anti-derivative: &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int \frac{x+1}{x^2-4x+3} \mathop{dx} &lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;部份分式&lt;/h4&gt;
+
+&lt;p&gt;我們要先將分式拆成兩個小分式：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{x+1}{x^2-4x+3} =  \frac{x+1}{(x-3)(x-1)} = \frac{2}{x-3} - \frac{1}{x-1}&lt;/script&gt;
+
+&lt;p&gt;上面的做法稱做部份分式（不是分部積分）。現在的課綱高一都不教這個了，不過這也不難。反正分母可以分解的話就一定可以拆成兩個分式。&lt;/p&gt;
+
+&lt;p&gt;但是怎麼知道右式分子是多少？不知道的話只要假設 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{x+1}{x^2-4x+3} =\frac{A}{x-3} + \frac{B}{x-1}&lt;/script&gt;，右邊通分後與左式比較係數即可。&lt;/p&gt;
+
+&lt;h4 id=&quot;sol&quot;&gt;Sol.&lt;/h4&gt;
+
+&lt;p&gt;因此原式&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int \frac{3x+4}{x^2-4x+3} \mathop{dx} = \int \frac{2}{x-3} - \frac{1}{x-1} \mathop{dx}&lt;/script&gt;
+
+&lt;p&gt;又我們有 &lt;script type=&quot;math/tex&quot;&gt;\int \frac{1}{x-a} \mathop{dx}=\operatorname{ln}(x-a) &lt;/script&gt;，因此&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int \frac{2}{x-3} - \frac{1}{x-1} \mathop{dx} = 2\ln |x-3| - \ln |x-1| + C.&lt;/script&gt;
+
+&lt;p&gt;這樣就算完了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;分母的二次式有重根&lt;/h3&gt;
+
+&lt;p&gt;重根就好辦了。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Find the anti-derivative: &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int \frac{x-4}{(x-3)^2} \mathop{dx}&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;只要將分子寫成 &lt;script type=&quot;math/tex&quot;&gt;(x-3)&lt;/script&gt; 的多項式再拆開：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int \frac{x-4}{(x-3)^2} \mathop{dx} = \int \frac{(x-3)-1}{(x-3)^2} \mathop{dx} = \int (x-3)^{-1} - (x-3)^{-2} \mathop{dx}&lt;/script&gt;
+
+&lt;p&gt;接下來跟多項式一樣，就不寫了。&lt;/p&gt;
+
+&lt;p&gt;另一方面，要把它寫成部份分式也是可以的，但要假設它拆開後的形式為&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; \frac{A}{(x-3)^2} + \frac{B}{(x-3)} &lt;/script&gt;
+
+&lt;p&gt;再去通分比較係數。&lt;/p&gt;
+
+&lt;p&gt;至於為甚麼有一個分母要平方呢… 這大概就跟遞迴的特徵方程有重根時的處理方式是一樣的，但是除了自由度的糟糕解釋之外我也不知道要怎麼解釋。以後還會遇到很多類似的都是遇到重根要平方，例如微分方程。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;分母的二次式沒有實根&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Find the anti-derivative:
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int \frac{x+3}{x^2+2x+2}\ dx&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;需要的公式&lt;/h4&gt;
+
+&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot;&gt;\int \frac{1}{1+x^2} \mathop{dx}= \arctan x&lt;/script&gt; ，因此令 &lt;script type=&quot;math/tex&quot;&gt;u=ax&lt;/script&gt;（&lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;是常數） 可以進一步推導出&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int \frac{1}{u^2 + a^2}\ du = \frac{1}{a}\arctan\frac{u}{a}&lt;/script&gt;
+
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;sol-1&quot;&gt;sol.&lt;/h4&gt;
+
+&lt;p&gt;先將分母配方，並且把分子處理一下：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; \begin{aligned} \int \frac{x+3}{x^2+2x+2}\ dx &amp;= \int  \frac{(x+1)+2}{(x+1)^2+1}\ dx \\ &amp;= \int \frac{x+1}{(x+1)^2+1} + \frac{2}{(x+1)^2+1} \ dx \\ &amp;=  \int \frac{x+1}{(x+1)^2+1} \ dx + \int\frac{2}{(x+1)^2+1} \ dx\end{aligned}&lt;/script&gt;
+
+&lt;p&gt;先處理左邊的 &lt;script type=&quot;math/tex&quot;&gt;\int \frac{x+1}{(x+1)^2+1}\ dx&lt;/script&gt;：利用 &lt;script type=&quot;math/tex&quot;&gt;d ((x+1)^2+1) = 2(x+1)\ dx&lt;/script&gt;，左邊&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; \begin{aligned} \int  \frac{x+1}{(x+1)^2+1} \ dx &amp;= \frac12\int \frac{d ((x+1)^2+1)}{(x+1)^2+1} \\ &amp;= \frac12 \ln|(x+1)^2+1|+C \end{aligned}&lt;/script&gt;
+
+&lt;p&gt;而右邊的 &lt;script type=&quot;math/tex&quot;&gt;\int\frac{2}{(x+1)^2+1}\ dx&lt;/script&gt; 就是用到剛剛的 &lt;script type=&quot;math/tex&quot;&gt;\arctan 公式&lt;/script&gt;。由於 &lt;script type=&quot;math/tex&quot;&gt;dx=d(x+1)&lt;/script&gt;，因此&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; \begin{aligned} \int\frac{2}{(x+1)^2+1}\ dx &amp;= 2\int\frac{1}{(x+1)^2+1}\ d(x+1)\\ &amp;= 2\arctan (x+1)=C \end{aligned}&lt;/script&gt;
+
+&lt;p&gt;因此結合以上的計算，答案是 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac12 \ln(x^2+2x+2)+2\arctan (x+1)+C.&lt;/script&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;定理&lt;/h3&gt;
+
+&lt;p&gt;遇到一次式除以二次式，要算積分時：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;分母有兩實根 &lt;script type=&quot;math/tex&quot;&gt;\alpha, \beta&lt;/script&gt;，則分解分母，再用部分分式拆成兩個小的，積出兩個 &lt;script type=&quot;math/tex&quot;&gt;\ln.&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;分母有重根 &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt;，就把分子寫成 &lt;script type=&quot;math/tex&quot;&gt;(x-\alpha)&lt;/script&gt; 的多項式。&lt;/li&gt;
+  &lt;li&gt;分母沒有實根，就把分母配方，積出一個 &lt;script type=&quot;math/tex&quot;&gt;\ln&lt;/script&gt; 與一個 &lt;script type=&quot;math/tex&quot;&gt;\arctan.&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;一次式除以二次式總是可以積分&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;推論&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;多項式 / 二次式&lt;/strong&gt; 總是可以積分（用類似把假分數換成帶分數的方法，可以化成「多項式 + &lt;script type=&quot;math/tex&quot;&gt;\frac{一次式}{二次式}&lt;/script&gt;」）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;多項式 / 多項式&lt;/strong&gt; 總是可以積分（分母可以分解成一些一次式與二次式的乘積，再用部份分式化成 &lt;script type=&quot;math/tex&quot;&gt;\frac{一次式}{二次式} + \frac{一次式}{二次式} + \frac{常數}{一次式} + ...&lt;/script&gt;）&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Thu, 11 May 2017 00:00:00 +0800</pubDate>
+        <link>http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2017/05/11/%E7%A9%8D%E5%88%86%E6%8A%80%E5%B7%A7-%E4%B8%80%E6%AC%A1%E5%BC%8F%E9%99%A4%E4%BB%A5%E4%BA%8C%E6%AC%A1%E5%BC%8F.html</link>
+        <guid isPermaLink="true">http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2017/05/11/%E7%A9%8D%E5%88%86%E6%8A%80%E5%B7%A7-%E4%B8%80%E6%AC%A1%E5%BC%8F%E9%99%A4%E4%BB%A5%E4%BA%8C%E6%AC%A1%E5%BC%8F.html</guid>
+        
+        
+        <category>高中教材</category>
+        
+      </item>
     
       <item>
         <title>Dieck Algebraic Topology Chapter 3 筆記</title>
