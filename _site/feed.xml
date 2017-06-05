@@ -6,8 +6,8 @@
 </description>
     <link>http://davidhu3141.github.io/</link>
     <atom:link href="http://davidhu3141.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 May 2017 23:09:09 +0800</pubDate>
-    <lastBuildDate>Thu, 11 May 2017 23:09:09 +0800</lastBuildDate>
+    <pubDate>Tue, 06 Jun 2017 00:07:41 +0800</pubDate>
+    <lastBuildDate>Tue, 06 Jun 2017 00:07:41 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -1623,6 +1623,197 @@
         
         
         <category>計算機科學</category>
+        
+      </item>
+    
+      <item>
+        <title>Generating Functions (I)</title>
+        <description>&lt;h1 id=&quot;generating-functions-i&quot;&gt;Generating Functions (I)&lt;/h1&gt;
+
+&lt;p&gt;最近在閱讀 Flajolet 與 Sedgewick 的 &lt;strong&gt;解析組合學 &lt;em&gt;Analytic Combinatorics&lt;/em&gt;&lt;/strong&gt;。由於這裡面提到的技巧實在太威了，決定將讀書心得以 Blog 的形式紀錄下來。&lt;/p&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;什麼是解析組合學&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;解析組合學&lt;/strong&gt;這個名詞乍聽之下略帶違和感，因為分析（解析）和組合這兩個學問好像不太有交集。我們來看看這兩個數學中的分支：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;分析學&lt;/strong&gt;，如同我們學的微積分，主要是探討可微函數、解析函數、連續與極限等問題。&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;組合學&lt;/strong&gt;，如同中學的排列組合，包含圖論等，是離散數學的領域。&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;換句話說，我們竟然可以用微積分這種&lt;strong&gt;連續&lt;/strong&gt;的手段來解決&lt;strong&gt;離散數學&lt;/strong&gt;問題，這便是 &lt;em&gt;Analytic Combinatorics&lt;/em&gt; 讓人著迷之處。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;交錯排列&lt;/h2&gt;
+
+&lt;p&gt;在序章中，作者介紹了中學見過的&lt;strong&gt;波浪數問題&lt;/strong&gt;，或者是&lt;strong&gt;交錯排列&lt;/strong&gt;問題&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;定義：《交錯排列》&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;所謂 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 階&lt;strong&gt;交錯排列（Alternating Permutation）&lt;/strong&gt;是指：將 &lt;script type=&quot;math/tex&quot;&gt;1, 2, ..., n&lt;/script&gt; 等數字排列，排列的方式必須依照&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;第二個數&lt;strong&gt;大&lt;/strong&gt;於第一個數&lt;/li&gt;
+    &lt;li&gt;第三個數&lt;strong&gt;小&lt;/strong&gt;於第二個數&lt;/li&gt;
+    &lt;li&gt;第四個數&lt;strong&gt;大&lt;/strong&gt;於第三個數&lt;/li&gt;
+    &lt;li&gt;…（以此類推）&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;而 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 階交錯排列的方法數記為（&lt;script type=&quot;math/tex&quot;&gt;E_n&lt;/script&gt;）。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我們在這裡的問題就是：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;給定 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; ，請問 &lt;script type=&quot;math/tex&quot;&gt;E_n&lt;/script&gt; 為多少？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;script-typemathtexe5script&quot;&gt;解法：&lt;script type=&quot;math/tex&quot;&gt;E_5&lt;/script&gt;&lt;/h3&gt;
+
+&lt;p&gt;階數不大時解法也不會太困難，用中學的手法分情況討論即可得出答案。以 &lt;script type=&quot;math/tex&quot;&gt;E_5&lt;/script&gt; 為例：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;第二、四項可能為較大的 5 或 4，而剩下的第一、三、五項則為 1, 2, 3，有 &lt;script type=&quot;math/tex&quot;&gt;2!\times 3! = 12&lt;/script&gt; 種可能&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;也有可能 4 在首或尾處並緊鄰 5，則剩下三個數只要 3 在 1, 2 中間即可，有 &lt;script type=&quot;math/tex&quot;&gt;2 \times 2! = 4&lt;/script&gt; 種可能，前面的 2 是選擇 (4, 5, _ , _ , _ ) 或 ( _ , _ , _ , 5, 4)，後面的 &lt;script type=&quot;math/tex&quot;&gt;2!&lt;/script&gt; 是討論剩下的三個位置可能是 (1, 3, 2) 或 (2, 3, 1)。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;故 &lt;script type=&quot;math/tex&quot;&gt;E_5 = 2!\times 3! + 2 \times 2! = 16&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;但是當 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 過大時，我們便缺乏適當的手段來處理這個問題了。在此，這本書的作者指出了一個極為巧妙的事實：&lt;/p&gt;
+
+&lt;h3 id=&quot;andrs-theorem&quot;&gt;通解：André’s theorem&lt;/h3&gt;
+
+&lt;p&gt;有一位數學家 André 證明了這件事：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;將 &lt;script type=&quot;math/tex&quot;&gt;tan(z) + sec(z)&lt;/script&gt; 表達為冪級數形式：
+ &lt;script type=&quot;math/tex; mode=display&quot;&gt;tan(z) + sec(z) = 1 + \frac{1}{1!}z + \frac1{2!}z^2 +  \frac{2}{3!}z^3 + \frac5{4!}x^4 + \frac{16}{5!}z^5 + ...&lt;/script&gt;
+ 其中每一個 &lt;script type=&quot;math/tex&quot;&gt;z^n&lt;/script&gt; 項係數的分子即為交錯排列方法數&lt;sup id=&quot;fnref:altnum_wikip&quot;&gt;&lt;a href=&quot;#fn:altnum_wikip&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;這個公式的確頗為驚人，且不論 &lt;script type=&quot;math/tex&quot;&gt; tan(z) + sec(z) &lt;/script&gt; 乃是&lt;strong&gt;和排列組合八竿子打不著邊&lt;/strong&gt;的函數，我們竟然可以將一個解析函數展開來解決離散數學的問題！&lt;/p&gt;
+
+&lt;p&gt;像這樣展開函數來解決方法數問題的方法，我們就稱為&lt;strong&gt;生成函數&lt;/strong&gt;，也是本書所討論的重點。不過這篇文不會探討如何推導 André’s theorem，以後可能會再寫。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;生成函數&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;定義：《生成函數》&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;一個數列 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{A} = \{A_0, A_1, A_2, ...\}&lt;/script&gt; 的生成函數（Generating Function），是一個形式如下的冪級數：
+&lt;script type=&quot;math/tex&quot;&gt;\mathcal{A}[x] = \sum_{i=0}^{\infty} A_ix^i  = A_0 + A_1x + A_2x^2 ...&lt;/script&gt;
+。通常 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{A}&lt;/script&gt; 可能含有能夠解決某個特定&lt;strong&gt;問題&lt;/strong&gt;&lt;sup id=&quot;fnref:sized&quot;&gt;&lt;a href=&quot;#fn:sized&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; 的訊息。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;沒錯，與一般的冪級數沒有兩樣，看起來就像是擁有無限（或有限）多項的多項式，但它的係數卻是某個問題的答案。我們來看一個各位不陌生例子：&lt;/p&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;例子：二項式係數&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;從 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 個不同顏色的球中取出 &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; 個，不計順序，請問有幾種可能？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;顯然答案就是組合數 &lt;script type=&quot;math/tex&quot;&gt;C^{n}_{r}&lt;/script&gt;（或者記為 &lt;script type=&quot;math/tex&quot;&gt;\mathbf{\binom{n}{r}}&lt;/script&gt;），二項式定理告訴我們，這會等同於 &lt;script type=&quot;math/tex&quot;&gt;(1+x)^n&lt;/script&gt; 展開後第 &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; 項的係數：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt;(1+x)^n = \binom{n}{0} + \binom{n}{1}x + \binom{n}{2}x^2 + ... + \binom{n}{n}x^n&lt;/script&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;注意到右式的係數正是我們要的答案 &lt;script type=&quot;math/tex&quot;&gt;C^{n}_{r}&lt;/script&gt; 。因此我們就可以稱 &lt;script type=&quot;math/tex&quot;&gt;(1+x)^n&lt;/script&gt; 為 &lt;script type=&quot;math/tex&quot;&gt;C^{n}_{r}&lt;/script&gt; 的&lt;strong&gt;生成函數&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;我們來複習一下：為什麼這個等式會成立呢？因為我們將 &lt;script type=&quot;math/tex&quot;&gt;(1+x)^n&lt;/script&gt; 展開時，必須要從&lt;script type=&quot;math/tex; mode=display&quot;&gt; (1+x)(1+x)(1+x) ... (1+x) &lt;/script&gt;這 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 個括號中各取一項（可能是 &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt; 或 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;）出來相乘，成為一個 &lt;script type=&quot;math/tex&quot;&gt;x^r&lt;/script&gt; 項（&lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; 是多少端看我們總共從這些括號中取了多少個 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; 出來）。&lt;/p&gt;
+
+&lt;p&gt;由於我們總共有 &lt;script type=&quot;math/tex&quot;&gt;\binom{n}{r}&lt;/script&gt; 種方式可以從 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 個括號中取出 &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt; 個 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; 出來相乘，因此 &lt;script type=&quot;math/tex&quot;&gt;x^r&lt;/script&gt; 展開後總共會有 &lt;script type=&quot;math/tex&quot;&gt;\binom{n}{r}&lt;/script&gt; 個，組合數便反映在 &lt;script type=&quot;math/tex&quot;&gt;x^r&lt;/script&gt; 的係數上了。&lt;/p&gt;
+
+&lt;p&gt;「把答案表為某個冪級數的係數」，正是生成函數在做的事。我們來解決一個類似的問題：&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;例子：取球問題&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;從 4 個紅球、4 個白球、4 個黑球中取出六個，不計順序，請問有幾種可能？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;用中學的方法解決這問題，我們需要先算 &lt;script type=&quot;math/tex&quot;&gt;H^3_6&lt;/script&gt; 再扣掉如 (5, 1, 0)、(6, 0, 0) 等可能性。現在我們來試試生成函數：&lt;/p&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;解法&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;將 &lt;script type=&quot;math/tex&quot;&gt;(1+x+x^2+x^3+x^4)^3&lt;/script&gt; 展開，取出第六項係數，便可以得到解。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;為什麼呢？當我們將這個式子展開時，總共會需要乘開三個括號，從這三個括號中各取出一項（可能是 &lt;script type=&quot;math/tex&quot;&gt;x^0&lt;/script&gt; ~ &lt;script type=&quot;math/tex&quot;&gt;x^4&lt;/script&gt;）來相乘，都可以得到展開後的某一項。這動作如同我們從三種顏色的球中取出 0 到 4 顆，例如「3 紅 2 白 1 黑」對應到下列這種展開方式：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;(...+\mathbf{\underset{take\ 3\ red}{x^3}}+...)(...+\mathbf{\underset{take\ 2\ white}{x^2}}+...)(...+\mathbf{\underset{take\ 1\ black}{x^1}}+...) \Rightarrow x^6 &lt;/script&gt;
+&lt;p&gt;。&lt;/p&gt;
+
+&lt;p&gt;所以 &lt;script type=&quot;math/tex&quot;&gt;x^6&lt;/script&gt; 的係數為多少，代表我們展開出幾個 &lt;script type=&quot;math/tex&quot;&gt;x^6&lt;/script&gt; 項，也同時代表有幾種方式可以從三種色球中取出共六顆球。&lt;/p&gt;
+
+&lt;p&gt;– 這就是&lt;strong&gt;生成函數法解決組合學問題&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;section-8&quot;&gt;取出某一項的係數還是很難&lt;/h3&gt;
+
+&lt;p&gt;在大部份的時候，要手動展開一個這樣的多項式或冪級數，可能會與暴力法一樣麻煩。&lt;/p&gt;
+
+&lt;p&gt;通常我們可以選擇用&lt;strong&gt;泰勒展開式&lt;/strong&gt;來「抽取」某一項的係數：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt;t(z) = t(0) + \frac{t&#39;(0)}{1!}z + \frac{t&#39;&#39;(0)}{2!}z^2 + \frac{t&#39;&#39;&#39;(0)}{3!}z^3 +  ...&lt;/script&gt;
+
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt;\Rightarrow n^{th} \mathit{coefficient} =  \frac{t^{(n)}(0)}{n!}&lt;/script&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;不過手動來說還是一樣冗，因為可能會需要做好幾次的微分。不過只要把問題表示成多項式，我們就有許多微積分的工具或是軟體可以幫我們處理這類問題。&lt;/p&gt;
+
+&lt;p&gt;另外，也是作為本書的另一個重點，就是我們可以用複分析的工具來估計係數成長的漸進複雜度。&lt;/p&gt;
+
+&lt;p&gt;往後的文章可能會介紹&lt;strong&gt;制式&lt;/strong&gt;的手法來為各式各樣組合學的問題找出生成函數並&lt;strong&gt;估計數量級&lt;/strong&gt;，這也是為甚麼我們偏向使用生成函數，而非為每個益智問題絞盡腦汁來想一個特殊解法。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;section-9&quot;&gt;動差生成函數&lt;/h2&gt;
+
+&lt;p&gt;許多人可能也曾經在學習&lt;strong&gt;機率與統計&lt;/strong&gt;時學過&lt;strong&gt;動差母函數(Moment Generating Function)&lt;/strong&gt;，也是類似的手段：我們先對機率分佈函數 &lt;script type=&quot;math/tex&quot;&gt;f(x)&lt;/script&gt; 做完 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_{-\infty}^{\infty}e^{tx}f(x)dx&lt;/script&gt; 之後，去取它冪級數的一次項、二次項、甚至 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 次項係數，便可以同時得到該 &lt;script type=&quot;math/tex&quot;&gt;\mathit{pdf}&lt;/script&gt; 的期望值、變異數以及所有 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 階動差。動差母函數把這些資訊都反應在它的係數上，只不過機率學用的是 &lt;script type=&quot;math/tex&quot;&gt;exp(x)&lt;/script&gt; 的冪級數性質而已。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;這篇第一集就簡單介紹到這裡吧，寫了好多啊（攤）。不過這些內容在數學系的離散數學都有含括到，寫起來也不會吃力。有空會開始按照書本的順序介紹 &lt;strong&gt;Combinatorial Class&lt;/strong&gt;。它的概念有點類似排列組合中的&lt;strong&gt;所有排法&lt;/strong&gt;組成的集合，也是這本書主要探討的對象。我們將透過生成函數來為其計數。&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:altnum_wikip&quot;&gt;
+      &lt;p&gt;請見 &lt;a href=&quot;http://en.wikipedia.org/wiki/Alternating_permutation&quot;&gt;維基百科：André’s theorem&lt;/a&gt; &lt;a href=&quot;#fnref:altnum_wikip&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:sized&quot;&gt;
+      &lt;p&gt;所謂&lt;strong&gt;問題&lt;/strong&gt;，這裡指的是 &lt;strong&gt;Combinatorial Class&lt;/strong&gt;。如有需要請參考 &lt;a href=&quot;http://en.wikipedia.org/wiki/Combinatorial_class。&quot;&gt;維基百科：Combinatorial Class&lt;/a&gt; &lt;a href=&quot;#fnref:sized&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 01 Jan 2015 00:00:00 +0800</pubDate>
+        <link>http://davidhu3141.github.io/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2015/01/01/Generating-Functions-(I).html</link>
+        <guid isPermaLink="true">http://davidhu3141.github.io/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2015/01/01/Generating-Functions-(I).html</guid>
+        
+        
+        <category>代數與組合</category>
         
       </item>
     
