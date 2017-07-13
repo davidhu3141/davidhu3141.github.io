@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>生成函數 (I)</title>
+  <meta name="description" content="生成函數 (I)">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://davidhu3141.github.io/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2015/01/01/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8-(I).html">
+  <link rel="alternate" type="application/rss+xml" title="AutoDavid's Blog" href="http://davidhu3141.github.io/feed.xml">
+
+<!-- mathjax -->
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<!-- icon -->
+  <link rel="shortcut icon" href="http://davidhu3141.github.io/pageicon.png">
+
+<!-- style -->
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+  <!-- link rel=stylesheet type="text/css" href="css/customs/article.css" -->
+
+<!-- remove amp -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+      data.math = data.math.replace(/^\s*<!\[CDATA\[\s*(.*)\s*\]\]>\s*$/m,"$1");
+      data.math = data.math.replace(/amp;/g," ");
+      data.math = data.math.replace(/&lt;/g,"<");
+      data.math = data.math.replace(/&gt;/g,">");
+    });
+  });
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">AutoDavid's Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+
+
+<div class="archives">
+
+  <div class="archive-group">
+    
+    <div id="#代數與組合"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 代數與組合 }</h3>
+    <a name="代數與組合"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2017/03/12/Free-Group.html">自由群</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2017/03/01/%E7%BE%A4%E7%9A%84%E5%9F%BA%E7%A4%8E%E5%AE%9A%E7%BE%A9.html">群的定義與基礎概念</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8-(II)-%E9%97%9C%E6%96%BC-RegExp-%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數 (II) -- 關於 RegExp 的妙用</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html">二元一次方程式整數解</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2015/01/01/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8-(I).html">生成函數 (I)</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#計算機科學"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 計算機科學 }</h3>
+    <a name="計算機科學"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8-(II)-%E9%97%9C%E6%96%BC-RegExp-%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數 (II) -- 關於 RegExp 的妙用</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/01/02/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%9F%BA%E7%A4%8E%E8%AA%9E%E6%B3%95.html">物件導向筆記 - 基礎</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#高中教材"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 高中教材 }</h3>
+    <a name="高中教材"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2017/05/11/%E7%A9%8D%E5%88%86%E6%8A%80%E5%B7%A7-%E4%B8%80%E6%AC%A1%E5%BC%8F%E9%99%A4%E4%BB%A5%E4%BA%8C%E6%AC%A1%E5%BC%8F.html">積分技巧：一次式除以二次式</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html">歐拉公式與三角函數的指數形式</a></h4>
+    </article>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html">二元一次方程式整數解</a></h4>
+    </article>
+    
+  </div>
+
+  <div class="archive-group">
+    
+    <div id="#拓撲學"></div>
+    <p></p>
+    
+    <h3 class="categoryTitle">{ 拓撲學 }</h3>
+    <a name="拓撲學"></a>
+    
+    <article class="articlelist">
+      <div class="articleLink"><a href="/%E6%8B%93%E6%92%B2%E5%AD%B8/2017/03/20/DieckCh3.html">Dieck Algebraic Topology Chapter 3 筆記</a></h4>
+    </article>
+    
+  </div>
+
+</div>
+
+
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">生成函數 (I)</h1>
+    <p class="post-meta"><time datetime="2015-01-01T00:00:00+08:00" itemprop="datePublished">Jan 1, 2015</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h1 id="i">生成函數 (I)</h1>
+
+<p>最近在閱讀 Flajolet 與 Sedgewick 的 <strong>解析組合學 <em>Analytic Combinatorics</em></strong>。由於這裡面提到的技巧實在太威了，決定將讀書心得以 Blog 的形式紀錄下來。</p>
+
+<p>[TOC]</p>
+
+<hr />
+
+<h2 id="section">什麼是解析組合學</h2>
+
+<p><strong>解析組合學</strong>這個名詞乍聽之下略帶違和感，因為分析（解析）和組合這兩個學問好像不太有交集。我們來看看這兩個數學中的分支：</p>
+
+<blockquote>
+  <ul>
+    <li><strong>分析學</strong>，如同我們學的微積分，主要是探討可微函數、解析函數、連續與極限等問題。</li>
+    <li><strong>組合學</strong>，如同中學的排列組合，包含圖論等，是離散數學的領域。</li>
+  </ul>
+</blockquote>
+
+<p>換句話說，我們竟然可以用微積分這種<strong>連續</strong>的手段來解決<strong>離散數學</strong>問題，這便是 <em>Analytic Combinatorics</em> 讓人著迷之處。</p>
+
+<hr />
+
+<h2 id="section-1">交錯排列</h2>
+
+<p>在序章中，作者介紹了中學見過的<strong>波浪數問題</strong>，或者是<strong>交錯排列</strong>問題</p>
+
+<h3 id="section-2">定義：《交錯排列》</h3>
+
+<blockquote>
+  <p>所謂 <script type="math/tex">n</script> 階<strong>交錯排列（Alternating Permutation）</strong>是指：將 <script type="math/tex">1, 2, ..., n</script> 等數字排列，排列的方式必須依照</p>
+
+  <ul>
+    <li>第二個數<strong>大</strong>於第一個數</li>
+    <li>第三個數<strong>小</strong>於第二個數</li>
+    <li>第四個數<strong>大</strong>於第三個數</li>
+    <li>…（以此類推）</li>
+  </ul>
+
+  <p>而 <script type="math/tex">n</script> 階交錯排列的方法數記為（<script type="math/tex">E_n</script>）。</p>
+</blockquote>
+
+<p>我們在這裡的問題就是：</p>
+
+<blockquote>
+  <p>給定 <script type="math/tex">n</script> ，請問 <script type="math/tex">E_n</script> 為多少？</p>
+</blockquote>
+
+<h3 id="script-typemathtexe5script">解法：<script type="math/tex">E_5</script></h3>
+
+<p>階數不大時解法也不會太困難，用中學的手法分情況討論即可得出答案。以 <script type="math/tex">E_5</script> 為例：</p>
+
+<blockquote>
+  <p>第二、四項可能為較大的 5 或 4，而剩下的第一、三、五項則為 1, 2, 3，有 <script type="math/tex">2!\times 3! = 12</script> 種可能</p>
+
+</blockquote>
+
+<blockquote>
+  <p>也有可能 4 在首或尾處並緊鄰 5，則剩下三個數只要 3 在 1, 2 中間即可，有 <script type="math/tex">2 \times 2! = 4</script> 種可能，前面的 2 是選擇 (4, 5, _ , _ , _ ) 或 ( _ , _ , _ , 5, 4)，後面的 <script type="math/tex">2!</script> 是討論剩下的三個位置可能是 (1, 3, 2) 或 (2, 3, 1)。</p>
+
+</blockquote>
+
+<blockquote>
+  <p>故 <script type="math/tex">E_5 = 2!\times 3! + 2 \times 2! = 16</script></p>
+</blockquote>
+
+<p>但是當 <script type="math/tex">n</script> 過大時，我們便缺乏適當的手段來處理這個問題了。在此，這本書的作者指出了一個極為巧妙的事實：</p>
+
+<h3 id="andrs-theorem">通解：André’s theorem</h3>
+
+<p>有一位數學家 André 證明了這件事：</p>
+
+<blockquote>
+  <p>將 <script type="math/tex">tan(z) + sec(z)</script> 表達為冪級數形式：
+ <script type="math/tex; mode=display">tan(z) + sec(z) = 1 + \frac{1}{1!}z + \frac1{2!}z^2 +  \frac{2}{3!}z^3 + \frac5{4!}x^4 + \frac{16}{5!}z^5 + ...</script>
+ 其中每一個 <script type="math/tex">z^n</script> 項係數的分子即為交錯排列方法數<sup id="fnref:altnum_wikip"><a href="#fn:altnum_wikip" class="footnote">1</a></sup>。</p>
+</blockquote>
+
+<p>這個公式的確頗為驚人，且不論 <script type="math/tex"> tan(z) + sec(z) </script> 乃是<strong>和排列組合八竿子打不著邊</strong>的函數，我們竟然可以將一個解析函數展開來解決離散數學的問題！</p>
+
+<p>像這樣展開函數來解決方法數問題的方法，我們就稱為<strong>生成函數</strong>，也是本書所討論的重點。不過這篇文不會探討如何推導 André’s theorem，以後可能會再寫。</p>
+
+<hr />
+
+<h2 id="section-3">生成函數</h2>
+
+<h3 id="section-4">定義：《生成函數》</h3>
+<blockquote>
+  <p>一個數列 <script type="math/tex">\mathcal{A} = \{A_0, A_1, A_2, ...\}</script> 的生成函數（Generating Function），是一個形式如下的冪級數：
+<script type="math/tex">\mathcal{A}[x] = \sum_{i=0}^{\infty} A_ix^i  = A_0 + A_1x + A_2x^2 ...</script>
+。通常 <script type="math/tex">\mathcal{A}</script> 可能含有能夠解決某個特定<strong>問題</strong><sup id="fnref:sized"><a href="#fn:sized" class="footnote">2</a></sup> 的訊息。</p>
+</blockquote>
+
+<p>沒錯，與一般的冪級數沒有兩樣，看起來就像是擁有無限（或有限）多項的多項式，但它的係數卻是某個問題的答案。我們來看一個各位不陌生例子：</p>
+
+<h3 id="section-5">例子：二項式係數</h3>
+
+<blockquote>
+  <p>從 <script type="math/tex">n</script> 個不同顏色的球中取出 <script type="math/tex">r</script> 個，不計順序，請問有幾種可能？</p>
+</blockquote>
+
+<p>顯然答案就是組合數 <script type="math/tex">C^{n}_{r}</script>（或者記為 <script type="math/tex">\mathbf{\binom{n}{r}}</script>），二項式定理告訴我們，這會等同於 <script type="math/tex">(1+x)^n</script> 展開後第 <script type="math/tex">r</script> 項的係數：</p>
+
+<blockquote>
+  <script type="math/tex; mode=display">(1+x)^n = \binom{n}{0} + \binom{n}{1}x + \binom{n}{2}x^2 + ... + \binom{n}{n}x^n</script>
+</blockquote>
+
+<p>注意到右式的係數正是我們要的答案 <script type="math/tex">C^{n}_{r}</script> 。因此我們就可以稱 <script type="math/tex">(1+x)^n</script> 為 <script type="math/tex">C^{n}_{r}</script> 的<strong>生成函數</strong>。</p>
+
+<p>我們來複習一下：為什麼這個等式會成立呢？因為我們將 <script type="math/tex">(1+x)^n</script> 展開時，必須要從<script type="math/tex; mode=display"> (1+x)(1+x)(1+x) ... (1+x) </script>這 <script type="math/tex">n</script> 個括號中各取一項（可能是 <script type="math/tex">1</script> 或 <script type="math/tex">x</script>）出來相乘，成為一個 <script type="math/tex">x^r</script> 項（<script type="math/tex">r</script> 是多少端看我們總共從這些括號中取了多少個 <script type="math/tex">x</script> 出來）。</p>
+
+<p>由於我們總共有 <script type="math/tex">\binom{n}{r}</script> 種方式可以從 <script type="math/tex">n</script> 個括號中取出 <script type="math/tex">r</script> 個 <script type="math/tex">x</script> 出來相乘，因此 <script type="math/tex">x^r</script> 展開後總共會有 <script type="math/tex">\binom{n}{r}</script> 個，組合數便反映在 <script type="math/tex">x^r</script> 的係數上了。</p>
+
+<p>「把答案表為某個冪級數的係數」，正是生成函數在做的事。我們來解決一個類似的問題：</p>
+
+<h3 id="section-6">例子：取球問題</h3>
+
+<blockquote>
+  <p>從 4 個紅球、4 個白球、4 個黑球中取出六個，不計順序，請問有幾種可能？</p>
+</blockquote>
+
+<p>用中學的方法解決這問題，我們需要先算 <script type="math/tex">H^3_6</script> 再扣掉如 (5, 1, 0)、(6, 0, 0) 等可能性。現在我們來試試生成函數：</p>
+
+<h4 id="section-7">解法</h4>
+
+<blockquote>
+  <p>將 <script type="math/tex">(1+x+x^2+x^3+x^4)^3</script> 展開，取出第六項係數，便可以得到解。</p>
+</blockquote>
+
+<p>為什麼呢？當我們將這個式子展開時，總共會需要乘開三個括號，從這三個括號中各取出一項（可能是 <script type="math/tex">x^0</script> ~ <script type="math/tex">x^4</script>）來相乘，都可以得到展開後的某一項。這動作如同我們從三種顏色的球中取出 0 到 4 顆，例如「3 紅 2 白 1 黑」對應到下列這種展開方式：</p>
+
+<script type="math/tex; mode=display">(...+\mathbf{\underset{take\ 3\ red}{x^3}}+...)(...+\mathbf{\underset{take\ 2\ white}{x^2}}+...)(...+\mathbf{\underset{take\ 1\ black}{x^1}}+...) \Rightarrow x^6 </script>
+<p>。</p>
+
+<p>所以 <script type="math/tex">x^6</script> 的係數為多少，代表我們展開出幾個 <script type="math/tex">x^6</script> 項，也同時代表有幾種方式可以從三種色球中取出共六顆球。</p>
+
+<p>– 這就是<strong>生成函數法解決組合學問題</strong>。</p>
+
+<hr />
+
+<h3 id="section-8">取出某一項的係數還是很難</h3>
+
+<p>在大部份的時候，要手動展開一個這樣的多項式或冪級數，可能會與暴力法一樣麻煩。</p>
+
+<p>通常我們可以選擇用<strong>泰勒展開式</strong>來「抽取」某一項的係數：</p>
+
+<blockquote>
+  <script type="math/tex; mode=display">t(z) = t(0) + \frac{t'(0)}{1!}z + \frac{t''(0)}{2!}z^2 + \frac{t'''(0)}{3!}z^3 +  ...</script>
+
+  <script type="math/tex; mode=display">\Rightarrow n^{th} \mathit{coefficient} =  \frac{t^{(n)}(0)}{n!}</script>
+
+</blockquote>
+
+<p>不過手動來說還是一樣冗，因為可能會需要做好幾次的微分。不過只要把問題表示成多項式，我們就有許多微積分的工具或是軟體可以幫我們處理這類問題。</p>
+
+<p>另外，也是作為本書的另一個重點，就是我們可以用複分析的工具來估計係數成長的漸進複雜度。</p>
+
+<p>往後的文章可能會介紹<strong>制式</strong>的手法來為各式各樣組合學的問題找出生成函數並<strong>估計數量級</strong>，這也是為甚麼我們偏向使用生成函數，而非為每個益智問題絞盡腦汁來想一個特殊解法。</p>
+
+<hr />
+
+<h2 id="section-9">動差生成函數</h2>
+
+<p>許多人可能也曾經在學習<strong>機率與統計</strong>時學過<strong>動差母函數(Moment Generating Function)</strong>，也是類似的手段：我們先對機率分佈函數 <script type="math/tex">f(x)</script> 做完 <script type="math/tex; mode=display">\int_{-\infty}^{\infty}e^{tx}f(x)dx</script> 之後，去取它冪級數的一次項、二次項、甚至 <script type="math/tex">n</script> 次項係數，便可以同時得到該 <script type="math/tex">\mathit{pdf}</script> 的期望值、變異數以及所有 <script type="math/tex">n</script> 階動差。動差母函數把這些資訊都反應在它的係數上，只不過機率學用的是 <script type="math/tex">exp(x)</script> 的冪級數性質而已。</p>
+
+<hr />
+
+<p>這篇第一集就簡單介紹到這裡吧，寫了好多啊（攤）。不過這些內容在數學系的離散數學都有含括到，寫起來也不會吃力。有空會開始按照書本的順序介紹 <strong>Combinatorial Class</strong>。它的概念有點類似排列組合中的<strong>所有排法</strong>組成的集合，也是這本書主要探討的對象。我們將透過生成函數來為其計數。</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:altnum_wikip">
+      <p>請見 <a href="http://en.wikipedia.org/wiki/Alternating_permutation">維基百科：André’s theorem</a> <a href="#fnref:altnum_wikip" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:sized">
+      <p>所謂<strong>問題</strong>，這裡指的是 <strong>Combinatorial Class</strong>。如有需要請參考 <a href="http://en.wikipedia.org/wiki/Combinatorial_class。">維基百科：Combinatorial Class</a> <a href="#fnref:sized" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">AutoDavid's Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <!-- li>AutoDavid's Blog</li -->
+          <li><a href="mailto:davidhu8888@livemail.com">davidhu8888@livemail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>這裡會發一些關於數學、代數拓撲、範疇論、計算機科學的廢文或繪圖，跟寫一些沒用的小品程式。
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
