@@ -97,10 +97,6 @@
     </article>
     
     <article class="articlelist">
-      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
-    </article>
-    
-    <article class="articlelist">
       <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8-(II)-%E9%97%9C%E6%96%BC-RegExp-%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數 (II) -- 關於 RegExp 的妙用</a></h4>
     </article>
     
@@ -145,29 +141,11 @@
     </article>
     
     <article class="articlelist">
-      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
-    </article>
-    
-    <article class="articlelist">
       <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html">歐拉公式與三角函數的指數形式</a></h4>
     </article>
     
     <article class="articlelist">
       <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html">二元一次方程式整數解</a></h4>
-    </article>
-    
-  </div>
-
-  <div class="archive-group">
-    
-    <div id="#拓撲學"></div>
-    <p></p>
-    
-    <h3 class="categoryTitle">{ 拓撲學 }</h3>
-    <a name="拓撲學"></a>
-    
-    <article class="articlelist">
-      <div class="articleLink"><a href="/%E6%8B%93%E6%92%B2%E5%AD%B8/2017/03/20/DieckCh3.html">Dieck Algebraic Topology Chapter 3 筆記</a></h4>
     </article>
     
   </div>
@@ -188,15 +166,36 @@
 <p>歐拉公式 <script type="math/tex">e^{i\theta}=\operatorname{cos}\theta+i\operatorname{sin}\theta</script> 讓我們可以定義複數的指數，然後作很多事，比方說</p>
 
 <ol>
-  <li>將三角函數寫成指數形式，像 <script type="math/tex">\operatorname{sinh}</script>、 <script type="math/tex">\operatorname{cosh}</script> 一樣。</li>
-  <li>證明棣美弗定理</li>
+  <li>將三角函數寫成指數形式，像雙曲函數 <script type="math/tex">\sinh=(e^x-e^{-x})/2</script>、 <script type="math/tex">\cosh=(e^x+e^{-x})/2</script> 一樣。</li>
+  <li>重寫複數的極式，並證明棣美弗定理</li>
   <li><em>證明代數基本定理（此不討論）</em></li>
-  <li><em>更多重要的定理</em></li>
 </ol>
 
 <p>在這之前應該要先證明歐拉公式。證明歐拉公式需要用到微積分中的泰勒展開式（Taylor formula）。</p>
 
-<p>[TOC]</p>
+<!-- TOC -->
+
+<ul>
+  <li><a href="#泰勒展開式">泰勒展開式</a>
+    <ul>
+      <li><a href="#三次式的係數">三次式的係數</a></li>
+      <li><a href="#物理意義">物理意義</a></li>
+      <li><a href="#無窮項的泰勒展開式">無窮項的泰勒展開式</a></li>
+      <li><a href="#無窮多項的盲點">無窮多項的盲點</a></li>
+    </ul>
+  </li>
+  <li><a href="#歐拉公式">歐拉公式</a>
+    <ul>
+      <li><a href="#某數的-i-次方">某數的 <script type="math/tex">i</script> 次方</a></li>
+      <li><a href="#展開三角函數">展開三角函數</a></li>
+      <li><a href="#證明歐拉公式">證明歐拉公式</a></li>
+    </ul>
+  </li>
+  <li><a href="#將三角函數寫成指數形式">將三角函數寫成指數形式</a></li>
+  <li><a href="#證明棣美弗定理">證明棣美弗定理</a></li>
+</ul>
+
+<!-- /TOC -->
 
 <h3 id="section-1">泰勒展開式</h3>
 
@@ -228,7 +227,15 @@
 
 <p>這裡有一點物理意義：如果一個系統是以多項式的模式在演變，比方說氣溫，那麼只要測量現在的氣溫、現在的氣溫變化率、變化率的變化率 …，就可以知道未來每一刻的溫度了。</p>
 
-<p>但是氣溫不可能以多項式演變，因為高次多項式增長的速度非常快。</p>
+<p>但是氣溫不可能以多項式演變，因為高次多項式增長的速度非常快，所以這種預測並不能預測很久以後的氣溫。</p>
+
+<p>如果是測量物體運動的話，</p>
+
+<script type="math/tex; mode=display">x(t) = x(0) + \frac{x'(0)}{1!} t + \frac{x''(0)}{2!} t^2 + \cdots</script>
+
+<p>前三項就是等加速度公式（也就是說，<script type="math/tex">a(t) = a_{\textit{(const)}},\ x'''(t)=0</script> 的情況）</p>
+
+<script type="math/tex; mode=display"> x(t)-x(0) = \Delta x = \frac{v(0)}{1!}t+\frac{a}{2!}t^2</script>
 
 <h4 id="section-4">無窮項的泰勒展開式</h4>
 
@@ -254,7 +261,11 @@
 
 <p>無窮等比級數的公比 <script type="math/tex">x</script> 必須滿足範圍 <script type="math/tex">-1&lt;x&lt;1</script>，所以 <script type="math/tex">f_{\mathrm{taylor}}</script> 在這範圍外是沒有值的。但是 <script type="math/tex">f(x)=\frac{1}{1-x}</script> 只在 <script type="math/tex">x=1</script> 的地方沒有值，所以這是兩個不一樣的函數。</p>
 
-<p>應該試著去想 <script type="math/tex">f_{\mathrm{taylor}}(x) </script> 和 <script type="math/tex">f(x)</script> 的圖形差在哪裡。</p>
+<p>應該試著去想 <script type="math/tex">f_{\mathrm{taylor}}(x) </script> 和 <script type="math/tex">f(x)</script> 的圖形差在哪裡。（前者只是後者的一部份）</p>
+
+<p>下圖為利用 <script type="math/tex">1\sim6</script> 次多項式（藍色）逼近 <script type="math/tex">\frac1{1-x}</script> （紅色）的圖形：</p>
+
+<p><img src="http://i.imgur.com/83maw3U.png" alt="" /></p>
 
 <h3 id="section-6">歐拉公式</h3>
 
@@ -272,7 +283,7 @@
 
 <script type="math/tex; mode=display">\operatorname{exp}x=\operatorname{exp}0+\frac{\operatorname{exp}'0}{1!}x + \frac{\operatorname{exp}''0}{2!}x^2+...</script>
 
-<p>由於 <script type="math/tex">\operatorname{exp}x</script> 的 <script type="math/tex">n</script> 階導數都是 <script type="math/tex">\operatorname{exp}x</script> 本身，所以 <script type="math/tex">\operatorname{exp}' ' 0 = \operatorname{exp}' 0 = \operatorname{exp} 0 = 1 </script> ，展開式簡化為</p>
+<p>由於 <script type="math/tex">\operatorname{exp}x</script> 是個特殊函數，其 <script type="math/tex">n</script> 階導數都是 <script type="math/tex">\operatorname{exp}x</script> 本身，所以 <script type="math/tex">\operatorname{exp}' ' 0 = \operatorname{exp}' 0 = \operatorname{exp} 0 = 1 </script> ，展開式簡化為</p>
 
 <script type="math/tex; mode=display">\operatorname{exp}x=1+\frac{1}{1!}x + \frac{1}{2!}x^2+...</script>
 
@@ -317,11 +328,13 @@
 
 <p>從倒數第二行到最後一行，就是用剛剛推導出來的 <script type="math/tex">\operatorname{exp}ix</script> 的公式。</p>
 
+<p>值得注意的是，複數的極式 <script type="math/tex">r(\cos \theta+i\sin \theta)</script> 以後就要簡寫成 <script type="math/tex">re^{i\theta}</script>。</p>
+
 <h3 id="section-9">將三角函數寫成指數形式</h3>
 
 <p>根據 <script type="math/tex">e^{ix}=\operatorname{cos}x+i\operatorname{sin}x</script> ，我們也有</p>
 
-<script type="math/tex; mode=display">e^{-ix}=\operatorname{cos}-x+i\operatorname{sin}-x = \operatorname{cos}x-i\operatorname{sin}x</script>
+<script type="math/tex; mode=display">e^{-ix}=(\operatorname{cos}-x)+(i\operatorname{sin}-x) = \operatorname{cos}x-i\operatorname{sin}x</script>
 
 <p>。所以</p>
 
@@ -340,7 +353,7 @@
 
 </blockquote>
 
-<p>三角(二) 會學到棣美弗定理的完整解釋。用歐拉公式來證明它再簡單不過了：</p>
+<p>棣美弗定理用歐拉公式來證明，是再簡單不過了：</p>
 
 <script type="math/tex; mode=display">[r(\operatorname{cos}\theta+i\operatorname{sin}\theta)]^n=(re^{i\theta})^n = r^ne^{in\theta}=r^n(\operatorname{cos}n\theta+i\operatorname{sin}n\theta)</script>
 

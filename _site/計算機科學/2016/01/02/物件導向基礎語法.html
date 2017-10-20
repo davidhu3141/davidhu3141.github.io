@@ -97,10 +97,6 @@
     </article>
     
     <article class="articlelist">
-      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
-    </article>
-    
-    <article class="articlelist">
       <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8-(II)-%E9%97%9C%E6%96%BC-RegExp-%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數 (II) -- 關於 RegExp 的妙用</a></h4>
     </article>
     
@@ -145,29 +141,11 @@
     </article>
     
     <article class="articlelist">
-      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
-    </article>
-    
-    <article class="articlelist">
       <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html">歐拉公式與三角函數的指數形式</a></h4>
     </article>
     
     <article class="articlelist">
       <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html">二元一次方程式整數解</a></h4>
-    </article>
-    
-  </div>
-
-  <div class="archive-group">
-    
-    <div id="#拓撲學"></div>
-    <p></p>
-    
-    <h3 class="categoryTitle">{ 拓撲學 }</h3>
-    <a name="拓撲學"></a>
-    
-    <article class="articlelist">
-      <div class="articleLink"><a href="/%E6%8B%93%E6%92%B2%E5%AD%B8/2017/03/20/DieckCh3.html">Dieck Algebraic Topology Chapter 3 筆記</a></h4>
     </article>
     
   </div>
@@ -201,7 +179,88 @@
 
 <p>以下的筆記以 Java 語法為準</p>
 
-<p>[TOC]</p>
+<!-- TOC -->
+
+<ul>
+  <li><a href="#一類別與物件">一、類別與物件</a></li>
+  <li><a href="#二屬性與方法">二、屬性與方法</a>
+    <ul>
+      <li><a href="#屬性-field">屬性 Field</a></li>
+      <li><a href="#方法-method">方法 Method</a>
+        <ul>
+          <li><a href="#建構子">建構子</a></li>
+          <li><a href="#finalize">finalize</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#三封裝-encapsulation">三、封裝 Encapsulation</a>
+    <ul>
+      <li><a href="#公有與私有">公有與私有</a></li>
+      <li><a href="#在-eclipse-中快速封裝">在 Eclipse 中快速封裝:</a></li>
+      <li><a href="#這樣解決了什麼工程問題">這樣解決了什麼工程問題</a></li>
+    </ul>
+  </li>
+  <li><a href="#四靜態屬性與方法-static-fields-and-methods">四、靜態屬性與方法 Static Fields and Methods</a>
+    <ul>
+      <li><a href="#舉例">舉例</a>
+        <ul>
+          <li><a href="#例-1這個屬性是誰的">例 1：這個屬性是誰的？</a></li>
+          <li><a href="#例-2常見的例子無關物件的函數">例 2：常見的例子，無關物件的函數</a></li>
+          <li><a href="#例-3有關初始化的語法">例 3：有關初始化的語法</a></li>
+          <li><a href="#例-4常犯的錯誤">例 4：常犯的錯誤</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#五繼承-inherit">五、繼承 Inherit</a>
+    <ul>
+      <li><a href="#使用時機">使用時機</a>
+        <ul>
+          <li><a href="#subset-必要條件">Subset （必要條件）</a></li>
+          <li><a href="#code-reuse">Code Reuse</a></li>
+          <li><a href="#extend-class-functionality">Extend Class Functionality</a></li>
+        </ul>
+      </li>
+      <li><a href="#protected-指示字">Protected 指示字</a></li>
+      <li><a href="#override-annotation">Override Annotation</a></li>
+      <li><a href="#誤用繼承">誤用繼承</a>
+        <ul>
+          <li><a href="#例一子類別改變父類別的預期行為">例一：子類別改變父類別的預期行為</a></li>
+          <li><a href="#例二抽象意義上不符合不應該繼承">例二：抽象意義上不符合，不應該繼承</a></li>
+          <li><a href="#例三背叛父類別">例三：背叛父類別</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#六抽象類別-abstract-class">六、抽象類別 Abstract Class</a>
+    <ul>
+      <li><a href="#使用時機-1">使用時機</a>
+        <ul>
+          <li><a href="#例profiledatabase">例：ProfileDatabase</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#七介面-interface">七、介面 Interface</a>
+    <ul>
+      <li><a href="#關於語法">關於語法</a></li>
+      <li><a href="#使用時機-2">使用時機</a>
+        <ul>
+          <li><a href="#例實作-comparablehttpdocsoraclecomjavase7docsapijavautilcollectionshtmlsortjavautillist-介面">例：實作 [Comparable](http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#sort(java.util.List)) 介面</a></li>
+        </ul>
+      </li>
+      <li><a href="#java-官方httpsdocsoraclecomjavasetutorialjavaiandiabstracthtmlabstact_classes_compared_to_interfaces建議的使用時機">[Java 官方](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html#abstact_classes_compared_to_interfaces)建議的使用時機</a>
+        <ul>
+          <li><a href="#以下情況建議使用抽象類別">以下情況建議使用抽象類別</a></li>
+          <li><a href="#以下情況建議使用介面">以下情況建議使用介面</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<!-- /TOC -->
 
 <h2 id="section-1">一、類別與物件</h2>
 
@@ -210,6 +269,7 @@
 <h2 id="section-2">二、屬性與方法</h2>
 
 <h3 id="field">屬性 Field</h3>
+
 <p>這裡就不廢話了</p>
 
 <h3 id="method">方法 Method</h3>
@@ -267,7 +327,6 @@
 <span class="o">}</span>
 </code></pre>
 </div>
-
 <p>發現了嗎？他不應該要求所有上層開發者來看他的 code 與註解。當 code 越來越大，上層開發者會有很多地雷要閃。</p>
 
 <p>修正：</p>
@@ -478,6 +537,7 @@
 <span class="k">new</span> <span class="nf">AuthenticatedChannel</span><span class="p">(</span><span class="n">UserAuthenticationData</span> <span class="n">u</span><span class="o">)</span>
 </code></pre>
 </div>
+
 <p>要保持繼承中 <strong>is a</strong> 的概念</p>
 
 <h4 id="section-15">例三：背叛父類別</h4>
@@ -497,7 +557,7 @@
 </div>
 <p>Java 提供物件導向的語法，但語法並不是重點，遵守規則才是。</p>
 
-<h2 id="abstract-class">七、抽象類別 Abstract Class</h2>
+<h2 id="abstract-class">六、抽象類別 Abstract Class</h2>
 
 <ul>
   <li>定義類別的行為，卻沒有完整的實作，用來當作別人的父類別</li>
@@ -549,7 +609,7 @@
 </code></pre>
 </div>
 
-<h2 id="interface">八、介面 Interface</h2>
+<h2 id="interface">七、介面 Interface</h2>
 
 <h3 id="section-17">關於語法</h3>
 

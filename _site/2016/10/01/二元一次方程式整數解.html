@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>二元一次方程式整數解</title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="header">
+<h1 class="title">二元一次方程式整數解</h1>
+<h3 class="date">2016-10-01 00:00:00 +0800</h3>
+</div>
+<h1 id="二元一次方程式整數解">二元一次方程式整數解</h1>
+<p>來證明下面的事實：</p>
+<blockquote>
+<p>給定 <span class="math inline"><em>a</em>, <em>b</em> ∈ ℤ</span> ， 則二元一次方程式 $ ax+by = c $ 有整數解的充要條件是 $ (a, b) | c $ 。</p>
+</blockquote>
+<p>分成兩部分討論：</p>
+<ul>
+<li>$ ax+by = c $ 有整數解 <span class="math inline">⇒(<em>a</em>, <em>b</em>)|<em>c</em></span></li>
+<li>$(a, b)|cax+by = c $ 有整數解</li>
+</ul>
+<p>[TOC]</p>
+<h3 id="一有整數解-rightarrow-a-bc">一、有整數解 <span class="math inline">⇒(<em>a</em>, <em>b</em>)|<em>c</em></span></h3>
+<h4 id="證明過程">證明過程</h4>
+<p><span class="math inline"><em>a</em><em>x</em> + <em>b</em><em>y</em> = <em>c</em></span> 有整數解 <span class="math inline">⇒</span> 存在 <span class="math inline"><em>u</em>, <em>v</em> ∈ ℤ</span> 使 <span class="math inline"><em>a</em><em>u</em> + <em>b</em><em>v</em> = <em>c</em></span>。</p>
+<p>由於 <span class="math inline">(<em>a</em>, <em>b</em>)|<em>a</em></span> 且 <span class="math inline">(<em>a</em>, <em>b</em>)|<em>b</em></span> ，根據<strong>線性組合原理</strong>， <span class="math inline">(<em>a</em>, <em>b</em>)|<em>a</em><em>u</em> + <em>b</em><em>v</em></span> ， 即 $ (a, b)|c$，得證。</p>
+<h4 id="線性組合原理">線性組合原理</h4>
+<p>剛剛的證明用到線性組合的原理：</p>
+<blockquote>
+<p>若 <span class="math inline"><em>r</em>|<em>a</em></span> 且 <span class="math inline"><em>r</em>|<em>b</em></span> ， 則任取整數 <span class="math inline"><em>m</em>, <em>n</em> ∈ ℤ</span> ，都有 <span class="math inline"><em>r</em>|<em>m</em><em>a</em> + <em>b</em><em>n</em></span>。</p>
+</blockquote>
+<p>原因很直觀：</p>
+<p><span class="math inline"><em>r</em>|<em>a</em>⇒</span> 存在整數 $k $ 使 <span class="math inline"><em>a</em> = <em>k</em><em>r</em></span> <span class="math inline"><em>r</em>|<em>b</em>⇒</span> 存在整數 $l $ 使 <span class="math inline"><em>b</em> = <em>l</em><em>r</em></span></p>
+<p>故 <span class="math inline"><em>m</em><em>a</em> + <em>b</em><em>n</em> = <em>k</em><em>m</em><em>r</em> + <em>l</em><em>n</em><em>r</em></span> ，的確為 <span class="math inline"><em>r</em></span> 的倍數。</p>
+<h3 id="二a-bc-有整數解">二、$(a, b)|c$ 有整數解</h3>
+<p>證明會用到輾轉相除法和一些其他原理，先來看看：</p>
+<h4 id="餘數會整除最大公因數">餘數會整除最大公因數</h4>
+<blockquote>
+<p>將 <span class="math inline"><em>a</em>, <em>b</em></span> 相除的過程寫成 <span class="math inline"><em>a</em> = <em>b</em><em>q</em> + <em>r</em></span>，則 <span class="math inline">(<em>a</em>, <em>b</em>)|<em>r</em></span> 。</p>
+</blockquote>
+<p>原因是根據線性組合原理，<span class="math inline">(<em>a</em>, <em>b</em>)|<em>a</em> − <em>b</em><em>q</em></span>，又 <span class="math inline"><em>a</em> − <em>b</em><em>q</em> = <em>r</em></span>，所以 <span class="math inline">(<em>a</em>, <em>b</em>)|<em>r</em></span> 。</p>
+<h4 id="輾轉相除法">輾轉相除法</h4>
+<p>如果想要算最大公因數 <span class="math inline">(<em>a</em>, <em>b</em>)</span> ，根據上述原理，我們知道 <span class="math inline"><em>a</em>, <em>b</em></span> 相除後，<span class="math inline">(<em>a</em>, <em>b</em>)</span> 會在餘數 <span class="math inline"><em>r</em></span> 的因數中，所以 <span class="math inline">(<em>a</em>, <em>b</em>)=(<em>a</em>, <em>b</em>, <em>r</em>)=(<em>b</em>, <em>r</em>)</span>。 我們只要找出 <span class="math inline">(<em>b</em>, <em>r</em>)</span> 即可。</p>
+<p>現在我們把 <span class="math inline"><em>b</em>, <em>r</em></span> 相除，會得到新餘數 <span class="math inline"><em>r</em><sub>2</sub></span>。同理我們只要找 <span class="math inline">(<em>r</em>, <em>r</em><sub>2</sub>)</span> 最大公因數即可。依序做下去的話，餘數會越來越小，但這些餘數都是 <span class="math inline">(<em>a</em>, <em>b</em>)</span> 的倍數，我們於是有餘數的數列：</p>
+<blockquote>
+<p><span class="math inline"><em>r</em>, <em>r</em><sub>2</sub>, <em>r</em><sub>3</sub>, ...<em>r</em><sub><em>k</em></sub></span> ，且 <span class="math inline">(<em>a</em>, <em>b</em>)</span> 整除所有 <span class="math inline"><em>r</em><sub><em>n</em></sub></span>。</p>
+</blockquote>
+<p>由於餘數越來越小的的原因，最後一定會有某個 <span class="math inline"><em>r</em><sub><em>k</em></sub></span> 是我們要找的 <span class="math inline">(<em>a</em>, <em>b</em>)</span> 。</p>
+<p>由於 <span class="math inline">(<em>a</em>, <em>b</em>)|<em>r</em><sub><em>k</em> − 1</sub></span> ，故 <span class="math inline"><em>r</em><sub><em>k</em></sub>|<em>r</em><sub><em>k</em> − 1</sub></span> ，也就是說這兩個餘數 <span class="math inline"><em>r</em><sub><em>k</em></sub>, <em>r</em><sub><em>k</em> − 1</sub></span> 繼續做除法會整除，不會有新餘數了。</p>
+<h4 id="將最大公因數-a-b-表為-manb">將最大公因數 <span class="math inline">(<em>a</em>, <em>b</em>)</span> 表為 <span class="math inline"><em>m</em><em>a</em> + <em>n</em><em>b</em></span></h4>
+<p>根據輾轉相除法，假設今天只做三次就找到 <span class="math inline"><em>r</em><sub>3</sub> = (<em>a</em>, <em>b</em>)</span>：</p>
+<p><span class="math inline"><em>a</em> = <em>b</em><em>q</em> + <em>r</em></span> <span class="math inline"><em>b</em> = <em>r</em><em>q</em><sub>2</sub> + <em>r</em><sub>2</sub></span> <span class="math inline"><em>r</em> = <em>r</em><sub>2</sub><em>q</em><sub>3</sub> + <em>r</em><sub>3</sub></span> <span class="math inline"><em>r</em><sub>2</sub> = <em>r</em><sub>3</sub><em>q</em><sub>4</sub></span>（整除結束，<span class="math inline"><em>r</em><sub>3</sub></span> 為最小公因數）</p>
+<p>根據第三個式子，我們注意到 <span class="math inline"><em>r</em><sub>3</sub></span> 可以用 <span class="math inline"><em>r</em>, <em>r</em><sub>2</sub></span> 的線性組合表示。 根據第二個式子， <span class="math inline"><em>r</em><sub>2</sub></span> 又可以用 <span class="math inline"><em>b</em>, <em>r</em></span> 的線性組合表示。 根據第一個式子， <span class="math inline"><em>r</em></span> 又可以用 <span class="math inline"><em>a</em>, <em>b</em></span> 的線性組合表示。</p>
+<p>所以 <span class="math inline"><em>r</em><sub>3</sub></span> 可以用 <span class="math inline"><em>a</em>, <em>b</em></span> 的線性組合表示。</p>
+<blockquote>
+<p>結論： <span class="math inline">(<em>a</em>, <em>b</em>)</span> 總可以表為 <span class="math inline"><em>a</em>, <em>b</em></span> 的線性組合。</p>
+</blockquote>
+<h4 id="開始證明第二部分">開始證明第二部分</h4>
+<blockquote>
+<p>目標： $(a, b)|cax+by = c $ 有整數解。</p>
+</blockquote>
+<p><span class="math inline">(<em>a</em>, <em>b</em>)|<em>c</em></span> 代表 <span class="math inline"><em>c</em> = <em>k</em> ⋅ (<em>a</em>, <em>b</em>)</span> ， 原方程式改寫為 <span class="math inline"><em>a</em><em>x</em> + <em>b</em><em>y</em> = <em>k</em> ⋅ (<em>a</em>, <em>b</em>)</span> 。</p>
+<p>剛才說 <span class="math inline">(<em>a</em>, <em>b</em>)</span> 總可以表為 <span class="math inline"><em>a</em>, <em>b</em></span> 的線性組合，所以總存在整數 <span class="math inline"><em>m</em>, <em>n</em> ∈ ℤ</span> 使 <br /><span class="math display"><em>m</em><em>a</em> + <em>n</em><em>b</em> = (<em>a</em>, <em>b</em>)</span><br />。等號兩邊同乘以 <span class="math inline"><em>k</em></span> 得到 <br /><span class="math display"><em>k</em><em>m</em><em>a</em> + <em>k</em><em>n</em><em>b</em> = <em>k</em> ⋅ (<em>a</em>, <em>b</em>)</span><br />，再和剛才的 <br /><span class="math display"><em>a</em><em>x</em> + <em>b</em><em>y</em> = <em>k</em> ⋅ (<em>a</em>, <em>b</em>)</span><br /> 比較係數，得到 <span class="math inline"><em>x</em> = <em>k</em><em>m</em></span> ， <span class="math inline"><em>y</em> = <em>k</em><em>n</em></span> ，得證。</p>
+<blockquote>
+<p><strong>Note</strong>: 可以練習真的去舉個例子，然後找找看找這種方程式的整數解。關鍵步驟是把 <span class="math inline">(<em>a</em>, <em>b</em>)</span> 表為 <span class="math inline"><em>a</em>, <em>b</em></span> 的線性組合，利用輾轉相除法。</p>
+</blockquote>
+</body>
+</html>

@@ -97,10 +97,6 @@
     </article>
     
     <article class="articlelist">
-      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
-    </article>
-    
-    <article class="articlelist">
       <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/2016/12/02/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8-(II)-%E9%97%9C%E6%96%BC-RegExp-%E7%9A%84%E5%A6%99%E7%94%A8.html">生成函數 (II) -- 關於 RegExp 的妙用</a></h4>
     </article>
     
@@ -145,29 +141,11 @@
     </article>
     
     <article class="articlelist">
-      <div class="articleLink"><a href="/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/03/%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86.html">高斯引理的各種形式與推論</a></h4>
-    </article>
-    
-    <article class="articlelist">
       <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2016/12/01/%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F%E8%88%87%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8%E7%9A%84%E6%8C%87%E6%95%B8%E5%BD%A2%E5%BC%8F.html">歐拉公式與三角函數的指數形式</a></h4>
     </article>
     
     <article class="articlelist">
       <div class="articleLink"><a href="/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/%E4%BB%A3%E6%95%B8%E8%88%87%E7%B5%84%E5%90%88/2016/10/01/%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%95%B4%E6%95%B8%E8%A7%A3.html">二元一次方程式整數解</a></h4>
-    </article>
-    
-  </div>
-
-  <div class="archive-group">
-    
-    <div id="#拓撲學"></div>
-    <p></p>
-    
-    <h3 class="categoryTitle">{ 拓撲學 }</h3>
-    <a name="拓撲學"></a>
-    
-    <article class="articlelist">
-      <div class="articleLink"><a href="/%E6%8B%93%E6%92%B2%E5%AD%B8/2017/03/20/DieckCh3.html">Dieck Algebraic Topology Chapter 3 筆記</a></h4>
     </article>
     
   </div>
@@ -187,7 +165,17 @@
 
 <p>自由群是一種特殊的群，它的迷人之處在接下來會一一看到，不過在這之前要先刻畫一下自由群的樣貌。</p>
 
-<p>[TOC]</p>
+<!-- TOC -->
+
+<ul>
+  <li><a href="#一定義">一、定義</a></li>
+  <li><a href="#二就只是符號">二、就只是符號</a></li>
+  <li><a href="#三自由群的凱萊圖-cayley-graph">三、自由群的凱萊圖 (Cayley Graph)</a></li>
+  <li><a href="#四群的展示-presentation-of-groups">四、群的展示 (Presentation of Groups)</a></li>
+  <li><a href="#五自由么半群">五、自由么半群</a></li>
+</ul>
+
+<!-- /TOC -->
 
 <p>許多群都不是阿貝爾群，但我們仍能確定它的某些元素會滿足交換率，例如：</p>
 
@@ -228,15 +216,15 @@
 
 <p>注意到這些 <script type="math/tex">\{a, b, c, ..., a^{-1}, b^{-1}, c^{-1}, ... , ab, ab^{-1}a, bca^{-1}b^2, a^6...\}</script> 都只是字串，而不是某個群中的未知數。然而特別的地方就是：即便我們把自由群運算規則中的 <script type="math/tex">a,b,c</script> 等符號用其他群的元素取代，這些替換後的「句子」仍然有意義。</p>
 
-<p>例如把 <script type="math/tex">a,b,c</script> 取代成 <script type="math/tex">\mathbb R^+</script> 中的元素 <script type="math/tex">3,2,4</script>，那麼前面第 5 點的字串 <script type="math/tex; mode=display">a^{-1}b^{-1}bbc = a^{-1}bc</script> 會被取代成 <script type="math/tex; mode=display"> \frac{1}{3}\cdot\frac{1}{2}\cdot 2\cdot 2 \cdot 4 = \frac{1}{3} \cdot 2 \cdot 4 </script>，果然左右算式的確是相等的，但那也只是消掉一組倒數而已。或許你會覺得這個取代後的實數乘法簡直是理所當然的廢話，那是因為替換前的字串就是記載著廢話的結構，自由群就是所有關於乘法（或加法）的廢話的蒐集。</p>
+<p>例如把 <script type="math/tex">a,b,c</script> 取代成 <script type="math/tex">\mathbb R_{&gt;0}</script> 乘法群中的元素 <script type="math/tex">3,2,4</script>，那麼前面第 5 點的字串 <script type="math/tex; mode=display">a^{-1}b^{-1}bbc = a^{-1}bc</script> 會被取代成 <script type="math/tex; mode=display"> \frac{1}{3}\cdot\frac{1}{2}\cdot 2\cdot 2 \cdot 4 = \frac{1}{3} \cdot 2 \cdot 4 </script>，果然左右算式的確是相等的，但那也只是消掉一組倒數而已。或許你會覺得這個取代後的實數乘法簡直是理所當然的廢話，那是因為替換前的字串就是記載著廢話的結構，自由群就是所有關於乘法（或加法）的廢話的蒐集。</p>
 
 <blockquote>
   <p>自由群 <script type="math/tex">F_S</script> 利用符號在做一些「本來就會對」的乘法。</p>
 </blockquote>
 
-<p>這有時稱為自由群的泛性質，這裡不介紹什麼是泛性質。</p>
+<p>這有時稱為自由群的泛性質，這裡暫時不介紹什麼是泛性質。</p>
 
-<p>不過取代的動作不能套用到不等式中。在自由群中 <script type="math/tex">ab \neq ba</script>是相異的字串，但是照剛剛的取代 <script type="math/tex">3\cdot 2\neq 2\cdot 3</script> 就錯了。因為不等號並不是什麼運算規則。</p>
+<p>不過取代的動作不能套用到不等式中。在自由群中 <script type="math/tex">ab \neq ba</script>是相異的字串，但是照剛剛的取代 <script type="math/tex">3\cdot 2\neq 2\cdot 3</script> 就錯了。</p>
 
 <h2 id="cayley-graph">三、自由群的凱萊圖 (Cayley Graph)</h2>
 
@@ -262,9 +250,13 @@
 
 <p>從凱萊圖上看起來，自由群的生成元之間不存在任何關係，代表它的凱萊圖上沒有迴路。當我們在寫其他群 <script type="math/tex">G</script> 的展示，其實是準備一個由 <script type="math/tex">G</script> 的生成元 <script type="math/tex">S</script> 生成的自由群 <script type="math/tex">F_S</script>，再把 <script type="math/tex">F_S</script> 的凱萊圖上的某些「樹枝」整捆整捆拗在一起。</p>
 
+<p><a href="為了滿足封閉性就勉強把相加後的新元素（囫圇吞棗地）塞到這個群之中。"></a></p>
+
+<p><a href="將自由群中的字串對應到其中&lt;script type=&quot;math/tex&quot;&gt;'a'&lt;/script&gt;這個字元的出現次數，而&lt;script type=&quot;math/tex&quot;&gt;a^{-1}&lt;/script&gt;出現的次數就算負的。這個對應&lt;script type=&quot;math/tex&quot;&gt;N_a(str)&lt;/script&gt;是一個到整數&lt;script type=&quot;math/tex&quot;&gt;(\mathbb{Z}, +)&lt;/script&gt;的同態，我們可以檢驗下面的例子：&lt;script type=&quot;math/tex; mode=display&quot;&gt;N_a(aabcaa) + N_a(a^{-1}bb) = 4 + (-1) = N_a(aabcaa \cdot a^{-1}bb)&lt;/script&gt;"></a></p>
+
 <h2 id="section-3">五、自由么半群</h2>
 
-<p>自由么半群的部份是針對電腦科學的討論。</p>
+<p>自由么半群的部份是針對電腦科學的討論，可以忽略。</p>
 
 <p>研究過計算理論或形式語言的同學可能會覺得自由群很像 regular expression 中的 <code class="highlighter-rouge">*</code> 算符（Kleene star），例如 <code class="highlighter-rouge"><span class="p">{</span><span class="err">a,b</span><span class="p">}</span><span class="err">*</span></code> 會匹配 <code class="highlighter-rouge"><span class="p">{</span><span class="err">'',a,b,ab,ba,aba,bab,bba,bbb,aab...</span><span class="p">}</span></code> 等所有字串。</p>
 
