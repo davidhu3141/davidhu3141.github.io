@@ -1,15 +1,17 @@
 body {
   background: #ffffff;
-  width: 700px;
 }
 
 .outlier {
-
+  width: 80%;
+  height: 80%;
+  margin: auto, auto;
 }
 
 .article {
-  font-family: "Source Sans Pro", sans-serif;
-  float:left;
+  font-family: "Noto Sans CJK SC DemiLight", sans-serif, "微軟正黑體";
+  /*float:left;*/
+  display: block;
   margin-left: 100px ;
 }
 
