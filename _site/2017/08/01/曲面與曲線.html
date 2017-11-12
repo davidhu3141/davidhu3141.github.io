@@ -1,0 +1,226 @@
+
+<h1 id="section">曲面與曲線</h1>
+
+<p>以往的積分都是沿著實數軸，其實也可以在平面上取一條曲線，沿著它積分。（線積分 line integral）</p>
+
+<p><img src="https://i.imgur.com/fExv4C6.jpg" alt="" /></p>
+
+<p>不過在學習線積分之前，我們需要引入一些幾何學上的新物件，它們分別是</p>
+
+<ul>
+  <li>曲面（surface）</li>
+  <li>曲線參數式（parametrization of a curve）
+<!-- - 向量場（vector field）--></li>
+</ul>
+
+<p>座標平面的慣用記號是 <script type="math/tex">\mathbb R^2</script>，空間則是 <script type="math/tex">\mathbb R^3</script>，這樣寫帶有積集合（<a href="https://en.wikipedia.org/wiki/Cartesian_product">Cartesian product</a>）的感覺。</p>
+
+<p>[TOC]</p>
+
+<h2 id="real-valued-functions-on-the-x-y-plane">平面上的實值函數（Real valued functions on the x-y plane）</h2>
+
+<p>給一個座標平面 <script type="math/tex">\mathbb R^2 = \{(x,y)\ |\ x,y\in\mathbb R\}</script>，若其上的每個點都有一個實數的函數值 <script type="math/tex">f(x,y)</script>，</p>
+
+<p><img src="https://i.imgur.com/ZdXpryK.jpg" alt="" /></p>
+
+<p>那麼這就是個平面上的實值函數：</p>
+
+<script type="math/tex; mode=display">f:\mathbb R^2\to\mathbb R</script>
+
+<p>它的函數圖形就會像上圖一樣，是個曲面。</p>
+
+<h3 id="section-1">一些例子</h3>
+
+<h4 id="section-2">例 1</h4>
+
+<blockquote>
+  <p>思考下列這個曲面的樣子（也可以自己畫畫看）：</p>
+
+  <script type="math/tex; mode=display">z=f(x,y)=x^2+y^2</script>
+
+</blockquote>
+
+<p>形狀不好想的話，可以先畫等高線：</p>
+
+<p><img src="https://i.imgur.com/stLpxdW.jpg" alt="" /></p>
+
+<p>這是個<strong>旋轉拋物面</strong>（paraboloid  of revolution），左邊的三個圓分別是 <script type="math/tex">z=x^2+y^2=1,4,9</script> 的情況。</p>
+
+<p>如果定義平面上到原點的距離為 <script type="math/tex">r=\sqrt{x^2+y^2}</script>，那麼剛剛的 <script type="math/tex">f</script> 函數也可以看成</p>
+
+<script type="math/tex; mode=display">z=f(x,y)=r^2</script>
+
+<p>，只要到原點的距離一樣，<script type="math/tex">z</script> 高度就一樣。這說明了<strong>旋轉拋物面</strong>是由<strong>拋物線</strong>（parabola）沿著對稱軸旋轉一圈而成的。</p>
+
+<h4 id="section-3">例 2</h4>
+
+<blockquote>
+  <p>利用這個<a href="https://academo.org/demos/3d-surface-plotter/?expression=x*x-y*y&amp;xRange=-5%2C%2B5&amp;yRange=-5%2C%2B5&amp;resolution=25">網站</a>工具觀察下列五個曲面的樣子：</p>
+</blockquote>
+
+<ul>
+  <li>鞍面：<script type="math/tex; mode=display">z=f(x,y)=x^2-y^2</script></li>
+  <li>與 <script type="math/tex">y</script> 無關的面：<script type="math/tex; mode=display">z=f(x,y)=x^2</script></li>
+  <li>在 <script type="math/tex">y</script> 方向是一次的面：<script type="math/tex; mode=display">z=f(x,y)=x^2+y</script></li>
+  <li>平面 <script type="math/tex">x+y+z=1</script>：<script type="math/tex; mode=display">z=f(x,y)=1-x-y</script></li>
+</ul>
+
+<p><a href=""></a></p>
+
+<ul>
+  <li>解釋為甚麼這是圓錐：<script type="math/tex; mode=display">z=f(x,y)=\sqrt{x^2+y^2}</script></li>
+</ul>
+
+<p>看完之後照著畫畫看，並思考它們的等高線長怎樣。</p>
+
+<h4 id="section-4">例 3</h4>
+
+<blockquote>
+  <p>看看下列兩式的圖形： <script type="math/tex; mode=display">\begin{aligned}z&amp;=\sin x\cdot\sin y\\ z&amp;=xy-\frac{yx^3+xy^3}{6}\end{aligned}</script></p>
+</blockquote>
+
+<p>它們分別長這樣：</p>
+
+<p><img src="https://i.imgur.com/bDwnv9g.jpg" alt="" /></p>
+
+<p>兩者長得有點像，在接近中心處幾乎是一模一樣的。雖然兩者之間有一點關聯<sup id="fnref:Taylor"><a href="#fn:Taylor" class="footnote">1</a></sup>，但放在這裡只是因為它們長得滿好看的。</p>
+
+<p>對於右圖，我以前寫過一個<a href="http://davidhu3141.github.io/OpenzFunction/index.html">程式</a>來計算它的紙模型的展開圖，並做出來，還滿有趣的。</p>
+
+<p><img src="https://raw.githubusercontent.com/davidhu3141/OpenzFunction/master/Sample/Faked.jpg" alt="" /></p>
+
+<h2 id="section-5">曲線參數式</h2>
+
+<p>曲線可以視為物體運動的軌跡<sup id="fnref:curve_motion"><a href="#fn:curve_motion" class="footnote">2</a></sup>，例如平面上</p>
+
+<script type="math/tex; mode=display">(x,y)=(t, 2t-t^2)</script>
+
+<p>是個拋物線的軌跡。透過將 <script type="math/tex">t</script> 改成 <script type="math/tex">2t</script>，我們也可以把曲線改寫成</p>
+
+<script type="math/tex; mode=display">(x,y)=(2t, 4t-4t^2)</script>
+
+<p>兩者代表的圖形是一樣的，只是運動速度變兩倍而已。</p>
+
+<p><img src="https://i.imgur.com/kVxW4z0.jpg" alt="" /></p>
+
+<p>一般將 <script type="math/tex">t=0</script> 的位置看成是運動的起點。</p>
+
+<h3 id="section-6">從參數式得到方程式</h3>
+
+<p>上面的例子，透過將兩式</p>
+
+<script type="math/tex; mode=display">\begin{aligned} x&=t\\ y&=2t-t^2 \end{aligned}</script>
+
+<p>消去 <script type="math/tex">t</script>，就可得到曲線的方程式 <script type="math/tex; mode=display">y=2x-x^2.</script></p>
+
+<p>從參數式化為方程式之後，關於速度、運動方向、起點等訊息都消失了。</p>
+
+<h4 id="section-7">例 4</h4>
+
+<blockquote>
+  <p>將下列參數式消去 <script type="math/tex">t</script>：</p>
+
+  <script type="math/tex; mode=display">\begin{aligned}x=\sin t\\ y=\cos t\end{aligned}</script>
+
+</blockquote>
+
+<p>用平方關係消掉 <script type="math/tex">t</script> 就好了，答案是</p>
+
+<script type="math/tex; mode=display"> x^2+y^2=1</script>
+
+<p>因此是個圓。這個參數式代表的是：「以 <script type="math/tex">(0,1)</script> 為起點，順時針巡行單位圓」。</p>
+
+<p><img src="https://i.imgur.com/hj2p3J1.gif" alt="" /></p>
+
+<h4 id="section-8">例 5</h4>
+
+<blockquote>
+  <p>將下列參數式消去 <script type="math/tex">t</script>：</p>
+
+  <script type="math/tex; mode=display">\begin{aligned}x=\sin^2 t\\ y=\cos^2 t\end{aligned}</script>
+
+</blockquote>
+
+<p>可想而知，兩式相加可得到 <script type="math/tex">x+y=1</script>，不過我們只能取一部份而已：</p>
+
+<script type="math/tex; mode=display">x+y=1\ \ ,\ \ \left\{\begin{aligned}0\leq x\leq 1\\ 0\leq y\leq 1\end{aligned}\right.</script>
+
+<p>因此軌跡是個線段<sup id="fnref:SHM"><a href="#fn:SHM" class="footnote">3</a></sup>，並不是整個直線。這說明了消去 <script type="math/tex">t</script> 的手段有時候會誤導人。</p>
+
+<p><img src="https://i.imgur.com/Wh491KN.gif" alt="" /></p>
+
+<h3 id="section-9">空間中的曲線</h3>
+
+<h4 id="section-10">例 6</h4>
+
+<blockquote>
+  <p>試解釋參數式 <script type="math/tex; mode=display">(x,y,z)=(\cos t, \sin t, \frac t{10})</script> 是個三維空間中的彈簧線。試想彈簧線投影到 <script type="math/tex">x-z</script> 平面所能得到的二維圖形。</p>
+</blockquote>
+
+<p>應該難不倒你。</p>
+
+<p><img src="https://i.imgur.com/GXGW98L.jpg" alt="" /></p>
+
+<h3 id="section-11">參數式的本質</h3>
+
+<p>本質上，平面上的曲線 <script type="math/tex">\Gamma</script> 的參數式是個把實數 <script type="math/tex">t</script> 變成座標 <script type="math/tex">(x,y)</script> 的函數</p>
+
+<script type="math/tex; mode=display">\Gamma:\mathbb R\to \mathbb R^2</script>
+
+<p>用函數將一條實數軸打到平面上，自然就變成曲線了。</p>
+
+<!-- 實值函數的線積分
+-------------
+
+有了曲面（被積函數）與平面上的曲線（路徑），我們就可以做一些線積分了。有時候線積分也被稱為路徑積分（path integral）。
+
+沿著一條平面上的曲線 <script type="math/tex">\Gamma(t)=(x(t),y(t))</script>，積一個平面上的實質函數 <script type="math/tex">f</script>，要記成這樣：
+
+<script type="math/tex; mode=display">\int_\Gamma f(x,y)\ ds</script>
+
+其代表著下圖紅色片狀物的面積
+
+![](https://i.imgur.com/gzr7Tny.jpg)
+
+雖然 <script type="math/tex">ds</script> 在曲線上，但式子中的 <script type="math/tex">ds</script> 看起來跟曲線 <script type="math/tex">\Gamma(t)</script> 搭不上關係。我們要透過下列的取代：
+
+<script type="math/tex; mode=display">dx=x'(t)\ dt\\ dy=y'(t)\ dt\\ ds=\sqrt{(dx)^2+(dy)^2} = \sqrt{x'(t)^2+y'(t)^2}\ dt</script>
+
+才能做計算。最後一個式子指的是下圖的概念：微小的弧長 <script type="math/tex">ds</script> 能由 <script type="math/tex">x,y</script> 方向的微小變化量用畢氏定理算出。
+
+![](https://i.imgur.com/IxAyyBr.jpg)
+
+<script type="math/tex; mode=display">ds:\textrm{small length traveled within }dt</script>
+
+現在來算算看：
+
+#### 例 7
+
+>計算線積分 
+>
+><script type="math/tex; mode=display">\int_\Gamma (2x+y)\ ds</script>
+>
+>，其中曲線 <script type="math/tex">\Gamma</script> 由下列的參數式給出：
+>
+><script type="math/tex; mode=display">\Gamma(t)=(x(t), y(t))=(t, 2t-t^2)</script>
+>
+>，而 <script type="math/tex">t</script> 的範圍是
+>
+><script type="math/tex; mode=display">0\leq t\leq 2</script>
+
+ <script type="math/tex">\Gamma</script> 是拋物線的一段，而 <script type="math/tex">z=2x+y</script> 則是一個平面。
+
+<script type="math/tex; mode=display">\int_\Gamma </script> -->
+<div class="footnotes">
+  <ol>
+    <li id="fn:Taylor">
+      <p>事實上右圖是左圖在原點的二維泰勒逼近（Taylor approximation），因此在原點附近的行為很像。 <a href="#fnref:Taylor" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:curve_motion">
+      <p>這其實也不太一定，像 <a href="https://en.wikipedia.org/wiki/Koch_snowflake">Koch snowflake</a> 每一小段都是無窮長的，不是運動的軌跡。 <a href="#fnref:curve_motion" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:SHM">
+      <p>這剛好是簡諧運動（<strong>S</strong>imple <strong>H</strong>armonic <strong>M</strong>otion，SHM）。用二倍角公式降次可以發現 <script type="math/tex">x</script> 座標與 <script type="math/tex">y</script> 座標都是以某種關於 <script type="math/tex">\cos</script> 的模式運動。 <a href="#fnref:SHM" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>

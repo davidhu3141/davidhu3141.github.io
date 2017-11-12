@@ -6,9 +6,246 @@
 </description>
     <link>http://davidhu3141.github.io/</link>
     <atom:link href="http://davidhu3141.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 12 Nov 2017 21:10:14 +0800</pubDate>
-    <lastBuildDate>Sun, 12 Nov 2017 21:10:14 +0800</lastBuildDate>
+    <pubDate>Sun, 12 Nov 2017 21:25:48 +0800</pubDate>
+    <lastBuildDate>Sun, 12 Nov 2017 21:25:48 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>曲面與曲線</title>
+        <description>&lt;h1 id=&quot;section&quot;&gt;曲面與曲線&lt;/h1&gt;
+
+&lt;p&gt;以往的積分都是沿著實數軸，其實也可以在平面上取一條曲線，沿著它積分。（線積分 line integral）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/fExv4C6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;不過在學習線積分之前，我們需要引入一些幾何學上的新物件，它們分別是&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;曲面（surface）&lt;/li&gt;
+  &lt;li&gt;曲線參數式（parametrization of a curve）
+&lt;!-- - 向量場（vector field）--&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;座標平面的慣用記號是 &lt;script type=&quot;math/tex&quot;&gt;\mathbb R^2&lt;/script&gt;，空間則是 &lt;script type=&quot;math/tex&quot;&gt;\mathbb R^3&lt;/script&gt;，這樣寫帶有積集合（&lt;a href=&quot;https://en.wikipedia.org/wiki/Cartesian_product&quot;&gt;Cartesian product&lt;/a&gt;）的感覺。&lt;/p&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h2 id=&quot;real-valued-functions-on-the-x-y-plane&quot;&gt;平面上的實值函數（Real valued functions on the x-y plane）&lt;/h2&gt;
+
+&lt;p&gt;給一個座標平面 &lt;script type=&quot;math/tex&quot;&gt;\mathbb R^2 = \{(x,y)\ |\ x,y\in\mathbb R\}&lt;/script&gt;，若其上的每個點都有一個實數的函數值 &lt;script type=&quot;math/tex&quot;&gt;f(x,y)&lt;/script&gt;，&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/ZdXpryK.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;那麼這就是個平面上的實值函數：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f:\mathbb R^2\to\mathbb R&lt;/script&gt;
+
+&lt;p&gt;它的函數圖形就會像上圖一樣，是個曲面。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;一些例子&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;例 1&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;思考下列這個曲面的樣子（也可以自己畫畫看）：&lt;/p&gt;
+
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt;z=f(x,y)=x^2+y^2&lt;/script&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;形狀不好想的話，可以先畫等高線：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/stLpxdW.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;這是個&lt;strong&gt;旋轉拋物面&lt;/strong&gt;（paraboloid  of revolution），左邊的三個圓分別是 &lt;script type=&quot;math/tex&quot;&gt;z=x^2+y^2=1,4,9&lt;/script&gt; 的情況。&lt;/p&gt;
+
+&lt;p&gt;如果定義平面上到原點的距離為 &lt;script type=&quot;math/tex&quot;&gt;r=\sqrt{x^2+y^2}&lt;/script&gt;，那麼剛剛的 &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; 函數也可以看成&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;z=f(x,y)=r^2&lt;/script&gt;
+
+&lt;p&gt;，只要到原點的距離一樣，&lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt; 高度就一樣。這說明了&lt;strong&gt;旋轉拋物面&lt;/strong&gt;是由&lt;strong&gt;拋物線&lt;/strong&gt;（parabola）沿著對稱軸旋轉一圈而成的。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;例 2&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;利用這個&lt;a href=&quot;https://academo.org/demos/3d-surface-plotter/?expression=x*x-y*y&amp;amp;xRange=-5%2C%2B5&amp;amp;yRange=-5%2C%2B5&amp;amp;resolution=25&quot;&gt;網站&lt;/a&gt;工具觀察下列五個曲面的樣子：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;鞍面：&lt;script type=&quot;math/tex; mode=display&quot;&gt;z=f(x,y)=x^2-y^2&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;與 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 無關的面：&lt;script type=&quot;math/tex; mode=display&quot;&gt;z=f(x,y)=x^2&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;在 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 方向是一次的面：&lt;script type=&quot;math/tex; mode=display&quot;&gt;z=f(x,y)=x^2+y&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;平面 &lt;script type=&quot;math/tex&quot;&gt;x+y+z=1&lt;/script&gt;：&lt;script type=&quot;math/tex; mode=display&quot;&gt;z=f(x,y)=1-x-y&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;解釋為甚麼這是圓錐：&lt;script type=&quot;math/tex; mode=display&quot;&gt;z=f(x,y)=\sqrt{x^2+y^2}&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;看完之後照著畫畫看，並思考它們的等高線長怎樣。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;例 3&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;看看下列兩式的圖形： &lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{aligned}z&amp;amp;=\sin x\cdot\sin y\\ z&amp;amp;=xy-\frac{yx^3+xy^3}{6}\end{aligned}&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;它們分別長這樣：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/bDwnv9g.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;兩者長得有點像，在接近中心處幾乎是一模一樣的。雖然兩者之間有一點關聯&lt;sup id=&quot;fnref:Taylor&quot;&gt;&lt;a href=&quot;#fn:Taylor&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;，但放在這裡只是因為它們長得滿好看的。&lt;/p&gt;
+
+&lt;p&gt;對於右圖，我以前寫過一個&lt;a href=&quot;http://davidhu3141.github.io/OpenzFunction/index.html&quot;&gt;程式&lt;/a&gt;來計算它的紙模型的展開圖，並做出來，還滿有趣的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/davidhu3141/OpenzFunction/master/Sample/Faked.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;曲線參數式&lt;/h2&gt;
+
+&lt;p&gt;曲線可以視為物體運動的軌跡&lt;sup id=&quot;fnref:curve_motion&quot;&gt;&lt;a href=&quot;#fn:curve_motion&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;，例如平面上&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;(x,y)=(t, 2t-t^2)&lt;/script&gt;
+
+&lt;p&gt;是個拋物線的軌跡。透過將 &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt; 改成 &lt;script type=&quot;math/tex&quot;&gt;2t&lt;/script&gt;，我們也可以把曲線改寫成&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;(x,y)=(2t, 4t-4t^2)&lt;/script&gt;
+
+&lt;p&gt;兩者代表的圖形是一樣的，只是運動速度變兩倍而已。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/kVxW4z0.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;一般將 &lt;script type=&quot;math/tex&quot;&gt;t=0&lt;/script&gt; 的位置看成是運動的起點。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;從參數式得到方程式&lt;/h3&gt;
+
+&lt;p&gt;上面的例子，透過將兩式&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{aligned} x&amp;=t\\ y&amp;=2t-t^2 \end{aligned}&lt;/script&gt;
+
+&lt;p&gt;消去 &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt;，就可得到曲線的方程式 &lt;script type=&quot;math/tex; mode=display&quot;&gt;y=2x-x^2.&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;從參數式化為方程式之後，關於速度、運動方向、起點等訊息都消失了。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;例 4&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;將下列參數式消去 &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt;：&lt;/p&gt;
+
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{aligned}x=\sin t\\ y=\cos t\end{aligned}&lt;/script&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;用平方關係消掉 &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt; 就好了，答案是&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; x^2+y^2=1&lt;/script&gt;
+
+&lt;p&gt;因此是個圓。這個參數式代表的是：「以 &lt;script type=&quot;math/tex&quot;&gt;(0,1)&lt;/script&gt; 為起點，順時針巡行單位圓」。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/hj2p3J1.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-8&quot;&gt;例 5&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;將下列參數式消去 &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt;：&lt;/p&gt;
+
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{aligned}x=\sin^2 t\\ y=\cos^2 t\end{aligned}&lt;/script&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;可想而知，兩式相加可得到 &lt;script type=&quot;math/tex&quot;&gt;x+y=1&lt;/script&gt;，不過我們只能取一部份而已：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;x+y=1\ \ ,\ \ \left\{\begin{aligned}0\leq x\leq 1\\ 0\leq y\leq 1\end{aligned}\right.&lt;/script&gt;
+
+&lt;p&gt;因此軌跡是個線段&lt;sup id=&quot;fnref:SHM&quot;&gt;&lt;a href=&quot;#fn:SHM&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;，並不是整個直線。這說明了消去 &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt; 的手段有時候會誤導人。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Wh491KN.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-9&quot;&gt;空間中的曲線&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-10&quot;&gt;例 6&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;試解釋參數式 &lt;script type=&quot;math/tex; mode=display&quot;&gt;(x,y,z)=(\cos t, \sin t, \frac t{10})&lt;/script&gt; 是個三維空間中的彈簧線。試想彈簧線投影到 &lt;script type=&quot;math/tex&quot;&gt;x-z&lt;/script&gt; 平面所能得到的二維圖形。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;應該難不倒你。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/GXGW98L.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;參數式的本質&lt;/h3&gt;
+
+&lt;p&gt;本質上，平面上的曲線 &lt;script type=&quot;math/tex&quot;&gt;\Gamma&lt;/script&gt; 的參數式是個把實數 &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt; 變成座標 &lt;script type=&quot;math/tex&quot;&gt;(x,y)&lt;/script&gt; 的函數&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Gamma:\mathbb R\to \mathbb R^2&lt;/script&gt;
+
+&lt;p&gt;用函數將一條實數軸打到平面上，自然就變成曲線了。&lt;/p&gt;
+
+&lt;!-- 實值函數的線積分
+-------------
+
+有了曲面（被積函數）與平面上的曲線（路徑），我們就可以做一些線積分了。有時候線積分也被稱為路徑積分（path integral）。
+
+沿著一條平面上的曲線 &lt;script type=&quot;math/tex&quot;&gt;\Gamma(t)=(x(t),y(t))&lt;/script&gt;，積一個平面上的實質函數 &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt;，要記成這樣：
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_\Gamma f(x,y)\ ds&lt;/script&gt;
+
+其代表著下圖紅色片狀物的面積
+
+![](https://i.imgur.com/gzr7Tny.jpg)
+
+雖然 &lt;script type=&quot;math/tex&quot;&gt;ds&lt;/script&gt; 在曲線上，但式子中的 &lt;script type=&quot;math/tex&quot;&gt;ds&lt;/script&gt; 看起來跟曲線 &lt;script type=&quot;math/tex&quot;&gt;\Gamma(t)&lt;/script&gt; 搭不上關係。我們要透過下列的取代：
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;dx=x&#39;(t)\ dt\\ dy=y&#39;(t)\ dt\\ ds=\sqrt{(dx)^2+(dy)^2} = \sqrt{x&#39;(t)^2+y&#39;(t)^2}\ dt&lt;/script&gt;
+
+才能做計算。最後一個式子指的是下圖的概念：微小的弧長 &lt;script type=&quot;math/tex&quot;&gt;ds&lt;/script&gt; 能由 &lt;script type=&quot;math/tex&quot;&gt;x,y&lt;/script&gt; 方向的微小變化量用畢氏定理算出。
+
+![](https://i.imgur.com/IxAyyBr.jpg)
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;ds:\textrm{small length traveled within }dt&lt;/script&gt;
+
+現在來算算看：
+
+#### 例 7
+
+&gt;計算線積分 
+&gt;
+&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_\Gamma (2x+y)\ ds&lt;/script&gt;
+&gt;
+&gt;，其中曲線 &lt;script type=&quot;math/tex&quot;&gt;\Gamma&lt;/script&gt; 由下列的參數式給出：
+&gt;
+&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Gamma(t)=(x(t), y(t))=(t, 2t-t^2)&lt;/script&gt;
+&gt;
+&gt;，而 &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt; 的範圍是
+&gt;
+&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;0\leq t\leq 2&lt;/script&gt;
+
+ &lt;script type=&quot;math/tex&quot;&gt;\Gamma&lt;/script&gt; 是拋物線的一段，而 &lt;script type=&quot;math/tex&quot;&gt;z=2x+y&lt;/script&gt; 則是一個平面。
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_\Gamma &lt;/script&gt; --&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:Taylor&quot;&gt;
+      &lt;p&gt;事實上右圖是左圖在原點的二維泰勒逼近（Taylor approximation），因此在原點附近的行為很像。 &lt;a href=&quot;#fnref:Taylor&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:curve_motion&quot;&gt;
+      &lt;p&gt;這其實也不太一定，像 &lt;a href=&quot;https://en.wikipedia.org/wiki/Koch_snowflake&quot;&gt;Koch snowflake&lt;/a&gt; 每一小段都是無窮長的，不是運動的軌跡。 &lt;a href=&quot;#fnref:curve_motion&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:SHM&quot;&gt;
+      &lt;p&gt;這剛好是簡諧運動（&lt;strong&gt;S&lt;/strong&gt;imple &lt;strong&gt;H&lt;/strong&gt;armonic &lt;strong&gt;M&lt;/strong&gt;otion，SHM）。用二倍角公式降次可以發現 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; 座標與 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 座標都是以某種關於 &lt;script type=&quot;math/tex&quot;&gt;\cos&lt;/script&gt; 的模式運動。 &lt;a href=&quot;#fnref:SHM&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 01 Aug 2017 00:00:00 +0800</pubDate>
+        <link>http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2017/08/01/%E6%9B%B2%E9%9D%A2%E8%88%87%E6%9B%B2%E7%B7%9A.html</link>
+        <guid isPermaLink="true">http://davidhu3141.github.io/%E9%AB%98%E4%B8%AD%E6%95%99%E6%9D%90/2017/08/01/%E6%9B%B2%E9%9D%A2%E8%88%87%E6%9B%B2%E7%B7%9A.html</guid>
+        
+        
+        <category>高中教材</category>
+        
+      </item>
     
       <item>
         <title>積分技巧：一次式除以二次式</title>
@@ -946,7 +1183,7 @@
 &lt;p&gt;來證明下面的事實：&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;給定 &lt;script type=&quot;math/tex&quot;&gt;a, b \in \mathbb{Z}&lt;/script&gt; ， 則二元一次方程式 &lt;script type=&quot;math/tex&quot;&gt; ax+by = c &lt;/script&gt; 有整數解的充要條件是 &lt;script type=&quot;math/tex&quot;&gt; (a, b) | c &lt;/script&gt; 。&lt;/p&gt;
+  &lt;p&gt;給定 &lt;script type=&quot;math/tex&quot;&gt;a, b \in \mathbb{Z}&lt;/script&gt; ， 則二元一次方程式 &lt;script type=&quot;math/tex&quot;&gt;ax+by = c&lt;/script&gt; 有整數解的充要條件是 &lt;script type=&quot;math/tex&quot;&gt;(a, b) \mid c&lt;/script&gt; 。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;分成兩部分討論：&lt;/p&gt;
@@ -961,7 +1198,7 @@
 &lt;!-- TOC --&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#一有整數解-\rightarrow-a-bc&quot;&gt;一、有整數解 &lt;script type=&quot;math/tex&quot;&gt;\Rightarrow (a, b)|c&lt;/script&gt;&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;#一有整數解-\rightarrow-a-b\mid-c&quot;&gt;一、有整數解 &lt;script type=&quot;math/tex&quot;&gt;\Rightarrow (a, b)\mid c&lt;/script&gt;&lt;/a&gt;
     &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#證明過程&quot;&gt;證明過程&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#線性組合原理&quot;&gt;線性組合原理&lt;/a&gt;&lt;/li&gt;
@@ -979,13 +1216,13 @@
 
 &lt;!-- /TOC --&gt;
 
-&lt;h3 id=&quot;script-typemathtexrightarrow-a-bcscript&quot;&gt;一、有整數解 &lt;script type=&quot;math/tex&quot;&gt;\Rightarrow (a, b)|c&lt;/script&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;script-typemathtexrightarrow-a-bmid-cscript&quot;&gt;一、有整數解 &lt;script type=&quot;math/tex&quot;&gt;\Rightarrow (a, b)\mid c&lt;/script&gt;&lt;/h3&gt;
 
 &lt;h4 id=&quot;section-1&quot;&gt;證明過程&lt;/h4&gt;
 
 &lt;p&gt; &lt;script type=&quot;math/tex&quot;&gt;ax+by=c&lt;/script&gt; 有整數解 &lt;script type=&quot;math/tex&quot;&gt;\Rightarrow&lt;/script&gt; 存在 &lt;script type=&quot;math/tex&quot;&gt;u, v \in \mathbb{Z}&lt;/script&gt; 使 &lt;script type=&quot;math/tex&quot;&gt;au+bv=c&lt;/script&gt;。&lt;/p&gt;
 
-&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot;&gt;(a, b)|a&lt;/script&gt; 且 &lt;script type=&quot;math/tex&quot;&gt;(a, b)|b&lt;/script&gt; ，根據&lt;strong&gt;線性組合原理&lt;/strong&gt;， &lt;script type=&quot;math/tex&quot;&gt;(a, b)|au+bv&lt;/script&gt; ， 即 &lt;script type=&quot;math/tex&quot;&gt; (a, b)|c&lt;/script&gt;，得證。&lt;/p&gt;
+&lt;p&gt;由於 &lt;script type=&quot;math/tex&quot;&gt;(a, b)\mid a&lt;/script&gt; 且 &lt;script type=&quot;math/tex&quot;&gt;(a, b)\mid b&lt;/script&gt; ，根據&lt;strong&gt;線性組合原理&lt;/strong&gt;， &lt;script type=&quot;math/tex&quot;&gt;(a, b)\mid au+bv&lt;/script&gt; ， 即 &lt;script type=&quot;math/tex&quot;&gt;(a, b)\mid c&lt;/script&gt;，得證。&lt;/p&gt;
 
 &lt;h4 id=&quot;section-2&quot;&gt;線性組合原理&lt;/h4&gt;
 

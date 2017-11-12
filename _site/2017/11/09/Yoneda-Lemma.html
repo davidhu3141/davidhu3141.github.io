@@ -1,0 +1,98 @@
+
+<h1 id="yoneda-lemma">圖解 Yoneda Lemma</h1>
+
+<p>本文將會以初等的角度來圖解 Hom functor、Natural transformation、證明 Yoneda lemma 並舉例。</p>
+
+<!-- TOC -->
+
+<ul>
+  <li><a href="#notations">Notations</a></li>
+  <li><a href="#functors">Functors</a>
+    <ul>
+      <li><a href="#covarent-functor">Covarent functor</a></li>
+      <li><a href="#contravarient-functor">Contravarient functor</a></li>
+    </ul>
+  </li>
+  <li><a href="#the-hom-functor">The Hom Functor</a>
+    <ul>
+      <li><a href="#hom-functor">Hom functor</a></li>
+    </ul>
+  </li>
+</ul>
+
+<!-- /TOC -->
+
+<p>本人是範疇論的初學者，若有錯誤請不吝指正。主要參考的書是 <em>《The Joy of Cats, Abstract and Concrete Categories》</em>，其他的參考書目附錄在文末。</p>
+
+<h2 id="notations">Notations</h2>
+
+<p>範疇：</p>
+
+<ul>
+  <li> <script type="math/tex">\mathcal C, \mathcal D, ...</script>: 某些不特定的 locally small category.</li>
+  <li> <script type="math/tex">\mathbf {Set}</script>: the category of sets.</li>
+  <li> <script type="math/tex">\mathbf {Grp}</script>: the category of groups. 這並不是 a group as a category.</li>
+</ul>
+
+<p>記號：</p>
+
+<ul>
+  <li> <script type="math/tex">\operatorname{Ob}(\mathcal C)</script>: the collection of objects in a category <script type="math/tex">\mathcal C</script>. 其中的物件以明體字 <script type="math/tex">A,B,...</script> 表示.</li>
+  <li> <script type="math/tex">\operatorname{Hom}(A,B)</script>: the collection of morphisms from <script type="math/tex">A</script> to <script type="math/tex">B</script>.</li>
+</ul>
+
+<p>在此我們忽略某些範疇「過大」的問題，例如 <script type="math/tex">\operatorname{Ob}(\mathbf{Set})</script> 並不構成一個集合（我們也沒有要求它是集合）。</p>
+
+<p>在範疇 <script type="math/tex">\mathbf{Set}</script> 中，<script type="math/tex">\operatorname{Hom}(A,B)</script> 總是一個集合，這是沒問題的。可想而知，兩個空間之間的所有連續函數、兩個群之間的所有 homomorphism（同態）也能形成集合（而不會太多），因此 <script type="math/tex">\mathbf{Grp}</script>、<script type="math/tex">\mathbf{Top}</script>、<script type="math/tex">\mathbf{Set}</script> 等等都是 locally small 的。</p>
+
+<h2 id="functors">Functors</h2>
+
+<p>為了統一風格，先來看 functor 的記號。</p>
+
+<h3 id="covarent-functor">Covarent functor</h3>
+
+<p>一個 <a href="https://en.wikipedia.org/wiki/Functor#Definition">functor</a> <script type="math/tex">F:\mathcal C\to\mathcal D</script> 能將範疇 <script type="math/tex">\mathcal C</script> 中的 diagram <script type="math/tex; mode=display">A\overset{f}{\longrightarrow} B</script> 變成 <script type="math/tex">\mathcal D</script> 中的 diagram <script type="math/tex; mode=display">F(A)\overset{F(f)}{\longrightarrow}\mathcal F(B).</script> 畫起來就是從 <script type="math/tex">\mathcal C</script> 拉一張窗簾到 <script type="math/tex">\mathcal D</script>：</p>
+
+<p>?</p>
+
+<p>並且 preserve composition：</p>
+
+<p>?</p>
+
+<p>也 preserve <script type="math/tex">\operatorname{Id}_A</script>：</p>
+
+<p>?</p>
+
+<h3 id="contravarient-functor">Contravarient functor</h3>
+
+<p>另一種 functor 能夠讓箭頭變方向，要取另外一個名字，稱之為 contravarient functor（反變函子）：</p>
+
+<p>?</p>
+
+<p>而之前保持讓箭頭同方向的 functor 也相對地稱為 covarient functor（協變或共變函子）。</p>
+
+<!-- ## Locally Small Categories
+
+在此，我們稱一個範疇是 concrete 的，代表其中的物件總是某個集合加上某個結構。例如*群*總是一個集合加上一個運算，因此 <script type="math/tex">\mathbf{Grp}</script> 是 concrete 的。同樣地，<script type="math/tex">\mathbf{Top}</script> 也是 concrete 的。
+
+Group as a category, monoid as a category 就暫時不當它是 concrete 的。
+
+有時候，concrete category 用來指稱「能夠嵌入到 <script type="math/tex">\mathbf{Set}</script>」的範疇。 -->
+
+<h2 id="the-hom-functor">The Hom Functor</h2>
+
+<p>Hom functor 是數學上常見的 functor，用來製造 dual space 或是 cohomology 等結構。</p>
+
+<h3 id="hom-functor">Hom functor</h3>
+
+<p>給定一個 locally small category <script type="math/tex">\mathcal C</script> 與 <script type="math/tex">A\in\operatorname{Ob}\mathcal (C)</script>，我們可以構造 <script type="math/tex">\operatorname{Hom}(A,-)</script> 以及 <script type="math/tex">\operatorname{Hom}(-,A)</script> 兩個 functor，前者是協變的，後者是反變的。</p>
+
+<p> <script type="math/tex">\operatorname{Hom}(A,-):\mathcal C\to\mathbf{Set}</script> 這個協變函子會將範疇 <script type="math/tex">\mathcal C</script> 中的任何物件 <script type="math/tex">B</script> 送到 <script type="math/tex">\operatorname{Hom}(A,B)</script> 這個集合，也就是 <script type="math/tex; mode=display">\{f:\textrm{morphism from }A \textrm{ to } B\}</script> 這個集合</p>
+
+<p>?</p>
+
+<p>並且將 <script type="math/tex">\mathcal C</script> 中的箭頭 <script type="math/tex">f:B\to C</script> 變成函數 「<script type="math/tex">f\circ -</script>」。這個函數將每個 <script type="math/tex">\operatorname{Hom}(A,B)</script> 內的箭頭的都接上 <script type="math/tex">f</script>，形成一個 <script type="math/tex">A</script> 到 <script type="math/tex">C</script> 的箭頭。</p>
+
+<p>？</p>
+
+<p>另外一個 <script type="math/tex">\operatorname{Hom}(-,A):\mathcal C\to\mathbf{Set}</script> 則是反變的，其將範疇 <script type="math/tex">\mathcal C</script> 中的任何物件 <script type="math/tex">B</script> 送到 <script type="math/tex">\operatorname{Hom}(B,A)</script> 這個集合</p>
