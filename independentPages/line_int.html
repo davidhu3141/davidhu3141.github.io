@@ -1,7 +1,7 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <title>2017-11-09-Yoneda Lemma</title>
+      <title>Surface and Curves</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -213,69 +213,177 @@ code.language-yaml {
     </head>
     <body for="html-export">
       <div class="mume markdown-preview   ">
-      <h1 id="&#x5716;&#x89E3;-yoneda-lemma">圖解 Yoneda Lemma</h1>
-<p>本文將會以初等的角度來圖解 Hom functor、Natural transform、證明 Yoneda lemma 並舉例。</p>
+      <h1 id="&#x66F2;&#x9762;&#x8207;&#x66F2;&#x7DDA;">曲面與曲線</h1>
+<p>以往的積分都是沿著實數軸，其實也可以在平面上取一條曲線，沿著它積分。（線積分 line integral）</p>
+<div class="figure">
+<img src="https://i.imgur.com/fExv4C6.jpg">
+
+</div>
+<p>不過在學習線積分之前，我們需要引入一些幾何學上的新物件，它們分別是</p>
 <ul>
-<li><a href="#notations">Notations</a></li>
-<li><a href="#functors">Functors</a>
-<ul>
-<li><a href="#covarent-functor">Covarent functor</a></li>
-<li><a href="#contravarient-functor">Contravarient functor</a></li>
-</ul></li>
-<li><a href="#the-hom-functor">The Hom Functor</a>
-<ul>
-<li><a href="#hom-functor">Hom functor</a></li>
-</ul></li>
+<li>曲面（surface）</li>
+<li>曲線參數式（parametrization of a curve）</li>
 </ul>
-<p>本人是範疇論的初學者，若有錯誤請不吝指正。主要參考的書是 <em>《The Joy of Cats, Abstract and Concrete Categories》</em>，其他的參考書目附錄在文末。</p>
-<h2 id="notations">Notations</h2>
-<p>範疇：</p>
+<p>座標平面的慣用記號是 <span class="math inline">\(\mathbb R^2\)</span>，空間則是 <span class="math inline">\(\mathbb R^3\)</span>，這樣寫帶有積集合（<a href="https://en.wikipedia.org/wiki/Cartesian_product">Cartesian product</a>）的感覺。</p>
 <ul>
-<li><span class="math inline">\(\mathcal C, \mathcal D, ...\)</span>: 某些不特定的範疇.</li>
-<li><span class="math inline">\(\mathbf {Set}\)</span>: the category of sets.</li>
-<li><span class="math inline">\(\mathbf {Grp}\)</span>: the category of groups. 這並不是 a group as a category.</li>
-</ul>
-<p>記號：</p>
+<li><a href="#%E4%B8%80%E4%BA%9B%E4%BE%8B%E5%AD%90">一些例子</a>
 <ul>
-<li><span class="math inline">\(\operatorname{Ob}(\mathcal C)\)</span>: the collection of objects in a category <span class="math inline">\(\mathcal C\)</span>. 其中的物件以明體字 <span class="math inline">\(A,B,...\)</span> 表示.</li>
-<li><span class="math inline">\(\operatorname{Hom}(A,B)\)</span>: the collection of morphisms from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>.</li>
+<li><a href="#%E4%BE%8B-1">例 1</a></li>
+<li><a href="#%E4%BE%8B-2">例 2</a></li>
+<li><a href="#%E4%BE%8B-3">例 3</a></li>
 </ul>
-<p>在此我們忽略某些範疇「過大」的問題，例如 <span class="math inline">\(\operatorname{Ob}(\mathbf{Set})\)</span> 並不構成一個集合。目前這不是討論的重點，因此遇到這類問題我會含糊其詞。</p>
-<p>在範疇 <span class="math inline">\(\mathbf{Set}\)</span> 中，<span class="math inline">\(\operatorname{Hom}(A,B)\)</span> 總是一個集合，這是沒問題的。</p>
-<h2 id="functors">Functors</h2>
-<p>為了統一風格，先來看 functor 的記號。</p>
-<h3 id="covarent-functor">Covarent functor</h3>
-<p>一個 <a href="https://en.wikipedia.org/wiki/Functor#Definition">functor</a> <span class="math inline">\(F:\mathcal C\to\mathcal D\)</span> 能將範疇 <span class="math inline">\(\mathcal C\)</span> 中的 diagram <span class="math display">\[A\overset{f}{\longrightarrow} B\]</span> 變成 <span class="math inline">\(\mathcal D\)</span> 中的 diagram <span class="math display">\[F(A)\overset{F(f)}{\longrightarrow}\mathcal F(B).\]</span> 畫起來就是從 <span class="math inline">\(\mathcal C\)</span> 拉一張窗簾到 <span class="math inline">\(\mathcal D\)</span>：</p>
-<p>?</p>
-<p>並且 preserve composition：</p>
-<p>?</p>
-<p>也 preserve <span class="math inline">\(\operatorname{Id}_A\)</span>：</p>
-<p>?</p>
-<h3 id="contravarient-functor">Contravarient functor</h3>
-<p>另一種 functor 能夠讓箭頭變方向，要取另外一個名字，稱之為 contravarient functor：</p>
-<p>?</p>
-<p>而之前保持讓箭頭同方向的 functor 也相對地稱為 covarient functor。</p>
-<h2 id="the-hom-functor">The Hom Functor</h2>
-<p>Hom functor 是數學上常見的 functor，用來製造 dual space 或是 cohomology 等結構。</p>
-<h3 id="hom-functor">Hom functor</h3>
-<p>給定一個範疇 <span class="math inline">\(\mathcal C\)</span> 與 <span class="math inline">\(A\in\operatorname{Ob}\mathcal (C)\)</span>，我們可以構造 covarient Hom functor 以及 contravarient Hom functor。</p>
-<p>Covarient Hom functor <span class="math display">\[\operatorname{Hom}(A,-):\mathcal C\to\mathbf{Set}\]</span> 會將範疇 <span class="math inline">\(\mathcal C\)</span> 中的任何物件 <span class="math inline">\(B\)</span> 送到 <span class="math display">\[\{f:\textrm{morphism from }A \textrm{ to } B\}\]</span> 這個集合，也就是 <span class="math inline">\(\operatorname{Hom}(A,B)\)</span> 這個集合。</p>
-<p>?</p>
+</li>
+<li><a href="#%E5%BE%9E%E5%8F%83%E6%95%B8%E5%BC%8F%E5%BE%97%E5%88%B0%E6%96%B9%E7%A8%8B%E5%BC%8F">從參數式得到方程式</a>
+<ul>
+<li><a href="#%E4%BE%8B-4">例 4</a></li>
+<li><a href="#%E4%BE%8B-5">例 5</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A9%BA%E9%96%93%E4%B8%AD%E7%9A%84%E6%9B%B2%E7%B7%9A">空間中的曲線</a>
+<ul>
+<li><a href="#%E4%BE%8B-6">例 6</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%83%E6%95%B8%E5%BC%8F%E7%9A%84%E6%9C%AC%E8%B3%AA">參數式的本質</a></li>
+</ul>
+<h2 id="&#x5E73;&#x9762;&#x4E0A;&#x7684;&#x5BE6;&#x503C;&#x51FD;&#x6578;real-valued-functions-on-the-x-y-plane">平面上的實值函數（Real valued functions on the x-y plane）</h2>
+<p>給一個座標平面 <span class="math inline">\(\mathbb R^2 = \{(x,y)\ |\ x,y\in\mathbb R\}\)</span>，若其上的每個點都有一個實數的函數值 <span class="math inline">\(f(x,y)\)</span>，</p>
+<div class="figure">
+<img src="https://i.imgur.com/ZdXpryK.jpg">
+
+</div>
+<p>那麼這就是個平面上的實值函數：</p>
+<p><span class="math display">\[f:\mathbb R^2\to\mathbb R\]</span></p>
+<p>它的函數圖形就會像上圖一樣，是個曲面。</p>
+<h3 id="&#x4E00;&#x4E9B;&#x4F8B;&#x5B50;">一些例子</h3>
+<h4 id="&#x4F8B;-1">例 1</h4>
+<blockquote>
+<p>思考下列這個曲面的樣子（也可以自己畫畫看）：</p>
+<p><span class="math display">\[z=f(x,y)=x^2+y^2\]</span></p>
+</blockquote>
+<p>形狀不好想的話，可以先畫等高線：</p>
+<div class="figure">
+<img src="https://i.imgur.com/stLpxdW.jpg">
+
+</div>
+<p>這是個<strong>旋轉拋物面</strong>（paraboloid of revolution），左邊的三個圓分別是 <span class="math inline">\(z=x^2+y^2=1,4,9\)</span> 的情況。</p>
+<p>如果定義平面上到原點的距離為 <span class="math inline">\(r=\sqrt{x^2+y^2}\)</span>，那麼剛剛的 <span class="math inline">\(f\)</span> 函數也可以看成</p>
+<p><span class="math display">\[z=f(x,y)=r^2\]</span></p>
+<p>，只要到原點的距離一樣，<span class="math inline">\(z\)</span> 高度就一樣。這說明了<strong>旋轉拋物面</strong>是由<strong>拋物線</strong>（parabola）沿著對稱軸旋轉一圈而成的。</p>
+<h4 id="&#x4F8B;-2">例 2</h4>
+<blockquote>
+<p>利用這個<a href="https://academo.org/demos/3d-surface-plotter/?expression=x*x-y*y&amp;xRange=-5%2C%2B5&amp;yRange=-5%2C%2B5&amp;resolution=25">網站</a>工具觀察下列五個曲面的樣子：</p>
+</blockquote>
+<ul>
+<li>鞍面：<span class="math display">\[z=f(x,y)=x^2-y^2\]</span></li>
+<li>與 <span class="math inline">\(y\)</span> 無關的面：<span class="math display">\[z=f(x,y)=x^2\]</span></li>
+<li>在 <span class="math inline">\(y\)</span> 方向是一次的面：<span class="math display">\[z=f(x,y)=x^2+y\]</span></li>
+<li>平面 <span class="math inline">\(x+y+z=1\)</span>：<span class="math display">\[z=f(x,y)=1-x-y\]</span></li>
+</ul>
+<p><a href=""></a></p>
+<ul>
+<li>解釋為甚麼這是圓錐：<span class="math display">\[z=f(x,y)=\sqrt{x^2+y^2}\]</span></li>
+</ul>
+<p>看完之後照著畫畫看，並思考它們的等高線長怎樣。</p>
+<h4 id="&#x4F8B;-3">例 3</h4>
+<blockquote>
+<p>看看下列兩式的圖形： <span class="math display">\[\begin{aligned}z&amp;=\sin x\cdot\sin y\\ z&amp;=xy-\frac{yx^3+xy^3}{6}\end{aligned}\]</span></p>
+</blockquote>
+<p>它們分別長這樣：</p>
+<div class="figure">
+<img src="https://i.imgur.com/bDwnv9g.jpg">
+
+</div>
+<p>兩者長得有點像，在接近中心處幾乎是一模一樣的。雖然兩者之間有一點關聯<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>，但放在這裡只是因為它們長得滿好看的。</p>
+<p>對於右圖，我以前寫過一個<a href="http://davidhu3141.github.io/OpenzFunction/index.html">程式</a>來計算它的紙模型的展開圖，並做出來，還滿有趣的。</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/davidhu3141/OpenzFunction/master/Sample/Faked.jpg">
+
+</div>
+<h2 id="&#x66F2;&#x7DDA;&#x53C3;&#x6578;&#x5F0F;">曲線參數式</h2>
+<p>曲線可以視為物體運動的軌跡<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>，例如平面上</p>
+<p><span class="math display">\[(x,y)=(t, 2t-t^2)\]</span></p>
+<p>是個拋物線的軌跡。透過將 <span class="math inline">\(t\)</span> 改成 <span class="math inline">\(2t\)</span>，我們也可以把曲線改寫成</p>
+<p><span class="math display">\[(x,y)=(2t, 4t-4t^2)\]</span></p>
+<p>兩者代表的圖形是一樣的，只是運動速度變兩倍而已。</p>
+<div class="figure">
+<img src="https://i.imgur.com/kVxW4z0.jpg">
+
+</div>
+<p>一般將 <span class="math inline">\(t=0\)</span> 的位置看成是運動的起點。</p>
+<h3 id="&#x5F9E;&#x53C3;&#x6578;&#x5F0F;&#x5F97;&#x5230;&#x65B9;&#x7A0B;&#x5F0F;">從參數式得到方程式</h3>
+<p>上面的例子，透過將兩式</p>
+<p><span class="math display">\[\begin{aligned} x&amp;=t\\ y&amp;=2t-t^2 \end{aligned}\]</span></p>
+<p>消去 <span class="math inline">\(t\)</span>，就可得到曲線的方程式 <span class="math display">\[y=2x-x^2.\]</span></p>
+<p>從參數式化為方程式之後，關於速度、運動方向、起點等訊息都消失了。</p>
+<h4 id="&#x4F8B;-4">例 4</h4>
+<blockquote>
+<p>將下列參數式消去 <span class="math inline">\(t\)</span>：</p>
+<p><span class="math display">\[\begin{aligned}x=\sin t\\ y=\cos t\end{aligned}\]</span></p>
+</blockquote>
+<p>用平方關係消掉 <span class="math inline">\(t\)</span> 就好了，答案是</p>
+<p><span class="math display">\[ x^2+y^2=1\]</span></p>
+<p>因此是個圓。這個參數式代表的是：「以 <span class="math inline">\((0,1)\)</span> 為起點，順時針巡行單位圓」。</p>
+<div class="figure">
+<img src="https://i.imgur.com/hj2p3J1.gif">
+
+</div>
+<h4 id="&#x4F8B;-5">例 5</h4>
+<blockquote>
+<p>將下列參數式消去 <span class="math inline">\(t\)</span>：</p>
+<p><span class="math display">\[\begin{aligned}x=\sin^2 t\\ y=\cos^2 t\end{aligned}\]</span></p>
+</blockquote>
+<p>可想而知，兩式相加可得到 <span class="math inline">\(x+y=1\)</span>，不過我們只能取一部份而已：</p>
+<p><span class="math display">\[x+y=1\ \ ,\ \ \left\{\begin{aligned}0\leq x\leq 1\\ 0\leq y\leq 1\end{aligned}\right.\]</span></p>
+<p>因此軌跡是個線段<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>，並不是整個直線。這說明了消去 <span class="math inline">\(t\)</span> 的手段有時候會誤導人。</p>
+<div class="figure">
+<img src="https://i.imgur.com/Wh491KN.gif">
+
+</div>
+<h3 id="&#x7A7A;&#x9593;&#x4E2D;&#x7684;&#x66F2;&#x7DDA;">空間中的曲線</h3>
+<h4 id="&#x4F8B;-6">例 6</h4>
+<blockquote>
+<p>試解釋參數式 <span class="math display">\[(x,y,z)=(\cos t, \sin t, \frac t{10})\]</span> 是個三維空間中的彈簧線。試想彈簧線投影到 <span class="math inline">\(x-z\)</span> 平面所能得到的二維圖形。</p>
+</blockquote>
+<p>應該難不倒你。</p>
+<div class="figure">
+<img src="https://i.imgur.com/GXGW98L.jpg">
+
+</div>
+<h3 id="&#x53C3;&#x6578;&#x5F0F;&#x7684;&#x672C;&#x8CEA;">參數式的本質</h3>
+<p>本質上，平面上的曲線 <span class="math inline">\(\Gamma\)</span> 的參數式是個把實數 <span class="math inline">\(t\)</span> 變成座標 <span class="math inline">\((x,y)\)</span> 的函數</p>
+<p><span class="math display">\[\Gamma:\mathbb R\to \mathbb R^2\]</span></p>
+<p>用函數將一條實數軸打到平面上，自然就變成曲線了。</p>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>事實上右圖是左圖在原點的二維泰勒逼近（Taylor approximation），因此在原點附近的行為很像。<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>這其實也不太一定，像 <a href="https://en.wikipedia.org/wiki/Koch_snowflake">Koch snowflake</a> 每一小段都是無窮長的，不是運動的軌跡。<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>這剛好是簡諧運動（<strong>S</strong>imple <strong>H</strong>armonic <strong>M</strong>otion，SHM）。用二倍角公式降次可以發現 <span class="math inline">\(x\)</span> 座標與 <span class="math inline">\(y\)</span> 座標都是以某種關於 <span class="math inline">\(\cos\)</span> 的模式運動。<a href="#fnref3">↩</a></p></li>
+</ol>
+</div>
 
       </div>
       <div class="md-sidebar-toc"><ul>
-<li><a href="#notations">Notations</a></li>
-<li><a href="#functors">Functors</a>
+<li><a href="#%E4%B8%80%E4%BA%9B%E4%BE%8B%E5%AD%90">一些例子</a>
 <ul>
-<li><a href="#covarent-functor">Covarent functor</a></li>
-<li><a href="#contravarient-functor">Contravarient functor</a></li>
+<li><a href="#%E4%BE%8B-1">例 1</a></li>
+<li><a href="#%E4%BE%8B-2">例 2</a></li>
+<li><a href="#%E4%BE%8B-3">例 3</a></li>
 </ul>
 </li>
-<li><a href="#the-hom-functor">The Hom Functor</a>
+<li><a href="#%E5%BE%9E%E5%8F%83%E6%95%B8%E5%BC%8F%E5%BE%97%E5%88%B0%E6%96%B9%E7%A8%8B%E5%BC%8F">從參數式得到方程式</a>
 <ul>
-<li><a href="#hom-functor">Hom functor</a></li>
+<li><a href="#%E4%BE%8B-4">例 4</a></li>
+<li><a href="#%E4%BE%8B-5">例 5</a></li>
 </ul>
 </li>
+<li><a href="#%E7%A9%BA%E9%96%93%E4%B8%AD%E7%9A%84%E6%9B%B2%E7%B7%9A">空間中的曲線</a>
+<ul>
+<li><a href="#%E4%BE%8B-6">例 6</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%83%E6%95%B8%E5%BC%8F%E7%9A%84%E6%9C%AC%E8%B3%AA">參數式的本質</a></li>
 </ul>
 </div>
       <a id="sidebar-toc-btn">≡</a>
