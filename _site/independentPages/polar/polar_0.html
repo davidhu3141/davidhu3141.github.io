@@ -1,0 +1,168 @@
+<html>
+    <head>
+
+        <!-- jquery -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <!-- my libs -->
+        <script src="lib/CCContext.js"></script>
+
+        <script>
+
+            function otrans2(o, tt){
+                var t;
+                if(tt<1.02){
+                    return o;
+                }else if(tt<1.62){
+                    t = (tt-1.02)/0.6;
+                }else{
+                    t = 1;
+                }
+                return {
+                    x: o.r*Math.cos((1-t)*o.theta + t*(o.theta*4-Math.PI)),
+                    y: o.r*Math.sin((1-t)*o.theta + t*(o.theta*4-Math.PI))
+                }
+            }
+
+            function otrans1(o, tt){
+                if(tt<0){
+                    return o;
+                }
+                var t = tt > 1 ? 1 : tt;
+                return {
+                    x: (1-t)*o.x + t*(o.y*Math.cos(Math.PI/2 - o.x/4)),
+                    y: (1-t)*o.y + t*(o.y*Math.sin(Math.PI/2 - o.x/4)),
+                    r: o.y,
+                    theta: Math.PI/2 - o.x/4
+                }
+            }
+            
+            function trans1(ox, oy, t){
+                return otrans1({
+                    x: ox,
+                    y: oy
+                }, t);
+            }
+
+            function f(theta){
+                return eval($("#a").val()) + Math.cos(theta)*eval($("#b").val());
+            }
+
+            var ccc;
+            var t=0;
+            var gridnum = 8;
+            var resonum = 32;
+
+            $(document).ready(function(){
+
+                cvs = document.getElementById('cvs');
+                ctx = cvs.getContext('2d');
+                ccc = new CCContext(450, 150, -60, 60, ctx);
+
+                change();
+
+                setInterval(function(){
+
+                    var tt = t/60-0.3;
+
+                    ccc.clear();
+                    ccc.beginPath();
+                    ccc.lineWidth(1);
+                    ccc.strokeStyle("#707070");
+                    for(var i=0; i<=gridnum; i++){
+                        ccc.omoveTo(otrans2(trans1(2*i*Math.PI/gridnum, 0, tt), tt));
+                        ccc.olineTo(otrans2(trans1(2*i*Math.PI/gridnum, 2, tt), tt));
+                    }
+                    for(var i=0; i<resonum; i++){
+                        ccc.omoveTo(otrans2(trans1(2*i*Math.PI/resonum,     0, tt), tt));
+                        ccc.olineTo(otrans2(trans1(2*(i+1)*Math.PI/resonum, 0, tt), tt));
+                        ccc.omoveTo(otrans2(trans1(2*i*Math.PI/resonum,     1, tt), tt));
+                        ccc.olineTo(otrans2(trans1(2*(i+1)*Math.PI/resonum, 1, tt), tt));
+                        ccc.omoveTo(otrans2(trans1(2*i*Math.PI/resonum,     2, tt), tt));
+                        ccc.olineTo(otrans2(trans1(2*(i+1)*Math.PI/resonum, 2, tt), tt));
+                    }
+                    ccc.stroke();
+
+                    ccc.beginPath();
+                    ccc.lineWidth(2);
+                    ccc.strokeStyle("#FF0000");
+                    for(var i=0; i<resonum; i++){
+                        ccc.omoveTo(otrans2(trans1(2*i*Math.PI/resonum,     f(2*i*Math.PI/resonum),     tt), tt));
+                        ccc.olineTo(otrans2(trans1(2*(i+1)*Math.PI/resonum, f(2*(i+1)*Math.PI/resonum), tt), tt));
+                    }
+                    ccc.stroke();
+
+                    t++;
+                    if(t>150){
+                        t=0;
+                    }
+
+                }, 75);
+
+            });
+
+            function change(){
+                var ddd = new CCContext(400, 150, -60, 60, document.getElementById('cvs_static').getContext('2d'));
+                ddd.clear();
+                ddd.ctx.font = "italic 30px Roman"
+                for(var tt=0; tt<=150; tt+=150){
+                    if(tt==0){
+                        ddd.cx = 400;
+                        ddd.beginPath();
+                        ddd.lineWidth(3);
+                        ddd.strokeStyle("#0000FF");
+                        ddd.moveTo(0,0);
+                        ddd.lineTo(7,0);
+                        ddd.text("θ", 6.6, 0.15);
+                        ddd.moveTo(0,0);
+                        ddd.lineTo(0,2.5);
+                        ddd.text("r", -0.15, 2.2);
+                        ddd.stroke();
+                    }else{
+                        ddd.cx = 550;
+                        ddd.beginPath();
+                        ddd.lineWidth(3);
+                        ddd.strokeStyle("#0000FF");
+                        ddd.moveTo(0,0);
+                        ddd.lineTo(-2.5,0);
+                        ddd.text("r", -2.2, 0.2);
+                        ddd.stroke();
+                    }
+                    ddd.beginPath();
+                    ddd.lineWidth(1);
+                    ddd.strokeStyle("#707070");
+                    for(var i=0; i<=gridnum; i++){
+                        ddd.omoveTo(otrans2(trans1(2*i*Math.PI/gridnum, 0, tt), tt));
+                        ddd.olineTo(otrans2(trans1(2*i*Math.PI/gridnum, 2, tt), tt));
+                    }
+                    for(var i=0; i<resonum; i++){
+                        ddd.omoveTo(otrans2(trans1(2*i*Math.PI/resonum,     0, tt), tt));
+                        ddd.olineTo(otrans2(trans1(2*(i+1)*Math.PI/resonum, 0, tt), tt));
+                        ddd.omoveTo(otrans2(trans1(2*i*Math.PI/resonum,     1, tt), tt));
+                        ddd.olineTo(otrans2(trans1(2*(i+1)*Math.PI/resonum, 1, tt), tt));
+                        ddd.omoveTo(otrans2(trans1(2*i*Math.PI/resonum,     2, tt), tt));
+                        ddd.olineTo(otrans2(trans1(2*(i+1)*Math.PI/resonum, 2, tt), tt));
+                    }
+                    ddd.stroke();
+
+                    ddd.beginPath();
+                    ddd.lineWidth(2);
+                    ddd.strokeStyle("#FF0000");
+                    for(var i=0; i<resonum; i++){
+                        ddd.omoveTo(otrans2(trans1(2*i*Math.PI/resonum,     f(2*i*Math.PI/resonum),     tt), tt));
+                        ddd.olineTo(otrans2(trans1(2*(i+1)*Math.PI/resonum, f(2*(i+1)*Math.PI/resonum), tt), tt));
+                    }
+                    ddd.stroke();
+                } 
+            }
+
+        </script>
+    </head>
+    <body>
+        <p>
+            r = <input id="a" type="number" style="width: 60px" value="0.5" step="0.1" oninput="change();"> + <input id="b" type="number" style="width: 60px" value="1" step="0.1" oninput="change();"> cos θ
+        </p>
+        <canvas id="cvs_static" width="800" height="300"></canvas>
+        <canvas id="cvs" width="600" height="300"></canvas>
+    </body>
+</html>
