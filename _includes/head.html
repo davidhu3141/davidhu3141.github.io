@@ -1,34 +1,48 @@
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171816" media="(prefers-color-scheme: dark)">
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  {% assign page_title = page.title | default: site.title %}
+  {% assign page_description = page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 %}
+  <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page_description | escape }}">
+  <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
+  <link rel="icon" href="{{ '/pageicon.png' | relative_url }}" type="image/png">
 
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ page_description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
 
-<!-- mathjax -->
-  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+  <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">
 
-<!-- icon -->
-  <link rel="shortcut icon" href="{{ site.url }}/pageicon.png">
-
-<!-- style -->
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
-  <!-- link rel=stylesheet type="text/css" href="css/customs/article.css" -->
-
-<!-- remove amp -->
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
-      data.math = data.math.replace(/^\s*<!\[CDATA\[\s*(.*)\s*\]\]>\s*$/m,"$1");
-      data.math = data.math.replace(/amp;/g," ");
-      data.math = data.math.replace(/&lt;/g,"<");
-      data.math = data.math.replace(/&gt;/g,">");
-    });
-  });
+  <script>
+    window.MathJax = {
+      options: {
+        renderActions: {
+          findScript: [10, function (doc) {
+            for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+              const display = !!node.type.match(/; *mode=display/);
+              const source = node.textContent
+                .replaceAll('&lt;', '<')
+                .replaceAll('&gt;', '>')
+                .replaceAll('&amp;', '&');
+              const math = new doc.options.MathItem(source, doc.inputJax[0], display);
+              const marker = document.createTextNode('');
+              node.parentNode.replaceChild(marker, node);
+              math.start = {node: marker, delim: '', n: 0};
+              math.end = {node: marker, delim: '', n: 0};
+              doc.math.push(math);
+            }
+          }, '']
+        }
+      }
+    };
   </script>
+  <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
 </head>

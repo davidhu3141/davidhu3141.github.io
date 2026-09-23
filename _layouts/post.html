@@ -1,16 +1,26 @@
 ---
 layout: default
 ---
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+<article class="article shell">
+  <header class="article-header">
+    <a class="back-link" href="{{ '/articles/' | relative_url }}"><span aria-hidden="true">←</span> 所有文章</a>
+    <div class="article-kicker">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y 年 %m 月 %d 日' }}</time>
+      {% assign characters = content | strip_html | size %}
+      <span>約 {{ characters | divided_by: 600 | plus: 1 }} 分鐘閱讀</span>
+    </div>
+    <h1>{{ page.title }}</h1>
+    {% if page.categories.size > 0 %}
+      <div class="tag-list" aria-label="文章分類">
+        {% for category in page.categories %}<span>{{ category }}</span>{% endfor %}
+      </div>
+    {% endif %}
   </header>
-
-  <div class="post-content" itemprop="articleBody">
+  <div class="article-body">
     {{ content }}
   </div>
-
+  <footer class="article-footer">
+    <p>這是較早期的學習筆記。內容保留原貌，排版與數學公式已配合現代瀏覽器整理。</p>
+    <a class="text-link" href="{{ '/articles/' | relative_url }}">回到文章列表 <span aria-hidden="true">→</span></a>
+  </footer>
 </article>

@@ -1,18 +1,23 @@
 # davidhu3141.github.io
 
-I use github to host some of my pages:
+David Hu 的個人網站與文章封存，使用 GitHub Pages 原生支援的 Jekyll 建置。
 
-1. Startup page for my internet browser, *personal use*
-2. A page to post my articles. (as blog) http://davidhu3141.github.io/
+## 本機預覽
 
-I'll do some coding to manage my blog, and log here.
+需要 Ruby、Bundler，以及與 GitHub Pages 相容的 gems：
 
---------------------------------------
+```bash
+bundle install
+bundle exec jekyll serve --livereload
+```
 
+開啟 `http://127.0.0.1:4000`。產生的 `_site/` 不納入版本控制。
 
-Jekyll Tweak Log
-================
+## 結構
 
-### LaTeX
+- `_posts/`：文章 Markdown；既有 permalink 保持不變。
+- `_layouts/`、`_includes/`：共用頁面結構。
+- `css/main.scss`：全站樣式。
+- `independentPages/`：保留的舊互動實驗。
 
-I use sed to process LaTeX in MD. KramDown doesn't recognize single dollor sign so I wrote my own script to preprocess LaTeX.
+數學公式使用 MathJax 4。舊文章的 v2-style `script[type="math/tex"]` 由官方建議的相容 render action 處理，因此不需要再執行文字前處理腳本。

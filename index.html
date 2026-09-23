@@ -1,23 +1,48 @@
 ---
 layout: default
+title:
+description: 數學、計算機科學與其他舊筆記。
 ---
 
-<div class="home">
+<section class="home-intro shell">
+  <h1>文章</h1>
+  <p>數學、計算機科學與高中教材，共 {{ site.posts | size }} 篇。</p>
+</section>
 
-  <h1 class="page-heading">Posts</h1>
+<section class="section shell" aria-labelledby="latest-heading">
+  <div class="section-heading">
+    <div>
+      <h2 id="latest-heading">最近文章</h2>
+    </div>
+    <a class="text-link" href="{{ '/articles/' | relative_url }}">全部 {{ site.posts | size }} 篇 <span aria-hidden="true">→</span></a>
+  </div>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
+  <div class="post-grid">
+    {% for post in site.posts limit: 6 %}
+      <article class="post-card">
+        <div class="card-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+          {% if post.categories.first %}<span>{{ post.categories.first }}</span>{% endif %}
+        </div>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 92 }}</p>
+        <a class="card-link" href="{{ post.url | relative_url }}" aria-label="閱讀〈{{ post.title }}〉">閱讀文章 <span aria-hidden="true">→</span></a>
+      </article>
     {% endfor %}
-  </ul>
+  </div>
+</section>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+<section class="topics shell" aria-labelledby="topics-heading">
+  <div>
+    <h2 id="topics-heading">分類</h2>
+  </div>
+  <div class="topic-list">
+    {% assign sorted_categories = site.categories | sort %}
+    {% for category in sorted_categories %}
+      <a href="{{ '/articles/' | relative_url }}#{{ category[0] | slugify }}">
+        <span>{{ category[0] }}</span>
+        <strong>{{ category[1] | size }}</strong>
+      </a>
+    {% endfor %}
+  </div>
+</section>

@@ -1,12 +1,10 @@
 ---
 layout: post
 title:  "自由群"
+description: 從符號、凱萊圖與群的展示，逐步刻畫自由群的結構。
 date:   2017-03-12 00:00:00 +0800
 categories: 代數與組合
 ---
-
-自由群
-========
 
 自由群是一種特殊的群，它的迷人之處在接下來會一一看到，不過在這之前要先刻畫一下自由群的樣貌。
 
@@ -85,9 +83,9 @@ categories: 代數與組合
 
 從凱萊圖上看起來，自由群的生成元之間不存在任何關係，代表它的凱萊圖上沒有迴路。當我們在寫其他群 <script type="math/tex">G</script> 的展示，其實是準備一個由 <script type="math/tex">G</script> 的生成元 <script type="math/tex">S</script> 生成的自由群 <script type="math/tex">F_S</script>，再把 <script type="math/tex">F_S</script> 的凱萊圖上的某些「樹枝」整捆整捆拗在一起。
 
-[](為了滿足封閉性就勉強把相加後的新元素（囫圇吞棗地）塞到這個群之中。)
+為了滿足封閉性就勉強把相加後的新元素（囫圇吞棗地）塞到這個群之中。
 
-[](將自由群中的字串對應到其中<script type="math/tex">'a'</script>這個字元的出現次數，而<script type="math/tex">a^{-1}</script>出現的次數就算負的。這個對應<script type="math/tex">N_a(str)</script>是一個到整數<script type="math/tex">(\mathbb{Z}, +)</script>的同態，我們可以檢驗下面的例子：<script type="math/tex; mode=display">N_a(aabcaa) + N_a(a^{-1}bb) = 4 + (-1) = N_a(aabcaa \cdot a^{-1}bb)</script>)
+將自由群中的字串對應到其中<script type="math/tex">'a'</script>這個字元的出現次數，而<script type="math/tex">a^{-1}</script>出現的次數就算負的。這個對應<script type="math/tex">N_a(str)</script>是一個到整數<script type="math/tex">(\mathbb{Z}, +)</script>的同態，我們可以檢驗下面的例子：<script type="math/tex; mode=display">N_a(aabcaa) + N_a(a^{-1}bb) = 4 + (-1) = N_a(aabcaa \cdot a^{-1}bb)</script>
 
 
 ## 五、自由么半群

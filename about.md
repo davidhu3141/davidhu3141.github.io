@@ -1,15 +1,9 @@
 ---
 layout: page
-title: About
+title: 關於
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+這裡保存 2015 至 2017 年間寫下的數學與程式筆記，涵蓋代數、組合、微積分與程式設計。內容保留原貌，網站只持續整理排版與閱讀體驗。
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
-
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+其他程式可以在 [GitHub](https://github.com/davidhu3141) 找到，也可以訂閱本站的 [RSS]({{ '/feed.xml' | relative_url }})。

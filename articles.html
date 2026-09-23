@@ -1,0 +1,26 @@
+---
+layout: page
+title: 文章
+intro: 九篇從 2015 到 2017 年留下的數學與程式筆記，依主題整理。
+permalink: /articles/
+---
+
+<div class="archive-groups">
+  {% assign sorted_categories = site.categories | sort %}
+  {% for category in sorted_categories %}
+    <section class="archive-group" id="{{ category[0] | slugify }}">
+      <div class="archive-title">
+        <h2>{{ category[0] }}</h2>
+        <span>{{ category[1] | size | append: ' 篇' }}</span>
+      </div>
+      <ol class="archive-list">
+        {% for post in category[1] %}
+          <li>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% endfor %}
+</div>

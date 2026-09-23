@@ -1,41 +1,12 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="{{ site.lang | default: 'zh-Hant-TW' }}">
   {% include head.html %}
-
   <body>
-
+    <a class="skip-link" href="#main-content">跳至主要內容</a>
     {% include header.html %}
-
-    <div class="page-content">
-      <div class="wrapper">
-
-
-<div class="archives">
-{% for category in site.categories %}
-  <div class="archive-group">
-    {% capture category_name %}{{ category | first }}{% endcapture %}
-    <div id="#{{ category_name | slugize }}"></div>
-    <p></p>
-    
-    <h3 class="categoryTitle">{ {{ category_name }} }</h3>
-    <a name="{{ category_name | slugize }}"></a>
-    {% for post in site.categories[category_name] %}
-    <article class="articlelist">
-      <div class="articleLink"><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
-    </article>
-    {% endfor %}
-  </div>
-{% endfor %}
-</div>
-
-
-        {{ content }}
-      </div>
-    </div>
-
+    <main id="main-content" class="site-main">
+      {{ content }}
+    </main>
     {% include footer.html %}
-
   </body>
-
 </html>
